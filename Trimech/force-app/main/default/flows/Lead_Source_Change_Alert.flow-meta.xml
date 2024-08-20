@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Send_Lead_Source_Change_Email_Notification</name>
+        <label>Send Lead Source Change Email Notification</label>
+        <locationX>308</locationX>
+        <locationY>539</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>textTempEmailBody</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <elementReference>consRecipientEmailAddress</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>sendRichBody</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>Lead Source was changed</stringValue>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <assignments>
+        <name>Assign_Previous_Value</name>
+        <label>Assign Previous Value</label>
+        <locationX>308</locationX>
+        <locationY>431</locationY>
+        <assignmentItems>
+            <assignToReference>varPreviousLeadSource</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record__Prior.LeadSource</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Send_Lead_Source_Change_Email_Notification</targetReference>
+        </connector>
+    </assignments>
+    <constants>
+        <description>Email Addresses of the people whom the Notification Email goes to.</description>
+        <name>consRecipientEmailAddress</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>erin.elliott@trimech.com, paige.woolley@trimech.com</stringValue>
+        </value>
+    </constants>
+    <decisions>
+        <description>Skip the email if the changes are made by B2BMA Integration user with ID = 0054V00000FQ5sTQAT</description>
+        <name>Check_the_User_triggering_the_flow</name>
+        <label>Check the User triggering the flow</label>
+        <locationX>176</locationX>
+        <locationY>323</locationY>
+        <defaultConnector>
+            <targetReference>Assign_Previous_Value</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Standard User</defaultConnectorLabel>
+        <rules>
+            <name>Integration_User</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>$User.Id</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>0054V00000FQ5sT</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$User.Id</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>0054V00000FQ5sTQAT</stringValue>
+                </rightValue>
+            </conditions>
+            <label>Integration User</label>
+        </rules>
+    </decisions>
+    <interviewLabel>Lead Source Change Alert {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Lead Source Change Alert</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <startElementReference>Check_the_User_triggering_the_flow</startElementReference>
+    <status>Active</status>
+    <textTemplates>
+        <name>textTempEmailBody</name>
+        <text>&lt;p&gt;The Lead Source was changed from &lt;strong&gt;{!$Record__Prior.LeadSource}&lt;/strong&gt; to &lt;strong&gt;{!$Record.LeadSource}&lt;/strong&gt; for &lt;a href=&quot;https://trimech12345.lightning.force.com/lightning/r/{!$Record.Id}/view&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;{!$Record.Name}&lt;/a&gt;&lt;/p&gt;</text>
+    </textTemplates>
+    <variables>
+        <name>varPreviousLeadSource</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

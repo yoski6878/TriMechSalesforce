@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <formulas>
+        <name>formulaCalculatedActivityDueDate</name>
+        <dataType>Date</dataType>
+        <expression>TODAY() + 7</expression>
+    </formulas>
+    <formulas>
+        <description>Check for New Logo Rep populated, else default to Account Owner</description>
+        <name>formulaTaskOwner</name>
+        <dataType>String</dataType>
+        <expression>IF( NOT(ISBLANK({!$Record.Sales_Rep_Software__c})), {!$Record.Sales_Rep_Software__c}, {!$Record.OwnerId})</expression>
+    </formulas>
+    <formulas>
+        <description>Subject = &quot;Follow up call for &quot; + Account Name</description>
+        <name>formulaTaskSubject</name>
+        <dataType>String</dataType>
+        <expression>&quot;Dormant Account - Follow up for Date of Last Sale: &quot; + TEXT({!$Record.Date_of_Last_Sale__c})</expression>
+    </formulas>
+    <interviewLabel>Create Follow Up Tasks for Dormant Accounts {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Create Follow Up Tasks for Dormant Accounts</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordCreates>
+        <name>Create_Task_for_Follow_Up</name>
+        <label>Create Task for Follow Up</label>
+        <locationX>176</locationX>
+        <locationY>323</locationY>
+        <inputAssignments>
+            <field>ActivityDate</field>
+            <value>
+                <elementReference>formulaCalculatedActivityDueDate</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>OwnerId</field>
+            <value>
+                <elementReference>formulaTaskOwner</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Priority</field>
+            <value>
+                <stringValue>Normal</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Status</field>
+            <value>
+                <stringValue>Open</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Subject</field>
+            <value>
+                <elementReference>formulaTaskSubject</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Type</field>
+            <value>
+                <stringValue>Call</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>WhatId</field>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Task</object>
+    </recordCreates>
+    <startElementReference>Create_Task_for_Follow_Up</startElementReference>
+    <status>Draft</status>
+</Flow>

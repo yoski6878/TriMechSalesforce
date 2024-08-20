@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Account_Field_To_Assign_OR_Specialty_Grp</fullName>
+    <active>false</active>
+    <description>Either &quot;Account Field To Assign&quot; OR &quot;Specialty Group&quot; should be selected</description>
+    <errorConditionFormula>(
+NOT(ISPICKVAL(Account_Field_to_Assign__c, &apos;&apos;)) &amp;&amp; 
+NOT(ISPICKVAL(Specialty_Group__c, &apos;&apos;))
+) || (
+ISPICKVAL(Account_Field_to_Assign__c, &apos;&apos;) &amp;&amp; 
+ISPICKVAL(Specialty_Group__c, &apos;&apos;)
+)</errorConditionFormula>
+    <errorMessage>Either &quot;Account Field To Assign&quot; OR &quot;Specialty Group&quot; must be selected</errorMessage>
+</ValidationRule>

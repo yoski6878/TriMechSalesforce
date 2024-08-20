@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Send_Assignment_Email_Notification</name>
+        <label>Send Assignment Email Notification</label>
+        <locationX>176</locationX>
+        <locationY>335</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>txtTempEmailBody</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <elementReference>consRecipientEmailAddress</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>sendRichBody</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <elementReference>consEmailSubject</elementReference>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <constants>
+        <name>consEmailSubject</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>DriveWorks Lead/Opportunity Notification</stringValue>
+        </value>
+    </constants>
+    <constants>
+        <name>consRecipientEmailAddress</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>devin.martin@trimech.com</stringValue>
+        </value>
+    </constants>
+    <formulas>
+        <description>Formula field to retrieve Dedicated Sales Rep Software Outside when it is not blank</description>
+        <name>formDedicatedSoftwareOutsideRep</name>
+        <dataType>String</dataType>
+        <expression>IF(
+{!$Record.Account.Dedicated_Sales_Rep_Software_Outside__c} &lt;&gt; &quot;&quot;, {!$Record.Account.Dedicated_Sales_Rep_Software_Outside__r.FirstName} &amp; &quot; &quot; &amp; {!$Record.Account.Dedicated_Sales_Rep_Software_Outside__r.LastName}, &quot; &quot;)</expression>
+    </formulas>
+    <formulas>
+        <description>Formula field to retrieve Sales Rep Software Outside when it is not blank</description>
+        <name>formSoftwareOutsideRep</name>
+        <dataType>String</dataType>
+        <expression>IF(
+{!$Record.Account.Sales_Rep_Software_Outside__c} = &quot;&quot;, &quot; &quot;, ({!$Record.Account.Sales_Rep_Software_Outside__r.FirstName} &amp; &quot; &quot; &amp;{!$Record.Account.Sales_Rep_Software_Outside__r.LastName})
+)</expression>
+    </formulas>
+    <interviewLabel>Notification for Open Lead/Opportunity {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>DriveWorks Lead/Opp Notification</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <startElementReference>Send_Assignment_Email_Notification</startElementReference>
+    <status>Active</status>
+    <textTemplates>
+        <name>txtTempEmailBody</name>
+        <text>&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Lead/Opportunity Name: &lt;a href=&quot;https://trimech12345.lightning.force.com/lightning/r/{!$Record.Id}/view&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;{!$Record.Name}&lt;/a&gt;&lt;/p&gt;&lt;p&gt;Lead/Opportunity Opp Owner: {!$Record.Owner.FirstName} {!$Record.Owner.LastName}&lt;/p&gt;&lt;p&gt;Expected Close Date: {!$Record.CloseDate}&lt;/p&gt;&lt;p&gt;Account Name: {!$Record.Account.Name}&lt;/p&gt;&lt;p&gt;Software Outside Rep (Account Manager): {!formSoftwareOutsideRep}&lt;/p&gt;&lt;p&gt;Dedicated Software Outside Rep (if any): {!formDedicatedSoftwareOutsideRep}&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;</text>
+    </textTemplates>
+</Flow>

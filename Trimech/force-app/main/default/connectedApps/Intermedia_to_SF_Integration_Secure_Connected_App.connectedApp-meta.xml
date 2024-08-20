@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ConnectedApp xmlns="http://soap.sforce.com/2006/04/metadata">
+    <contactEmail>nick.mazares@trimech.com</contactEmail>
+    <description>Intermedia Phone API to Salesforce Integration Secure Connected App</description>
+    <label>Intermedia_to_SF_Integration_Secure_Connected_App</label>
+    <oauthConfig>
+        <callbackUrl>https://trimech12345.my.salesforce.com/srvices/oauth2/callback
+https://www.getpostman.com/oauth2/callback
+https://oauth.pstmn.io/v1/callback</callbackUrl>
+        <consumerKey>3MVG9LBJLApeX_PBTxUJuGoSZLT9UZLCUUBbkzFsXdZqUV5EnTjSoLK7A_1IY3PCHNNiph24qUMo7dpQVYEXp</consumerKey>
+        <scopes>Full</scopes>
+    </oauthConfig>
+</ConnectedApp>

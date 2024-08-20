@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Provide the Serial Number of the model that is being traded in during this sale. --></help>
+    <label><!-- Trade in Serial Number --></label>
+    <name>Trade_in_Serial_Number__c</name>
+</CustomFieldTranslation>

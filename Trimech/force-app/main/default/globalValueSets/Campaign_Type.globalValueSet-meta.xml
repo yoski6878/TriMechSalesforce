@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>MQL</fullName>
+        <default>false</default>
+        <label>MQL</label>
+    </customValue>
+    <customValue>
+        <fullName>SQL</fullName>
+        <default>false</default>
+        <label>SQL</label>
+    </customValue>
+    <customValue>
+        <fullName>UQL</fullName>
+        <default>false</default>
+        <label>UQL</label>
+    </customValue>
+    <description>Used for mapping Campaign Type values from Pardot - ONLY USED BY Contact Object</description>
+    <masterLabel>Campaign Type</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

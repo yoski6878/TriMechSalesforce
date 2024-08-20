@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Sales Rep to Assign --></label>
+    <name>Sales_Rep_to_Assign__c</name>
+    <picklistValues>
+        <masterLabel>Inside</masterLabel>
+        <translation><!-- Inside --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Outside</masterLabel>
+        <translation><!-- Outside --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Software</masterLabel>
+        <translation><!-- Software --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>SolidCAM</masterLabel>
+        <translation><!-- SolidCAM --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Specialty</masterLabel>
+        <translation><!-- Specialty --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

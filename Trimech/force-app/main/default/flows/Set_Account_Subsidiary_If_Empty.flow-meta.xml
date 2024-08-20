@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <decisions>
+        <name>Check_the_Account_Region</name>
+        <label>Check if Account Region is Canada</label>
+        <locationX>182</locationX>
+        <locationY>323</locationY>
+        <defaultConnector>
+            <targetReference>Set_Subsidiary_to_TriMech</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Other Address</defaultConnectorLabel>
+        <rules>
+            <name>Canadian_Address</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Region__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Canada</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.ShippingCountry</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Canada</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.ShippingCountry</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>CA</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.ShippingCountry</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>CAN</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_Subsidiary_to_Javelin</targetReference>
+            </connector>
+            <label>Canadian Address</label>
+        </rules>
+    </decisions>
+    <interviewLabel>Set Account Subsidiary, If Empty {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Set Account Subsidiary, If Empty</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Set_Subsidiary_to_Javelin</name>
+        <label>Set Subsidiary to Javelin</label>
+        <locationX>50</locationX>
+        <locationY>431</locationY>
+        <filters>
+            <field>Subsidiary__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Subsidiary__c</field>
+            <value>
+                <stringValue>Javelin Technologies Inc.</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Set_Subsidiary_to_TriMech</name>
+        <label>Set Subsidiary to TriMech</label>
+        <locationX>314</locationX>
+        <locationY>431</locationY>
+        <filters>
+            <field>Subsidiary__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Subsidiary__c</field>
+            <value>
+                <stringValue>TriMech Solutions LLC</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <startElementReference>Check_the_Account_Region</startElementReference>
+    <status>Active</status>
+</Flow>

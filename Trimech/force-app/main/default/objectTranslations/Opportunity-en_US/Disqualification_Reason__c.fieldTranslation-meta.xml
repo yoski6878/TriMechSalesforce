@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Disqualification Reason --></label>
+    <name>Disqualification_Reason__c</name>
+    <picklistValues>
+        <masterLabel>Call limit reached</masterLabel>
+        <translation><!-- Call limit reached --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Duplicate</masterLabel>
+        <translation><!-- Duplicate --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Invalid Contact Information</masterLabel>
+        <translation><!-- Invalid Contact Information --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Junk</masterLabel>
+        <translation><!-- Junk --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Lost to competitor product</masterLabel>
+        <translation><!-- Lost to competitor product --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Lost to other reseller</masterLabel>
+        <translation><!-- Lost to other reseller --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>No budget</masterLabel>
+        <translation><!-- No budget --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>No buying intention</masterLabel>
+        <translation><!-- No buying intention --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Not decision maker</masterLabel>
+        <translation><!-- Not decision maker --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Not interested</masterLabel>
+        <translation><!-- Not interested --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Nurture - MKT USE ONLY</masterLabel>
+        <translation><!-- Nurture - MKT USE ONLY --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Out of territory</masterLabel>
+        <translation><!-- Out of territory --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Previously identified</masterLabel>
+        <translation><!-- Previously identified --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Sent to Consumables</masterLabel>
+        <translation><!-- Sent to Consumables --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Sent to Enterprise Solutions</masterLabel>
+        <translation><!-- Sent to Enterprise Solutions --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Sent to Staffing</masterLabel>
+        <translation><!-- Sent to Staffing --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Sent to Technical Support</masterLabel>
+        <translation><!-- Sent to Technical Support --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

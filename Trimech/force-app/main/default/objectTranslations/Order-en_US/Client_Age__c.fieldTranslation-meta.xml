@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Client Age --></label>
+    <name>Client_Age__c</name>
+    <picklistValues>
+        <masterLabel>Existing Client</masterLabel>
+        <translation><!-- Existing Client --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>New Client</masterLabel>
+        <translation><!-- New Client --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

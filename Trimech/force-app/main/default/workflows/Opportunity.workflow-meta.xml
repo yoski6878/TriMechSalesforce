@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Assignment_Notification</fullName>
+        <description>Assignment Notification</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Assignment_Notification</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>Record_Type_Locked</fullName>
+        <description>The Opportunity Page will switch to Read Only when the Stage is Submit to Order Management.</description>
+        <field>RecordTypeId</field>
+        <lookupValue>Opportunity_Read_Only</lookupValue>
+        <lookupValueType>RecordType</lookupValueType>
+        <name>Record Type Locked</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Record_Type_Unlock</fullName>
+        <description>Switches the Opportunity Page Layout to &quot;Opportunity Record Type&quot; from &quot;Opportunity Read-Only&quot;.</description>
+        <field>RecordTypeId</field>
+        <lookupValue>Opportunity</lookupValue>
+        <lookupValueType>RecordType</lookupValueType>
+        <name>Record Type Unlock</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <rules>
+        <fullName>Assignment Notification - Lead%2FSQL</fullName>
+        <actions>
+            <name>Assignment_Notification</name>
+            <type>Alert</type>
+        </actions>
+        <active>false</active>
+        <formula>(ISNEW() ||
+(ISCHANGED ( OwnerId ) &amp;&amp;
+$User.Id != OwnerId)) &amp;&amp;
+Lead_Campaign_Type__c = &quot;SQL&quot; &amp;&amp;
+RecordTypeId = &quot;0126g000000X4XUAA0&quot;
+
+/* Primary_Campaign_Lead_Status__c */</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Opportunity Page Layout Locked</fullName>
+        <actions>
+            <name>Record_Type_Locked</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <booleanFilter>1 AND 2</booleanFilter>
+        <criteriaItems>
+            <field>Opportunity.StageName</field>
+            <operation>equals</operation>
+            <value>Send to Order Management</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>contains</operation>
+            <value>System Administrator</value>
+        </criteriaItems>
+        <description>The Opportunity Page will switch to Read Only when the Stage is Submit to Order Management.</description>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Opportunity Page Layout Unlock</fullName>
+        <actions>
+            <name>Record_Type_Unlock</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Opportunity.StageName</field>
+            <operation>equals</operation>
+            <value>Order Issue</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>contains</operation>
+            <value>System Administrator</value>
+        </criteriaItems>
+        <description>The Opportunity page layout will revert to &quot;Opportunity Record Type&quot; if the Stage is Order Issue</description>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+</Workflow>

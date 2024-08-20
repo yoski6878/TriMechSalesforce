@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Migrated from the Process Builder &quot;Quote | Create/Edit | Auto Tax Calculation&quot; process using Total Price Changed criteria.</description>
+    <interviewLabel>Quote | Create/Edit | Auto Tax Calculation_1 {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Quote | Create/Edit | Auto Tax Calculation_1</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Check_Calculate_Tax</name>
+        <label>Check Calculate Tax</label>
+        <locationX>176</locationX>
+        <locationY>323</locationY>
+        <inputAssignments>
+            <field>AVA_SFCLOUD__Calculate_Tax__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <startElementReference>Check_Calculate_Tax</startElementReference>
+    <status>Obsolete</status>
+</Flow>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Terms --></label>
+    <name>Terms__c</name>
+    <picklistValues>
+        <masterLabel>Net 30</masterLabel>
+        <translation><!-- Net 30 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>OAC</masterLabel>
+        <translation><!-- OAC --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

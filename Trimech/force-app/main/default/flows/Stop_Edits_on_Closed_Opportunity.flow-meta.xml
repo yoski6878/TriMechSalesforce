@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <decisions>
+        <name>Check_if_Non_Admin_User</name>
+        <label>Check if Non Admin User</label>
+        <locationX>182</locationX>
+        <locationY>395</locationY>
+        <defaultConnector>
+            <targetReference>Set_the_Stop_Edits_flag_to_True</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Non Admin User</defaultConnectorLabel>
+        <rules>
+            <name>Admin_User</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>$User.ProfileId</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>00e6g0000027lpb</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$User.ProfileId</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>00e6g0000027lpbAAA</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_the_Stop_Edits_flag_to_False</targetReference>
+            </connector>
+            <label>Admin User</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Is_This_Previously_Closed_Opportunity</name>
+        <label>Is This Previously Closed Opportunity?</label>
+        <locationX>380</locationX>
+        <locationY>287</locationY>
+        <defaultConnectorLabel>Open</defaultConnectorLabel>
+        <rules>
+            <name>Previously_Closed</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record__Prior.StageName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Send to Order Management</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record__Prior.StageName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Closed Won</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Check_if_Non_Admin_User</targetReference>
+            </connector>
+            <label>Previously Closed</label>
+        </rules>
+    </decisions>
+    <interviewLabel>Stop Edits on Closed Opportunity {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Stop Edits on Closed Opportunity</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Set_the_Stop_Edits_flag_to_False</name>
+        <label>Set the Stop Edits flag to False</label>
+        <locationX>50</locationX>
+        <locationY>503</locationY>
+        <inputAssignments>
+            <field>Stop_Edits__c</field>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Set_the_Stop_Edits_flag_to_True</name>
+        <label>Set the Stop Edits flag to True</label>
+        <locationX>314</locationX>
+        <locationY>503</locationY>
+        <inputAssignments>
+            <field>Stop_Edits__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <startElementReference>Is_This_Previously_Closed_Opportunity</startElementReference>
+    <status>Active</status>
+</Flow>

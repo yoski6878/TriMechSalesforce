@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Account Type --></label>
+    <name>Account_Type__c</name>
+    <picklistValues>
+        <masterLabel>Entrepreneur</masterLabel>
+        <translation><!-- Entrepreneur --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Government</masterLabel>
+        <translation><!-- Government --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>New Logo</masterLabel>
+        <translation><!-- New Logo --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Strategic Account</masterLabel>
+        <translation><!-- Strategic Account --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Volume Account</masterLabel>
+        <translation><!-- Volume Account --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

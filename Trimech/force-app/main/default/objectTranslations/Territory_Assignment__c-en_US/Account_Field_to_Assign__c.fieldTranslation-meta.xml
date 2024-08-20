@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Account Field to Assign --></label>
+    <name>Account_Field_to_Assign__c</name>
+    <picklistValues>
+        <masterLabel>LDR</masterLabel>
+        <translation><!-- LDR --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Sales_Rep_Hardware_Inside__c</masterLabel>
+        <translation><!-- Sales_Rep_Hardware_Inside__c --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Sales_Rep_Hardware_Outside__c</masterLabel>
+        <translation><!-- Sales_Rep_Hardware_Outside__c --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Sales_Rep_Software__c</masterLabel>
+        <translation><!-- Sales_Rep_Software__c --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Sales_Rep_SolidCAM__c</masterLabel>
+        <translation><!-- Sales_Rep_SolidCAM__c --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Specialty</masterLabel>
+        <translation><!-- Specialty --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

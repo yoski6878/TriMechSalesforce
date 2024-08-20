@@ -1,0 +1,9 @@
+<apex:page standardController="Lead" recordSetVar="leads" extensions="ListViewLeadConversionController" lightningStylesheets="True">
+    
+   <!--This is how we call the Flow with a input paramater. Here CasesSelectedRecs is the input variable of the Flow-->
+   <flow:interview name="Screen_for_Pardot_Lead_Conversion" finishLocation="{!URLFOR('/lightning/o/Lead/list')}">
+        
+        <apex:param name="LeadsSelectedRecs" value="{!LstSelectedLeads}" />
+    </flow:interview>
+    
+</apex:page>

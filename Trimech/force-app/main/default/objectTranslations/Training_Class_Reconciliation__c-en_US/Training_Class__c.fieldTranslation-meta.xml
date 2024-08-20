@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Training Class --></label>
+    <name>Training_Class__c</name>
+    <relationshipLabel><!-- Training Class Reconciliation --></relationshipLabel>
+</CustomFieldTranslation>

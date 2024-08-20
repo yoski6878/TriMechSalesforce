@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Event_Type__c</fullName>
+    <externalId>false</externalId>
+    <label>Event Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Meeting (existing client)</fullName>
+                <default>false</default>
+                <label>Meeting (existing client)</label>
+            </value>
+            <value>
+                <fullName>Meeting (new client)</fullName>
+                <default>false</default>
+                <label>Meeting (new client)</label>
+            </value>
+            <value>
+                <fullName>Conference Call</fullName>
+                <default>false</default>
+                <label>Conference Call</label>
+            </value>
+            <value>
+                <fullName>~ AE Misc Activity (credited)</fullName>
+                <default>false</default>
+                <label>~ AE Misc Activity (credited)</label>
+            </value>
+            <value>
+                <fullName>~ AE Misc Activity (non-credited)</fullName>
+                <default>false</default>
+                <label>~ AE Misc Activity (non-credited)</label>
+            </value>
+            <value>
+                <fullName>~ Billable Service</fullName>
+                <default>false</default>
+                <label>~ Billable Service</label>
+            </value>
+            <value>
+                <fullName>~ Non-billable Service</fullName>
+                <default>false</default>
+                <label>~ Non-billable Service</label>
+            </value>
+            <value>
+                <fullName>~ CCV</fullName>
+                <default>false</default>
+                <label>~ CCV</label>
+            </value>
+            <value>
+                <fullName>~ Certification</fullName>
+                <default>false</default>
+                <label>~ Certification</label>
+            </value>
+            <value>
+                <fullName>~ Content Creation</fullName>
+                <default>false</default>
+                <label>~ Content Creation</label>
+            </value>
+            <value>
+                <fullName>~ Demo</fullName>
+                <default>false</default>
+                <label>~ Demo</label>
+            </value>
+            <value>
+                <fullName>~ Discovery/Needs Assessment</fullName>
+                <default>false</default>
+                <label>~ Discovery/Needs Assessment</label>
+            </value>
+            <value>
+                <fullName>~ Printer Repair</fullName>
+                <default>false</default>
+                <label>~ Printer Repair</label>
+            </value>
+            <value>
+                <fullName>~ Seminar</fullName>
+                <default>false</default>
+                <label>~ Seminar</label>
+            </value>
+            <value>
+                <fullName>~ SW User Group</fullName>
+                <default>false</default>
+                <label>~ SW User Group</label>
+            </value>
+            <value>
+                <fullName>~ Trade Show</fullName>
+                <default>false</default>
+                <label>~ Trade Show</label>
+            </value>
+            <value>
+                <fullName>~ Training (Internal)</fullName>
+                <default>false</default>
+                <label>~ Training (Internal)</label>
+            </value>
+            <value>
+                <fullName>~ Webinar</fullName>
+                <default>false</default>
+                <label>~ Webinar</label>
+            </value>
+            <value>
+                <fullName>Training</fullName>
+                <default>false</default>
+                <label>Training</label>
+            </value>
+            <value>
+                <fullName>Support</fullName>
+                <default>false</default>
+                <label>Support</label>
+            </value>
+            <value>
+                <fullName>Vacation</fullName>
+                <default>false</default>
+                <label>Vacation</label>
+            </value>
+            <value>
+                <fullName>Event</fullName>
+                <default>false</default>
+                <label>Event</label>
+            </value>
+            <value>
+                <fullName>Installation</fullName>
+                <default>false</default>
+                <label>Installation</label>
+            </value>
+            <value>
+                <fullName>OPEN  LAB</fullName>
+                <default>false</default>
+                <label>OPEN  LAB</label>
+            </value>
+            <value>
+                <fullName>PM Visit</fullName>
+                <default>false</default>
+                <label>PM Visit</label>
+            </value>
+            <value>
+                <fullName>Services/Solutions Lunch</fullName>
+                <default>false</default>
+                <label>Services/Solutions Lunch</label>
+            </value>
+            <value>
+                <fullName>Walk-In</fullName>
+                <default>false</default>
+                <label>Walk-In</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

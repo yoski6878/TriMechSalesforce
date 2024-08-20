@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Account_Field_to_Assign__c</fullName>
+    <externalId>false</externalId>
+    <label>Account Field to Assign</label>
+    <required>true</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Sales_Rep_Hardware_Inside__c</fullName>
+                <default>false</default>
+                <label>Sales_Rep_Hardware_Inside__c</label>
+            </value>
+            <value>
+                <fullName>Sales_Rep_Hardware_Outside__c</fullName>
+                <default>false</default>
+                <label>Sales_Rep_Hardware_Outside__c</label>
+            </value>
+            <value>
+                <fullName>LDR</fullName>
+                <default>false</default>
+                <label>LDR</label>
+            </value>
+            <value>
+                <fullName>Specialty</fullName>
+                <default>false</default>
+                <label>Specialty</label>
+            </value>
+            <value>
+                <fullName>Sales_Rep_Software__c</fullName>
+                <default>false</default>
+                <label>Sales_Rep_Software__c</label>
+            </value>
+            <value>
+                <fullName>Sales_Rep_SolidCAM__c</fullName>
+                <default>false</default>
+                <label>Sales_Rep_SolidCAM__c</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

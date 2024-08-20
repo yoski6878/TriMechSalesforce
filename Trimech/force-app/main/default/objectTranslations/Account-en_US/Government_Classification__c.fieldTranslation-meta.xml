@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Government Classification --></label>
+    <name>Government_Classification__c</name>
+    <picklistValues>
+        <masterLabel>Defense Contractor</masterLabel>
+        <translation><!-- Defense Contractor --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Defense Manufacturer</masterLabel>
+        <translation><!-- Defense Manufacturer --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Direct Government Customer</masterLabel>
+        <translation><!-- Direct Government Customer --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Education</masterLabel>
+        <translation><!-- Education --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Official Government Sub-Contractor</masterLabel>
+        <translation><!-- Official Government Sub-Contractor --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Private Aerospace Company</masterLabel>
+        <translation><!-- Private Aerospace Company --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

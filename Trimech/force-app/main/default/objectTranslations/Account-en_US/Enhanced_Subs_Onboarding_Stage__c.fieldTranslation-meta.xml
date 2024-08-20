@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Enhanced Subs Onboarding Stage --></label>
+    <name>Enhanced_Subs_Onboarding_Stage__c</name>
+    <picklistValues>
+        <masterLabel>Follow Up</masterLabel>
+        <translation><!-- Follow Up --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>New</masterLabel>
+        <translation><!-- New --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Not Interested</masterLabel>
+        <translation><!-- Not Interested --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Onboarded</masterLabel>
+        <translation><!-- Onboarded --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Onboarding Scheduled</masterLabel>
+        <translation><!-- Onboarding Scheduled --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Touch 1</masterLabel>
+        <translation><!-- Touch 1 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Touch 2</masterLabel>
+        <translation><!-- Touch 2 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Touch 3</masterLabel>
+        <translation><!-- Touch 3 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Touch 4</masterLabel>
+        <translation><!-- Touch 4 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Unresponsive</masterLabel>
+        <translation><!-- Unresponsive --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

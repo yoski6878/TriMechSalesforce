@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- End User Department --></label>
+    <name>End_User_Department__c</name>
+    <picklistValues>
+        <masterLabel>Compliance</masterLabel>
+        <translation><!-- Compliance --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Design Engineering</masterLabel>
+        <translation><!-- Design Engineering --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Education</masterLabel>
+        <translation><!-- Education --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Finance</masterLabel>
+        <translation><!-- Finance --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Inspection</masterLabel>
+        <translation><!-- Inspection --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Machine Shop / Tool Room</masterLabel>
+        <translation><!-- Machine Shop / Tool Room --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Manufacturing Engineering</masterLabel>
+        <translation><!-- Manufacturing Engineering --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Operations</masterLabel>
+        <translation><!-- Operations --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Purchasing / Planning</masterLabel>
+        <translation><!-- Purchasing / Planning --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Quality</masterLabel>
+        <translation><!-- Quality --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>R&amp;D</masterLabel>
+        <translation><!-- R&amp;D --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Sales / Marketing</masterLabel>
+        <translation><!-- Sales / Marketing --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Shop Floor</masterLabel>
+        <translation><!-- Shop Floor --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Warehouse</masterLabel>
+        <translation><!-- Warehouse --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

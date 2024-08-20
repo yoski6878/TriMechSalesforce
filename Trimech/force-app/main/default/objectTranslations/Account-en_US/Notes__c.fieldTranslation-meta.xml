@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- If additional duplicate records are identified, please provide link and/or name. --></help>
+    <label><!-- Duplicate Notes --></label>
+    <name>Notes__c</name>
+</CustomFieldTranslation>

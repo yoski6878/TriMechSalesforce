@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Event Type --></label>
+    <name>Event_Type__c</name>
+    <picklistValues>
+        <masterLabel>Conference Call</masterLabel>
+        <translation><!-- Conference Call --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Event</masterLabel>
+        <translation><!-- Event --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Installation</masterLabel>
+        <translation><!-- Installation --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Meeting (existing client)</masterLabel>
+        <translation><!-- Meeting (existing client) --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Meeting (new client)</masterLabel>
+        <translation><!-- Meeting (new client) --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>OPEN  LAB</masterLabel>
+        <translation><!-- OPEN  LAB --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Other</masterLabel>
+        <translation><!-- Other --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>PM Visit</masterLabel>
+        <translation><!-- PM Visit --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Services/Solutions Lunch</masterLabel>
+        <translation><!-- Services/Solutions Lunch --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Support</masterLabel>
+        <translation><!-- Support --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Training</masterLabel>
+        <translation><!-- Training --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Vacation</masterLabel>
+        <translation><!-- Vacation --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Walk-In</masterLabel>
+        <translation><!-- Walk-In --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>~ AE Misc Activity (credited)</masterLabel>
+        <translation><!-- ~ AE Misc Activity (credited) --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>~ AE Misc Activity (non-credited)</masterLabel>
+        <translation><!-- ~ AE Misc Activity (non-credited) --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>~ Billable Service</masterLabel>
+        <translation><!-- ~ Billable Service --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>~ CCV</masterLabel>
+        <translation><!-- ~ CCV --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>~ Certification</masterLabel>
+        <translation><!-- ~ Certification --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>~ Content Creation</masterLabel>
+        <translation><!-- ~ Content Creation --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>~ Demo</masterLabel>
+        <translation><!-- ~ Demo --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>~ Discovery/Needs Assessment</masterLabel>
+        <translation><!-- ~ Discovery/Needs Assessment --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>~ Non-billable Service</masterLabel>
+        <translation><!-- ~ Non-billable Service --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>~ Printer Repair</masterLabel>
+        <translation><!-- ~ Printer Repair --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>~ SW User Group</masterLabel>
+        <translation><!-- ~ SW User Group --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>~ Seminar</masterLabel>
+        <translation><!-- ~ Seminar --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>~ Trade Show</masterLabel>
+        <translation><!-- ~ Trade Show --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>~ Training (Internal)</masterLabel>
+        <translation><!-- ~ Training (Internal) --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>~ Webinar</masterLabel>
+        <translation><!-- ~ Webinar --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

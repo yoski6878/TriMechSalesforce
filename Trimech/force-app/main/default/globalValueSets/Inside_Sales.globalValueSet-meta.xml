@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Inside Sales Influenced</fullName>
+        <default>false</default>
+        <label>Inside Sales Influenced</label>
+    </customValue>
+    <customValue>
+        <fullName>Inside Sales Direct</fullName>
+        <default>false</default>
+        <label>Inside Sales Direct</label>
+    </customValue>
+    <customValue>
+        <fullName>None</fullName>
+        <default>true</default>
+        <label>None</label>
+    </customValue>
+    <description>Inside Sales Influenced or Inside Sales Direct</description>
+    <masterLabel>Inside Sales</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

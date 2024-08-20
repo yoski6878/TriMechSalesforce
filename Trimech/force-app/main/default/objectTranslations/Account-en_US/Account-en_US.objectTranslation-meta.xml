@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <layouts>
+        <layout>Account Layout</layout>
+        <sections>
+            <label><!-- Account Standing &amp; NetSuite Information --></label>
+            <section>Account Standing &amp; NetSuite Information</section>
+        </sections>
+        <sections>
+            <label><!-- Marketing Information --></label>
+            <section>Marketing Information</section>
+        </sections>
+        <sections>
+            <label><!-- Sales Assignments --></label>
+            <section>Sales Assignments</section>
+        </sections>
+        <sections>
+            <label><!-- Tax Information --></label>
+            <section>Tax Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Account Layout - System Admin</layout>
+        <sections>
+            <label><!-- Account Standing &amp; NetSuite Information --></label>
+            <section>Account Standing &amp; NetSuite Information</section>
+        </sections>
+        <sections>
+            <label><!-- Admin Only Fields --></label>
+            <section>Admin Only Fields</section>
+        </sections>
+        <sections>
+            <label><!-- Marketing Information --></label>
+            <section>Marketing Information</section>
+        </sections>
+        <sections>
+            <label><!-- Sales Assignments --></label>
+            <section>Sales Assignments</section>
+        </sections>
+        <sections>
+            <label><!-- Tax Information --></label>
+            <section>Tax Information</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label><!-- Child Account --></label>
+        <name>Child_Account</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Create New Lead --></label>
+        <name>Create_New_Lead</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Create Profile --></label>
+        <name>Create_Questionnaire</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Duplicate Accounts --></label>
+        <name>Duplicate_Accounts</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Recalculate Territories --></label>
+        <name>Recalculate_Territories</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Update Profile --></label>
+        <name>Update_Questionnaire</name>
+    </quickActions>
+    <validationRules>
+        <errorMessage><!-- Dedicated Rep must be different from respective Sales Rep --></errorMessage>
+        <name>Dedicated_Rep_is_same_as_Sales_Rep</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- New Logo Account cannot have Dedicated Sales Rep Software selected. Either change the Account Type or empty the Dedicated Sales Rep Software field. --></errorMessage>
+        <name>New_Logo_Account_with_Dedicated_SW_Rep</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- GoogleMaps --></label>
+        <name>GoogleMaps</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- GoogleNews --></label>
+        <name>GoogleNews</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- GoogleSearch --></label>
+        <name>GoogleSearch</name>
+    </webLinks>
+</CustomObjectTranslation>

@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Picklist Values --></label>
+    <name>Picklist_Values__c</name>
+    <picklistValues>
+        <masterLabel>1+</masterLabel>
+        <translation><!-- 1+ --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>10+</masterLabel>
+        <translation><!-- 10+ --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>3+</masterLabel>
+        <translation><!-- 3+ --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>3D Systems</masterLabel>
+        <translation><!-- 3D Systems --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>3DGENCE</masterLabel>
+        <translation><!-- 3DGENCE --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Ansys</masterLabel>
+        <translation><!-- Ansys --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Aon3d</masterLabel>
+        <translation><!-- Aon3d --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Aras</masterLabel>
+        <translation><!-- Aras --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Arena</masterLabel>
+        <translation><!-- Arena --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Arena QMS</masterLabel>
+        <translation><!-- Arena QMS --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>AutoCAD Electrical</masterLabel>
+        <translation><!-- AutoCAD Electrical --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>AutoDesk</masterLabel>
+        <translation><!-- AutoDesk --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>BIGREP</masterLabel>
+        <translation><!-- BIGREP --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>BobCAD</masterLabel>
+        <translation><!-- BobCAD --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>CATIA</masterLabel>
+        <translation><!-- CATIA --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Carbon</masterLabel>
+        <translation><!-- Carbon --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>CircuitWorks</masterLabel>
+        <translation><!-- CircuitWorks --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Creality</masterLabel>
+        <translation><!-- Creality --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Desktop Metal</masterLabel>
+        <translation><!-- Desktop Metal --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>ETEC</masterLabel>
+        <translation><!-- ETEC --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Eagle</masterLabel>
+        <translation><!-- Eagle --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>EnvisionTec</masterLabel>
+        <translation><!-- EnvisionTec --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Epicor</masterLabel>
+        <translation><!-- Epicor --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Espirit</masterLabel>
+        <translation><!-- Espirit --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Fabweaver</masterLabel>
+        <translation><!-- Fabweaver --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Formlabs</masterLabel>
+        <translation><!-- Formlabs --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Fusion</masterLabel>
+        <translation><!-- Fusion --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Gibbs</masterLabel>
+        <translation><!-- Gibbs --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Go!SCAN 3D</masterLabel>
+        <translation><!-- Go!SCAN 3D --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Go!SCAN SPARK</masterLabel>
+        <translation><!-- Go!SCAN SPARK --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>HP</masterLabel>
+        <translation><!-- HP --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>HandyPROBE Next</masterLabel>
+        <translation><!-- HandyPROBE Next --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>HandySCAN 3D</masterLabel>
+        <translation><!-- HandySCAN 3D --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>High</masterLabel>
+        <translation><!-- High --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Hobbyist</masterLabel>
+        <translation><!-- Hobbyist --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>INTAMSYS</masterLabel>
+        <translation><!-- INTAMSYS --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>IQMS</masterLabel>
+        <translation><!-- IQMS --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Inventor</masterLabel>
+        <translation><!-- Inventor --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Low</masterLabel>
+        <translation><!-- Low --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>MAKERBOT</masterLabel>
+        <translation><!-- MAKERBOT --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>MS Dynamics</masterLabel>
+        <translation><!-- MS Dynamics --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>MarkForged</masterLabel>
+        <translation><!-- MarkForged --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>MasterCAM</masterLabel>
+        <translation><!-- MasterCAM --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>MaxSHOT 3D</masterLabel>
+        <translation><!-- MaxSHOT 3D --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Medium</masterLabel>
+        <translation><!-- Medium --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Mentor</masterLabel>
+        <translation><!-- Mentor --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>MetraSCAN Optical CMM 3D Scanner</masterLabel>
+        <translation><!-- MetraSCAN Optical CMM 3D Scanner --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Modix</masterLabel>
+        <translation><!-- Modix --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>N/A</masterLabel>
+        <translation><!-- N/A --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>NANO DIMENSION</masterLabel>
+        <translation><!-- NANO DIMENSION --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>NEXA3D</masterLabel>
+        <translation><!-- NEXA3D --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>No</masterLabel>
+        <translation><!-- No --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>None</masterLabel>
+        <translation><!-- None --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Omnify</masterLabel>
+        <translation><!-- Omnify --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>OnShape</masterLabel>
+        <translation><!-- OnShape --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>OrCAD</masterLabel>
+        <translation><!-- OrCAD --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Oracle</masterLabel>
+        <translation><!-- Oracle --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Other</masterLabel>
+        <translation><!-- Other --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>PTC</masterLabel>
+        <translation><!-- PTC --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Peel 3D Scanner</masterLabel>
+        <translation><!-- Peel 3D Scanner --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>ProE</masterLabel>
+        <translation><!-- ProE --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Prusa</masterLabel>
+        <translation><!-- Prusa --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>RAISE3D</masterLabel>
+        <translation><!-- RAISE3D --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Siemens</masterLabel>
+        <translation><!-- Siemens --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>SolidCAM</masterLabel>
+        <translation><!-- SolidCAM --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>SolidThinking</masterLabel>
+        <translation><!-- SolidThinking --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>TRUMPF</masterLabel>
+        <translation><!-- TRUMPF --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Team Center</masterLabel>
+        <translation><!-- Team Center --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>UG</masterLabel>
+        <translation><!-- UG --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Ultimaker</masterLabel>
+        <translation><!-- Ultimaker --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Unverified</masterLabel>
+        <translation><!-- Unverified --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Verified</masterLabel>
+        <translation><!-- Verified --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Yes</masterLabel>
+        <translation><!-- Yes --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Yes, through other VAR</masterLabel>
+        <translation><!-- Yes, through other VAR --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>creaform</masterLabel>
+        <translation><!-- creaform --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

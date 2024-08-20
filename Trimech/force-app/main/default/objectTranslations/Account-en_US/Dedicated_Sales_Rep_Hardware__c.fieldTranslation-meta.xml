@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Dedicated Sales Rep Hardware --></label>
+    <name>Dedicated_Sales_Rep_Hardware__c</name>
+    <relationshipLabel><!-- Accounts (Dedicated Sales Rep Hardware) --></relationshipLabel>
+</CustomFieldTranslation>

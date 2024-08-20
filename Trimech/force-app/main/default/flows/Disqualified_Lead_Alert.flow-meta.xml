@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Send_Disqualified_Lead_Email_Notification</name>
+        <label>Send Disqualified Lead Email Notification</label>
+        <locationX>176</locationX>
+        <locationY>323</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <elementReference>consRecipientEmailAddress</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>Lead was Disqualified with Marketing reason</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>textTempEmailBody</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>sendRichBody</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <constants>
+        <description>Notification Email goes to Barb Johnson (barb.johnson@trimech.com)</description>
+        <name>consRecipientEmailAddress</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>erin.elliott@trimech.com</stringValue>
+        </value>
+    </constants>
+    <interviewLabel>Disqualified Lead Alert {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Disqualified Lead Alert</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <startElementReference>Send_Disqualified_Lead_Email_Notification</startElementReference>
+    <status>Active</status>
+    <textTemplates>
+        <name>textTempEmailBody</name>
+        <text>&lt;p&gt;The Disqualification Reason was set to&amp;nbsp;&lt;em&gt;{!$Record.Disqualification_Reason__c}&lt;/em&gt; for &lt;a href=&quot;https://trimech12345.lightning.force.com/lightning/r/{!$Record.Id}/view&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;{!$Record.Name}&lt;/a&gt;&lt;/p&gt;</text>
+    </textTemplates>
+</Flow>

@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Product Interest --></label>
+    <name>Product_Interest__c</name>
+    <picklistValues>
+        <masterLabel>3D Printer Material</masterLabel>
+        <translation><!-- 3D Printer Material --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>3DEXPERIENCE WORKS</masterLabel>
+        <translation><!-- 3DEXPERIENCE WORKS --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>3DP Services</masterLabel>
+        <translation><!-- 3DP Services --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Artec 3D Scanners</masterLabel>
+        <translation><!-- Artec 3D Scanners --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>CAMWorks</masterLabel>
+        <translation><!-- CAMWorks --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Connex3</masterLabel>
+        <translation><!-- Connex3 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Desktop Metal</masterLabel>
+        <translation><!-- Desktop Metal --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Desktop Metal Production</masterLabel>
+        <translation><!-- Desktop Metal Production --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Desktop Metal Studio</masterLabel>
+        <translation><!-- Desktop Metal Studio --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Dimension</masterLabel>
+        <translation><!-- Dimension --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>DriveWorks</masterLabel>
+        <translation><!-- DriveWorks --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>F123</masterLabel>
+        <translation><!-- F123 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Fortus</masterLabel>
+        <translation><!-- Fortus --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Geomagic</masterLabel>
+        <translation><!-- Geomagic --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>J750</masterLabel>
+        <translation><!-- J750 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Makerbot</masterLabel>
+        <translation><!-- Makerbot --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Mojo</masterLabel>
+        <translation><!-- Mojo --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Nano Dimension</masterLabel>
+        <translation><!-- Nano Dimension --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Objet</masterLabel>
+        <translation><!-- Objet --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Other</masterLabel>
+        <translation><!-- Other --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Printer (Generic Product Test)</masterLabel>
+        <translation><!-- Printer (Generic Product Test) --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Production/End-Use Parts</masterLabel>
+        <translation><!-- Production/End-Use Parts --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Project Engineering</masterLabel>
+        <translation><!-- Project Engineering --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Prototyping (Concept Models)</masterLabel>
+        <translation><!-- Prototyping (Concept Models) --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Prototyping (Functional testing)</masterLabel>
+        <translation><!-- Prototyping (Functional testing) --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>SOLIDWORKS CLOUD CAD</masterLabel>
+        <translation><!-- SOLIDWORKS CLOUD CAD --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>SW CAD</masterLabel>
+        <translation><!-- SW CAD --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>SW CAD Premium</masterLabel>
+        <translation><!-- SW CAD Premium --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>SW CAD Professional</masterLabel>
+        <translation><!-- SW CAD Professional --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>SW CAM</masterLabel>
+        <translation><!-- SW CAM --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>SW Composer</masterLabel>
+        <translation><!-- SW Composer --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>SW DraftSight</masterLabel>
+        <translation><!-- SW DraftSight --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>SW Electrical</masterLabel>
+        <translation><!-- SW Electrical --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>SW Electrical 2D</masterLabel>
+        <translation><!-- SW Electrical 2D --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>SW Electrical 3D</masterLabel>
+        <translation><!-- SW Electrical 3D --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>SW Electrical Professional</masterLabel>
+        <translation><!-- SW Electrical Professional --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>SW Electrical Schematic</masterLabel>
+        <translation><!-- SW Electrical Schematic --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>SW Exalead</masterLabel>
+        <translation><!-- SW Exalead --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>SW Inspection</masterLabel>
+        <translation><!-- SW Inspection --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>SW Inspection Professional</masterLabel>
+        <translation><!-- SW Inspection Professional --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>SW Inspection Standard</masterLabel>
+        <translation><!-- SW Inspection Standard --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>SW MBD</masterLabel>
+        <translation><!-- SW MBD --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>SW Manage</masterLabel>
+        <translation><!-- SW Manage --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>SW Model Based Definition</masterLabel>
+        <translation><!-- SW Model Based Definition --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>SW Multiple Products</masterLabel>
+        <translation><!-- SW Multiple Products --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>SW PCB</masterLabel>
+        <translation><!-- SW PCB --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>SW PDM Professional</masterLabel>
+        <translation><!-- SW PDM Professional --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>SW PDM Standard</masterLabel>
+        <translation><!-- SW PDM Standard --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>SW Plastics</masterLabel>
+        <translation><!-- SW Plastics --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>SW Simulation</masterLabel>
+        <translation><!-- SW Simulation --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>SW Simulation Flow</masterLabel>
+        <translation><!-- SW Simulation Flow --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>SW Sustainability</masterLabel>
+        <translation><!-- SW Sustainability --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>SW Training</masterLabel>
+        <translation><!-- SW Training --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>SW Visualize</masterLabel>
+        <translation><!-- SW Visualize --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>SolidWorks</masterLabel>
+        <translation><!-- SolidWorks --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Solidworks (Generic Product Test)</masterLabel>
+        <translation><!-- Solidworks (Generic Product Test) --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Stratasys</masterLabel>
+        <translation><!-- Stratasys --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Tooling (Jigs &amp; Fixtures)</masterLabel>
+        <translation><!-- Tooling (Jigs &amp; Fixtures) --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Tooling (Patterns/Molds/Composites)</masterLabel>
+        <translation><!-- Tooling (Patterns/Molds/Composites) --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Tulip</masterLabel>
+        <translation><!-- Tulip --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Unknown (Print Application)</masterLabel>
+        <translation><!-- Unknown (Print Application) --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Unspecified</masterLabel>
+        <translation><!-- Unspecified --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>eDrawings</masterLabel>
+        <translation><!-- eDrawings --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>uPrint</masterLabel>
+        <translation><!-- uPrint --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

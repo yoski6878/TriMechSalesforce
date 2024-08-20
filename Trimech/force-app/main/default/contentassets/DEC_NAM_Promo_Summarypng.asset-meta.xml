@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentAsset xmlns="http://soap.sforce.com/2006/04/metadata">
+    <isVisibleByExternalUsers>false</isVisibleByExternalUsers>
+    <language>en_US</language>
+    <masterLabel>DEC_NAM_Promo_Summarypng</masterLabel>
+    <versions>
+        <version>
+            <number>1</number>
+            <pathOnClient>DEC NAM Promo Summary.png</pathOnClient>
+        </version>
+    </versions>
+</ContentAsset>

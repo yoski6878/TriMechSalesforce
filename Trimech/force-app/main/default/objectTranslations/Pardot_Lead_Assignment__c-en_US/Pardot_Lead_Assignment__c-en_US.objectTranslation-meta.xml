@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Pardot Lead Assignment</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Pardot Lead Assignments</value>
+    </caseValues>
+    <layouts>
+        <layout>Pardot Lead Assignment Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- When Solution Type is set to Specialty, you must select a value for PLA Specialty Group. --></errorMessage>
+        <name>PLA_Specialty_Group_is_blank</name>
+    </validationRules>
+</CustomObjectTranslation>

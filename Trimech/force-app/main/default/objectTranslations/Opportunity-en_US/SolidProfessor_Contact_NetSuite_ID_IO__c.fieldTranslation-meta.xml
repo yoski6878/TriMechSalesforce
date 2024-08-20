@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- SolidProfessor Contact NetSuite ID (IO) --></label>
+    <name>SolidProfessor_Contact_NetSuite_ID_IO__c</name>
+</CustomFieldTranslation>

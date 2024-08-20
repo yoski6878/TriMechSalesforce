@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <constants>
+        <name>constJavelinPricebookID</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>01sPZ00000057aLYAQ</stringValue>
+        </value>
+    </constants>
+    <constants>
+        <description>This is the ID of the standard pricebook</description>
+        <name>constTrimechPricebookID</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>01s6g000007DKs1AAG</stringValue>
+        </value>
+    </constants>
+    <decisions>
+        <name>Subsidiary</name>
+        <label>Subsidiary?</label>
+        <locationX>314</locationX>
+        <locationY>287</locationY>
+        <defaultConnectorLabel>Other</defaultConnectorLabel>
+        <rules>
+            <name>Trimech</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Account.Subsidiary__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>TriMech Solutions LLC</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_Pricebook_ID_Trimech</targetReference>
+            </connector>
+            <label>Trimech</label>
+        </rules>
+        <rules>
+            <name>Javelin</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Account.Subsidiary__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Javelin Technologies Inc.</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_Pricebook_ID_Javelin</targetReference>
+            </connector>
+            <label>Javelin</label>
+        </rules>
+    </decisions>
+    <description>Set Opportunity Pricebook ID based on Subsidiary value.</description>
+    <interviewLabel>Opportunity | Before Create | Set Pricebook ID {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Opportunity | Before Create | Set Pricebook ID</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Set_Pricebook_ID_Javelin</name>
+        <label>Set Pricebook ID Javelin</label>
+        <locationX>314</locationX>
+        <locationY>395</locationY>
+        <inputAssignments>
+            <field>Pricebook2Id</field>
+            <value>
+                <elementReference>constJavelinPricebookID</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Set_Pricebook_ID_Trimech</name>
+        <label>Set Pricebook ID Trimech</label>
+        <locationX>50</locationX>
+        <locationY>395</locationY>
+        <inputAssignments>
+            <field>Pricebook2Id</field>
+            <value>
+                <elementReference>constTrimechPricebookID</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <startElementReference>Subsidiary</startElementReference>
+    <status>Active</status>
+</Flow>

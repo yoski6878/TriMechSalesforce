@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Sales Order</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Sales Orders</value>
+    </caseValues>
+    <layouts>
+        <layout>Order Layout</layout>
+        <sections>
+            <label><!-- Hardware Inside Sales --></label>
+            <section>Hardware Inside Sales</section>
+        </sections>
+        <sections>
+            <label><!-- NetSuite --></label>
+            <section>NetSuite</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Order Layout - Admin</layout>
+        <sections>
+            <label><!-- Exchange Rate Calculations (Admin Only) --></label>
+            <section>Exchange Rate Calculations (Admin Only)</section>
+        </sections>
+        <sections>
+            <label><!-- Hardware Inside Sales --></label>
+            <section>Hardware Inside Sales</section>
+        </sections>
+        <sections>
+            <label><!-- NetSuite --></label>
+            <section>NetSuite</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

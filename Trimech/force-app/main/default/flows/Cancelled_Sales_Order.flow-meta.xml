@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <description>Email Notification sent to Sales Rep when an Order is cancelled in Netsuite</description>
+        <name>Email_Notification_Cancelled_Order</name>
+        <label>Email Notification Cancelled Order</label>
+        <locationX>50</locationX>
+        <locationY>647</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <elementReference>formulaRecipientEmailId</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <stringValue> Order Cancelled - Action Required</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>txtTempEmailBody</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>sendRichBody</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <constants>
+        <name>conRecordTypeOpportunity</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>0126g000000X4XZAA0</stringValue>
+        </value>
+    </constants>
+    <decisions>
+        <name>Is_Opportunity_Record_Found</name>
+        <label>Is Opportunity Record Found?</label>
+        <locationX>182</locationX>
+        <locationY>431</locationY>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Yes</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Opportunity_Record</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Opportunity</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <formulas>
+        <description>If Inside Sales = None, sets the email address of the Owner, else will set the email address to Inside Sales Rep</description>
+        <name>formulaRecipientEmailId</name>
+        <dataType>String</dataType>
+        <expression>IF( (ISPICKVAL({!Get_Opportunity_Record.Inside_Sales__c}, &apos;None&apos;) || ISPICKVAL({!Get_Opportunity_Record.Inside_Sales__c}, &apos;&apos;) ), {!Get_Opportunity_Record.Owner.Email}, {!Get_Opportunity_Record.Inside_Sales_Rep__r.Email})</expression>
+    </formulas>
+    <interviewLabel>Cancelled Sales Order {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Cancelled Sales Order</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Get_Opportunity_Record</name>
+        <label>Get Opportunity Record</label>
+        <locationX>182</locationX>
+        <locationY>323</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Is_Opportunity_Record_Found</targetReference>
+        </connector>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.OpportunityId</elementReference>
+            </value>
+        </filters>
+        <object>Opportunity</object>
+    </recordLookups>
+    <recordUpdates>
+        <description>When a Sales Order is Cancelled in Netsuite, this flow will update the Related Opportunity&apos;s Stage to Order Issue, will set the Netsuite ID and NetSuite Order Number (IO) to blank</description>
+        <name>Update_Opportunity</name>
+        <label>Update Opportunity</label>
+        <locationX>50</locationX>
+        <locationY>539</locationY>
+        <connector>
+            <targetReference>Email_Notification_Cancelled_Order</targetReference>
+        </connector>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.OpportunityId</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>RecordTypeId</field>
+            <value>
+                <elementReference>conRecordTypeOpportunity</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>StageName</field>
+            <value>
+                <stringValue>Order Issue</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>celigo_sfnsio__NetSuite_Id__c</field>
+            <value>
+                <stringValue></stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>celigo_sfnsio__NetSuite_Order_Number__c</field>
+            <value>
+                <stringValue></stringValue>
+            </value>
+        </inputAssignments>
+        <object>Opportunity</object>
+    </recordUpdates>
+    <startElementReference>Get_Opportunity_Record</startElementReference>
+    <status>Obsolete</status>
+    <textTemplates>
+        <name>txtTempEmailBody</name>
+        <text>&lt;p&gt;Your order for Opportunity Name: &lt;a href=&quot;https://trimech12345.lightning.force.com/lightning/r/{!$Record.OpportunityId}/view&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;{!Get_Opportunity_Record.Name}&lt;/a&gt; &amp;amp; Opportunity RecordID: {!Get_Opportunity_Record.Id} has been cancelled by Order Management. Please update the opportunity and re-submit.&lt;/p&gt;</text>
+    </textTemplates>
+</Flow>

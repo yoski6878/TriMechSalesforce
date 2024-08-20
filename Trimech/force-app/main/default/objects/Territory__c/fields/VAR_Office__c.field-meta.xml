@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VAR_Office__c</fullName>
+    <externalId>false</externalId>
+    <label>VAR Office</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>TriMech Sherretz - South Central</fullName>
+                <default>false</default>
+                <label>TriMech Sherretz - South Central</label>
+            </value>
+            <value>
+                <fullName>TriMech Wicklein - Southeast</fullName>
+                <default>false</default>
+                <label>TriMech Wicklein - Southeast</label>
+            </value>
+            <value>
+                <fullName>TriMech Sherretz - Southeast</fullName>
+                <default>false</default>
+                <label>TriMech Sherretz - Southeast</label>
+            </value>
+            <value>
+                <fullName>TriMech Voll - Southeast</fullName>
+                <default>false</default>
+                <label>TriMech Voll - Southeast</label>
+            </value>
+            <value>
+                <fullName>TriMech Phelps - NY-NE South</fullName>
+                <default>false</default>
+                <label>TriMech Phelps - NY-NE South</label>
+            </value>
+            <value>
+                <fullName>TriMech Wicklein - Mid-Atlantic</fullName>
+                <default>false</default>
+                <label>TriMech Wicklein - Mid-Atlantic</label>
+            </value>
+            <value>
+                <fullName>TriMech Phelps - QC-NE North</fullName>
+                <default>false</default>
+                <label>TriMech Phelps - QC-NE North</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

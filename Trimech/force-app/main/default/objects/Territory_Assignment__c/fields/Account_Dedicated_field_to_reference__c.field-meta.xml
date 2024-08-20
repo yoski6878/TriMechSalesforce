@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Account_Dedicated_field_to_reference__c</fullName>
+    <externalId>false</externalId>
+    <formula>CASE( TEXT( Account_Field_to_Assign__c),
+&quot;Sales_Rep_Software_Inside__c&quot;, &quot;Inside_Sales_Dedicated_Account__c&quot;,
+&quot;Sales_Rep_Software_Outside__c&quot;, &quot;Dedicated_Account__c&quot;,
+&quot;Sales_Rep_Hardware_Inside__c&quot;, &quot;Dedicated_Hardware__c&quot;,
+
+&quot;Sales Rep Software Inside&quot;, &quot;Inside_Sales_Dedicated_Account__c&quot;,
+&quot;Sales Rep Software Outside&quot;, &quot;Dedicated_Account__c&quot;,
+&quot;Sales Rep Hardware Inside&quot;, &quot;Dedicated_Hardware__c&quot;,
+null
+)</formula>
+    <label>Account Dedicated field to reference</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

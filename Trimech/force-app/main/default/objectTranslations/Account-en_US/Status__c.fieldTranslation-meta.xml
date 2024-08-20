@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Status --></label>
+    <name>Status__c</name>
+    <picklistValues>
+        <masterLabel>CLIENT-(100%) Won</masterLabel>
+        <translation><!-- CLIENT-(100%) Won --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>CLIENT-100% Client - Out of Business</masterLabel>
+        <translation><!-- CLIENT-100% Client - Out of Business --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>CLIENT-100% Client - aged</masterLabel>
+        <translation><!-- CLIENT-100% Client - aged --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>CLIENT-100% Client - other VAR</masterLabel>
+        <translation><!-- CLIENT-100% Client - other VAR --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>CLIENT-Client - (0%) Lost</masterLabel>
+        <translation><!-- CLIENT-Client - (0%) Lost --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>PROSPECT</masterLabel>
+        <translation><!-- PROSPECT --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>PROSPECT-(0%) Closed - Lost to Other VAR</masterLabel>
+        <translation><!-- PROSPECT-(0%) Closed - Lost to Other VAR --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>PROSPECT-(10%) Surface Pain</masterLabel>
+        <translation><!-- PROSPECT-(10%) Surface Pain --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>PROSPECT-(20%) Discovery Completed</masterLabel>
+        <translation><!-- PROSPECT-(20%) Discovery Completed --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>PROSPECT-(50%) Pain,Budget,Decision Process</masterLabel>
+        <translation><!-- PROSPECT-(50%) Pain,Budget,Decision Process --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>PROSPECT-(75%) Decision To Be Made</masterLabel>
+        <translation><!-- PROSPECT-(75%) Decision To Be Made --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>PROSPECT-(90%) PO In Process</masterLabel>
+        <translation><!-- PROSPECT-(90%) PO In Process --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>PROSPECT-Attempted but not contacted</masterLabel>
+        <translation><!-- PROSPECT-Attempted but not contacted --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>PROSPECT-Desktop Metal Qualified Opp</masterLabel>
+        <translation><!-- PROSPECT-Desktop Metal Qualified Opp --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>PROSPECT-Fortus-Stratasys Imports</masterLabel>
+        <translation><!-- PROSPECT-Fortus-Stratasys Imports --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>PROSPECT-Out of Business</masterLabel>
+        <translation><!-- PROSPECT-Out of Business --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>PROSPECT-Prospect - (0%) Closed - Other</masterLabel>
+        <translation><!-- PROSPECT-Prospect - (0%) Closed - Other --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>PROSPECT-Qualified</masterLabel>
+        <translation><!-- PROSPECT-Qualified --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>PROSPECT-Qualified-Not Interested</masterLabel>
+        <translation><!-- PROSPECT-Qualified-Not Interested --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>PROSPECT-SolidWorks Lead Import</masterLabel>
+        <translation><!-- PROSPECT-SolidWorks Lead Import --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>PROSPECT-SolidWorks-Other VAR</masterLabel>
+        <translation><!-- PROSPECT-SolidWorks-Other VAR --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>PROSPECT-Technical Opportunity</masterLabel>
+        <translation><!-- PROSPECT-Technical Opportunity --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>PROSPECT-Website Lead</masterLabel>
+        <translation><!-- PROSPECT-Website Lead --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>SUSPECT-Out of Business</masterLabel>
+        <translation><!-- SUSPECT-Out of Business --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>SUSPECT-Suspect Closed - Other</masterLabel>
+        <translation><!-- SUSPECT-Suspect Closed - Other --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>SUSPECT-Suspect Qualified</masterLabel>
+        <translation><!-- SUSPECT-Suspect Qualified --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>SUSPECT-Unqualified</masterLabel>
+        <translation><!-- SUSPECT-Unqualified --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

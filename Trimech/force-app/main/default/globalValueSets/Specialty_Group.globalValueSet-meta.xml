@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>AMS</fullName>
+        <default>false</default>
+        <label>AMS</label>
+    </customValue>
+    <customValue>
+        <fullName>DELMIA</fullName>
+        <default>false</default>
+        <label>DELMIA</label>
+    </customValue>
+    <customValue>
+        <fullName>DriveWorks</fullName>
+        <default>false</default>
+        <label>DriveWorks</label>
+    </customValue>
+    <customValue>
+        <fullName>Education</fullName>
+        <default>false</default>
+        <label>Education</label>
+    </customValue>
+    <customValue>
+        <fullName>Excellerant</fullName>
+        <default>false</default>
+        <label>Excellerant</label>
+    </customValue>
+    <customValue>
+        <fullName>Formlabs</fullName>
+        <default>false</default>
+        <label>Formlabs</label>
+    </customValue>
+    <customValue>
+        <fullName>Mastercam</fullName>
+        <default>false</default>
+        <label>Mastercam</label>
+    </customValue>
+    <customValue>
+        <fullName>Metal Printers</fullName>
+        <default>false</default>
+        <label>Metal Printers</label>
+    </customValue>
+    <customValue>
+        <fullName>PLM</fullName>
+        <default>false</default>
+        <label>PLM</label>
+    </customValue>
+    <customValue>
+        <fullName>Scanners</fullName>
+        <default>false</default>
+        <label>Scanners</label>
+    </customValue>
+    <customValue>
+        <fullName>SolidCAM</fullName>
+        <default>false</default>
+        <label>SolidCAM</label>
+    </customValue>
+    <customValue>
+        <fullName>Staffing</fullName>
+        <default>false</default>
+        <label>Staffing</label>
+    </customValue>
+    <description>Used for mapping Specialty Group values for Pardot leads assignment</description>
+    <masterLabel>Specialty Group</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

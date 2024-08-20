@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Recalculate_Account_Territories_Apex</name>
+        <label>Recalculate Account Territories Apex</label>
+        <locationX>176</locationX>
+        <locationY>276</locationY>
+        <actionName>01p6g00000RztTKNotFound</actionName>
+        <inputParameters>
+            <name>accId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>zip</name>
+            <value>
+                <elementReference>$Record.ShippingPostalCode</elementReference>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <description>Run Account Territory record recalculation code for all Accounts with ShippingCountry = CA or Canada</description>
+    <interviewLabel>Recalc Account Territories - CANADA {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Recalc Account Territories - CANADA</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <startElementReference>Recalculate_Account_Territories_Apex</startElementReference>
+    <status>Draft</status>
+</Flow>

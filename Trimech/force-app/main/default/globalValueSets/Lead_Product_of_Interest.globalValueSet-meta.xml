@@ -1,0 +1,1291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>3D Design</fullName>
+        <default>false</default>
+        <label>3D Design</label>
+    </customValue>
+    <customValue>
+        <fullName>3DEXPERIENCE</fullName>
+        <default>false</default>
+        <label>3DEXPERIENCE</label>
+    </customValue>
+    <customValue>
+        <fullName>3DEXPERIENCE 3D Component Designer</fullName>
+        <default>false</default>
+        <label>3DEXPERIENCE 3D Component Designer</label>
+    </customValue>
+    <customValue>
+        <fullName>3DEXPERIENCE 3D Creator</fullName>
+        <default>false</default>
+        <label>3DEXPERIENCE 3D Creator</label>
+    </customValue>
+    <customValue>
+        <fullName>3DEXPERIENCE 3D Designer for Education</fullName>
+        <default>false</default>
+        <label>3DEXPERIENCE 3D Designer for Education</label>
+    </customValue>
+    <customValue>
+        <fullName>3DEXPERIENCE 3D Mold Creator</fullName>
+        <default>false</default>
+        <label>3DEXPERIENCE 3D Mold Creator</label>
+    </customValue>
+    <customValue>
+        <fullName>3DEXPERIENCE 3D Product Architect</fullName>
+        <default>false</default>
+        <label>3DEXPERIENCE 3D Product Architect</label>
+    </customValue>
+    <customValue>
+        <fullName>3DEXPERIENCE 3D Render</fullName>
+        <default>false</default>
+        <label>3DEXPERIENCE 3D Render</label>
+    </customValue>
+    <customValue>
+        <fullName>3DEXPERIENCE 3D Sculptor</fullName>
+        <default>false</default>
+        <label>3DEXPERIENCE 3D Sculptor</label>
+    </customValue>
+    <customValue>
+        <fullName>3DEXPERIENCE 3D SheetMetal Creator</fullName>
+        <default>false</default>
+        <label>3DEXPERIENCE 3D SheetMetal Creator</label>
+    </customValue>
+    <customValue>
+        <fullName>3DEXPERIENCE 3D Structure Creator</fullName>
+        <default>false</default>
+        <label>3DEXPERIENCE 3D Structure Creator</label>
+    </customValue>
+    <customValue>
+        <fullName>3DEXPERIENCE Collaborative Business Innovator</fullName>
+        <default>false</default>
+        <label>3DEXPERIENCE Collaborative Business Innovator</label>
+    </customValue>
+    <customValue>
+        <fullName>3DEXPERIENCE Collaborative Designer for SOLIDWORKS</fullName>
+        <default>false</default>
+        <label>3DEXPERIENCE Collaborative Designer for SOLIDWORKS</label>
+    </customValue>
+    <customValue>
+        <fullName>3DEXPERIENCE Collaborative Industry Innovator</fullName>
+        <default>false</default>
+        <label>3DEXPERIENCE Collaborative Industry Innovator</label>
+    </customValue>
+    <customValue>
+        <fullName>3DEXPERIENCE DraftSight</fullName>
+        <default>false</default>
+        <label>3DEXPERIENCE DraftSight</label>
+    </customValue>
+    <customValue>
+        <fullName>3DEXPERIENCE Electromagnetics Engineer</fullName>
+        <default>false</default>
+        <label>3DEXPERIENCE Electromagnetics Engineer</label>
+    </customValue>
+    <customValue>
+        <fullName>3DEXPERIENCE Platform Administration</fullName>
+        <default>false</default>
+        <label>3DEXPERIENCE Platform Administration</label>
+    </customValue>
+    <customValue>
+        <fullName>3DEXPERIENCE Product Communicator</fullName>
+        <default>false</default>
+        <label>3DEXPERIENCE Product Communicator</label>
+    </customValue>
+    <customValue>
+        <fullName>3DEXPERIENCE Product Document Creator</fullName>
+        <default>false</default>
+        <label>3DEXPERIENCE Product Document Creator</label>
+    </customValue>
+    <customValue>
+        <fullName>3DEXPERIENCE Product Release Engineer</fullName>
+        <default>false</default>
+        <label>3DEXPERIENCE Product Release Engineer</label>
+    </customValue>
+    <customValue>
+        <fullName>3DEXPERIENCE Project Planner</fullName>
+        <default>false</default>
+        <label>3DEXPERIENCE Project Planner</label>
+    </customValue>
+    <customValue>
+        <fullName>3DEXPERIENCE Social Business Analyst</fullName>
+        <default>false</default>
+        <label>3DEXPERIENCE Social Business Analyst</label>
+    </customValue>
+    <customValue>
+        <fullName>3DEXPERIENCE SOLIDWORKS Offers</fullName>
+        <default>false</default>
+        <label>3DEXPERIENCE SOLIDWORKS Offers</label>
+    </customValue>
+    <customValue>
+        <fullName>3DEXPERIENCE WORKS</fullName>
+        <default>false</default>
+        <label>3DEXPERIENCE WORKS</label>
+    </customValue>
+    <customValue>
+        <fullName>3DEXPERIENCE Works PDM</fullName>
+        <default>false</default>
+        <label>3DEXPERIENCE Works PDM</label>
+    </customValue>
+    <customValue>
+        <fullName>3DEXPERIENCE Works Simulation</fullName>
+        <default>false</default>
+        <label>3DEXPERIENCE Works Simulation</label>
+    </customValue>
+    <customValue>
+        <fullName>3D Printer ExOne</fullName>
+        <default>false</default>
+        <label>3D Printer ExOne</label>
+    </customValue>
+    <customValue>
+        <fullName>3D Printer - Formlabs</fullName>
+        <default>false</default>
+        <label>3D Printer - Formlabs</label>
+    </customValue>
+    <customValue>
+        <fullName>3D Printer Makerbot</fullName>
+        <default>false</default>
+        <label>3D Printer Makerbot</label>
+    </customValue>
+    <customValue>
+        <fullName>3D Printer Stratasys - Big Box</fullName>
+        <default>false</default>
+        <label>3D Printer Stratasys - Big Box</label>
+    </customValue>
+    <customValue>
+        <fullName>3D Printer Stratasys - Small Box</fullName>
+        <default>false</default>
+        <label>3D Printer Stratasys - Small Box</label>
+    </customValue>
+    <customValue>
+        <fullName>3D Printing Consulting Services</fullName>
+        <default>false</default>
+        <label>3D Printing Consulting Services</label>
+    </customValue>
+    <customValue>
+        <fullName>3D Printing Essentials</fullName>
+        <default>false</default>
+        <label>3D Printing Essentials</label>
+    </customValue>
+    <customValue>
+        <fullName>3D Printing Service</fullName>
+        <default>false</default>
+        <label>3D Printing Service</label>
+    </customValue>
+    <customValue>
+        <fullName>3D Scanner Artec</fullName>
+        <default>false</default>
+        <label>3D Scanner Artec</label>
+    </customValue>
+    <customValue>
+        <fullName>3D Scanner GOM</fullName>
+        <default>false</default>
+        <label>3D Scanner GOM</label>
+    </customValue>
+    <customValue>
+        <fullName>3D Scanning</fullName>
+        <default>false</default>
+        <label>3D Scanning</label>
+    </customValue>
+    <customValue>
+        <fullName>3D Scanning Service</fullName>
+        <default>false</default>
+        <label>3D Scanning Service</label>
+    </customValue>
+    <customValue>
+        <fullName>Administering SOLIDWORKS Manage</fullName>
+        <default>false</default>
+        <label>Administering SOLIDWORKS Manage</label>
+    </customValue>
+    <customValue>
+        <fullName>Administering SOLIDWORKS PDM Professional</fullName>
+        <default>false</default>
+        <label>Administering SOLIDWORKS PDM Professional</label>
+    </customValue>
+    <customValue>
+        <fullName>Administering SOLIDWORKS PDM Standard</fullName>
+        <default>false</default>
+        <label>Administering SOLIDWORKS PDM Standard</label>
+    </customValue>
+    <customValue>
+        <fullName>Advanced Insight Training</fullName>
+        <default>false</default>
+        <label>Advanced Insight Training</label>
+    </customValue>
+    <customValue>
+        <fullName>Advanced Manufacturing Services</fullName>
+        <default>false</default>
+        <label>Advanced Manufacturing Services</label>
+    </customValue>
+    <customValue>
+        <fullName>Aras Innovator</fullName>
+        <default>false</default>
+        <label>Aras Innovator</label>
+    </customValue>
+    <customValue>
+        <fullName>Artec Education Package</fullName>
+        <default>false</default>
+        <label>Artec Education Package</label>
+    </customValue>
+    <customValue>
+        <fullName>Artec Eva</fullName>
+        <default>false</default>
+        <label>Artec Eva</label>
+    </customValue>
+    <customValue>
+        <fullName>Artec Eva Lite</fullName>
+        <default>false</default>
+        <label>Artec Eva Lite</label>
+    </customValue>
+    <customValue>
+        <fullName>Artec Leo</fullName>
+        <default>false</default>
+        <label>Artec Leo</label>
+    </customValue>
+    <customValue>
+        <fullName>Artec Micro</fullName>
+        <default>false</default>
+        <label>Artec Micro</label>
+    </customValue>
+    <customValue>
+        <fullName>Artec Ray</fullName>
+        <default>false</default>
+        <label>Artec Ray</label>
+    </customValue>
+    <customValue>
+        <fullName>Artec Scanner Training</fullName>
+        <default>false</default>
+        <label>Artec Scanner Training</label>
+    </customValue>
+    <customValue>
+        <fullName>Artec Space Spider</fullName>
+        <default>false</default>
+        <label>Artec Space Spider</label>
+    </customValue>
+    <customValue>
+        <fullName>Artec Studio</fullName>
+        <default>false</default>
+        <label>Artec Studio</label>
+    </customValue>
+    <customValue>
+        <fullName>CATIA</fullName>
+        <default>false</default>
+        <label>CATIA</label>
+    </customValue>
+    <customValue>
+        <fullName>Cloud Hosting</fullName>
+        <default>false</default>
+        <label>Cloud Hosting</label>
+    </customValue>
+    <customValue>
+        <fullName>Collaborative Business Innovator</fullName>
+        <default>false</default>
+        <label>Collaborative Business Innovator</label>
+    </customValue>
+    <customValue>
+        <fullName>Collaborative Designer for SOLIDWORKS</fullName>
+        <default>false</default>
+        <label>Collaborative Designer for SOLIDWORKS</label>
+    </customValue>
+    <customValue>
+        <fullName>Collaborative Industry Innovator</fullName>
+        <default>false</default>
+        <label>Collaborative Industry Innovator</label>
+    </customValue>
+    <customValue>
+        <fullName>Conventional Manufacturing</fullName>
+        <default>false</default>
+        <label>Conventional Manufacturing</label>
+    </customValue>
+    <customValue>
+        <fullName>Data Management</fullName>
+        <default>false</default>
+        <label>Data Management</label>
+    </customValue>
+    <customValue>
+        <fullName>Data Migration</fullName>
+        <default>false</default>
+        <label>Data Migration</label>
+    </customValue>
+    <customValue>
+        <fullName>Dell Workstation</fullName>
+        <default>false</default>
+        <label>Dell Workstation</label>
+    </customValue>
+    <customValue>
+        <fullName>DELMIA</fullName>
+        <default>false</default>
+        <label>DELMIA</label>
+    </customValue>
+    <customValue>
+        <fullName>DELMIA 3D Lean Team Player</fullName>
+        <default>false</default>
+        <label>DELMIA 3D Lean Team Player</label>
+    </customValue>
+    <customValue>
+        <fullName>DELMIA NC Prismatic and Mill-Turn Machine Programmer</fullName>
+        <default>false</default>
+        <label>DELMIA NC Prismatic and Mill-Turn Machine Programmer</label>
+    </customValue>
+    <customValue>
+        <fullName>DELMIAWorks</fullName>
+        <default>false</default>
+        <label>DELMIAWorks</label>
+    </customValue>
+    <customValue>
+        <fullName>Design Analysis</fullName>
+        <default>false</default>
+        <label>Design Analysis</label>
+    </customValue>
+    <customValue>
+        <fullName>Design Automation</fullName>
+        <default>false</default>
+        <label>Design Automation</label>
+    </customValue>
+    <customValue>
+        <fullName>Design for Additive Manufacturing</fullName>
+        <default>false</default>
+        <label>Design for Additive Manufacturing</label>
+    </customValue>
+    <customValue>
+        <fullName>DraftSight</fullName>
+        <default>false</default>
+        <label>DraftSight</label>
+    </customValue>
+    <customValue>
+        <fullName>DraftSight Enterprise</fullName>
+        <default>false</default>
+        <label>DraftSight Enterprise</label>
+    </customValue>
+    <customValue>
+        <fullName>DraftSight Enterprise Plus</fullName>
+        <default>false</default>
+        <label>DraftSight Enterprise Plus</label>
+    </customValue>
+    <customValue>
+        <fullName>DraftSight Essentials</fullName>
+        <default>false</default>
+        <label>DraftSight Essentials</label>
+    </customValue>
+    <customValue>
+        <fullName>DriveWorks</fullName>
+        <default>false</default>
+        <label>DriveWorks</label>
+    </customValue>
+    <customValue>
+        <fullName>DriveWorks Professional</fullName>
+        <default>false</default>
+        <label>DriveWorks Professional</label>
+    </customValue>
+    <customValue>
+        <fullName>DriveWorks Solo</fullName>
+        <default>false</default>
+        <label>DriveWorks Solo</label>
+    </customValue>
+    <customValue>
+        <fullName>DriveWorks Xpress</fullName>
+        <default>false</default>
+        <label>DriveWorks Xpress</label>
+    </customValue>
+    <customValue>
+        <fullName>DyeMansion</fullName>
+        <default>false</default>
+        <label>DyeMansion</label>
+    </customValue>
+    <customValue>
+        <fullName>DyeMansion DM60</fullName>
+        <default>false</default>
+        <label>DyeMansion DM60</label>
+    </customValue>
+    <customValue>
+        <fullName>DyeMansion Powerfuse</fullName>
+        <default>false</default>
+        <label>DyeMansion Powerfuse</label>
+    </customValue>
+    <customValue>
+        <fullName>DyeMansion Powershot</fullName>
+        <default>false</default>
+        <label>DyeMansion Powershot</label>
+    </customValue>
+    <customValue>
+        <fullName>eDrawings Professional</fullName>
+        <default>false</default>
+        <label>eDrawings Professional</label>
+    </customValue>
+    <customValue>
+        <fullName>Education Cloud</fullName>
+        <default>false</default>
+        <label>Education Cloud</label>
+    </customValue>
+    <customValue>
+        <fullName>Education Hardware</fullName>
+        <default>false</default>
+        <label>Education Hardware</label>
+    </customValue>
+    <customValue>
+        <fullName>Education Software</fullName>
+        <default>false</default>
+        <label>Education Software</label>
+    </customValue>
+    <customValue>
+        <fullName>Electrical Design</fullName>
+        <default>false</default>
+        <label>Electrical Design</label>
+    </customValue>
+    <customValue>
+        <fullName>ElectroMagneticWorks EMS</fullName>
+        <default>false</default>
+        <label>ElectroMagneticWorks EMS</label>
+    </customValue>
+    <customValue>
+        <fullName>EMS</fullName>
+        <default>false</default>
+        <label>EMS</label>
+    </customValue>
+    <customValue>
+        <fullName>EMS Electromagnetic Simulation for SOLIDWORKS</fullName>
+        <default>false</default>
+        <label>EMS Electromagnetic Simulation for SOLIDWORKS</label>
+    </customValue>
+    <customValue>
+        <fullName>ENOVIA</fullName>
+        <default>false</default>
+        <label>ENOVIA</label>
+    </customValue>
+    <customValue>
+        <fullName>ExactFlat</fullName>
+        <default>false</default>
+        <label>ExactFlat</label>
+    </customValue>
+    <customValue>
+        <fullName>Excellerant</fullName>
+        <default>false</default>
+        <label>Excellerant</label>
+    </customValue>
+    <customValue>
+        <fullName>FlexSim</fullName>
+        <default>false</default>
+        <label>FlexSim</label>
+    </customValue>
+    <customValue>
+        <fullName>Formlabs Form</fullName>
+        <default>false</default>
+        <label>Formlabs Form</label>
+    </customValue>
+    <customValue>
+        <fullName>Formlabs Form Cure</fullName>
+        <default>false</default>
+        <label>Formlabs Form Cure</label>
+    </customValue>
+    <customValue>
+        <fullName>Formlabs Form Wash</fullName>
+        <default>false</default>
+        <label>Formlabs Form Wash</label>
+    </customValue>
+    <customValue>
+        <fullName>Formlabs Fuse</fullName>
+        <default>false</default>
+        <label>Formlabs Fuse</label>
+    </customValue>
+    <customValue>
+        <fullName>GD&amp;T Advanced</fullName>
+        <default>false</default>
+        <label>GD&amp;T Advanced</label>
+    </customValue>
+    <customValue>
+        <fullName>GD&amp;T Fundamentals</fullName>
+        <default>false</default>
+        <label>GD&amp;T Fundamentals</label>
+    </customValue>
+    <customValue>
+        <fullName>Geomagic</fullName>
+        <default>false</default>
+        <label>Geomagic</label>
+    </customValue>
+    <customValue>
+        <fullName>Geomagic for SOLIDWORKS Training</fullName>
+        <default>false</default>
+        <label>Geomagic for SOLIDWORKS Training</label>
+    </customValue>
+    <customValue>
+        <fullName>HFWorks High Frequency Simulation for SOLIDWORKS</fullName>
+        <default>false</default>
+        <label>HFWorks High Frequency Simulation for SOLIDWORKS</label>
+    </customValue>
+    <customValue>
+        <fullName>Introduction to SOLIDWORKS Simulation</fullName>
+        <default>false</default>
+        <label>Introduction to SOLIDWORKS Simulation</label>
+    </customValue>
+    <customValue>
+        <fullName>Laser Cutting &amp; Engraving Service</fullName>
+        <default>false</default>
+        <label>Laser Cutting &amp; Engraving Service</label>
+    </customValue>
+    <customValue>
+        <fullName>MakerBot METHOD</fullName>
+        <default>false</default>
+        <label>MakerBot METHOD</label>
+    </customValue>
+    <customValue>
+        <fullName>MakerBot METHOD Carbon Fiber</fullName>
+        <default>false</default>
+        <label>MakerBot METHOD Carbon Fiber</label>
+    </customValue>
+    <customValue>
+        <fullName>MakerBot METHOD X</fullName>
+        <default>false</default>
+        <label>MakerBot METHOD X</label>
+    </customValue>
+    <customValue>
+        <fullName>MakerBot Replicator</fullName>
+        <default>false</default>
+        <label>MakerBot Replicator</label>
+    </customValue>
+    <customValue>
+        <fullName>Managing SOLIDWORKS Data in the 3DEXPERIENCE Platform</fullName>
+        <default>false</default>
+        <label>Managing SOLIDWORKS Data in the 3DEXPERIENCE Platform</label>
+    </customValue>
+    <customValue>
+        <fullName>Mastercam</fullName>
+        <default>false</default>
+        <label>Mastercam</label>
+    </customValue>
+    <customValue>
+        <fullName>MySolidWorks</fullName>
+        <default>false</default>
+        <label>MySolidWorks</label>
+    </customValue>
+    <customValue>
+        <fullName>NESTINGWorks</fullName>
+        <default>false</default>
+        <label>NESTINGWorks</label>
+    </customValue>
+    <customValue>
+        <fullName>NETVIBES OnePart</fullName>
+        <default>false</default>
+        <label>NETVIBES OnePart</label>
+    </customValue>
+    <customValue>
+        <fullName>Not Specified</fullName>
+        <default>false</default>
+        <label>Not Specified</label>
+    </customValue>
+    <customValue>
+        <fullName>Objet1000 Plus</fullName>
+        <default>false</default>
+        <label>Objet1000 Plus</label>
+    </customValue>
+    <customValue>
+        <fullName>Objet24 Desktop</fullName>
+        <default>false</default>
+        <label>Objet24 Desktop</label>
+    </customValue>
+    <customValue>
+        <fullName>Objet260 Connex3</fullName>
+        <default>false</default>
+        <label>Objet260 Connex3</label>
+    </customValue>
+    <customValue>
+        <fullName>Objet30 Prime</fullName>
+        <default>false</default>
+        <label>Objet30 Prime</label>
+    </customValue>
+    <customValue>
+        <fullName>Objet30 Pro</fullName>
+        <default>false</default>
+        <label>Objet30 Pro</label>
+    </customValue>
+    <customValue>
+        <fullName>PlantWorks</fullName>
+        <default>false</default>
+        <label>PlantWorks</label>
+    </customValue>
+    <customValue>
+        <fullName>Pool Pattern Pro</fullName>
+        <default>false</default>
+        <label>Pool Pattern Pro</label>
+    </customValue>
+    <customValue>
+        <fullName>PostProcess</fullName>
+        <default>false</default>
+        <label>PostProcess</label>
+    </customValue>
+    <customValue>
+        <fullName>Post Processing Service</fullName>
+        <default>false</default>
+        <label>Post Processing Service</label>
+    </customValue>
+    <customValue>
+        <fullName>Professional Services</fullName>
+        <default>false</default>
+        <label>Professional Services</label>
+    </customValue>
+    <customValue>
+        <fullName>Programming</fullName>
+        <default>false</default>
+        <label>Programming</label>
+    </customValue>
+    <customValue>
+        <fullName>Project Engineering Group</fullName>
+        <default>false</default>
+        <label>Project Engineering Group</label>
+    </customValue>
+    <customValue>
+        <fullName>Project Management</fullName>
+        <default>false</default>
+        <label>Project Management</label>
+    </customValue>
+    <customValue>
+        <fullName>Project Planner</fullName>
+        <default>false</default>
+        <label>Project Planner</label>
+    </customValue>
+    <customValue>
+        <fullName>Rapid Prototyping</fullName>
+        <default>false</default>
+        <label>Rapid Prototyping</label>
+    </customValue>
+    <customValue>
+        <fullName>Simulation</fullName>
+        <default>false</default>
+        <label>Simulation</label>
+    </customValue>
+    <customValue>
+        <fullName>SIMULIA</fullName>
+        <default>false</default>
+        <label>SIMULIA</label>
+    </customValue>
+    <customValue>
+        <fullName>SIMULIA Simulation Foundation</fullName>
+        <default>false</default>
+        <label>SIMULIA Simulation Foundation</label>
+    </customValue>
+    <customValue>
+        <fullName>SIMULIA Structural Designer</fullName>
+        <default>false</default>
+        <label>SIMULIA Structural Designer</label>
+    </customValue>
+    <customValue>
+        <fullName>SIMULIA Structural Engineer</fullName>
+        <default>false</default>
+        <label>SIMULIA Structural Engineer</label>
+    </customValue>
+    <customValue>
+        <fullName>SIMULIA Structural Mechanics Engineer</fullName>
+        <default>false</default>
+        <label>SIMULIA Structural Mechanics Engineer</label>
+    </customValue>
+    <customValue>
+        <fullName>SIMULIA Structural Performance Engineer</fullName>
+        <default>false</default>
+        <label>SIMULIA Structural Performance Engineer</label>
+    </customValue>
+    <customValue>
+        <fullName>SIMULIA Structural Professional Engineer</fullName>
+        <default>false</default>
+        <label>SIMULIA Structural Professional Engineer</label>
+    </customValue>
+    <customValue>
+        <fullName>SIMULIA Structural Simulation Engineer</fullName>
+        <default>false</default>
+        <label>SIMULIA Structural Simulation Engineer</label>
+    </customValue>
+    <customValue>
+        <fullName>Small Business Startup Assistance</fullName>
+        <default>false</default>
+        <label>Small Business Startup Assistance</label>
+    </customValue>
+    <customValue>
+        <fullName>SolidCAM</fullName>
+        <default>false</default>
+        <label>SolidCAM</label>
+    </customValue>
+    <customValue>
+        <fullName>SolidProfessor</fullName>
+        <default>false</default>
+        <label>SolidProfessor</label>
+    </customValue>
+    <customValue>
+        <fullName>SOLIDWORKS 3D CAD</fullName>
+        <default>false</default>
+        <label>SOLIDWORKS 3D CAD</label>
+    </customValue>
+    <customValue>
+        <fullName>SOLIDWORKS 3D Creator</fullName>
+        <default>false</default>
+        <label>SOLIDWORKS 3D Creator</label>
+    </customValue>
+    <customValue>
+        <fullName>SOLIDWORKS 3D Sculptor</fullName>
+        <default>false</default>
+        <label>SOLIDWORKS 3D Sculptor</label>
+    </customValue>
+    <customValue>
+        <fullName>SOLIDWORKS Advanced Part Modeling</fullName>
+        <default>false</default>
+        <label>SOLIDWORKS Advanced Part Modeling</label>
+    </customValue>
+    <customValue>
+        <fullName>SOLIDWORKS API</fullName>
+        <default>false</default>
+        <label>SOLIDWORKS API</label>
+    </customValue>
+    <customValue>
+        <fullName>SOLIDWORKS Assembly Modeling</fullName>
+        <default>false</default>
+        <label>SOLIDWORKS Assembly Modeling</label>
+    </customValue>
+    <customValue>
+        <fullName>SOLIDWORKS CAM</fullName>
+        <default>false</default>
+        <label>SOLIDWORKS CAM</label>
+    </customValue>
+    <customValue>
+        <fullName>SOLIDWORKS CAM Essentials</fullName>
+        <default>false</default>
+        <label>SOLIDWORKS CAM Essentials</label>
+    </customValue>
+    <customValue>
+        <fullName>SOLIDWORKS CAM Professional</fullName>
+        <default>false</default>
+        <label>SOLIDWORKS CAM Professional</label>
+    </customValue>
+    <customValue>
+        <fullName>SOLIDWORKS CAM Standard</fullName>
+        <default>false</default>
+        <label>SOLIDWORKS CAM Standard</label>
+    </customValue>
+    <customValue>
+        <fullName>SOLIDWORKS Cloud</fullName>
+        <default>false</default>
+        <label>SOLIDWORKS Cloud</label>
+    </customValue>
+    <customValue>
+        <fullName>SOLIDWORKS Composer</fullName>
+        <default>false</default>
+        <label>SOLIDWORKS Composer</label>
+    </customValue>
+    <customValue>
+        <fullName>SOLIDWORKS Composer Essentials</fullName>
+        <default>false</default>
+        <label>SOLIDWORKS Composer Essentials</label>
+    </customValue>
+    <customValue>
+        <fullName>SOLIDWORKS Costing</fullName>
+        <default>false</default>
+        <label>SOLIDWORKS Costing</label>
+    </customValue>
+    <customValue>
+        <fullName>SOLIDWORKS CSWP Exam Preparation Workshop</fullName>
+        <default>false</default>
+        <label>SOLIDWORKS CSWP Exam Preparation Workshop</label>
+    </customValue>
+    <customValue>
+        <fullName>SOLIDWORKS Design Checker</fullName>
+        <default>false</default>
+        <label>SOLIDWORKS Design Checker</label>
+    </customValue>
+    <customValue>
+        <fullName>SOLIDWORKS Drawings</fullName>
+        <default>false</default>
+        <label>SOLIDWORKS Drawings</label>
+    </customValue>
+    <customValue>
+        <fullName>SOLIDWORKS Drawing Service</fullName>
+        <default>false</default>
+        <label>SOLIDWORKS Drawing Service</label>
+    </customValue>
+    <customValue>
+        <fullName>SOLIDWORKS Education Edition</fullName>
+        <default>false</default>
+        <label>SOLIDWORKS Education Edition</label>
+    </customValue>
+    <customValue>
+        <fullName>SOLIDWORKS Electrical</fullName>
+        <default>false</default>
+        <label>SOLIDWORKS Electrical</label>
+    </customValue>
+    <customValue>
+        <fullName>SOLIDWORKS Electrical 3D</fullName>
+        <default>false</default>
+        <label>SOLIDWORKS Electrical 3D</label>
+    </customValue>
+    <customValue>
+        <fullName>SOLIDWORKS Electrical 3D and Electrical Routing</fullName>
+        <default>false</default>
+        <label>SOLIDWORKS Electrical 3D and Electrical Routing</label>
+    </customValue>
+    <customValue>
+        <fullName>SOLIDWORKS Electrical Advanced</fullName>
+        <default>false</default>
+        <label>SOLIDWORKS Electrical Advanced</label>
+    </customValue>
+    <customValue>
+        <fullName>SOLIDWORKS Electrical Routing</fullName>
+        <default>false</default>
+        <label>SOLIDWORKS Electrical Routing</label>
+    </customValue>
+    <customValue>
+        <fullName>SOLIDWORKS Electrical Schematic</fullName>
+        <default>false</default>
+        <label>SOLIDWORKS Electrical Schematic</label>
+    </customValue>
+    <customValue>
+        <fullName>SOLIDWORKS Electrical Schematic Professional</fullName>
+        <default>false</default>
+        <label>SOLIDWORKS Electrical Schematic Professional</label>
+    </customValue>
+    <customValue>
+        <fullName>SOLIDWORKS Electrical Schematic Standard</fullName>
+        <default>false</default>
+        <label>SOLIDWORKS Electrical Schematic Standard</label>
+    </customValue>
+    <customValue>
+        <fullName>SOLIDWORKS Electronic Cooling</fullName>
+        <default>false</default>
+        <label>SOLIDWORKS Electronic Cooling</label>
+    </customValue>
+    <customValue>
+        <fullName>SOLIDWORKS Essentials</fullName>
+        <default>false</default>
+        <label>SOLIDWORKS Essentials</label>
+    </customValue>
+    <customValue>
+        <fullName>SOLIDWORKS Essentials Refresher</fullName>
+        <default>false</default>
+        <label>SOLIDWORKS Essentials Refresher</label>
+    </customValue>
+    <customValue>
+        <fullName>SOLIDWORKS Extended Reality (XR) Exporter</fullName>
+        <default>false</default>
+        <label>SOLIDWORKS Extended Reality (XR) Exporter</label>
+    </customValue>
+    <customValue>
+        <fullName>SOLIDWORKS Flow Simulation</fullName>
+        <default>false</default>
+        <label>SOLIDWORKS Flow Simulation</label>
+    </customValue>
+    <customValue>
+        <fullName>SOLIDWORKS FloXpress</fullName>
+        <default>false</default>
+        <label>SOLIDWORKS FloXpress</label>
+    </customValue>
+    <customValue>
+        <fullName>SOLIDWORKS HVAC Applications</fullName>
+        <default>false</default>
+        <label>SOLIDWORKS HVAC Applications</label>
+    </customValue>
+    <customValue>
+        <fullName>SOLIDWORKS Inspection</fullName>
+        <default>false</default>
+        <label>SOLIDWORKS Inspection</label>
+    </customValue>
+    <customValue>
+        <fullName>SOLIDWORKS Large Assembly and Drawing Workshop</fullName>
+        <default>false</default>
+        <label>SOLIDWORKS Large Assembly and Drawing Workshop</label>
+    </customValue>
+    <customValue>
+        <fullName>SOLIDWORKS Large Assembly Service</fullName>
+        <default>false</default>
+        <label>SOLIDWORKS Large Assembly Service</label>
+    </customValue>
+    <customValue>
+        <fullName>SOLIDWORKS Machinist</fullName>
+        <default>false</default>
+        <label>SOLIDWORKS Machinist</label>
+    </customValue>
+    <customValue>
+        <fullName>SOLIDWORKS Manage</fullName>
+        <default>false</default>
+        <label>SOLIDWORKS Manage</label>
+    </customValue>
+    <customValue>
+        <fullName>SOLIDWORKS MBD</fullName>
+        <default>false</default>
+        <label>SOLIDWORKS MBD</label>
+    </customValue>
+    <customValue>
+        <fullName>SOLIDWORKS Mold Design</fullName>
+        <default>false</default>
+        <label>SOLIDWORKS Mold Design</label>
+    </customValue>
+    <customValue>
+        <fullName>SOLIDWORKS Motion</fullName>
+        <default>false</default>
+        <label>SOLIDWORKS Motion</label>
+    </customValue>
+    <customValue>
+        <fullName>SOLIDWORKS Motion Manager</fullName>
+        <default>false</default>
+        <label>SOLIDWORKS Motion Manager</label>
+    </customValue>
+    <customValue>
+        <fullName>SOLIDWORKS PCB</fullName>
+        <default>false</default>
+        <label>SOLIDWORKS PCB</label>
+    </customValue>
+    <customValue>
+        <fullName>SOLIDWORKS PDM</fullName>
+        <default>false</default>
+        <label>SOLIDWORKS PDM</label>
+    </customValue>
+    <customValue>
+        <fullName>SOLIDWORKS PDM Professional</fullName>
+        <default>false</default>
+        <label>SOLIDWORKS PDM Professional</label>
+    </customValue>
+    <customValue>
+        <fullName>SOLIDWORKS PDM Standard</fullName>
+        <default>false</default>
+        <label>SOLIDWORKS PDM Standard</label>
+    </customValue>
+    <customValue>
+        <fullName>SOLIDWORKS Pipe and Tube Routing</fullName>
+        <default>false</default>
+        <label>SOLIDWORKS Pipe and Tube Routing</label>
+    </customValue>
+    <customValue>
+        <fullName>SOLIDWORKS Plastics</fullName>
+        <default>false</default>
+        <label>SOLIDWORKS Plastics</label>
+    </customValue>
+    <customValue>
+        <fullName>SOLIDWORKS Plastics Premium</fullName>
+        <default>false</default>
+        <label>SOLIDWORKS Plastics Premium</label>
+    </customValue>
+    <customValue>
+        <fullName>SOLIDWORKS Plastics Professional</fullName>
+        <default>false</default>
+        <label>SOLIDWORKS Plastics Professional</label>
+    </customValue>
+    <customValue>
+        <fullName>SOLIDWORKS Plastics Standard</fullName>
+        <default>false</default>
+        <label>SOLIDWORKS Plastics Standard</label>
+    </customValue>
+    <customValue>
+        <fullName>SOLIDWORKS Premium</fullName>
+        <default>false</default>
+        <label>SOLIDWORKS Premium</label>
+    </customValue>
+    <customValue>
+        <fullName>SOLIDWORKS Professional</fullName>
+        <default>false</default>
+        <label>SOLIDWORKS Professional</label>
+    </customValue>
+    <customValue>
+        <fullName>SOLIDWORKS Research Edition</fullName>
+        <default>false</default>
+        <label>SOLIDWORKS Research Edition</label>
+    </customValue>
+    <customValue>
+        <fullName>SOLIDWORKS Routing</fullName>
+        <default>false</default>
+        <label>SOLIDWORKS Routing</label>
+    </customValue>
+    <customValue>
+        <fullName>SOLIDWORKS ScanTo3D</fullName>
+        <default>false</default>
+        <label>SOLIDWORKS ScanTo3D</label>
+    </customValue>
+    <customValue>
+        <fullName>SOLIDWORKS Services</fullName>
+        <default>false</default>
+        <label>SOLIDWORKS Services</label>
+    </customValue>
+    <customValue>
+        <fullName>SOLIDWORKS Sheet Metal</fullName>
+        <default>false</default>
+        <label>SOLIDWORKS Sheet Metal</label>
+    </customValue>
+    <customValue>
+        <fullName>SOLIDWORKS Sheet Metal Service</fullName>
+        <default>false</default>
+        <label>SOLIDWORKS Sheet Metal Service</label>
+    </customValue>
+    <customValue>
+        <fullName>SOLIDWORKS Simulation</fullName>
+        <default>false</default>
+        <label>SOLIDWORKS Simulation</label>
+    </customValue>
+    <customValue>
+        <fullName>SOLIDWORKS Simulation Essentials</fullName>
+        <default>false</default>
+        <label>SOLIDWORKS Simulation Essentials</label>
+    </customValue>
+    <customValue>
+        <fullName>SOLIDWORKS Simulation Nonlinear</fullName>
+        <default>false</default>
+        <label>SOLIDWORKS Simulation Nonlinear</label>
+    </customValue>
+    <customValue>
+        <fullName>SOLIDWORKS Simulation Premium</fullName>
+        <default>false</default>
+        <label>SOLIDWORKS Simulation Premium</label>
+    </customValue>
+    <customValue>
+        <fullName>SOLIDWORKS Simulation Premium Dynamics</fullName>
+        <default>false</default>
+        <label>SOLIDWORKS Simulation Premium Dynamics</label>
+    </customValue>
+    <customValue>
+        <fullName>SOLIDWORKS Simulation Professional</fullName>
+        <default>false</default>
+        <label>SOLIDWORKS Simulation Professional</label>
+    </customValue>
+    <customValue>
+        <fullName>SOLIDWORKS Simulation Standard</fullName>
+        <default>false</default>
+        <label>SOLIDWORKS Simulation Standard</label>
+    </customValue>
+    <customValue>
+        <fullName>SOLIDWORKS Simulation Term License</fullName>
+        <default>false</default>
+        <label>SOLIDWORKS Simulation Term License</label>
+    </customValue>
+    <customValue>
+        <fullName>SOLIDWORKS Simulation Xpress</fullName>
+        <default>false</default>
+        <label>SOLIDWORKS Simulation Xpress</label>
+    </customValue>
+    <customValue>
+        <fullName>SOLIDWORKS Standard</fullName>
+        <default>false</default>
+        <label>SOLIDWORKS Standard</label>
+    </customValue>
+    <customValue>
+        <fullName>SOLIDWORKS Student Edition</fullName>
+        <default>false</default>
+        <label>SOLIDWORKS Student Edition</label>
+    </customValue>
+    <customValue>
+        <fullName>SOLIDWORKS Subscription Service</fullName>
+        <default>false</default>
+        <label>SOLIDWORKS Subscription Service</label>
+    </customValue>
+    <customValue>
+        <fullName>SOLIDWORKS Surface Modeling</fullName>
+        <default>false</default>
+        <label>SOLIDWORKS Surface Modeling</label>
+    </customValue>
+    <customValue>
+        <fullName>SOLIDWORKS Sustainability</fullName>
+        <default>false</default>
+        <label>SOLIDWORKS Sustainability</label>
+    </customValue>
+    <customValue>
+        <fullName>SOLIDWORKS Term Licensing</fullName>
+        <default>false</default>
+        <label>SOLIDWORKS Term Licensing</label>
+    </customValue>
+    <customValue>
+        <fullName>SOLIDWORKS Training Assessment</fullName>
+        <default>false</default>
+        <label>SOLIDWORKS Training Assessment</label>
+    </customValue>
+    <customValue>
+        <fullName>SOLIDWORKS Visual Basic for Applications</fullName>
+        <default>false</default>
+        <label>SOLIDWORKS Visual Basic for Applications</label>
+    </customValue>
+    <customValue>
+        <fullName>SOLIDWORKS Visualize</fullName>
+        <default>false</default>
+        <label>SOLIDWORKS Visualize</label>
+    </customValue>
+    <customValue>
+        <fullName>SOLIDWORKS Visualize Professional</fullName>
+        <default>false</default>
+        <label>SOLIDWORKS Visualize Professional</label>
+    </customValue>
+    <customValue>
+        <fullName>SOLIDWORKS Visualize Rendering</fullName>
+        <default>false</default>
+        <label>SOLIDWORKS Visualize Rendering</label>
+    </customValue>
+    <customValue>
+        <fullName>SOLIDWORKS Visualize Standard</fullName>
+        <default>false</default>
+        <label>SOLIDWORKS Visualize Standard</label>
+    </customValue>
+    <customValue>
+        <fullName>SOLIDWORKS Weldments</fullName>
+        <default>false</default>
+        <label>SOLIDWORKS Weldments</label>
+    </customValue>
+    <customValue>
+        <fullName>Staffing</fullName>
+        <default>false</default>
+        <label>Staffing</label>
+    </customValue>
+    <customValue>
+        <fullName>Stratasys F123</fullName>
+        <default>false</default>
+        <label>Stratasys F123</label>
+    </customValue>
+    <customValue>
+        <fullName>Stratasys F170</fullName>
+        <default>false</default>
+        <label>Stratasys F170</label>
+    </customValue>
+    <customValue>
+        <fullName>Stratasys F270</fullName>
+        <default>false</default>
+        <label>Stratasys F270</label>
+    </customValue>
+    <customValue>
+        <fullName>Stratasys F370</fullName>
+        <default>false</default>
+        <label>Stratasys F370</label>
+    </customValue>
+    <customValue>
+        <fullName>Stratasys F370CR</fullName>
+        <default>false</default>
+        <label>Stratasys F370CR</label>
+    </customValue>
+    <customValue>
+        <fullName>Stratasys F770</fullName>
+        <default>false</default>
+        <label>Stratasys F770</label>
+    </customValue>
+    <customValue>
+        <fullName>Stratasys F900</fullName>
+        <default>false</default>
+        <label>Stratasys F900</label>
+    </customValue>
+    <customValue>
+        <fullName>Stratasys H350</fullName>
+        <default>false</default>
+        <label>Stratasys H350</label>
+    </customValue>
+    <customValue>
+        <fullName>Stratasys J35 Education Bundle</fullName>
+        <default>false</default>
+        <label>Stratasys J35 Education Bundle</label>
+    </customValue>
+    <customValue>
+        <fullName>Stratasys J35 Pro</fullName>
+        <default>false</default>
+        <label>Stratasys J35 Pro</label>
+    </customValue>
+    <customValue>
+        <fullName>Stratasys J55</fullName>
+        <default>false</default>
+        <label>Stratasys J55</label>
+    </customValue>
+    <customValue>
+        <fullName>Stratasys J55 Prime</fullName>
+        <default>false</default>
+        <label>Stratasys J55 Prime</label>
+    </customValue>
+    <customValue>
+        <fullName>Stratasys J5 MediJet</fullName>
+        <default>false</default>
+        <label>Stratasys J5 MediJet</label>
+    </customValue>
+    <customValue>
+        <fullName>Stratasys J750 / J735</fullName>
+        <default>false</default>
+        <label>Stratasys J750 / J735</label>
+    </customValue>
+    <customValue>
+        <fullName>Stratasys J750 Digital Anatomy</fullName>
+        <default>false</default>
+        <label>Stratasys J750 Digital Anatomy</label>
+    </customValue>
+    <customValue>
+        <fullName>Stratasys J826</fullName>
+        <default>false</default>
+        <label>Stratasys J826</label>
+    </customValue>
+    <customValue>
+        <fullName>Stratasys J835</fullName>
+        <default>false</default>
+        <label>Stratasys J835</label>
+    </customValue>
+    <customValue>
+        <fullName>Stratasys J850</fullName>
+        <default>false</default>
+        <label>Stratasys J850</label>
+    </customValue>
+    <customValue>
+        <fullName>Stratasys J850 / J835 / J826</fullName>
+        <default>false</default>
+        <label>Stratasys J850 / J835 / J826</label>
+    </customValue>
+    <customValue>
+        <fullName>Stratasys Neo Stereolithography</fullName>
+        <default>false</default>
+        <label>Stratasys Neo Stereolithography</label>
+    </customValue>
+    <customValue>
+        <fullName>Stratasys Origin One</fullName>
+        <default>false</default>
+        <label>Stratasys Origin One</label>
+    </customValue>
+    <customValue>
+        <fullName>Stratasys ProBleacher</fullName>
+        <default>false</default>
+        <label>Stratasys ProBleacher</label>
+    </customValue>
+    <customValue>
+        <fullName>Stratasys Support Contracts</fullName>
+        <default>false</default>
+        <label>Stratasys Support Contracts</label>
+    </customValue>
+    <customValue>
+        <fullName>Subscription Service 1 Year Plan</fullName>
+        <default>false</default>
+        <label>Subscription Service 1 Year Plan</label>
+    </customValue>
+    <customValue>
+        <fullName>Subscription Service 2 Year Plan</fullName>
+        <default>false</default>
+        <label>Subscription Service 2 Year Plan</label>
+    </customValue>
+    <customValue>
+        <fullName>Subscription Service 3 Year Plan</fullName>
+        <default>false</default>
+        <label>Subscription Service 3 Year Plan</label>
+    </customValue>
+    <customValue>
+        <fullName>SWOOD</fullName>
+        <default>false</default>
+        <label>SWOOD</label>
+    </customValue>
+    <customValue>
+        <fullName>Training Course</fullName>
+        <default>false</default>
+        <label>Training Course</label>
+    </customValue>
+    <customValue>
+        <fullName>Training Services</fullName>
+        <default>false</default>
+        <label>Training Services</label>
+    </customValue>
+    <customValue>
+        <fullName>Using SOLIDWORKS PDM</fullName>
+        <default>false</default>
+        <label>Using SOLIDWORKS PDM</label>
+    </customValue>
+    <customValue>
+        <fullName>Using the 3DEXPERIENCE Platform with SOLIDWORKS</fullName>
+        <default>false</default>
+        <label>Using the 3DEXPERIENCE Platform with SOLIDWORKS</label>
+    </customValue>
+    <customValue>
+        <fullName>Wazer</fullName>
+        <default>false</default>
+        <label>Wazer</label>
+    </customValue>
+    <customValue>
+        <fullName>Wazer Waterjet Cutter</fullName>
+        <default>false</default>
+        <label>Wazer Waterjet Cutter</label>
+    </customValue>
+    <description>Used for mapping Lead Product of Interest values from Pardot</description>
+    <masterLabel>Lead Product of Interest</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

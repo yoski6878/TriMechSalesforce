@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Software</fullName>
+    <columns>NAME</columns>
+    <columns>Region__c</columns>
+    <columns>Product_Group__c</columns>
+    <columns>OBJECT_ID</columns>
+    <columns>CURRENCY_ISO_CODE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Product_Group__c</field>
+        <operation>equals</operation>
+        <value>Software</value>
+    </filters>
+    <filters>
+        <field>To_Be_Deleted__c</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <label>Software</label>
+</ListView>

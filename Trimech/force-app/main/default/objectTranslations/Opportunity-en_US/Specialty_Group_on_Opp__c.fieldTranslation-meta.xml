@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Specialty Group for Specialty Products --></help>
+    <label><!-- Specialty Group on Opp --></label>
+    <name>Specialty_Group_on_Opp__c</name>
+</CustomFieldTranslation>

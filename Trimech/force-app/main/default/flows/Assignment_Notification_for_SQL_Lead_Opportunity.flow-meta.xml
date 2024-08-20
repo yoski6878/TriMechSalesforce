@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Send_Assignment_Email_Notification</name>
+        <label>Send Assignment Email Notification</label>
+        <locationX>440</locationX>
+        <locationY>539</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>emailAssignmentToOwner</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <elementReference>$Record.Owner.Email</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>sendRichBody</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>New Lead/Opportunity assigned to you</stringValue>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <decisions>
+        <name>Check_if_Owner_is_System_user</name>
+        <label>Check if Owner is System user</label>
+        <locationX>352</locationX>
+        <locationY>431</locationY>
+        <defaultConnector>
+            <targetReference>Send_Assignment_Email_Notification</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Not System User</defaultConnectorLabel>
+        <rules>
+            <name>System_User</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Is_Owner_a_System_User__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <label>System User</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Is_the_Owner_same_as_the_User</name>
+        <label>Is the Owner same as the User?</label>
+        <locationX>176</locationX>
+        <locationY>323</locationY>
+        <defaultConnector>
+            <targetReference>Check_if_Owner_is_System_user</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Owner is different than User</defaultConnectorLabel>
+        <rules>
+            <name>Owner_is_same_as_User</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Owner.Id</leftValueReference>
+                <operator>StartsWith</operator>
+                <rightValue>
+                    <elementReference>$User.Id</elementReference>
+                </rightValue>
+            </conditions>
+            <label>Owner is same as User</label>
+        </rules>
+    </decisions>
+    <description>Email sent whenever the owner is changed for an Open Lead/Opportunity record (Stage not equal to &quot;Sent to OM&quot; / &quot;Closed-Won&quot; / &quot;Closed-Lost&quot;)</description>
+    <formulas>
+        <name>FormulaLinkToRecord</name>
+        <dataType>String</dataType>
+        <expression>&quot;https://trimech12345.lightning.force.com/lightning/r/Opportunity/&quot;&amp;{!$Record.Id}&amp;&quot;/view&quot;</expression>
+    </formulas>
+    <interviewLabel>Assignment Notification for SQL Lead/Opportunity {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Assignment Notification for Open Lead/Opportunity</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <startElementReference>Is_the_Owner_same_as_the_User</startElementReference>
+    <status>Active</status>
+    <textTemplates>
+        <name>emailAssignmentToOwner</name>
+        <text>&lt;p&gt;A new {!$Record.RecordType.Name} is assigned to you, please find the details below:&lt;/p&gt;&lt;p&gt;Name: &lt;strong&gt;{!$Record.Name}&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;Link to record:&amp;nbsp;{!FormulaLinkToRecord}&lt;/p&gt;</text>
+    </textTemplates>
+</Flow>

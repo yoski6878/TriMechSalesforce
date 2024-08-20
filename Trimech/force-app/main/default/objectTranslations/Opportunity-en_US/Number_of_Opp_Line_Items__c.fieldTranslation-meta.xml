@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Number of Opp Line Items --></label>
+    <name>Number_of_Opp_Line_Items__c</name>
+</CustomFieldTranslation>

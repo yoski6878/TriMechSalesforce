@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Vendor__c</fullName>
+    <externalId>false</externalId>
+    <label>Vendor</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>TriMech</fullName>
+                <default>true</default>
+                <label>TriMech</label>
+            </value>
+            <value>
+                <fullName>Solidworks</fullName>
+                <default>false</default>
+                <label>Solidworks</label>
+            </value>
+            <value>
+                <fullName>Javelin</fullName>
+                <default>false</default>
+                <label>Javelin</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

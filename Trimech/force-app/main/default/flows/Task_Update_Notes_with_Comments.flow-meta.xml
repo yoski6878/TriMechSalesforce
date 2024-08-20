@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <formulas>
+        <name>formulaDescriptionShort</name>
+        <dataType>String</dataType>
+        <expression>IF(LEN({!$Record.Description})&gt;255,LEFT({!$Record.Description},252)&amp;&quot;...&quot;,{!$Record.Description})</expression>
+    </formulas>
+    <interviewLabel>Task - Update Notes with Comments {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Task - Update Notes with Comments</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Update_Notes_field_with_Comments_Description_field_value</name>
+        <label>Update Notes field with Comments (Description) field value</label>
+        <locationX>176</locationX>
+        <locationY>323</locationY>
+        <inputAssignments>
+            <field>Notes__c</field>
+            <value>
+                <elementReference>formulaDescriptionShort</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <startElementReference>Update_Notes_field_with_Comments_Description_field_value</startElementReference>
+    <status>Active</status>
+</Flow>

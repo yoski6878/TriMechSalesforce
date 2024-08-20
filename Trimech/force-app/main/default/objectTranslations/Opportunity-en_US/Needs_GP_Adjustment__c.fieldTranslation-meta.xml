@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Check this box if this order needs a GP adjustment. --></help>
+    <label><!-- Needs GP Adjustment --></label>
+    <name>Needs_GP_Adjustment__c</name>
+</CustomFieldTranslation>

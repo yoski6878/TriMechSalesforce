@@ -1,0 +1,38 @@
+.THIS .parentwide {
+    width:inherit !important;
+}
+
+.THIS .extraSmall {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.THIS .flex-icon {
+    padding-top: .75rem;
+    display: table-cell;
+}
+
+.THIS .c-container {
+    border: 1px solid #d8dde6;
+    margin: 10px 5px 0 5px;
+}
+
+.THIS .slds-accordion__summary-heading{
+        font-weight: bold;
+}
+
+.THIS .slds-form-element__icon{
+    padding-top: 0px;
+}
+
+.THIS .slds-form-element__label{
+    padding-top: 0px;
+}
+
+.THIS .customIcon div{
+    vertical-align: center !important;
+}
+ 
+.THIS.customIcon div{
+    vertical-align: center !important;
+}

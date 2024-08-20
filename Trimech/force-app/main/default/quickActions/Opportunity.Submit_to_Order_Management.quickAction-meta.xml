@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QuickAction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Screen flow form for Order Submission</description>
+    <flowDefinition>Submit_To_Order_Management_Screen_Flow</flowDefinition>
+    <label>Submit to Order Management</label>
+    <optionsCreateFeedItem>false</optionsCreateFeedItem>
+    <type>Flow</type>
+</QuickAction>

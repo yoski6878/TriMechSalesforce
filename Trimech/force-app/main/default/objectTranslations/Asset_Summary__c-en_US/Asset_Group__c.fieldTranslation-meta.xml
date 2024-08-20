@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Asset Group --></label>
+    <name>Asset_Group__c</name>
+    <picklistValues>
+        <masterLabel>CAD</masterLabel>
+        <translation><!-- CAD --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>CAM</masterLabel>
+        <translation><!-- CAM --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>CNC</masterLabel>
+        <translation><!-- CNC --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Elec</masterLabel>
+        <translation><!-- Elec --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>FDM</masterLabel>
+        <translation><!-- FDM --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Metal</masterLabel>
+        <translation><!-- Metal --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>PDM</masterLabel>
+        <translation><!-- PDM --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Polyjet</masterLabel>
+        <translation><!-- Polyjet --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Post Process</masterLabel>
+        <translation><!-- Post Process --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Printer</masterLabel>
+        <translation><!-- Printer --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Programmable PhotoPolymerization P3™</masterLabel>
+        <translation><!-- Programmable PhotoPolymerization P3™ --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>SAF</masterLabel>
+        <translation><!-- SAF --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>SIM</masterLabel>
+        <translation><!-- SIM --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>SLA</masterLabel>
+        <translation><!-- SLA --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>SLS</masterLabel>
+        <translation><!-- SLS --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Scanner</masterLabel>
+        <translation><!-- Scanner --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

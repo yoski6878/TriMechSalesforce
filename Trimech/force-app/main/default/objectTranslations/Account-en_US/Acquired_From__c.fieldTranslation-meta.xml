@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Acquired From --></label>
+    <name>Acquired_From__c</name>
+    <picklistValues>
+        <masterLabel>CADD Edge</masterLabel>
+        <translation><!-- CADD Edge --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>CAPINC</masterLabel>
+        <translation><!-- CAPINC --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Compumachine</masterLabel>
+        <translation><!-- Compumachine --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>InterPRO</masterLabel>
+        <translation><!-- InterPRO --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Javelin</masterLabel>
+        <translation><!-- Javelin --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Macdac</masterLabel>
+        <translation><!-- Macdac --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

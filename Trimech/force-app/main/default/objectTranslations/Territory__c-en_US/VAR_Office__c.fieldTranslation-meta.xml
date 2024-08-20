@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- VAR Office --></label>
+    <name>VAR_Office__c</name>
+    <picklistValues>
+        <masterLabel>TriMech Phelps - NY-NE South</masterLabel>
+        <translation><!-- TriMech Phelps - NY-NE South --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>TriMech Phelps - QC-NE North</masterLabel>
+        <translation><!-- TriMech Phelps - QC-NE North --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>TriMech Sherretz - South Central</masterLabel>
+        <translation><!-- TriMech Sherretz - South Central --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>TriMech Sherretz - Southeast</masterLabel>
+        <translation><!-- TriMech Sherretz - Southeast --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>TriMech Voll - Southeast</masterLabel>
+        <translation><!-- TriMech Voll - Southeast --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>TriMech Wicklein - Mid-Atlantic</masterLabel>
+        <translation><!-- TriMech Wicklein - Mid-Atlantic --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>TriMech Wicklein - Southeast</masterLabel>
+        <translation><!-- TriMech Wicklein - Southeast --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

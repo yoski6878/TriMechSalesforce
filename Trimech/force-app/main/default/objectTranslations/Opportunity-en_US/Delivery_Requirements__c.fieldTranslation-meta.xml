@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Delivery Requirements --></label>
+    <name>Delivery_Requirements__c</name>
+    <picklistValues>
+        <masterLabel>Jack</masterLabel>
+        <translation><!-- Jack --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Lift Gate</masterLabel>
+        <translation><!-- Lift Gate --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>N/A</masterLabel>
+        <translation><!-- N/A --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Pallet</masterLabel>
+        <translation><!-- Pallet --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

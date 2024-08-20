@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Direct/Indirect Orders --></label>
+    <name>Direct_Indirect_Orders__c</name>
+    <picklistValues>
+        <masterLabel>Both</masterLabel>
+        <translation><!-- Both --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Direct</masterLabel>
+        <translation><!-- Direct --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Indirect (Lyme, etc.)</masterLabel>
+        <translation><!-- Indirect (Lyme, etc.) --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

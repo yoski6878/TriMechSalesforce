@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Sales Rep (Hardware Outside) --></label>
+    <name>Sales_Rep_Hardware_Outside__c</name>
+    <relationshipLabel><!-- Accounts (Sales Rep (Hardware Outside)) --></relationshipLabel>
+</CustomFieldTranslation>

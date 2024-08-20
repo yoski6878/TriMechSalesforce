@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- 3DX Installation Status --></label>
+    <name>X3DX_Installation_Status__c</name>
+    <picklistValues>
+        <masterLabel>3DX Prohibited- ITAR or Other</masterLabel>
+        <translation><!-- 3DX Prohibited- ITAR or Other --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Mature Client- Tech Issues-Support Involved</masterLabel>
+        <translation><!-- Mature Client- Tech Issues-Support Involved --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Mature Client- Use/ Renew/ Grow</masterLabel>
+        <translation><!-- Mature Client- Use/ Renew/ Grow --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>New Client Activated- Pending Onboarding</masterLabel>
+        <translation><!-- New Client Activated- Pending Onboarding --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>New Client Not Activated Yet</masterLabel>
+        <translation><!-- New Client Not Activated Yet --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>New Client Onboarding Done – Launch Service Progressing</masterLabel>
+        <translation><!-- New Client Onboarding Done – Launch Service Progressing --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>New Client Onboarding Done- Starting To Use</masterLabel>
+        <translation><!-- New Client Onboarding Done- Starting To Use --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>New Client- Successfully Using</masterLabel>
+        <translation><!-- New Client- Successfully Using --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>New Client- Tech Issues- Support Involved</masterLabel>
+        <translation><!-- New Client- Tech Issues- Support Involved --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>No longer using 3DX</masterLabel>
+        <translation><!-- No longer using 3DX --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Not Interested in 3DX Now</masterLabel>
+        <translation><!-- Not Interested in 3DX Now --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

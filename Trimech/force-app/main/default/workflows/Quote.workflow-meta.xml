@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldUpdates>
+        <fullName>AVA_SFCLOUD__AvaTax_Update_Tax_Date</fullName>
+        <field>AVA_SFCLOUD__Tax_Date__c</field>
+        <formula>CreatedDate</formula>
+        <name>AvaTax - Update Tax Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Probability</fullName>
+        <field>Probability__c</field>
+        <formula>CASE( TEXT( Forecast_Type__c ) , 
+&quot;Most Likely&quot;, 0.75, 
+&quot;Commit&quot;, 0.90,
+Probability__c
+)</formula>
+        <name>Update Probability</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <rules>
+        <fullName>AVA_SFCLOUD__AvaTax - Update Quote Tax Date</fullName>
+        <actions>
+            <name>AVA_SFCLOUD__AvaTax_Update_Tax_Date</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <formula>ISBLANK (CreatedDate) = False</formula>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Probability</fullName>
+        <actions>
+            <name>Update_Probability</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <formula>ISCHANGED ( Forecast_Type__c )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+</Workflow>

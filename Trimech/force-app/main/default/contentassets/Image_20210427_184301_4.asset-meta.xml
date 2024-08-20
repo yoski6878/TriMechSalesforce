@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentAsset xmlns="http://soap.sforce.com/2006/04/metadata">
+    <isVisibleByExternalUsers>true</isVisibleByExternalUsers>
+    <language>en_US</language>
+    <masterLabel>Image_20210427_184301_4</masterLabel>
+    <versions>
+        <version>
+            <number>1</number>
+            <pathOnClient>Image_2021-04-27_18-43-01_4.jpg</pathOnClient>
+        </version>
+    </versions>
+</ContentAsset>

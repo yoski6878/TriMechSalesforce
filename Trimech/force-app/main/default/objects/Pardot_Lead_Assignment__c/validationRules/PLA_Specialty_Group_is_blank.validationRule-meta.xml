@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PLA_Specialty_Group_is_blank</fullName>
+    <active>true</active>
+    <description>When Solution Type is Specialty, this field should have a value selected.</description>
+    <errorConditionFormula>ISPICKVAL(Solution_Type__c, &apos;Specialty&apos;) &amp;&amp; 
+ISPICKVAL(PLA_Specialty_Group__c, &apos;&apos;)</errorConditionFormula>
+    <errorMessage>When Solution Type is set to Specialty, you must select a value for PLA Specialty Group.</errorMessage>
+</ValidationRule>

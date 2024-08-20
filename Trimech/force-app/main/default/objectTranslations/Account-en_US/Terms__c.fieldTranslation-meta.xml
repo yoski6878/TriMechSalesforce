@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Terms --></label>
+    <name>Terms__c</name>
+    <picklistValues>
+        <masterLabel>10% down net 365</masterLabel>
+        <translation><!-- 10% down net 365 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>25% Down Net 30</masterLabel>
+        <translation><!-- 25% Down Net 30 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>50% Down Net 15</masterLabel>
+        <translation><!-- 50% Down Net 15 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>50% Down Net 30</masterLabel>
+        <translation><!-- 50% Down Net 30 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>50% Down Net 60</masterLabel>
+        <translation><!-- 50% Down Net 60 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>50% Down/25% Deliv/25% Install</masterLabel>
+        <translation><!-- 50% Down/25% Deliv/25% Install --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>50% Down/25% Net 30/25% Net 60</masterLabel>
+        <translation><!-- 50% Down/25% Net 30/25% Net 60 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>50% deposit, 50% on delivery</masterLabel>
+        <translation><!-- 50% deposit, 50% on delivery --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>50% deposit/50% before shipping</masterLabel>
+        <translation><!-- 50% deposit/50% before shipping --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Due by Due Date</masterLabel>
+        <translation><!-- Due by Due Date --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Due on Receipt</masterLabel>
+        <translation><!-- Due on Receipt --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Net 10</masterLabel>
+        <translation><!-- Net 10 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Net 120</masterLabel>
+        <translation><!-- Net 120 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Net 15</masterLabel>
+        <translation><!-- Net 15 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Net 20</masterLabel>
+        <translation><!-- Net 20 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Net 30</masterLabel>
+        <translation><!-- Net 30 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Net 40</masterLabel>
+        <translation><!-- Net 40 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Net 45</masterLabel>
+        <translation><!-- Net 45 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Net 60</masterLabel>
+        <translation><!-- Net 60 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Net 90</masterLabel>
+        <translation><!-- Net 90 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>OAC</masterLabel>
+        <translation><!-- OAC --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Prepayment - Due in Advance</masterLabel>
+        <translation><!-- Prepayment - Due in Advance --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Special</masterLabel>
+        <translation><!-- Special --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

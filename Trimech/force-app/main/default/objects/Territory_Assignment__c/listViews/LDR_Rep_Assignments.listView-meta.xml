@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LDR_Rep_Assignments</fullName>
+    <columns>NAME</columns>
+    <columns>Account_Field_to_Assign__c</columns>
+    <columns>Specialty_Group__c</columns>
+    <columns>Assigned_User__c</columns>
+    <columns>Territory_Region__c</columns>
+    <columns>Territory__c</columns>
+    <columns>Territory_Product_Group__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Account_Field_to_Assign__c</field>
+        <operation>equals</operation>
+        <value>LDR</value>
+    </filters>
+    <filters>
+        <field>Territory_Region__c</field>
+        <operation>contains</operation>
+    </filters>
+    <filters>
+        <field>Territory_Product_Group__c</field>
+        <operation>contains</operation>
+    </filters>
+    <filters>
+        <field>Assigned_User__c</field>
+        <operation>contains</operation>
+    </filters>
+    <label>LDR Rep Assignments</label>
+    <sharedTo>
+        <group>Sales_Ops</group>
+    </sharedTo>
+</ListView>

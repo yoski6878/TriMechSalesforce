@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Proposal</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Proposals</value>
+    </caseValues>
+    <layouts>
+        <layout>Proposal Layout</layout>
+        <sections>
+            <label><!-- Avalara Tax --></label>
+            <section>Avalara Tax</section>
+        </sections>
+        <sections>
+            <label><!-- NetSuite --></label>
+            <section>NetSuite</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Proposal Layout - Admin</layout>
+        <sections>
+            <label><!-- Avalara Tax --></label>
+            <section>Avalara Tax</section>
+        </sections>
+        <sections>
+            <label><!-- NetSuite --></label>
+            <section>NetSuite</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label><!-- Clone --></label>
+        <name>Clone</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Clone Proposal --></label>
+        <name>Clone_Proposal</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- SendEmail --></label>
+        <name>SendEmail</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Set to Primary --></label>
+        <name>Set_to_Primary</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Update Opportunity --></label>
+        <name>Update_Opportunity</name>
+    </quickActions>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Quote Line Items cannot be deleted because the Opportunity is Closed. --></errorMessage>
+        <name>Cannot_delete_QuoteLine_on_Closed_Opp</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- The Status can not be edited when the Forecast Type is Commit or Most Likely. Update Forecast Type to another value to edit Status. --></errorMessage>
+        <name>Lock_Status_Field</name>
+    </validationRules>
+</CustomObjectTranslation>

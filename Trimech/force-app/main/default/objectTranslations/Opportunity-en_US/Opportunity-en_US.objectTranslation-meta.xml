@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Lead/Opportunity</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Leads/Opportunities</value>
+    </caseValues>
+    <layouts>
+        <layout>Lead Layout</layout>
+        <sections>
+            <label><!-- Contact Information --></label>
+            <section>Contact Information</section>
+        </sections>
+        <sections>
+            <label><!-- Cross-Sell Referrals --></label>
+            <section>Cross-Sell Referrals</section>
+        </sections>
+        <sections>
+            <label><!-- Pardot Information 1 --></label>
+            <section>Pardot Information 1</section>
+        </sections>
+        <sections>
+            <label><!-- Pardot Information 2 --></label>
+            <section>Pardot Information 2</section>
+        </sections>
+        <sections>
+            <label><!-- Sales Assignments --></label>
+            <section>Sales Assignments</section>
+        </sections>
+        <sections>
+            <label><!-- Source Information --></label>
+            <section>Source Information</section>
+        </sections>
+        <sections>
+            <label><!-- Training Information --></label>
+            <section>Training Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Opportunity Layout</layout>
+        <sections>
+            <label><!-- Contact Information --></label>
+            <section>Contact Information</section>
+        </sections>
+        <sections>
+            <label><!-- Cross-Sell Referrals --></label>
+            <section>Cross-Sell Referrals</section>
+        </sections>
+        <sections>
+            <label><!-- NetSuite Information --></label>
+            <section>NetSuite Information</section>
+        </sections>
+        <sections>
+            <label><!-- Pardot Information 1 --></label>
+            <section>Pardot Information 1</section>
+        </sections>
+        <sections>
+            <label><!-- Pardot Information 2 --></label>
+            <section>Pardot Information 2</section>
+        </sections>
+        <sections>
+            <label><!-- Sales Assignments --></label>
+            <section>Sales Assignments</section>
+        </sections>
+        <sections>
+            <label><!-- Source Information --></label>
+            <section>Source Information</section>
+        </sections>
+        <sections>
+            <label><!-- Training Information --></label>
+            <section>Training Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Opportunity Layout - Admin</layout>
+        <sections>
+            <label><!-- Admin Only Fields --></label>
+            <section>Admin Only Fields</section>
+        </sections>
+        <sections>
+            <label><!-- Contact Information --></label>
+            <section>Contact Information</section>
+        </sections>
+        <sections>
+            <label><!-- Cross-Sell Referrals --></label>
+            <section>Cross-Sell Referrals</section>
+        </sections>
+        <sections>
+            <label><!-- NetSuite Information --></label>
+            <section>NetSuite Information</section>
+        </sections>
+        <sections>
+            <label><!-- Order Management (Admin Only) --></label>
+            <section>Order Management (Admin Only)</section>
+        </sections>
+        <sections>
+            <label><!-- Pardot Information 1 --></label>
+            <section>Pardot Information 1</section>
+        </sections>
+        <sections>
+            <label><!-- Pardot Information 2 --></label>
+            <section>Pardot Information 2</section>
+        </sections>
+        <sections>
+            <label><!-- Sales Assignments --></label>
+            <section>Sales Assignments</section>
+        </sections>
+        <sections>
+            <label><!-- Source Information --></label>
+            <section>Source Information</section>
+        </sections>
+        <sections>
+            <label><!-- Training Information --></label>
+            <section>Training Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Opportunity Read-Only for Reps</layout>
+        <sections>
+            <label><!-- Contact Information --></label>
+            <section>Contact Information</section>
+        </sections>
+        <sections>
+            <label><!-- Cross-Sell Referrals --></label>
+            <section>Cross-Sell Referrals</section>
+        </sections>
+        <sections>
+            <label><!-- NetSuite Information --></label>
+            <section>NetSuite Information</section>
+        </sections>
+        <sections>
+            <label><!-- Pardot Information 1 --></label>
+            <section>Pardot Information 1</section>
+        </sections>
+        <sections>
+            <label><!-- Pardot Information 2 --></label>
+            <section>Pardot Information 2</section>
+        </sections>
+        <sections>
+            <label><!-- Sales Assignments --></label>
+            <section>Sales Assignments</section>
+        </sections>
+        <sections>
+            <label><!-- Source Information --></label>
+            <section>Source Information</section>
+        </sections>
+        <sections>
+            <label><!-- Training Information --></label>
+            <section>Training Information</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label><!-- Clone Existing Proposal --></label>
+        <name>Clone_Existing_Proposal</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Clone Opportunity --></label>
+        <name>Clone_Opportunity</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Create Proposal --></label>
+        <name>Create_Proposal</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Email --></label>
+        <name>Email</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Select Primary Proposal --></label>
+        <name>Select_Primary_Proposal</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Send to Order Management --></label>
+        <name>Send_to_Order_Management</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Submit to Order Management --></label>
+        <name>Submit_to_Order_Management</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Update Opportunity --></label>
+        <name>Update_Opportunity</name>
+    </quickActions>
+    <recordTypes>
+        <label><!-- Lead --></label>
+        <name>Lead</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Opportunity --></label>
+        <name>Opportunity</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Fields will be read only when an Opportunity is Submitted to Order Management --></description>
+        <label><!-- Opportunity Read-Only --></label>
+        <name>Opportunity_Read_Only</name>
+    </recordTypes>
+    <startsWith>Vowel</startsWith>
+    <validationRules>
+        <errorMessage><!-- Opportunity Line Items or Quotes cannot be deleted because the Opportunity is Closed. --></errorMessage>
+        <name>Cant_delete_Product_Quote_on_Closed_Opp</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- This opportunity can not be submitted to Order Management because the account has a current Credit Hold status. --></errorMessage>
+        <name>Credit_Hold</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Disqualification Reason field cannot be blank when Stage is Disqualified --></errorMessage>
+        <name>Disqualification_Reason_cannot_be_blank</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Inactive Product Line Item(s), please remove or replace the inactive Product Line Item --></errorMessage>
+        <name>Inactive_Product_on_OLI</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Opportunity Owner is not part of the Account Subsidiary, please change the Owner to be from the Account&apos;s Subsidiary. --></errorMessage>
+        <name>Incorrect_Opportunity_Owner</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please check the Opportunity Splits; the GP must not be split with an Inside Sales Rep (TDR). Please update to only list the appropriate Client Exec in the Opportunity Splits tab. --></errorMessage>
+        <name>Incorrect_Split_Owner</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Inside Sales Rep cannot be blank for Inside Influenced or Inside Direct sales. --></errorMessage>
+        <name>Inside_Sales_Rep_cannot_be_blank</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Inside Sales cannot be empty --></errorMessage>
+        <name>Inside_Sales_cannot_be_empty</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Invalid Product Group! --></errorMessage>
+        <name>Invalid_Product_Group</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Loss Reason field cannot be blank when Stage is Closed Lost --></errorMessage>
+        <name>Loss_Reason_cannot_be_blank</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- No edits are allowed for Closed Opportunities. Please contact your system administrator for assistance. --></errorMessage>
+        <name>No_Edits_Allowed_For_Closed_Opps</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- No edits are allowed for Closed Opps. Please contact your system administrator for assistance. --></errorMessage>
+        <name>Opp_Read_Only_No_Edits_Allowed</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- When Cross-Sell Referral = Yes, the following fields must be populated: Business Unit Referred From, Business Unit Referred To, Rep Referred From. --></errorMessage>
+        <name>Referral_Required_Fields</name>
+    </validationRules>
+</CustomObjectTranslation>

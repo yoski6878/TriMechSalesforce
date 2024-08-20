@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Send_Assignment_Email_Notification</name>
+        <label>Send Assignment Email Notification</label>
+        <locationX>50</locationX>
+        <locationY>539</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>txtTempEmailBody</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <elementReference>$Record.Owner.Email</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>sendRichBody</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>Neglected Lead Alert</stringValue>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <decisions>
+        <description>Check if Owner is TriMech Admin or TriMech Marketing user, then ignore the email notifications</description>
+        <name>Check_if_Owner_is_System_user</name>
+        <label>Check if Owner is System user</label>
+        <locationX>182</locationX>
+        <locationY>431</locationY>
+        <defaultConnectorLabel>System User</defaultConnectorLabel>
+        <rules>
+            <name>Not_System_User</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Is_Owner_a_System_User__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Send_Assignment_Email_Notification</targetReference>
+            </connector>
+            <label>Not System User</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Is_the_Owner_an_Active_User</name>
+        <label>Is the Owner an Active User?</label>
+        <locationX>380</locationX>
+        <locationY>323</locationY>
+        <defaultConnectorLabel>Owner is Inactive User</defaultConnectorLabel>
+        <rules>
+            <name>Owner_is_Active_User</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Owner.IsActive</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Check_if_Owner_is_System_user</targetReference>
+            </connector>
+            <label>Owner is Active User</label>
+        </rules>
+    </decisions>
+    <description>Neglected Leads Alert Email - Individual record alerts</description>
+    <interviewLabel>Neglected Leads Alert Email {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Neglected Leads Alert Email</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <startElementReference>Is_the_Owner_an_Active_User</startElementReference>
+    <status>Active</status>
+    <textTemplates>
+        <name>txtTempEmailBody</name>
+        <text>&lt;p&gt;The Lead &lt;a href=&quot;https://trimech12345.lightning.force.com/lightning/r/{!$Record.Id}/view&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;{!$Record.Name}&lt;/a&gt; assigned to you is marked as Neglected.&lt;/p&gt;</text>
+    </textTemplates>
+</Flow>
