@@ -15,9 +15,7 @@ public with sharing class AccountSummarizeAssetsQueueable implements Queueable {
         
             Asset_Summary__c[] newAssetSummaries = new Asset_Summary__c[]{};
 
-            /*
-            //List<Asset> acctAssets = [SELECT Id, Asset_Group__c, Quantity FROM Asset WHERE Status = 'Active' AND Asset_Group__c != null AND Quantity != null AND AccountId = :acct];
-            List<Asset> acctAssets = [SELECT Id, Asset_Group__c, Quantity FROM Asset WHERE Asset_Group__c != null AND Quantity != null AND AccountId = :acct];
+            List<Asset> acctAssets = [SELECT Id, Asset_Group__c, Quantity FROM Asset WHERE Status = 'Active' AND Asset_Group__c != null AND Quantity != null AND AccountId = :acct];
 
             if(!acctAssets.isEmpty()) {
                 Map<String,Decimal> groupToQuantity = new Map<String,Decimal>();
@@ -29,27 +27,6 @@ public with sharing class AccountSummarizeAssetsQueueable implements Queueable {
                 
                 for(String grpType : groupToQuantity.keySet()){
                     if(groupToQuantity.get(grpType) > 0.0) newAssetSummaries.add(new Asset_Summary__c(Account__c = acct, Asset_Group__c = grpType, Asset_Count__c = groupToQuantity.get(grpType), Upsert_Key__c = acct + grpType));
-                }
-            } */
-            List<Asset> acctAssets = [SELECT Id, Asset_Group__c, Quantity, Status, RecordTypeId FROM Asset WHERE Asset_Group__c != null AND Quantity != null AND AccountId = :acct];
-            String recordTypeSoftware = System.Label.Asset_RecordTypeId_Software;
-            if(!acctAssets.isEmpty()) {
-                Map<String,Decimal> groupToQuantity = new Map<String,Decimal>();
-                for(Asset a : acctAssets){
-                    if(a.RecordTypeId == recordTypeSoftware) {
-                        Decimal qnt = a.Quantity;
-                        if(groupToQuantity.containsKey(a.Asset_Group__c)) {qnt += groupToQuantity.get(a.Asset_Group__c);}
-                        groupToQuantity.put(a.Asset_Group__c,qnt);
-                    }
-                    else if (a.Status == 'Active') {
-                        Decimal qnt = a.Quantity;
-                        if(groupToQuantity.containsKey(a.Asset_Group__c)) {qnt += groupToQuantity.get(a.Asset_Group__c);}
-                        groupToQuantity.put(a.Asset_Group__c,qnt);
-                    }
-                }
-                
-                for(String grpType : groupToQuantity.keySet()){
-                    if(groupToQuantity.get(grpType) > 0.0) {newAssetSummaries.add(new Asset_Summary__c(Account__c = acct, Asset_Group__c = grpType, Asset_Count__c = groupToQuantity.get(grpType), Upsert_Key__c = acct + grpType));}
                 }
             }
             

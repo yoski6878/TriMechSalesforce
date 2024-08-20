@@ -21,7 +21,7 @@ public class BatchDeactivateAssets implements Database.Batchable<sObject>, Sched
                                             Status_Calculated__c,
                                             UsageEndDate
                                     FROM Asset 
-                                    WHERE Status = 'Active' AND RecordTypeId = '0126g000001OsLfAAK']);
+                                    WHERE Status != '']);
     }
 
     public void execute(Database.BatchableContext BC, List<Asset> scope) {

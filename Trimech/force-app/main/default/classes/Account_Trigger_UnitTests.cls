@@ -36,12 +36,8 @@ public class Account_Trigger_UnitTests {
         
         a1.Sales_Rep_Hardware_Inside__c = null;
         a1.Sales_Rep_Hardware_Outside__c = UserInfo.getUserId();
-        a1.Dedicated_SolidCAM_Rep__c = UserInfo.getUserId();
-        a1.Sales_Rep_Software__c = UserInfo.getUserId();
         a2.Sales_Rep_Hardware_Inside__c = null;
         a2.Sales_Rep_Hardware_Outside__c = UserInfo.getUserId();
-        a2.Sales_Rep_SolidCAM__c = UserInfo.getUserId();
-        a2.Dedicated_Sales_Rep_Software__c = UserInfo.getUserId();
         update new Account[]{a1,a2};
         
         System.assertEquals(2,[SELECT Id FROM AccountTeamMember WHERE UserId = :UserInfo.getUserId()].size());

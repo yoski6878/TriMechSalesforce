@@ -1,0 +1,96 @@
+<template>
+    <lightning-quick-action-panel header="Duplicate Accounts">
+       
+        <lightning-accordion class="example-accordion"
+                            allow-multiple-sections-open
+                         onsectiontoggle={handleToggleSection}
+                         active-section-name={activeSections}>
+        <lightning-accordion-section name="A" label="Master Client">
+            <lightning-spinner alternative-text="Loading" size="medium" if:true={showSpinner}></lightning-spinner>
+           <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_striped" aria-label="Example table of Opportunities with striped rows">
+                <thead>
+                    <tr class="slds-line-height_reset">
+                        <th class="" scope="col">
+                            <div class="slds-truncate" title="Name">Name</div>
+                        </th>
+                        <th class="" scope="col">
+                            <div class="slds-truncate" title="BillingStreet">Street</div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <template for:each={originalacts} for:item="listVariable">                      
+                        <tr class="slds-hint-parent" key={listVariable.Id}>
+                            <td data-label="Account Name" >
+                                
+                                <a href={listVariable.link} tabindex="-1" target="_blank">{listVariable.Name}</a>
+                            </td>  
+                            <td data-label="BillingStreet">
+                                <div class="slds-truncate" >{listVariable.BillingStreet}</div>
+                            </td>                
+                        </tr>
+                    </template>
+                    
+                </tbody>
+            </table>
+        </lightning-accordion-section>
+
+        <lightning-accordion-section name="B" label="Merge Client(s)">
+            <template if:true={showdupeaccounts}>
+                <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_striped" aria-label="Example table of Opportunities with striped rows">
+                    <thead>
+                        <tr class="slds-line-height_reset">
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="Name">Name</div>
+                            </th>
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="BillingStreet">Street</div>
+                            </th>
+                             <th class="" scope="col">
+                                
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <template for:each={dupeaccounts} for:item="listVariable">                      
+                            <tr class="slds-hint-parent" key={listVariable.Id}>
+                                <td data-label="Account Name" >
+                                    <!--<a href={listVariable.link} tabindex="-1" target="_blank">{listVariable.Name}</a>-->
+                                    {listVariable.Name} 
+                                        
+                                    
+                                </td> 
+                                <td data-label="BillingStreet">
+                                    <div class="slds-truncate" title="Cloudhub">{listVariable.BillingStreet}</div>
+                                </td>      
+                                <td data-label="BillingStreet">
+                                    <lightning-icon data-id={listVariable.Id} onclick={handledelete} icon-name="action:delete" size="xx-small" alternative-text="Delete" title="Delete"></lightning-icon>
+                                </td>               
+                            </tr>
+                        </template>
+                        
+                    </tbody>
+                </table>
+            </template>
+            <c-reusable-lookup label="" selected-icon-name="standard:account" object-label="Account"
+                                        object-api-name="Account" field-api-name="Name" other-field-api-name="BillingStreet"
+                                        onvalueselected={handleValueSelectedOnAccount} 
+                                        >
+                                    </c-reusable-lookup>
+        </lightning-accordion-section>
+
+    <lightning-textarea name="input2" label="Notes" onchange={handleNotesChange} value={notesValue}></lightning-textarea>
+
+    </lightning-accordion>
+     <div slot="footer">
+            
+            <lightning-button
+                variant="brand"
+                label="Submit"
+                class="slds-m-left_x-small"
+                onclick={handleSubmit}
+                disabled={isSubmitted}
+            ></lightning-button>
+        </div>
+    </lightning-quick-action-panel>
+</template>

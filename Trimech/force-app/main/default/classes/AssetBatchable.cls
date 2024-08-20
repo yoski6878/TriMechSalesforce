@@ -20,8 +20,7 @@ public with sharing class AssetBatchable implements Database.Batchable<Asset>{
             delete new List<Asset_Summary__c>([SELECT Id FROM Asset_Summary__c WHERE Account__c IN :accountIds]);
         
             Asset_Summary__c[] newAssetSummaries = new Asset_Summary__c[]{};
-            //for(Account acc : [SELECT Id, (SELECT Id, Asset_Group__c, Quantity FROM Assets WHERE Status = 'Active' AND Asset_Group__c != null AND Quantity != null) FROM Account WHERE Id IN :accountIds]){
-            for(Account acc : [SELECT Id, (SELECT Id, Asset_Group__c, Quantity FROM Assets WHERE Asset_Group__c != null AND Quantity != null) FROM Account WHERE Id IN :accountIds]){
+            for(Account acc : [SELECT Id, (SELECT Id, Asset_Group__c, Quantity FROM Assets WHERE Status = 'Active' AND Asset_Group__c != null AND Quantity != null) FROM Account WHERE Id IN :accountIds]){
                 if(!acc.Assets.isEmpty()){
                     Map<String,Decimal> groupToQuantity = new Map<String,Decimal>();
                     for(Asset a : acc.Assets){

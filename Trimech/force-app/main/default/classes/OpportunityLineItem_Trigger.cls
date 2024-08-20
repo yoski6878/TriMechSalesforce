@@ -13,12 +13,12 @@ public class OpportunityLineItem_Trigger {
     public static Boolean hasRunAfterDelete = false;
     public static Boolean hasRunAfterUnDelete = false;
 
-    public static void beforeInsert(List<OpportunityLineItem> newList,List<OpportunityLineItem> oldList, Map<Id,OpportunityLineItem> newMap, Map<Id,OpportunityLineItem> oldMap){
+    /*public static void beforeInsert(List<OpportunityLineItem> newList,List<OpportunityLineItem> oldList, Map<Id,OpportunityLineItem> newMap, Map<Id,OpportunityLineItem> oldMap){
 
         Set<Id> setProduct = new Set<Id>();
         Set<Id> setPBE = new Set<Id>();
 
-        
+        System.debug('TESTTT');
         // Set the sort order
         if (!newList.isEmpty()) {
             Id opportunityId = newList[0].OpportunityId;
@@ -32,6 +32,8 @@ public class OpportunityLineItem_Trigger {
                     // System.debug(oli);
                     if (oli.SortOrder != null) usedNumbers.add(oli.SortOrder);
                 }
+                
+                System.debug('qwerty'+usedNumbers);
 
                 if (!usedNumbers.isEmpty()) {
 
@@ -69,11 +71,17 @@ public class OpportunityLineItem_Trigger {
                 // Set any null SortOrders in the current list
                 for (OpportunityLineItem oli : res) {
                     if (oli.SortOrder == null || String.valueOf(oli.SortOrder).trim() == '') {
+                        system.debug('oli.SortOrder before'+oli.SortOrder);
+                        system.debug('nextSortOrder before'+nextSortOrder);
                         oli.SortOrder = nextSortOrder;
+                        system.debug('oli.SortOrder after'+oli.SortOrder);
+                        system.debug('nextSortOrder after'+nextSortOrder);
                         update oli;
+                        system.debug('nextSortOrder after'+nextSortOrder);
                         nextSortOrder = nextSortOrder + 1;
                     }
                 }
+                system.debug('TEST');
             }
 
             // Set the SortOrders for the added items
@@ -98,37 +106,47 @@ public class OpportunityLineItem_Trigger {
     
 
     }
-      
-    /*public static void beforeUpdate(List<OpportunityLineItem> newList,List<OpportunityLineItem> oldList, Map<Id,OpportunityLineItem> newMap, Map<Id,OpportunityLineItem> oldMap){
+         */
+    
+    public static void beforeInsert(List<OpportunityLineItem> newList){
+        List<String> Parentproducts = new List<String>();
+        List<String> childproducts = new List<String>();
+        List<String> products = new List<String>();
         
+        for(OpportunityLineItem inx : newList){
+            products.add(inx.product2Id);
+            /*if(String.isBlank(inx.Parent_Product__c))
+                Parentproducts.add(inx.product2Id);
+            else
+                childproducts.add(inx.product2Id);*/
+            
+        }
+        
+        Map<Id,Product2> productsMap = new Map<Id, Product2>([Select id,Parent_Product__c,(Select id from Products__r where id NOT in :products) from Product2 where id in:products]);
+        List<OpportunityLineItem> oliList = new List<OpportunityLineItem>();
+        for(OpportunityLineItem inx : newList){
+            for(Product2 rec : productsMap.get(inx.Product2Id).Products__r){
+                OpportunityLineItem oliRecord = new OpportunityLineItem();
+                oliRecord.OpportunityId = inx.OpportunityId;
+                oliRecord.Product2Id = rec.Id;
+                oliList.add(oliRecord);
+            }
+        }
+        if(!oliList.isEmpty()){
+            insert oliList;
+        }
+        
+    }
 
-    }*/
+      public static void beforeUpdate(List<OpportunityLineItem> newList,Map<Id,OpportunityLineItem> oldMap){
+        for(OpportunityLineItem inx: newList){
+            if(inx.Duration__c != NULL && inx.Unit_of_Measure__c ){
+                inx.UnitPrice = inx.ListPrice * (inx.Duration__c / 12)* inx.Quantity;
+            }
+        }
+    }
       
-    public static void afterInsert(List<OpportunityLineItem> newList,List<OpportunityLineItem> oldList, Map<Id,OpportunityLineItem> newMap, Map<Id,OpportunityLineItem> oldMap){
-        // for(OpportunityLineItem oli : newList){
-        //     List<OpportunityLineItem> res = [SELECT Id,SortOrder,Description,Name FROM OpportunityLineItem WHERE OpportunityId = :oli.OpportunityId];
-        //     for(OpportunityLineItem oli2 : res){
-        //         System.debug(oli2);
-        //     }
-        // }
-    }
-    
-    /*public static void afterUpdate(List<OpportunityLineItem> newList,List<OpportunityLineItem> oldList, Map<Id,OpportunityLineItem> newMap, Map<Id,OpportunityLineItem> oldMap){
-        
-         
-    }*/
-    
-    /*public static void beforeDelete(List<OpportunityLineItem> newList,List<OpportunityLineItem> oldList, Map<Id,OpportunityLineItem> newMap, Map<Id,OpportunityLineItem> oldMap){
-        //Implement business logic      
-    }
-        
-    public static void afterDelete(List<OpportunityLineItem> newList,List<OpportunityLineItem> oldList, Map<Id,OpportunityLineItem> newMap, Map<Id,OpportunityLineItem> oldMap){
-        //Implement business logic      
-    }
-    
-    public static void afterUnDelete(List<OpportunityLineItem> newList,List<OpportunityLineItem> oldList, Map<Id,OpportunityLineItem> newMap, Map<Id,OpportunityLineItem> oldMap){
-        //Implement business logic      
-    }*/  
+ 
     
     //Helper methods
     public static void setDefaultsfromProduct(List<OpportunityLineItem> oliList, Set<Id> setProduct, Set<Id> setPBE) {
@@ -153,6 +171,7 @@ public class OpportunityLineItem_Trigger {
                     
                 oli.Product_Category__c = prodMap.get(oli.Product2Id).Corresponding_Product_Category__c;
                 oli.Line_Description__c = prodMap.get(oli.Product2Id).Description;
+                system.debug('test'+ prodMap.get(oli.Product2Id).Commissionable__c);
                 oli.Commission__c = prodMap.get(oli.Product2Id).Commissionable__c;
                 oli.Vendor_Discount_Percent__c = prodMap.get(oli.Product2Id).Discount_Percent__c;
                 

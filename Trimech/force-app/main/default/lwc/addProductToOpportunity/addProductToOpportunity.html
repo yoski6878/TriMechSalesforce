@@ -1,0 +1,75 @@
+<template>
+    <template if:true={isSpinner}>
+        <lightning-spinner variant="brand" size="medium"></lightning-spinner>    
+    </template>
+
+    <lightning-quick-action-panel header={modalHeader}>
+
+        <template if:true={firstPage}>
+            <div class="slds-m-vertical_medium" style="display: flex; gap: 10px; width: -webkit-fill-available;">
+                <lightning-input style="width: -webkit-fill-available;" type="text" variant="label-hidden" placeholder="Search Products..." value={searchValue} onchange={handleSearchChange}></lightning-input>
+                <lightning-button-icon icon-name="utility:filterList" title="Filter" onclick={hideShowFilterModal}></lightning-button-icon>
+            </div>
+            <div style="display: flex; width: 100%;">
+                <div style={tableWidth}>
+                    <lightning-datatable
+                        data={dataTableFilterDataList}
+                        columns={firstTableColumns}
+                        key-field="productId"
+                        onrowselection={handleRowSelection}>
+                    </lightning-datatable>
+                </div>
+    
+                <template if:true={displayFilter}>
+                    <div style="width: 100%; border-top: solid #C9C9C9 1px; border-left: solid #C9C9C9 1px;">
+                        <div style="border-bottom: solid #C9C9C9 1px; border-right: solid #C9C9C9 1px; padding: 10px; display: flex; justify-content: space-between;">
+                            <h2>Quick Filter</h2>
+                            <lightning-button-icon icon-name="utility:close" variant="bare" alternative-text="close" title="close" onclick={restoreFilter}></lightning-button-icon>
+                        </div>
+    
+                        <div class="slds-modal__content slds-p-around_medium" style="border-right: solid #C9C9C9 1px">
+                            <lightning-radio-group name="radioGroup"
+                                label="Product Type"
+                                options={radioOptions}
+                                value={selectedType}
+                                type="radio"
+                                onchange={handleFilterChange}>
+                            </lightning-radio-group>
+                        </div>
+    
+                        <footer class="slds-modal__footer" style="border-right: solid #C9C9C9 1px">
+                            <button class="slds-button slds-button_neutral" onclick={restoreFilter} title="Restore Defaults">Cancel</button>
+                            <button class="slds-button slds-button_brand" onclick={applyFilter} title="Apply">Apply</button>
+                        </footer>
+                    </div>
+                </template>
+            </div> 
+        </template>
+        
+        <template if:true={secondPage}>
+            <div>
+                <lightning-datatable
+                        data={newProductList}
+                        columns={secondTableColumns}
+                        key-field="productId"
+                        show-row-number-column
+                        hide-checkbox-column
+                        suppress-bottom-bar
+                        oncellchange={handleDataChange}
+                        onrowaction={callRowAction}>
+                    </lightning-datatable>
+            </div>
+        </template>
+        
+        <div slot="footer">
+            <button class="slds-button slds-button_neutral" onclick={closeModal}>Cancel</button>
+            <template if:true={firstPage}>
+                <button class="slds-button slds-button_brand" disabled={disableNext} onclick={handleNextAction}>Next</button>
+            </template>
+            <template if:true={secondPage}>
+                <button class="slds-button slds-button_brand"   onclick={handleSaveAction}>Save</button> 
+            </template>
+            
+        </div>
+    </lightning-quick-action-panel>
+</template>
