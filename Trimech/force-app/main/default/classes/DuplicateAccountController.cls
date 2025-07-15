@@ -11,17 +11,24 @@ public class DuplicateAccountController {
         List<Account> submitRecords = new List<Account>();
         // Map<String,List<Account>> dupeAccounts = duplicateRecords(recordId);
         
-        for(Account acc : orignalAcc){
-            acc.isSubmitted__c = true;
-            acc.Notes__c = notes;
-            submitRecords.add(acc);
-        }
-        
+        Set<String> accountIds = new Set<String>();
+
         for(Account acc : duplicaAcc){
             acc.isSubmitted__c = true;
             acc.Notes__c = notes;
+            acc.Master_ClientId__c = recordId;
+            submitRecords.add(acc);
+            accountIds.add(acc.Id);
+        }
+
+
+        for(Account acc : orignalAcc){
+            acc.isSubmitted__c = true;
+            acc.Notes__c = notes;
+            acc.Merge_ClientIds__c =  String.join(new List<String>(accountIds), ', ');
             submitRecords.add(acc);
         }
+        
         
         
         String emailBody = '<p>Click the following link to view the record:</p>';
@@ -45,17 +52,34 @@ public class DuplicateAccountController {
         }
         
         
-        sendMail(system.label.Duplicate_Merge_Email_Address, orignalAcc[0].name + ' - Duplicate Account Submitted', emailBody);
+        sendMail(system.label.Duplicate_Merge_Email_Address, orignalAcc[0].name + ' - Duplicate Account Submitted', emailBody, recordId);
         //sendMail('Yosephkinfu@gmail.com', orignalAcc[0].name + ' - Duplicate Submitted', emailBody);
     }
     
-    public static void sendMail(String address, String subject, String body) {
+    public static void sendMail(String address, String subject, String body, String relatedToId) {
         // Create an email message object
         Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
         String[] toAddresses = new String[] {address};
             mail.setToAddresses(toAddresses);
         mail.setSubject(subject);
         mail.setHTMLBody(body);
+
+        if (relatedToId != null) {
+            mail.setWhatId(relatedToId);
+            mail.setSaveAsActivity(true); 
+        }
+
+
+        /*
+            String emailAddressId;
+            List<OrgWideEmailAddress> owdList = [SELECT Id FROM OrgWideEmailAddress WHERE Address='noreply@trimech.com'];
+            if(owdList.size()>0 ){
+                emailAddressId = owdList[0].Id;
+                mail.setOrgWideEmailAddressId(emailAddressId);
+            } 
+        */
+
+
         // Pass this email message to the built-in sendEmail method 
         // of the Messaging class
         Messaging.SendEmailResult[] results = Messaging.sendEmail(

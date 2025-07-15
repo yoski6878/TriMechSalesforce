@@ -15,10 +15,10 @@ public class OpportunityLineItem_Trigger {
 
     public static void beforeInsert(List<OpportunityLineItem> newList,List<OpportunityLineItem> oldList, Map<Id,OpportunityLineItem> newMap, Map<Id,OpportunityLineItem> oldMap){
 
-        Set<Id> setProduct = new Set<Id>();
+       Set<Id> setProduct = new Set<Id>();
         Set<Id> setPBE = new Set<Id>();
 
-        
+         /*S
         // Set the sort order
         if (!newList.isEmpty()) {
             Id opportunityId = newList[0].OpportunityId;
@@ -29,9 +29,9 @@ public class OpportunityLineItem_Trigger {
                 // Make sure that the SortOrders in the current list are sequential, starting at 1
                 List<Integer> usedNumbers = new List<Integer>();
                 for (OpportunityLineItem oli : res) {
-                    // System.debug(oli);
                     if (oli.SortOrder != null) usedNumbers.add(oli.SortOrder);
                 }
+                
 
                 if (!usedNumbers.isEmpty()) {
 
@@ -69,6 +69,7 @@ public class OpportunityLineItem_Trigger {
                 // Set any null SortOrders in the current list
                 for (OpportunityLineItem oli : res) {
                     if (oli.SortOrder == null || String.valueOf(oli.SortOrder).trim() == '') {
+                        
                         oli.SortOrder = nextSortOrder;
                         update oli;
                         nextSortOrder = nextSortOrder + 1;
@@ -81,11 +82,38 @@ public class OpportunityLineItem_Trigger {
                 oli.SortOrder = nextSortOrder;
                 nextSortOrder = nextSortOrder + 1;
             }
+        }*/
+			
+	   Map<Id, Integer> opportunityMaxSortOrder = new Map<Id, Integer>();
+
+        for (OpportunityLineItem oli : newList) {
+            if (oli.OpportunityId != null) {
+                opportunityMaxSortOrder.put(oli.OpportunityId, 0); 
+            }
         }
 
+        List<OpportunityLineItem> existingLineItems = [
+            SELECT OpportunityId, Sort_Order__c
+            FROM OpportunityLineItem
+            WHERE OpportunityId IN :opportunityMaxSortOrder.keySet()
+        ];
+
+        for (OpportunityLineItem existingItem : existingLineItems) {
+            Integer currentSortOrder = existingItem.Sort_Order__c == null ? 0 : Integer.valueOf(existingItem.Sort_Order__c);
+            Integer maxSortOrder = opportunityMaxSortOrder.get(existingItem.OpportunityId);
+            opportunityMaxSortOrder.put(existingItem.OpportunityId, Integer.valueOf(Math.max(maxSortOrder, currentSortOrder)));
+        }
+
+        for (OpportunityLineItem newOli : newList) {
+            Integer maxSortOrder = opportunityMaxSortOrder.get(newOli.OpportunityId);
+            newOli.Sort_Order__c = maxSortOrder + 1;
+            newOli.sortOrder = maxSortOrder + 1;
+            opportunityMaxSortOrder.put(newOli.OpportunityId, maxSortOrder + 1);
+        }  
+        
         for(OpportunityLineItem oli : newList){
             if(oli.Product2Id != null){ 
-				setProduct.add(oli.Product2Id);
+                setProduct.add(oli.Product2Id);
             }
             
             if(oli.PricebookEntryId != null){ 
@@ -95,47 +123,57 @@ public class OpportunityLineItem_Trigger {
         }
         
         if(!setProduct.isEmpty()) setDefaultsfromProduct(newList, setProduct, setPBE);   
-    
 
     }
-      
-    /*public static void beforeUpdate(List<OpportunityLineItem> newList,List<OpportunityLineItem> oldList, Map<Id,OpportunityLineItem> newMap, Map<Id,OpportunityLineItem> oldMap){
-        
+    
 
-    }*/
+      public static void beforeUpdate(List<OpportunityLineItem> newList,Map<Id,OpportunityLineItem> oldMap){
+       /* for(OpportunityLineItem inx: newList){
+             if(inx.Duration__c != NULL && !inx.No_Duration__c){
+                inx.UnitPrice = inx.ListPrice * (inx.Duration__c / 12);
+            } 
+        } */
+    }
       
-    public static void afterInsert(List<OpportunityLineItem> newList,List<OpportunityLineItem> oldList, Map<Id,OpportunityLineItem> newMap, Map<Id,OpportunityLineItem> oldMap){
-        // for(OpportunityLineItem oli : newList){
-        //     List<OpportunityLineItem> res = [SELECT Id,SortOrder,Description,Name FROM OpportunityLineItem WHERE OpportunityId = :oli.OpportunityId];
-        //     for(OpportunityLineItem oli2 : res){
-        //         System.debug(oli2);
-        //     }
-        // }
+    public static void validateMinimumQuantity(List<OpportunityLineItem> oliList) {
+        Set<Id> pricebookEntryIds = new Set<Id>();
+        for (OpportunityLineItem oli : oliList) {
+            if (oli.PricebookEntryId != null) {
+                pricebookEntryIds.add(oli.PricebookEntryId);
+            }
+        }
+
+        Map<Id, PricebookEntry> pbeMap = new Map<Id, PricebookEntry>(
+            [SELECT Id, Product2Id, Product2.Minimum_Quantity__c, Product2.Name 
+            FROM PricebookEntry 
+            WHERE Id IN :pricebookEntryIds]
+        );
+
+        for (OpportunityLineItem oli : oliList) {
+            if (oli.PricebookEntryId != null && pbeMap.containsKey(oli.PricebookEntryId)) {
+                PricebookEntry pbe = pbeMap.get(oli.PricebookEntryId);
+                Decimal minQty = pbe.Product2.Minimum_Quantity__c;
+                String productName = pbe.Product2.Name;
+
+                if (minQty != null && oli.Quantity < minQty) {
+                    oli.addError('Quantity for product "' + productName + '" is less than the minimum required (' + minQty + '). Please enter equal to or more than the minimum quantity.');
+                }
+            }
+        }
     }
-    
-    /*public static void afterUpdate(List<OpportunityLineItem> newList,List<OpportunityLineItem> oldList, Map<Id,OpportunityLineItem> newMap, Map<Id,OpportunityLineItem> oldMap){
-        
-         
-    }*/
-    
-    /*public static void beforeDelete(List<OpportunityLineItem> newList,List<OpportunityLineItem> oldList, Map<Id,OpportunityLineItem> newMap, Map<Id,OpportunityLineItem> oldMap){
-        //Implement business logic      
-    }
-        
-    public static void afterDelete(List<OpportunityLineItem> newList,List<OpportunityLineItem> oldList, Map<Id,OpportunityLineItem> newMap, Map<Id,OpportunityLineItem> oldMap){
-        //Implement business logic      
-    }
-    
-    public static void afterUnDelete(List<OpportunityLineItem> newList,List<OpportunityLineItem> oldList, Map<Id,OpportunityLineItem> newMap, Map<Id,OpportunityLineItem> oldMap){
-        //Implement business logic      
-    }*/  
+
+
+
+
+
+ 
     
     //Helper methods
     public static void setDefaultsfromProduct(List<OpportunityLineItem> oliList, Set<Id> setProduct, Set<Id> setPBE) {
         
 //        Nov-29-2021(TinaH): Removed the words "LIMIT 1" from below line.
 //        Map<Id, Product2> prodMap = new Map<Id, Product2>([SELECT Id, Description, Purchase_Price__c, Category__c, Discount_Percent__c, Commissionable__c, Corresponding_Product_Category__c FROM Product2 WHERE Id IN :setProduct LIMIT 1]);
-		Map<Id, Product2> prodMap = new Map<Id, Product2>([SELECT Id, Description, CurrencyIsoCode, Purchase_Price__c, Category__c, Discount_Percent__c, Commissionable__c, Corresponding_Product_Category__c, celigo_sfnsio__NetSuite_item_type__c FROM Product2 WHERE Id IN :setProduct]);
+        Map<Id, Product2> prodMap = new Map<Id, Product2>([SELECT Id, Description, CurrencyIsoCode, Purchase_Price__c, Category__c, Discount_Percent__c, Commissionable__c, Business_Unit__c, Corresponding_Product_Category__c, celigo_sfnsio__NetSuite_item_type__c FROM Product2 WHERE Id IN :setProduct]);
         Map<Id, PricebookEntry> pbeMap = new Map<Id, PricebookEntry>([SELECT Id, Purchase_Price__c FROM PricebookEntry WHERE Id IN :setPBE]);
         for (OpportunityLineItem oli : oliList){
             if(prodMap.containsKey(oli.Product2Id)){
@@ -152,8 +190,14 @@ public class OpportunityLineItem_Trigger {
                 }*/
                     
                 oli.Product_Category__c = prodMap.get(oli.Product2Id).Corresponding_Product_Category__c;
-                oli.Line_Description__c = prodMap.get(oli.Product2Id).Description;
+                if(!oli.Cloned_OLI__c) {
+                    oli.Line_Description__c = prodMap.get(oli.Product2Id).Description;
+                } else if(oli.Cloned_OLI__c) {
+                    oli.Line_Description__c = oli.Line_Description__c;
+                }
                 oli.Commission__c = prodMap.get(oli.Product2Id).Commissionable__c;
+                //4-Jun-25(TinaH): Added the assignment for Business_Unit__c field to pull the Business Unit of the Product selected
+                oli.Business_Unit__c = prodMap.get(oli.Product2Id).Business_Unit__c;
                 oli.Vendor_Discount_Percent__c = prodMap.get(oli.Product2Id).Discount_Percent__c;
                 
                 //Nov-24-2021(TinaH): Added the assignment for Category_Product__c field to pull the Category of the Product selected
@@ -163,12 +207,14 @@ public class OpportunityLineItem_Trigger {
                 oli.Product_Item_Type__c = prodMap.get(oli.Product2Id).celigo_sfnsio__NetSuite_item_type__c;
                 
             }
-            //Mar-21-2024(EustaceConsulting): pullihg purchase price from pricebook entry
+            //Mar-21-2024(EustaceConsulting): pulling purchase price from pricebook entry
             if(pbeMap.containsKey(oli.PricebookEntryId)){
                 oli.Purchase_Price__c = pbeMap.get(oli.PricebookEntryId).Purchase_Price__c;
             }
         }
     }
+    
+
     
 
 }

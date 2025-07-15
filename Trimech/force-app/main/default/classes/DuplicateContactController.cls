@@ -11,18 +11,27 @@ public class DuplicateContactController {
         List<Contact> submitRecords = new List<Contact>();
         // Map<String,List<Contact>> dupeContacts = duplicateRecords(recordId);
         
-        for(Contact acc : orignalAcc){
-            acc.isSubmitted__c = true;
-            acc.Notes__c = notes;
-            submitRecords.add(acc);
-        }
+
+        Set<String> contactIds = new Set<String>();
         
         for(Contact acc : duplicaAcc){
             acc.isSubmitted__c = true;
             acc.Notes__c = notes;
+            acc.Master_ContactId__c	= recordId;
+            submitRecords.add(acc);
+            contactIds.add(acc.Id);
+        }
+
+        for(Contact acc : orignalAcc){
+            acc.isSubmitted__c = true;
+            acc.Notes__c = notes;
+            if(acc.Id == recordId){
+                acc.Merge_ContactIds__c = String.join(new List<String>(contactIds), ', ');
+            }
             submitRecords.add(acc);
         }
         
+
         
         String emailBody = '<p>Click the following link to view the record:</p>';
         for(Contact inx : orignalAcc){
@@ -45,24 +54,89 @@ public class DuplicateContactController {
         }
         
         
-        sendMail(system.label.Duplicate_Merge_Email_Address, orignalAcc[0].name + ' - Duplicate Contact Submitted', emailBody);
-        //sendMail('Yosephkinfu@gmail.com', orignalAcc[0].name + ' - Duplicate Submitted', emailBody);
+        sendMail(system.label.Duplicate_Merge_Email_Address, orignalAcc[0].name + ' - Duplicate Contact Submitted', emailBody, recordId);
     }
     
-    public static void sendMail(String address, String subject, String body) {
+    // public static void sendMail(String address, String subject, String body, String relatedToId) {
+    //     // Create an email message object
+
+        
+        
+    //     Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
+    //     String[] toAddresses = new String[] {address};
+    //         mail.setToAddresses(toAddresses);
+    //     mail.setSubject(subject);
+    //     mail.setHTMLBody(body);
+
+    //     if (relatedToId != null && relatedToId !='' ) {
+    //         //mail.setTargetObjectId(relatedToId);
+    //             mail.setWhatId(relatedToId); // Log email under the related record but don't send to the contact
+    //         mail.setSaveAsActivity(true); 
+    //     }
+
+    //     /*String emailAddressId;
+    //     List<OrgWideEmailAddress> owdList = [SELECT Id FROM OrgWideEmailAddress WHERE Address='noreply@trimech.com'];
+    //     if(owdList.size()>0 ){
+    //         emailAddressId = owdList[0].Id;
+    //         mail.setOrgWideEmailAddressId(emailAddressId);
+    //     }*/
+
+    //     // Pass this email message to the built-in sendEmail method 
+    //     // of the Messaging class
+    //     Messaging.SendEmailResult[] results = Messaging.sendEmail(
+    //         new Messaging.SingleEmailMessage[] { mail });
+    //     // Call a helper method to inspect the returned results
+    //     inspectResults(results);
+    // }
+
+    public static void sendMail(String address, String subject, String body, String relatedToId) {
         // Create an email message object
         Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
         String[] toAddresses = new String[] {address};
-            mail.setToAddresses(toAddresses);
+        mail.setToAddresses(toAddresses);
         mail.setSubject(subject);
         mail.setHTMLBody(body);
-        // Pass this email message to the built-in sendEmail method 
-        // of the Messaging class
+
+        // Send the email
         Messaging.SendEmailResult[] results = Messaging.sendEmail(
             new Messaging.SingleEmailMessage[] { mail });
+
         // Call a helper method to inspect the returned results
         inspectResults(results);
+
+        if (relatedToId != null && relatedToId != '') {
+            // Log as Activity (Task)
+            Task emailTask = new Task(
+                WhoId = relatedToId,  // Use WhoId for Contacts/Leads, WhatId for other records
+                Subject = 'Email: ' + subject,
+                Description = 'Sent email to: ' + address + '\n\n' + body,
+                Status = 'Completed',
+                Priority = 'Normal',
+                ActivityDate = Date.today()
+            );
+            insert emailTask;
+
+            // Post to Chatter (FeedItem)
+            FeedItem post = new FeedItem();
+            post.ParentId = relatedToId;  // Post on the related record's Chatter feed
+            post.Body = '**Email Sent**\n\n' +
+                        '**To:** ' + address + '\n' +
+                        '**Subject:** ' + subject + '\n\n' +
+                        body;
+            insert post;
+        }
     }
+
+
+
+
+
+
+
+
+
+
+
     // Helper method
     public static Boolean inspectResults(Messaging.SendEmailResult[] results) {
         Boolean sendResult = true;

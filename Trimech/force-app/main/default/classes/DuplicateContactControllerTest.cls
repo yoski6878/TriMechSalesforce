@@ -4,7 +4,8 @@ public class DuplicateContactControllerTest {
     static void setup() {
         // Create original account
         Contact originalAccount = new Contact(
-            LastName = 'Original Account'
+            LastName = 'Original Account',
+            email = 'test@testing.com.invalid'
             
         );
         insert originalAccount;

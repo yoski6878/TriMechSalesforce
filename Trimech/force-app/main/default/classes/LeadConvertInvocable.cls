@@ -15,7 +15,7 @@ public with sharing class LeadConvertInvocable {
         
 
         //try {
-        	Integer reqCount = 0;
+            Integer reqCount = 0;
             for (InvocationRequest req : requests) {
                 InvocationResponse resp = new InvocationResponse();
                 resp.originalRequest = req;
@@ -32,7 +32,7 @@ public with sharing class LeadConvertInvocable {
                     resp.errorMessage = 'No Leads passed!';
                 } else {
                     System.debug('LeadConvertInvocable.batchConvertLeads() passedLeadIds size: ' + passedLeadIds.size());
-                    leads = [SELECT id, Company, PostalCode, Lead_Product_Category__c, Campaign_Type__c, Country, Lead_Sales_Rep_to_Assign__c, Training_Course_Date__c, Training_Course_Location__c, Training_Course_Name__c, pi__campaign__c, Last_Registered_Event__c, Last_Attended_Trade_Show__c, LSC_Campaign__c, LeadSource, Lead_Product_of_Interest__c, pi__comments__c, GCLID_Google_Click_Identification__c FROM Lead WHERE id in: passedLeadIds];
+                    leads = [SELECT id, Company, Street, City, State, PostalCode, Country, Lead_Product_Category__c, Campaign_Type__c, Lead_Sales_Rep_to_Assign__c, Training_Course_Date__c, Training_Course_Location__c, Training_Course_Name__c, pi__campaign__c, Last_Registered_Event__c, Last_Attended_Trade_Show__c, LSC_Campaign__c, LeadSource, Lead_Product_of_Interest__c, pi__comments__c, GCLID_Google_Click_Identification__c FROM Lead WHERE id in: passedLeadIds];
                     for (Lead ld : leads) {
                         System.debug('LeadConvertInvocable.batchConvertLeads() lead id: ' + ld.id);
                         System.debug('LeadConvertInvocable.batchConvertLeads() ld.company: ' + ld.Company);

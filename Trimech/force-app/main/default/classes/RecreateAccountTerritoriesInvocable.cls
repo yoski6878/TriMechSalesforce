@@ -18,6 +18,8 @@ global class RecreateAccountTerritoriesInvocable {
          Account__r.Sales_Rep_Software__c = :params[0].userId
          OR
          Account__r.Sales_Rep_SolidCAM__c = :params[0].userId
+         OR
+         Account__r.Sales_Rep_Enterprise__c = :params[0].userId
         )];
 
 /*TH-         List<Account_Territory__c> atList = [SELECT id, Territory__c, Account__c FROM Account_Territory__c WHERE Territory__c IN: territories AND (Account__r.ShippingPostalCode != null) AND 

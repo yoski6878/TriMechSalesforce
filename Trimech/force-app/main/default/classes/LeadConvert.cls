@@ -2,6 +2,7 @@ public with sharing class LeadConvert {
     public static final ID OPPORTUNITY_LEAD_RECORD_TYPE_ID = Schema.SObjectType.Opportunity.getRecordTypeInfosByDeveloperName().get('Lead').getRecordTypeId();
     public static final LeadStatus LEAD_STATUS_CONVERT = [SELECT Id, MasterLabel FROM LeadStatus WHERE IsConverted=true LIMIT 1];
     public static final List<String> OPPORTUNITY_STAGE_NAMES = new List<String>{'New', 'Neglected', 'In Progress', 'Dormant'};
+    public static final String ACCOUNT_SUBSIDIARY_ENTERPRISE = System.Label.Enterprise_Subsidiary;
 
     public static List<Id> convertLeads(List<Lead> leads) {
         Map<ID, Opportunity> existingOpps = new Map<ID,Opportunity>();
@@ -70,6 +71,7 @@ public with sharing class LeadConvert {
                 Lead lead = leadMap.get(leadId);
                 if (oppId != null) {
                     leadIdOppIdMap.put(leadId, oppId);
+                    
                     Opportunity opp = getOpp(lead, oppId, existingOpps, OPPORTUNITY_LEAD_RECORD_TYPE_ID, oppsTouchCount);            
                     if (opp.Id != null && !oppIdUpdateMap.containsKey(opp.Id)) {
                         oppIdUpdateMap.put(opp.Id, opp);
@@ -81,8 +83,14 @@ public with sharing class LeadConvert {
                     
                     Account acc = new Account(Id = accId);
                     if (!accountsByKey.containsKey(key)) {
+                        acc.ShippingStreet = lead.Street;
+                        acc.ShippingCity = lead.City;
+                        acc.ShippingState = lead.State;
                         acc.ShippingPostalCode = lead.PostalCode;
                         acc.ShippingCountry = lead.Country;
+                        if (lead.Lead_Product_Category__c == 'Enterprise') {
+                            acc.Subsidiary__c = ACCOUNT_SUBSIDIARY_ENTERPRISE;
+                        }
                     }
                     
                     if (!accIdUpdateMap.containsKey(accId)) {
@@ -142,11 +150,14 @@ public with sharing class LeadConvert {
             opp.Last_Attended_Trade_Show__c = l.Last_Attended_Trade_Show__c;
             opp.LSC_Campaign__c = l.LSC_Campaign__c?.left(255);
             opp.GCLID_Google_Click_Identification__c = l.GCLID_Google_Click_Identification__c?.left(255);
-
             opp.Touch_Count__c = oppsTouchCount.get(opportunityId).Touch_Count__c + 1;
-
-            if (existingOpp.LeadSource == '') opp.LeadSource = l.LeadSource;
             
+            List<CampaignMember> campaignMembers = [SELECT Id, Name, CampaignId FROM CampaignMember WHERE LeadId = :l.Id ORDER BY LastModifiedDate DESC LIMIT 1];
+            if(campaignMembers.size()>0){
+                opp.CampaignId = campaignMembers[0].CampaignId;
+            }
+            
+            if (existingOpp.LeadSource == '') opp.LeadSource = l.LeadSource;
             if (l.Lead_Product_of_Interest__c != null) {
                 Set<String> allOptions = new Set<String>();
                 List<String> leadOptions = l.Lead_Product_of_Interest__c.split(';');
@@ -183,6 +194,15 @@ public with sharing class LeadConvert {
             SELECT      Id,
                         Name,
                         LastActivityDate,
+                        Subsidiary__c,
+                        BillingStreet,
+                        BillingCity,
+                        BillingState,
+                        BillingPostalCode,
+                        BillingCountry,
+                        ShippingStreet,
+                        ShippingCity,
+                        ShippingState,
                         ShippingPostalCode,
                         ShippingCountry,
                         (
@@ -196,7 +216,8 @@ public with sharing class LeadConvert {
                                     Description,
                                     Pardot_Campaign__c,
                                     LSC_Campaign__c,
-                                    GCLID_Google_Click_Identification__c
+                                    GCLID_Google_Click_Identification__c,
+                                    CampaignId
                             FROM    Opportunities 
                             WHERE   StageName IN :OPPORTUNITY_STAGE_NAMES 
                             AND     RecordTypeId = :OPPORTUNITY_LEAD_RECORD_TYPE_ID
@@ -224,7 +245,7 @@ public with sharing class LeadConvert {
         }
         return leadCompanyNames;
     }
-
+    
     public Static String getCleanedZip(String country, String zip) {
         if (zip == null) {
             return '';

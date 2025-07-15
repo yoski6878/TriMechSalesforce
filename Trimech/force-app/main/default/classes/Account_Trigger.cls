@@ -50,16 +50,17 @@ public without sharing class Account_Trigger {
             
             //TH-if(a.Sales_Rep_Hardware_Inside__c != null || a.Sales_Rep_Hardware_Outside__c != null || a.Sales_Rep_Software_Inside__c != null || a.Sales_Rep_Software_Outside__c != null || a.Dedicated_Sales_Rep_Software_Outside__c != null || a.Dedicated_Sales_Rep_Software_Inside__c != null || a.Dedicated_Sales_Rep_Hardware__c != null) newAccountsWithTeamMembers.add(a);
             //TH-Added below lines
-            if(a.Sales_Rep_Hardware_Inside__c != null || a.Sales_Rep_Hardware_Outside__c != null || 
-                    a.Sales_Rep_Software__c != null || a.Sales_Rep_SolidCAM__c != null || 
-                    a.Dedicated_SolidCAM_Rep__c != null || a.Dedicated_Sales_Rep_Software__c != null || a.Dedicated_Sales_Rep_Hardware__c != null) {
+            if(a.Sales_Rep_Hardware_Inside__c != null || a.Sales_Rep_Hardware_Outside__c != null || a.Dedicated_Sales_Rep_Hardware__c != null || 
+                    a.Sales_Rep_Software__c != null || a.Dedicated_Sales_Rep_Software__c != null || a.Sales_Rep_SolidCAM__c != null || 
+                    a.Dedicated_SolidCAM_Rep__c != null || a.Sales_Rep_Enterprise__c != null || a.Dedicated_Enterprise_Rep__c != null) {
                 newAccountsWithTeamMembers.add(a);
             }
         }
         
         if(!newAccountsWithZipCodes.isEmpty()) {createAccountTerritoryRecords(newAccountsWithZipCodes, accIdToCleanZip);}
         if(!newAccountsWithTeamMembers.isEmpty()) {setAccountTeam(newAccountsWithTeamMembers);}
-        createClientProfile(newList);
+        //TinaH: commented the Client Profile specific code
+        //createClientProfile(newList);
     }
     
     public static void beforeUpdate(List<Account> newList,List<Account> oldList, Map<Id,Account> newMap, Map<Id,Account> oldMap){
@@ -78,9 +79,10 @@ public without sharing class Account_Trigger {
         //integrator_da__.RealTimeExportResult res = integrator_da__.RealTimeExporter.processExport(); 
     
         for(Account a : newList){
-            if(a.Client_Profile_Question_Count__c == oldMap.get(a.Id).Client_Profile_Question_Count__c) {
+            //TinaH: commented the Client Profile specific code
+            /* if(a.Client_Profile_Question_Count__c == oldMap.get(a.Id).Client_Profile_Question_Count__c) {
                 integrator_da__.RealTimeExportResult res = integrator_da__.RealTimeExporter.processExport(); 
-            }
+            } */
             
             if(a.ShippingPostalCode != oldMap.get(a.Id).ShippingPostalCode){
                 accountsWithOldTerritories.add(a.Id);
@@ -129,6 +131,7 @@ public without sharing class Account_Trigger {
             
             if(a.Sales_Rep_Hardware_Inside__c != oldMap.get(a.Id).Sales_Rep_Hardware_Inside__c 
                 || a.Sales_Rep_Hardware_Outside__c != oldMap.get(a.Id).Sales_Rep_Hardware_Outside__c 
+                || a.Dedicated_Sales_Rep_Hardware__c != oldMap.get(a.Id).Dedicated_Sales_Rep_Hardware__c 
             /*TH-    || a.Sales_Rep_Software_Inside__c != oldMap.get(a.Id).Sales_Rep_Software_Inside__c 
                 || a.Sales_Rep_Software_Outside__c != oldMap.get(a.Id).Sales_Rep_Software_Outside__c
                 || a.Dedicated_Sales_Rep_Software_Outside__c != oldMap.get(a.Id).Dedicated_Sales_Rep_Software_Outside__c
@@ -138,7 +141,8 @@ public without sharing class Account_Trigger {
                 || a.Dedicated_Sales_Rep_Software__c != oldMap.get(a.Id).Dedicated_Sales_Rep_Software__c
                 || a.Sales_Rep_SolidCAM__c != oldMap.get(a.Id).Sales_Rep_SolidCAM__c
                 || a.Dedicated_SolidCAM_Rep__c != oldMap.get(a.Id).Dedicated_SolidCAM_Rep__c
-                || a.Dedicated_Sales_Rep_Hardware__c != oldMap.get(a.Id).Dedicated_Sales_Rep_Hardware__c) {
+                || a.Sales_Rep_Enterprise__c != oldMap.get(a.Id).Sales_Rep_Enterprise__c
+                || a.Dedicated_Enterprise_Rep__c != oldMap.get(a.Id).Dedicated_Enterprise_Rep__c) {
                     newAccountsWithTeamMembers.add(a);
                 }
         }
@@ -164,17 +168,19 @@ public without sharing class Account_Trigger {
 
         List<Account> mergedAccountsList = new List<Account>();
         if(!accountsDeletedFromMerge.isEmpty()) {
-            mergedAccountsList = new List<Account>([SELECT Id, Dedicated_Sales_Rep_Hardware__c, 
-                Sales_Rep_Hardware_Inside__c, Sales_Rep_Hardware_Outside__c, Dedicated_Sales_Rep_Software__c, 
-                Sales_Rep_Software__c, Sales_Rep_SolidCAM__c, Dedicated_SolidCAM_Rep__c FROM Account WHERE Id IN :accountsDeletedFromMerge]);
+            mergedAccountsList = new List<Account>([SELECT Id, Sales_Rep_Hardware_Inside__c, Sales_Rep_Hardware_Outside__c, 
+                Dedicated_Sales_Rep_Hardware__c, Sales_Rep_Software__c, Dedicated_Sales_Rep_Software__c, 
+                Sales_Rep_SolidCAM__c, Dedicated_SolidCAM_Rep__c, Sales_Rep_Enterprise__c, Dedicated_Enterprise_Rep__c 
+                FROM Account WHERE Id IN :accountsDeletedFromMerge]);
         }
 
         Account[] newAccountsWithTeamMembers = new Account[]{};
         if(!mergedAccountsList.isEmpty()) {
             for(Account a : mergedAccountsList){
-                if(a.Sales_Rep_Hardware_Inside__c != null || a.Sales_Rep_Hardware_Outside__c != null || 
-                        a.Sales_Rep_Software__c != null || a.Sales_Rep_SolidCAM__c != null || 
-                        a.Dedicated_SolidCAM_Rep__c != null || a.Dedicated_Sales_Rep_Software__c != null || a.Dedicated_Sales_Rep_Hardware__c != null) {
+                if(a.Sales_Rep_Hardware_Inside__c != null || a.Sales_Rep_Hardware_Outside__c != null || a.Dedicated_Sales_Rep_Hardware__c != null || 
+                        a.Sales_Rep_Software__c != null || a.Dedicated_Sales_Rep_Software__c != null || 
+                        a.Sales_Rep_SolidCAM__c != null || a.Dedicated_SolidCAM_Rep__c != null || 
+                        a.Sales_Rep_Enterprise__c != null || a.Dedicated_Enterprise_Rep__c != null) {
                     newAccountsWithTeamMembers.add(a);
                 }
             }
@@ -205,9 +211,10 @@ public without sharing class Account_Trigger {
         if(!accsWithZips.isEmpty()) createAccountTerritoryRecords(accsWithZips,zips);
     }*/
     
-    public static void createClientProfile(Account[] accs){
+    //TinaH: commented the Client Profile specific code
+    /* public static void createClientProfile(Account[] accs){
         
-		List<Question_Template__c> questionTemplates = new List<Question_Template__c>([SELECT Id, Question__c FROM Question_Template__c WHERE Active__c = true]);
+        List<Question_Template__c> questionTemplates = new List<Question_Template__c>([SELECT Id, Question__c FROM Question_Template__c WHERE Active__c = true]);
         List<Client_Profile_Question__c> newCPQs = new List<Client_Profile_Question__c>();
         
         for(Account a : accs){
@@ -217,7 +224,7 @@ public without sharing class Account_Trigger {
         }
         
         if(!newCPQs.isEmpty()) {insert newCPQs;}
-    }
+    } */
     
     public static void setAccountTeam(Account[] accs){
         
@@ -251,6 +258,13 @@ TH-*/
             } else {
                 if(a.Sales_Rep_SolidCAM__c != null) {
                     userToSalesRoles = buildRoleMap(userToSalesRoles, 'Sales Rep SolidCAM', a.Sales_Rep_SolidCAM__c, activeUserMap.containsKey(a.Sales_Rep_SolidCAM__c));
+                } 
+            }
+            if(a.Dedicated_Enterprise_Rep__c != null) {
+                userToSalesRoles = buildRoleMap(userToSalesRoles, 'Dedicated Enterprise Rep', a.Dedicated_Enterprise_Rep__c, activeUserMap.containsKey(a.Dedicated_Enterprise_Rep__c));
+            } else {
+                if(a.Sales_Rep_Enterprise__c != null) {
+                    userToSalesRoles = buildRoleMap(userToSalesRoles, 'Sales Rep Enterprise', a.Sales_Rep_Enterprise__c, activeUserMap.containsKey(a.Sales_Rep_Enterprise__c));
                 } 
             }
             if(a.Dedicated_Sales_Rep_Hardware__c != null) {

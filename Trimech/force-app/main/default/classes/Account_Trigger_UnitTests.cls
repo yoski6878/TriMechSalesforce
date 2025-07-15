@@ -6,8 +6,10 @@
 @isTest
 public class Account_Trigger_UnitTests {
     
-    @isTest
+    //TinaH: commented the Client Profile specific code
+    /*@isTest
     public static void createProfile(){
+        
         
         Section_Template__c st = new Section_Template__c(Name = '1');
         insert new Section_Template__c[]{st};
@@ -21,7 +23,7 @@ public class Account_Trigger_UnitTests {
         Account a2 = new Account(Name = 'B');
         insert new Account[]{a1,a2};
         
-    }
+    }*/
     
     @isTest
     public static void testSetAccountTeam(){
@@ -32,19 +34,23 @@ public class Account_Trigger_UnitTests {
         Account a2 = new Account(Name = 'Eustace Consulting B', Sales_Rep_Hardware_Inside__c = iu.Id);
         insert new Account[]{a1,a2};
         
-        System.assertEquals(1,[SELECT Id FROM AccountTeamMember WHERE UserId = :UserInfo.getUserId()].size());
+        System.assertEquals(1, [SELECT Id FROM AccountTeamMember WHERE UserId = :UserInfo.getUserId()].size(), 'Success');
         
         a1.Sales_Rep_Hardware_Inside__c = null;
         a1.Sales_Rep_Hardware_Outside__c = UserInfo.getUserId();
-        a1.Dedicated_SolidCAM_Rep__c = UserInfo.getUserId();
         a1.Sales_Rep_Software__c = UserInfo.getUserId();
+        a1.Dedicated_SolidCAM_Rep__c = UserInfo.getUserId();
+        a1.Sales_Rep_Enterprise__c = UserInfo.getUserId();
+
         a2.Sales_Rep_Hardware_Inside__c = null;
-        a2.Sales_Rep_Hardware_Outside__c = UserInfo.getUserId();
-        a2.Sales_Rep_SolidCAM__c = UserInfo.getUserId();
+        a2.Dedicated_Sales_Rep_Hardware__c = UserInfo.getUserId();
         a2.Dedicated_Sales_Rep_Software__c = UserInfo.getUserId();
+        a2.Sales_Rep_SolidCAM__c = UserInfo.getUserId();
+        a2.Dedicated_Enterprise_Rep__c = UserInfo.getUserId();
+        
         update new Account[]{a1,a2};
         
-        System.assertEquals(2,[SELECT Id FROM AccountTeamMember WHERE UserId = :UserInfo.getUserId()].size());
+        System.assertEquals(2, [SELECT Id FROM AccountTeamMember WHERE UserId = :UserInfo.getUserId()].size(), 'Success');
     }
     
     @isTest
@@ -72,18 +78,39 @@ public class Account_Trigger_UnitTests {
         Territory_Zip_Code__c tz4 = new Territory_Zip_Code__c(Territory__c = t4.Id, Zip_Code_Record__c = z3.Id);
         insert new Territory_Zip_Code__c[]{tz1,tz2,tz3,tz4};
             
-        Account a1 = new Account(Name = 'Eustace Consulting', ShippingPostalCode = '02472');
-        Account a2 = new Account(Name = 'SU', ShippingPostalCode = '13219');
-        Account a3 = new Account(Name = 'CA Test', ShippingPostalCode = 'L0L2M0');
+        Account a1 = new Account(Name = 'Eustace Consulting', ShippingPostalCode = '02472', ShippingCountry = 'US');
+        Account a2 = new Account(Name = 'SU', ShippingPostalCode = '13219-0');
+        Account a3 = new Account(Name = 'CA Test', ShippingPostalCode = 'L0L2M0', ShippingCountry = 'Canada');
         insert new Account[]{a1,a2,a3};
             
-        System.assertEquals(4,[SELECT Id FROM Account_Territory__c].size());
+        System.assertEquals(4, [SELECT Id FROM Account_Territory__c].size(), 'Success');
+        System.Assert.areEqual(1, [SELECT Id FROM Account_Territory__c WHERE Account__c = :a1.Id].size(), 'Success');
         
-        a1.ShippingPostalCode = '13219';
+        a1.ShippingPostalCode = '13219-0';
         a2.ShippingPostalCode = 'L0L2M0';
+        a2.ShippingCountry = 'Canada';
         a3.ShippingPostalCode = '02472';
+        a3.ShippingCountry = 'United States';
         update new Account[]{a1,a2};
             
-        System.assertEquals(4,[SELECT Id FROM Account_Territory__c].size());
+        System.assertEquals(4, [SELECT Id FROM Account_Territory__c].size(), 'Success');
+        System.Assert.areEqual(1, [SELECT Id FROM Account_Territory__c WHERE Account__c = :a3.Id].size(), 'Success');
+
+        Account updatedAccount = [SELECT Id, Territory__c, Region__c, Primary_Territory__c FROM Account WHERE Id = :a1.Id];
+        System.assertEquals(null, updatedAccount.Territory__c, 'Success');
+        
+    }
+    
+    @isTest
+    public static void testDeleteAccount(){
+        Account a1 = new Account(Name = 'A');
+        Account a2 = new Account(Name = 'B');
+        insert new Account[]{a1,a2};
+        try {
+            merge a1 a2;
+        } catch (DmlException e) {
+            // Process exception
+            System.debug('An unexpected error has occurred: ' + e.getMessage()); 
+        }
     }
 }
