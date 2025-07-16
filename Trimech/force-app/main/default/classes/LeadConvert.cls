@@ -11,16 +11,12 @@ public with sharing class LeadConvert {
         Map<String, Account> accountsByKey = getAccountsByKey(leadCompanyNames);
         List<Database.LeadConvert> leadsToConvert = new List<Database.LeadConvert>();
         Map<ID, ID> leadIdOppIdMap = new Map<ID, ID>();
-        System.debug('LeadConvert.convertLeads() size fof leads: ' + leads.size());
         
         for (Lead l : leads) {
             leadMap.put(l.id, l);
             Database.LeadConvert lc = new Database.LeadConvert();
             lc.setLeadId(l.Id);
             lc.setConvertedStatus(LEAD_STATUS_CONVERT.MasterLabel);
-            System.debug('LeadConvert.convertLeads() l.id: ' + l.id);
-            System.debug('LeadConvert.convertLeads() l.company: ' + l.Company);
-            System.debug('LeadConvert.convertLeads() l.PostalCode: ' + l.PostalCode);
             String cleanedZip = getCleanedZip(l.Country, l.PostalCode);
             String key = l.Company.toLowerCase() + cleanedZip;
             if (accountsByKey.containsKey(key)) {
@@ -55,8 +51,27 @@ public with sharing class LeadConvert {
         List<Id> oppIds = new List<ID>();
         List<Id> contactIds = new List<Id>();
         Map<ID, Account> accIdUpdateMap = new Map<ID, Account>();
-        
         Set<Id> uqlContacts = New Set<Id>();
+
+        Set<Id> leadIds = new Set<Id>();
+        for (Database.LeadConvertResult lcr : lcrs) {
+            if (lcr.getLeadId() != null) {
+                leadIds.add(lcr.getLeadId());
+            }
+        }
+
+        Map<Id, CampaignMember> leadIdToCampaignMember = new Map<Id, CampaignMember>();
+        for (CampaignMember cm : [
+            SELECT Id, CampaignId, LeadId 
+            FROM CampaignMember 
+            WHERE LeadId IN :leadIds 
+            ORDER BY LastModifiedDate DESC
+        ]) {
+            if (!leadIdToCampaignMember.containsKey(cm.LeadId)) {
+                leadIdToCampaignMember.put(cm.LeadId, cm);
+            }
+        }
+
         for (Database.LeadConvertResult lcr : lcrs) {
             ID leadId = lcr.getLeadId();
             ID oppId = lcr.getOpportunityId();
@@ -72,7 +87,7 @@ public with sharing class LeadConvert {
                 if (oppId != null) {
                     leadIdOppIdMap.put(leadId, oppId);
                     
-                    Opportunity opp = getOpp(lead, oppId, existingOpps, OPPORTUNITY_LEAD_RECORD_TYPE_ID, oppsTouchCount);            
+                    Opportunity opp = getOpp(lead, oppId, existingOpps, OPPORTUNITY_LEAD_RECORD_TYPE_ID, oppsTouchCount, leadIdToCampaignMember);            
                     if (opp.Id != null && !oppIdUpdateMap.containsKey(opp.Id)) {
                         oppIdUpdateMap.put(opp.Id, opp);
                     }
@@ -130,7 +145,7 @@ public with sharing class LeadConvert {
         return oppIds;
     }
     
-    public static Opportunity getOpp(Lead l, ID opportunityId, Map<Id,Opportunity> existingOpps, String leadRecordTypeId, Map<Id,Opportunity> oppsTouchCount) {
+    public static Opportunity getOpp(Lead l, ID opportunityId, Map<Id,Opportunity> existingOpps, String leadRecordTypeId, Map<Id,Opportunity> oppsTouchCount, Map<Id, CampaignMember> leadIdToCampaignMember) {
         Opportunity opp = new Opportunity();
 
         if (existingOpps.containsKey(opportunityId)) {
@@ -152,9 +167,9 @@ public with sharing class LeadConvert {
             opp.GCLID_Google_Click_Identification__c = l.GCLID_Google_Click_Identification__c?.left(255);
             opp.Touch_Count__c = oppsTouchCount.get(opportunityId).Touch_Count__c + 1;
             
-            List<CampaignMember> campaignMembers = [SELECT Id, Name, CampaignId FROM CampaignMember WHERE LeadId = :l.Id ORDER BY LastModifiedDate DESC LIMIT 1];
-            if(campaignMembers.size()>0){
-                opp.CampaignId = campaignMembers[0].CampaignId;
+            if(leadIdToCampaignMember.containsKey(l.Id)) {
+                CampaignMember cm = leadIdToCampaignMember.get(l.Id);
+                opp.CampaignId = cm.CampaignId;
             }
             
             if (existingOpp.LeadSource == '') opp.LeadSource = l.LeadSource;

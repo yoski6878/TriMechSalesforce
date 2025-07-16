@@ -5,17 +5,13 @@ public class LeadConvertInvocable_UnitTests {
         Account a = new Account(Name = 'Test Company', ShippingPostalCode = '12345');
         Account b = new Account(Name = 'Test Company 2', ShippingPostalCode = '12346');
         insert new List<Account> {a,b};
-        
-        Opportunity opp = new Opportunity(Name = 'Test Opp', StageName = 'Neglected', CloseDate = Date.today(), AccountId = a.Id, 
-                                          Description = 'Test Comments for Opportunity', Lead_Product_Category_on_Opp__c = 'DraftSight', 
-                                          Lead_Product_of_Interest_on_Opp__c = 'DraftSight Enterprise');
+        Opportunity opp = new Opportunity(Name = 'Test Opp', StageName = 'Neglected', CloseDate = Date.today(), AccountId = a.Id, Lead_Product_Category_on_Opp__c = 'DraftSight', Lead_Product_of_Interest_on_Opp__c = 'DraftSight Enterprise');
         insert opp;
 
         Product_Group__c pg = new Product_Group__c(Name='Software');
         insert pg;
 
-        Pardot_Lead_ASsignment__c PLA = new Pardot_Lead_Assignment__c(Name='DraftSight', PLA_Product_Group__c=pg.id, Solution_Type__c='Standard',
-                                                                      Assignment_Group__c = 'Software', Sales_Rep_to_Assign__c = 'Software');
+        Pardot_Lead_ASsignment__c PLA = new Pardot_Lead_Assignment__c(Name='DraftSight', PLA_Product_Group__c=pg.id, Assignment_Group__c = 'Software', Sales_Rep_to_Assign__c = 'Software', Solution_Type__c='Standard');
         insert PLA;
     }
 
@@ -29,17 +25,10 @@ public class LeadConvertInvocable_UnitTests {
             Lead_Product_Category__c = 'DraftSight',
             Lead_Product_of_Interest__c = 'DraftSight Enterprise;DraftSight Enterprise Plus',
             Campaign_Type__c = 'MQL',
-            pi__campaign__c = 'Test Campaign 1',
-            pi__comments__c = 'Test Comments for Lead 1',
             Status='Unqualified'
         );
         insert l;
-        Campaign camp = new Campaign(Name = 'Test Campaign 1', IsActive = true);
-        insert camp;
-        CampaignMember cm = new CampaignMember(CampaignId = camp.Id, LeadId = l.Id);
-        insert cm;
-        
-        System.debug('LeadConvertInvocable_UnitTests: ' + l);
+        system.debug('LeadConvertInvocable_UnitTests: ' + l);
 
         System.assert(l.id != null);
 
@@ -51,8 +40,6 @@ public class LeadConvertInvocable_UnitTests {
             Lead_Product_Category__c = 'DraftSight',
             Lead_Product_of_Interest__c = 'DraftSight Enterprise;DraftSight Enterprise Plus',
             Campaign_Type__c = 'UQL',
-            pi__campaign__c = 'Test Campaign 1',
-            pi__comments__c = 'Test Comments for Lead 2',
             Status = 'Unqualified'
         );
         insert l2;
