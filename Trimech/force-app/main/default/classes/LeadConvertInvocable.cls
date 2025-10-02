@@ -28,10 +28,11 @@ public with sharing class LeadConvertInvocable {
     if (!allLeadIds.isEmpty()) {
         allLeadsMap = new Map<Id, Lead>([
             SELECT Id, Company, PostalCode, Lead_Product_Category__c, Campaign_Type__c, Country,
-                Lead_Sales_Rep_to_Assign__c, Training_Course_Date__c, Training_Course_Location__c,
-                Training_Course_Name__c, pi__campaign__c, Last_Registered_Event__c,
-                Last_Attended_Trade_Show__c, LSC_Campaign__c, LeadSource,
-                Lead_Product_of_Interest__c, pi__comments__c, GCLID_Google_Click_Identification__c
+            Lead_Sales_Rep_to_Assign__c, Training_Course_Date__c, Training_Course_Location__c,
+            Training_Course_Name__c, pi__campaign__c, Last_Registered_Event__c,
+            Last_Attended_Trade_Show__c, LSC_Campaign__c, LeadSource,
+            Lead_Product_of_Interest__c, pi__comments__c, GCLID_Google_Click_Identification__c,
+            Street,City,State
             FROM Lead
             WHERE Id IN :allLeadIds
         ]);
