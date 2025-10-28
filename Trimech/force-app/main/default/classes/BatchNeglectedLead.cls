@@ -24,14 +24,14 @@ public class BatchNeglectedLead implements Database.Batchable<sObject>, Schedula
     else return Database.getQueryLocator([SELECT Id, 
                                             StageName
                                     FROM Opportunity 
-                                    WHERE Days_Since_Last_Activity__c >= 2 AND StageName = 'New']);                                     
+                                    WHERE Days_Since_Last_Activity__c >= 1 AND StageName = 'New']);                                     
     }
 
     public void execute(Database.BatchableContext BC, List<Opportunity> scope) {
 
         List<Opportunity> oppsToUpdate = new List<Opportunity>();
         for(Opportunity o : scope){
-                oppsToUpdate.add(new Opportunity(Id = o.Id, StageName = 'Neglected'));
+            oppsToUpdate.add(new Opportunity(Id = o.Id, StageName = 'Neglected', Neglected_date__c = Date.Today()));
         }
 
         if(!oppsToUpdate.isEmpty()) update oppsToUpdate;

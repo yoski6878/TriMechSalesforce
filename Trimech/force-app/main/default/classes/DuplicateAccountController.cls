@@ -1,19 +1,39 @@
 public class DuplicateAccountController {
     
-    @AuraEnabled
-    public static void sendemail(String notes,String recordId, String original, String duplicate){
-        system.debug(notes);
-        system.debug(recordId);
-        system.debug(original);
-        system.debug(duplicate);
-        List<Account> orignalAcc = (List<Account>)JSON.deserialize(original, List<Account>.class);
-        List<Account> duplicaAcc = (List<Account>)JSON.deserialize(duplicate, List<Account>.class);
+   @AuraEnabled
+    public static void sendemail(String notes, String recordId, String original, String duplicate) {
+        System.debug(notes);
+        System.debug(recordId);
+        System.debug(original);
+        System.debug(duplicate);
+
+        List<Account> originalAcc = (List<Account>)JSON.deserialize(original, List<Account>.class);
+        List<Account> duplicateAcc = (List<Account>)JSON.deserialize(duplicate, List<Account>.class);
         List<Account> submitRecords = new List<Account>();
-        // Map<String,List<Account>> dupeAccounts = duplicateRecords(recordId);
-        
+
+        Set<Id> originalIds = new Set<Id>();
+        Set<Id> duplicateIds = new Set<Id>();
+
+        for (Account acc : originalAcc) {
+            originalIds.add(acc.Id);
+        }
+
+        for (Account acc : duplicateAcc) {
+            duplicateIds.add(acc.Id);
+        }
+
+        // Query original and duplicate accounts again with all needed fields
+        Map<Id, Account> originalAccMap = new Map<Id, Account>(
+            [SELECT Id, Name, Type, Subsidiary__c, ShippingStreet, ShippingCity, ShippingState, ShippingPostalCode, ShippingCountry FROM Account WHERE Id IN :originalIds]
+        );
+
+        Map<Id, Account> duplicateAccMap = new Map<Id, Account>(
+            [SELECT Id, Name, Type, Subsidiary__c, ShippingStreet, ShippingCity, ShippingState, ShippingPostalCode, ShippingCountry FROM Account WHERE Id IN :duplicateIds]
+        );
+
         Set<String> accountIds = new Set<String>();
 
-        for(Account acc : duplicaAcc){
+        for (Account acc : duplicateAcc) {
             acc.isSubmitted__c = true;
             acc.Notes__c = notes;
             acc.Master_ClientId__c = recordId;
@@ -21,40 +41,51 @@ public class DuplicateAccountController {
             accountIds.add(acc.Id);
         }
 
-
-        for(Account acc : orignalAcc){
+        for (Account acc : originalAcc) {
             acc.isSubmitted__c = true;
             acc.Notes__c = notes;
-            acc.Merge_ClientIds__c =  String.join(new List<String>(accountIds), ', ');
+            acc.Merge_ClientIds__c = String.join(new List<String>(accountIds), ', ');
             submitRecords.add(acc);
         }
-        
-        
-        
+
         String emailBody = '<p>Click the following link to view the record:</p>';
-        for(Account inx : orignalAcc){
-            emailBody += '<p> Master Record : <a href="' + URL.getOrgDomainURL().toExternalForm()+'/'+ inx.Id + '">'+inx.Name+'</a></p>';
+
+        for (Account inx : originalAcc) {
+            Account fullAcc = originalAccMap.get(inx.Id);
+            emailBody += '<p><b>Master Record:</b> <a href="' + URL.getOrgDomainURL().toExternalForm() + '/' + fullAcc.Id + '">' + fullAcc.Name + '</a></p>';
+            emailBody += '<p>Type: ' + fullAcc.Type + '</p>';
+            emailBody += '<p>Subsidiary: ' + fullAcc.Subsidiary__c + '</p>';
+            emailBody += '<p>Shipping Address: ' +
+                (String.isNotBlank(fullAcc.ShippingStreet) ? fullAcc.ShippingStreet+ ', ' :'') +
+                (String.isNotBlank(fullAcc.ShippingCity) ? fullAcc.ShippingCity+ ', ' :'' )+
+                (String.isNotBlank(fullAcc.ShippingState) ? fullAcc.ShippingState+ ', ' :'' )+
+                (String.isNotBlank(fullAcc.ShippingPostalCode) ? fullAcc.ShippingPostalCode+ ', ' :'' )+
+                (String.isNotBlank(fullAcc.ShippingCountry) ? fullAcc.ShippingCountry :'' )+ '</p>';
         }
-        for(Account inx : duplicaAcc){
-            emailBody += '<p> Merge Record : <a href="' + URL.getOrgDomainURL().toExternalForm()+'/'+ inx.Id + '">'+inx.Name+'</a></p>';
+
+        for (Account inx : duplicateAcc) {
+            Account fullAcc = duplicateAccMap.get(inx.Id);
+            emailBody += '<p><b>Merge Record:</b> <a href="' + URL.getOrgDomainURL().toExternalForm() + '/' + fullAcc.Id + '">' + fullAcc.Name + '</a></p>';
+            emailBody += '<p>Type: ' + fullAcc.Type + '</p>';
+            emailBody += '<p>Subsidiary: ' + fullAcc.Subsidiary__c + '</p>';
+            emailBody += '<p>Shipping Address: ' +
+                (String.isNotBlank(fullAcc.ShippingStreet) ? fullAcc.ShippingStreet+ ', ' :'') +
+                (String.isNotBlank(fullAcc.ShippingCity) ? fullAcc.ShippingCity+ ', ' :'' )+
+                (String.isNotBlank(fullAcc.ShippingState) ? fullAcc.ShippingState+ ', ' :'' )+
+                (String.isNotBlank(fullAcc.ShippingPostalCode) ? fullAcc.ShippingPostalCode+ ', ' :'' )+
+                (String.isNotBlank(fullAcc.ShippingCountry) ? fullAcc.ShippingCountry :'' )+ '</p>';
         }
-        
-        emailBody += '<p>Notes : ' + notes +' </p>';
-        emailBody += '<p>Requestor : ' + Userinfo.getName() +' </p>';
-        
-        // emailBody += '<p><a href="' + recordLink + '">View Record</a></p>';
-        
-        // Set the HTML body
-        //email.setHtmlBody(emailBody);
-        
-        if(!submitRecords.isEmpty()){
+
+        emailBody += '<p><b>Notes:</b> ' + notes + '</p>';
+        emailBody += '<p><b>Requestor:</b> ' + UserInfo.getName() + '</p>';
+
+        if (!submitRecords.isEmpty()) {
             update submitRecords;
         }
-        
-        
-        sendMail(system.label.Duplicate_Merge_Email_Address, orignalAcc[0].name + ' - Duplicate Account Submitted', emailBody, recordId);
-        //sendMail('Yosephkinfu@gmail.com', orignalAcc[0].name + ' - Duplicate Submitted', emailBody);
+
+        sendMail(System.label.Duplicate_Merge_Email_Address, originalAcc[0].Name + ' - Duplicate Account Submitted', emailBody, recordId);
     }
+
     
     public static void sendMail(String address, String subject, String body, String relatedToId) {
         // Create an email message object
@@ -111,7 +142,7 @@ public class DuplicateAccountController {
         
         Map<String,List<Account>> duplicateDetails = new Map<String,List<Account>>();
         
-        List<Account> accList = [SELECT id,Notes__c, Name, BillingStreet, BillingCity, BillingState,BillingCountry,BillingPostalCode,Phone,Website 
+        List<Account> accList = [SELECT id,Notes__c, Name,Type, ShippingStreet,ShippingCity,ShippingState,ShippingPostalCode,ShippingCountry, BillingStreet, BillingCity, BillingState,BillingCountry,BillingPostalCode,Phone,Website 
                                  FROM Account where id = :recordId];
         
         List<Datacloud.FindDuplicatesResult > findDuplicatesResult = Datacloud.FindDuplicates.findDuplicates(accList);
@@ -127,7 +158,7 @@ public class DuplicateAccountController {
             duplicates.add(String.valueof(duplicate.get('Id')));
         }
         
-        List<Account> dupeaccList = new List<Account>([SELECT id,Notes__c, Name, BillingStreet, BillingCity, BillingState,BillingCountry,BillingPostalCode,Phone,Website 
+        List<Account> dupeaccList = new List<Account>([SELECT id,Notes__c, Name,Type, ShippingStreet,ShippingCity,ShippingState,ShippingPostalCode,ShippingCountry, BillingStreet, BillingCity, BillingState,BillingCountry,BillingPostalCode,Phone,Website 
                                                        FROM Account where id in :duplicates]);
         
         duplicateDetails.put('Original',accList);

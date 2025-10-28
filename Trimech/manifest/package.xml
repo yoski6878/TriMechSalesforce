@@ -26,10 +26,7 @@
 		<members>*</members>
 		<name>ApexTrigger</name>
 	</types>
-	<types>
-		<members>*</members>
-		<name>AppMenu</name>
-	</types>
+
 	<types>
 		<members>ISE_IDV</members>
 		<name>ApplicationSubtypeDefinition</name>
