@@ -1,0 +1,1169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Model__c</fullName>
+    <label>Model</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Fortus 370</fullName>
+                <default>false</default>
+                <label>Fortus 370</label>
+            </value>
+            <value>
+                <fullName>Agile</fullName>
+                <default>false</default>
+                <label>Agile</label>
+            </value>
+            <value>
+                <fullName>Alaris</fullName>
+                <default>false</default>
+                <label>Alaris</label>
+            </value>
+            <value>
+                <fullName>Altium Designer</fullName>
+                <default>false</default>
+                <label>Altium Designer</label>
+            </value>
+            <value>
+                <fullName>Altium Designer SE</fullName>
+                <default>false</default>
+                <label>Altium Designer SE</label>
+            </value>
+            <value>
+                <fullName>Anark</fullName>
+                <default>false</default>
+                <label>Anark</label>
+            </value>
+            <value>
+                <fullName>Artec Eva</fullName>
+                <default>false</default>
+                <label>Artec Eva</label>
+            </value>
+            <value>
+                <fullName>Artec Eva lite</fullName>
+                <default>false</default>
+                <label>Artec Eva lite</label>
+            </value>
+            <value>
+                <fullName>Artec Leo</fullName>
+                <default>false</default>
+                <label>Artec Leo</label>
+            </value>
+            <value>
+                <fullName>Artec Metrology Kit Entry</fullName>
+                <default>false</default>
+                <label>Artec Metrology Kit Entry</label>
+            </value>
+            <value>
+                <fullName>Artec Metrology Kit Professional</fullName>
+                <default>false</default>
+                <label>Artec Metrology Kit Professional</label>
+            </value>
+            <value>
+                <fullName>Artec Micro</fullName>
+                <default>false</default>
+                <label>Artec Micro</label>
+            </value>
+            <value>
+                <fullName>Artec Micro II</fullName>
+                <default>false</default>
+                <label>Artec Micro II</label>
+            </value>
+            <value>
+                <fullName>Artec Point</fullName>
+                <default>false</default>
+                <label>Artec Point</label>
+            </value>
+            <value>
+                <fullName>Artec RAY II</fullName>
+                <default>false</default>
+                <label>Artec RAY II</label>
+            </value>
+            <value>
+                <fullName>Artec Ray Scanner</fullName>
+                <default>false</default>
+                <label>Artec Ray Scanner</label>
+            </value>
+            <value>
+                <fullName>Artec Space Spider Scanner</fullName>
+                <default>false</default>
+                <label>Artec Space Spider Scanner</label>
+            </value>
+            <value>
+                <fullName>Artec Spider II</fullName>
+                <default>false</default>
+                <label>Artec Spider II</label>
+            </value>
+            <value>
+                <fullName>Artec Studio</fullName>
+                <default>false</default>
+                <label>Artec Studio</label>
+            </value>
+            <value>
+                <fullName>Artec Studio Lifetime License</fullName>
+                <default>false</default>
+                <label>Artec Studio Lifetime License</label>
+            </value>
+            <value>
+                <fullName>Base</fullName>
+                <default>false</default>
+                <label>Base</label>
+            </value>
+            <value>
+                <fullName>CleanStation SRS II</fullName>
+                <default>false</default>
+                <label>CleanStation SRS II</label>
+            </value>
+            <value>
+                <fullName>Computer</fullName>
+                <default>false</default>
+                <label>Computer</label>
+            </value>
+            <value>
+                <fullName>Connex</fullName>
+                <default>false</default>
+                <label>Connex</label>
+            </value>
+            <value>
+                <fullName>Connex 351</fullName>
+                <default>false</default>
+                <label>Connex 351</label>
+            </value>
+            <value>
+                <fullName>Connex260</fullName>
+                <default>false</default>
+                <label>Connex260</label>
+            </value>
+            <value>
+                <fullName>Connex500</fullName>
+                <default>false</default>
+                <label>Connex500</label>
+            </value>
+            <value>
+                <fullName>Deci Duo</fullName>
+                <default>false</default>
+                <label>Deci Duo</label>
+            </value>
+            <value>
+                <fullName>DELL 3360 - Design Plus</fullName>
+                <default>false</default>
+                <label>DELL 3360 - Design Plus</label>
+            </value>
+            <value>
+                <fullName>DELL 3581 - Design</fullName>
+                <default>false</default>
+                <label>DELL 3581 - Design</label>
+            </value>
+            <value>
+                <fullName>DELL 3591 - Design</fullName>
+                <default>false</default>
+                <label>DELL 3591 - Design</label>
+            </value>
+            <value>
+                <fullName>DELL 3660 - High End</fullName>
+                <default>false</default>
+                <label>DELL 3660 - High End</label>
+            </value>
+            <value>
+                <fullName>DELL 3680 - Design Plus</fullName>
+                <default>false</default>
+                <label>DELL 3680 - Design Plus</label>
+            </value>
+            <value>
+                <fullName>DELL 3680 High End</fullName>
+                <default>false</default>
+                <label>DELL 3680 High End</label>
+            </value>
+            <value>
+                <fullName>DELL 7680 - High End</fullName>
+                <default>false</default>
+                <label>DELL 7680 - High End</label>
+            </value>
+            <value>
+                <fullName>Demi 200</fullName>
+                <default>false</default>
+                <label>Demi 200</label>
+            </value>
+            <value>
+                <fullName>Demi 4000</fullName>
+                <default>false</default>
+                <label>Demi 4000</label>
+            </value>
+            <value>
+                <fullName>Demi 430</fullName>
+                <default>false</default>
+                <label>Demi 430</label>
+            </value>
+            <value>
+                <fullName>Demi 830</fullName>
+                <default>false</default>
+                <label>Demi 830</label>
+            </value>
+            <value>
+                <fullName>Demi 830 120V</fullName>
+                <default>false</default>
+                <label>Demi 830 120V</label>
+            </value>
+            <value>
+                <fullName>Demi 830 240V</fullName>
+                <default>false</default>
+                <label>Demi 830 240V</label>
+            </value>
+            <value>
+                <fullName>Desktop Metal Studio</fullName>
+                <default>false</default>
+                <label>Desktop Metal Studio</label>
+            </value>
+            <value>
+                <fullName>Desktop Metal Studio + Debinder</fullName>
+                <default>false</default>
+                <label>Desktop Metal Studio + Debinder</label>
+            </value>
+            <value>
+                <fullName>Desktop Metal Studio + Printer</fullName>
+                <default>false</default>
+                <label>Desktop Metal Studio + Printer</label>
+            </value>
+            <value>
+                <fullName>Desktop Metal Studio Debinder</fullName>
+                <default>false</default>
+                <label>Desktop Metal Studio Debinder</label>
+            </value>
+            <value>
+                <fullName>Desktop Metal Studio Furnace</fullName>
+                <default>false</default>
+                <label>Desktop Metal Studio Furnace</label>
+            </value>
+            <value>
+                <fullName>Dimension</fullName>
+                <default>false</default>
+                <label>Dimension</label>
+            </value>
+            <value>
+                <fullName>Dimension 1200 BST</fullName>
+                <default>false</default>
+                <label>Dimension 1200 BST</label>
+            </value>
+            <value>
+                <fullName>Dimension 1200 SST</fullName>
+                <default>false</default>
+                <label>Dimension 1200 SST</label>
+            </value>
+            <value>
+                <fullName>Dimension 1200es BST</fullName>
+                <default>false</default>
+                <label>Dimension 1200es BST</label>
+            </value>
+            <value>
+                <fullName>Dimension 1200es SST</fullName>
+                <default>false</default>
+                <label>Dimension 1200es SST</label>
+            </value>
+            <value>
+                <fullName>Dimension BST 768</fullName>
+                <default>false</default>
+                <label>Dimension BST 768</label>
+            </value>
+            <value>
+                <fullName>Dimension Elite</fullName>
+                <default>false</default>
+                <label>Dimension Elite</label>
+            </value>
+            <value>
+                <fullName>Dimension SST 768</fullName>
+                <default>false</default>
+                <label>Dimension SST 768</label>
+            </value>
+            <value>
+                <fullName>DM60</fullName>
+                <default>false</default>
+                <label>DM60</label>
+            </value>
+            <value>
+                <fullName>DriveWorks</fullName>
+                <default>false</default>
+                <label>DriveWorks</label>
+            </value>
+            <value>
+                <fullName>Eden</fullName>
+                <default>false</default>
+                <label>Eden</label>
+            </value>
+            <value>
+                <fullName>Eden 260V</fullName>
+                <default>false</default>
+                <label>Eden 260V</label>
+            </value>
+            <value>
+                <fullName>Eden 350V</fullName>
+                <default>false</default>
+                <label>Eden 350V</label>
+            </value>
+            <value>
+                <fullName>Eden 500V</fullName>
+                <default>false</default>
+                <label>Eden 500V</label>
+            </value>
+            <value>
+                <fullName>F120</fullName>
+                <default>false</default>
+                <label>F120</label>
+            </value>
+            <value>
+                <fullName>F121</fullName>
+                <default>false</default>
+                <label>F121</label>
+            </value>
+            <value>
+                <fullName>F170</fullName>
+                <default>false</default>
+                <label>F170</label>
+            </value>
+            <value>
+                <fullName>F171</fullName>
+                <default>false</default>
+                <label>F171</label>
+            </value>
+            <value>
+                <fullName>F172</fullName>
+                <default>false</default>
+                <label>F172</label>
+            </value>
+            <value>
+                <fullName>F190</fullName>
+                <default>false</default>
+                <label>F190</label>
+            </value>
+            <value>
+                <fullName>F190 CR</fullName>
+                <default>false</default>
+                <label>F190 CR</label>
+            </value>
+            <value>
+                <fullName>F270</fullName>
+                <default>false</default>
+                <label>F270</label>
+            </value>
+            <value>
+                <fullName>F370</fullName>
+                <default>false</default>
+                <label>F370</label>
+            </value>
+            <value>
+                <fullName>F370 CR</fullName>
+                <default>false</default>
+                <label>F370 CR</label>
+            </value>
+            <value>
+                <fullName>F770</fullName>
+                <default>false</default>
+                <label>F770</label>
+            </value>
+            <value>
+                <fullName>Form 2</fullName>
+                <default>false</default>
+                <label>Form 2</label>
+            </value>
+            <value>
+                <fullName>Form 3</fullName>
+                <default>false</default>
+                <label>Form 3</label>
+            </value>
+            <value>
+                <fullName>Form 3+</fullName>
+                <default>false</default>
+                <label>Form 3+</label>
+            </value>
+            <value>
+                <fullName>Form 3B</fullName>
+                <default>false</default>
+                <label>Form 3B</label>
+            </value>
+            <value>
+                <fullName>Form 3B+</fullName>
+                <default>false</default>
+                <label>Form 3B+</label>
+            </value>
+            <value>
+                <fullName>Form 3BL</fullName>
+                <default>false</default>
+                <label>Form 3BL</label>
+            </value>
+            <value>
+                <fullName>Form 3L</fullName>
+                <default>false</default>
+                <label>Form 3L</label>
+            </value>
+            <value>
+                <fullName>Form 4</fullName>
+                <default>false</default>
+                <label>Form 4</label>
+            </value>
+            <value>
+                <fullName>Form 4 Basic</fullName>
+                <default>false</default>
+                <label>Form 4 Basic</label>
+            </value>
+            <value>
+                <fullName>Form 4B</fullName>
+                <default>false</default>
+                <label>Form 4B</label>
+            </value>
+            <value>
+                <fullName>Form 4B Medical</fullName>
+                <default>false</default>
+                <label>Form 4B Medical</label>
+            </value>
+            <value>
+                <fullName>Form Cure</fullName>
+                <default>false</default>
+                <label>Form Cure</label>
+            </value>
+            <value>
+                <fullName>Form Wash</fullName>
+                <default>false</default>
+                <label>Form Wash</label>
+            </value>
+            <value>
+                <fullName>Form Wash L</fullName>
+                <default>false</default>
+                <label>Form Wash L</label>
+            </value>
+            <value>
+                <fullName>Formlabs</fullName>
+                <default>false</default>
+                <label>Formlabs</label>
+            </value>
+            <value>
+                <fullName>Forti</fullName>
+                <default>false</default>
+                <label>Forti</label>
+            </value>
+            <value>
+                <fullName>Forti XXP</fullName>
+                <default>false</default>
+                <label>Forti XXP</label>
+            </value>
+            <value>
+                <fullName>Fortus</fullName>
+                <default>false</default>
+                <label>Fortus</label>
+            </value>
+            <value>
+                <fullName>Fortus 250</fullName>
+                <default>false</default>
+                <label>Fortus 250</label>
+            </value>
+            <value>
+                <fullName>Fortus 360 - Large Env</fullName>
+                <default>false</default>
+                <label>Fortus 360 - Large Env</label>
+            </value>
+            <value>
+                <fullName>Fortus 360 - Small Env</fullName>
+                <default>false</default>
+                <label>Fortus 360 - Small Env</label>
+            </value>
+            <value>
+                <fullName>Fortus 380</fullName>
+                <default>false</default>
+                <label>Fortus 380</label>
+            </value>
+            <value>
+                <fullName>Fortus 380 CF</fullName>
+                <default>false</default>
+                <label>Fortus 380 CF</label>
+            </value>
+            <value>
+                <fullName>Fortus 380mc</fullName>
+                <default>false</default>
+                <label>Fortus 380mc</label>
+            </value>
+            <value>
+                <fullName>Fortus 400 - Large Env</fullName>
+                <default>false</default>
+                <label>Fortus 400 - Large Env</label>
+            </value>
+            <value>
+                <fullName>Fortus 400 - Small Env</fullName>
+                <default>false</default>
+                <label>Fortus 400 - Small Env</label>
+            </value>
+            <value>
+                <fullName>Fortus 400mc</fullName>
+                <default>false</default>
+                <label>Fortus 400mc</label>
+            </value>
+            <value>
+                <fullName>Fortus 400mc Plus</fullName>
+                <default>false</default>
+                <label>Fortus 400mc Plus</label>
+            </value>
+            <value>
+                <fullName>Fortus 450</fullName>
+                <default>false</default>
+                <label>Fortus 450</label>
+            </value>
+            <value>
+                <fullName>Fortus 900</fullName>
+                <default>false</default>
+                <label>Fortus 900</label>
+            </value>
+            <value>
+                <fullName>Fortus Smoothing Station</fullName>
+                <default>false</default>
+                <label>Fortus Smoothing Station</label>
+            </value>
+            <value>
+                <fullName>Fuse 1</fullName>
+                <default>false</default>
+                <label>Fuse 1</label>
+            </value>
+            <value>
+                <fullName>Fuse 1+</fullName>
+                <default>false</default>
+                <label>Fuse 1+</label>
+            </value>
+            <value>
+                <fullName>Fuse Blast</fullName>
+                <default>false</default>
+                <label>Fuse Blast</label>
+            </value>
+            <value>
+                <fullName>Fuse Sift</fullName>
+                <default>false</default>
+                <label>Fuse Sift</label>
+            </value>
+            <value>
+                <fullName>GearTrax</fullName>
+                <default>false</default>
+                <label>GearTrax</label>
+            </value>
+            <value>
+                <fullName>Geomagic</fullName>
+                <default>false</default>
+                <label>Geomagic</label>
+            </value>
+            <value>
+                <fullName>Geomagic Control X</fullName>
+                <default>false</default>
+                <label>Geomagic Control X</label>
+            </value>
+            <value>
+                <fullName>Geomagic Design X</fullName>
+                <default>false</default>
+                <label>Geomagic Design X</label>
+            </value>
+            <value>
+                <fullName>Geomagic Essentials</fullName>
+                <default>false</default>
+                <label>Geomagic Essentials</label>
+            </value>
+            <value>
+                <fullName>Geomagic for SolidWorks</fullName>
+                <default>false</default>
+                <label>Geomagic for SolidWorks</label>
+            </value>
+            <value>
+                <fullName>Geomagic FreeForm</fullName>
+                <default>false</default>
+                <label>Geomagic FreeForm</label>
+            </value>
+            <value>
+                <fullName>Geomagic Wrap</fullName>
+                <default>false</default>
+                <label>Geomagic Wrap</label>
+            </value>
+            <value>
+                <fullName>Grab Cad Print</fullName>
+                <default>false</default>
+                <label>Grab Cad Print</label>
+            </value>
+            <value>
+                <fullName>Grab Cad Print Pro</fullName>
+                <default>false</default>
+                <label>Grab Cad Print Pro</label>
+            </value>
+            <value>
+                <fullName>Grab Cad Shop</fullName>
+                <default>false</default>
+                <label>Grab Cad Shop</label>
+            </value>
+            <value>
+                <fullName>H350</fullName>
+                <default>false</default>
+                <label>H350</label>
+            </value>
+            <value>
+                <fullName>HSMWorks</fullName>
+                <default>false</default>
+                <label>HSMWorks</label>
+            </value>
+            <value>
+                <fullName>HyperLynx</fullName>
+                <default>false</default>
+                <label>HyperLynx</label>
+            </value>
+            <value>
+                <fullName>InspectionXpert</fullName>
+                <default>false</default>
+                <label>InspectionXpert</label>
+            </value>
+            <value>
+                <fullName>J35</fullName>
+                <default>false</default>
+                <label>J35</label>
+            </value>
+            <value>
+                <fullName>J35 Pro</fullName>
+                <default>false</default>
+                <label>J35 Pro</label>
+            </value>
+            <value>
+                <fullName>J5</fullName>
+                <default>false</default>
+                <label>J5</label>
+            </value>
+            <value>
+                <fullName>J5 Dentajet</fullName>
+                <default>false</default>
+                <label>J5 Dentajet</label>
+            </value>
+            <value>
+                <fullName>J5 Dental</fullName>
+                <default>false</default>
+                <label>J5 Dental</label>
+            </value>
+            <value>
+                <fullName>J5 Medijet</fullName>
+                <default>false</default>
+                <label>J5 Medijet</label>
+            </value>
+            <value>
+                <fullName>J55</fullName>
+                <default>false</default>
+                <label>J55</label>
+            </value>
+            <value>
+                <fullName>J6</fullName>
+                <default>false</default>
+                <label>J6</label>
+            </value>
+            <value>
+                <fullName>J735</fullName>
+                <default>false</default>
+                <label>J735</label>
+            </value>
+            <value>
+                <fullName>J750</fullName>
+                <default>false</default>
+                <label>J750</label>
+            </value>
+            <value>
+                <fullName>J751</fullName>
+                <default>false</default>
+                <label>J751</label>
+            </value>
+            <value>
+                <fullName>J752</fullName>
+                <default>false</default>
+                <label>J752</label>
+            </value>
+            <value>
+                <fullName>J753</fullName>
+                <default>false</default>
+                <label>J753</label>
+            </value>
+            <value>
+                <fullName>J826</fullName>
+                <default>false</default>
+                <label>J826</label>
+            </value>
+            <value>
+                <fullName>J835</fullName>
+                <default>false</default>
+                <label>J835</label>
+            </value>
+            <value>
+                <fullName>J850</fullName>
+                <default>false</default>
+                <label>J850</label>
+            </value>
+            <value>
+                <fullName>J851</fullName>
+                <default>false</default>
+                <label>J851</label>
+            </value>
+            <value>
+                <fullName>J852</fullName>
+                <default>false</default>
+                <label>J852</label>
+            </value>
+            <value>
+                <fullName>J853</fullName>
+                <default>false</default>
+                <label>J853</label>
+            </value>
+            <value>
+                <fullName>J854</fullName>
+                <default>false</default>
+                <label>J854</label>
+            </value>
+            <value>
+                <fullName>J855</fullName>
+                <default>false</default>
+                <label>J855</label>
+            </value>
+            <value>
+                <fullName>J856</fullName>
+                <default>false</default>
+                <label>J856</label>
+            </value>
+            <value>
+                <fullName>Levo</fullName>
+                <default>false</default>
+                <label>Levo</label>
+            </value>
+            <value>
+                <fullName>Makerbot Method</fullName>
+                <default>false</default>
+                <label>Makerbot Method</label>
+            </value>
+            <value>
+                <fullName>Makerbot Method X</fullName>
+                <default>false</default>
+                <label>Makerbot Method X</label>
+            </value>
+            <value>
+                <fullName>MakerBot Replicator</fullName>
+                <default>false</default>
+                <label>MakerBot Replicator</label>
+            </value>
+            <value>
+                <fullName>MakerBot Replicator 2X</fullName>
+                <default>false</default>
+                <label>MakerBot Replicator 2X</label>
+            </value>
+            <value>
+                <fullName>MakerBot Replicator Mini</fullName>
+                <default>false</default>
+                <label>MakerBot Replicator Mini</label>
+            </value>
+            <value>
+                <fullName>MakerBot Replicator Z18</fullName>
+                <default>false</default>
+                <label>MakerBot Replicator Z18</label>
+            </value>
+            <value>
+                <fullName>Metal Design Lab</fullName>
+                <default>false</default>
+                <label>Metal Design Lab</label>
+            </value>
+            <value>
+                <fullName>Metal DesignLab Software</fullName>
+                <default>false</default>
+                <label>Metal DesignLab Software</label>
+            </value>
+            <value>
+                <fullName>Method</fullName>
+                <default>false</default>
+                <label>Method</label>
+            </value>
+            <value>
+                <fullName>Mini</fullName>
+                <default>false</default>
+                <label>Mini</label>
+            </value>
+            <value>
+                <fullName>Mojo</fullName>
+                <default>false</default>
+                <label>Mojo</label>
+            </value>
+            <value>
+                <fullName>MoldWorks</fullName>
+                <default>false</default>
+                <label>MoldWorks</label>
+            </value>
+            <value>
+                <fullName>Nano Dimension DragonFly2020</fullName>
+                <default>false</default>
+                <label>Nano Dimension DragonFly2020</label>
+            </value>
+            <value>
+                <fullName>Neo450</fullName>
+                <default>false</default>
+                <label>Neo450</label>
+            </value>
+            <value>
+                <fullName>Neo800</fullName>
+                <default>false</default>
+                <label>Neo800</label>
+            </value>
+            <value>
+                <fullName>Objet</fullName>
+                <default>false</default>
+                <label>Objet</label>
+            </value>
+            <value>
+                <fullName>Objet 1000</fullName>
+                <default>false</default>
+                <label>Objet 1000</label>
+            </value>
+            <value>
+                <fullName>Objet 24</fullName>
+                <default>false</default>
+                <label>Objet 24</label>
+            </value>
+            <value>
+                <fullName>Objet 260</fullName>
+                <default>false</default>
+                <label>Objet 260</label>
+            </value>
+            <value>
+                <fullName>Objet 260 Connex 1</fullName>
+                <default>false</default>
+                <label>Objet 260 Connex 1</label>
+            </value>
+            <value>
+                <fullName>Objet 260 Connex 3</fullName>
+                <default>false</default>
+                <label>Objet 260 Connex 3</label>
+            </value>
+            <value>
+                <fullName>Objet 261</fullName>
+                <default>false</default>
+                <label>Objet 261</label>
+            </value>
+            <value>
+                <fullName>Objet 30</fullName>
+                <default>false</default>
+                <label>Objet 30</label>
+            </value>
+            <value>
+                <fullName>Objet 30 Prime</fullName>
+                <default>false</default>
+                <label>Objet 30 Prime</label>
+            </value>
+            <value>
+                <fullName>Objet 30 Pro</fullName>
+                <default>false</default>
+                <label>Objet 30 Pro</label>
+            </value>
+            <value>
+                <fullName>Objet 31</fullName>
+                <default>false</default>
+                <label>Objet 31</label>
+            </value>
+            <value>
+                <fullName>Objet 32</fullName>
+                <default>false</default>
+                <label>Objet 32</label>
+            </value>
+            <value>
+                <fullName>Objet 33</fullName>
+                <default>false</default>
+                <label>Objet 33</label>
+            </value>
+            <value>
+                <fullName>Objet 34</fullName>
+                <default>false</default>
+                <label>Objet 34</label>
+            </value>
+            <value>
+                <fullName>Objet 500 Connex 1</fullName>
+                <default>false</default>
+                <label>Objet 500 Connex 1</label>
+            </value>
+            <value>
+                <fullName>Objet 500 Connex 3</fullName>
+                <default>false</default>
+                <label>Objet 500 Connex 3</label>
+            </value>
+            <value>
+                <fullName>Objet Connex 350</fullName>
+                <default>false</default>
+                <label>Objet Connex 350</label>
+            </value>
+            <value>
+                <fullName>Objet Waterjet</fullName>
+                <default>false</default>
+                <label>Objet Waterjet</label>
+            </value>
+            <value>
+                <fullName>Objet350 Connex3</fullName>
+                <default>false</default>
+                <label>Objet350 Connex3</label>
+            </value>
+            <value>
+                <fullName>Objet500 Connex 2</fullName>
+                <default>false</default>
+                <label>Objet500 Connex 2</label>
+            </value>
+            <value>
+                <fullName>Omnify</fullName>
+                <default>false</default>
+                <label>Omnify</label>
+            </value>
+            <value>
+                <fullName>Origin Dental</fullName>
+                <default>false</default>
+                <label>Origin Dental</label>
+            </value>
+            <value>
+                <fullName>Origin Industrial</fullName>
+                <default>false</default>
+                <label>Origin Industrial</label>
+            </value>
+            <value>
+                <fullName>Origin Local</fullName>
+                <default>false</default>
+                <label>Origin Local</label>
+            </value>
+            <value>
+                <fullName>Origin One</fullName>
+                <default>false</default>
+                <label>Origin One</label>
+            </value>
+            <value>
+                <fullName>Origin Two</fullName>
+                <default>false</default>
+                <label>Origin Two</label>
+            </value>
+            <value>
+                <fullName>PADS Professional</fullName>
+                <default>false</default>
+                <label>PADS Professional</label>
+            </value>
+            <value>
+                <fullName>PADS Standard</fullName>
+                <default>false</default>
+                <label>PADS Standard</label>
+            </value>
+            <value>
+                <fullName>Powerfuse S</fullName>
+                <default>false</default>
+                <label>Powerfuse S</label>
+            </value>
+            <value>
+                <fullName>Powershot C</fullName>
+                <default>false</default>
+                <label>Powershot C</label>
+            </value>
+            <value>
+                <fullName>Powershot Dual</fullName>
+                <default>false</default>
+                <label>Powershot Dual</label>
+            </value>
+            <value>
+                <fullName>Powershot S</fullName>
+                <default>false</default>
+                <label>Powershot S</label>
+            </value>
+            <value>
+                <fullName>Rador</fullName>
+                <default>false</default>
+                <label>Rador</label>
+            </value>
+            <value>
+                <fullName>Replicator</fullName>
+                <default>false</default>
+                <label>Replicator</label>
+            </value>
+            <value>
+                <fullName>ROS</fullName>
+                <default>false</default>
+                <label>ROS</label>
+            </value>
+            <value>
+                <fullName>SolidProfessor Basic</fullName>
+                <default>false</default>
+                <label>SolidProfessor Basic</label>
+            </value>
+            <value>
+                <fullName>SolidProfessor Other</fullName>
+                <default>false</default>
+                <label>SolidProfessor Other</label>
+            </value>
+            <value>
+                <fullName>SolidProfessor Premium</fullName>
+                <default>false</default>
+                <label>SolidProfessor Premium</label>
+            </value>
+            <value>
+                <fullName>SolidProfessor Professional</fullName>
+                <default>false</default>
+                <label>SolidProfessor Professional</label>
+            </value>
+            <value>
+                <fullName>SolidProfessor Standard</fullName>
+                <default>false</default>
+                <label>SolidProfessor Standard</label>
+            </value>
+            <value>
+                <fullName>SpaceMouse</fullName>
+                <default>false</default>
+                <label>SpaceMouse</label>
+            </value>
+            <value>
+                <fullName>TactonWorks</fullName>
+                <default>false</default>
+                <label>TactonWorks</label>
+            </value>
+            <value>
+                <fullName>Touch</fullName>
+                <default>false</default>
+                <label>Touch</label>
+            </value>
+            <value>
+                <fullName>Touch X</fullName>
+                <default>false</default>
+                <label>Touch X</label>
+            </value>
+            <value>
+                <fullName>uPrint</fullName>
+                <default>false</default>
+                <label>uPrint</label>
+            </value>
+            <value>
+                <fullName>uPrint Plus</fullName>
+                <default>false</default>
+                <label>uPrint Plus</label>
+            </value>
+            <value>
+                <fullName>uPrint SE</fullName>
+                <default>false</default>
+                <label>uPrint SE</label>
+            </value>
+            <value>
+                <fullName>uPrint SE Plus</fullName>
+                <default>false</default>
+                <label>uPrint SE Plus</label>
+            </value>
+            <value>
+                <fullName>V650</fullName>
+                <default>false</default>
+                <label>V650</label>
+            </value>
+            <value>
+                <fullName>Vorsa 500</fullName>
+                <default>false</default>
+                <label>Vorsa 500</label>
+            </value>
+            <value>
+                <fullName>W7500</fullName>
+                <default>false</default>
+                <label>W7500</label>
+            </value>
+            <value>
+                <fullName>W7500-C</fullName>
+                <default>false</default>
+                <label>W7500-C</label>
+            </value>
+            <value>
+                <fullName>W7500-C Certified</fullName>
+                <default>false</default>
+                <label>W7500-C Certified</label>
+            </value>
+            <value>
+                <fullName>W7500+</fullName>
+                <default>false</default>
+                <label>W7500+</label>
+            </value>
+            <value>
+                <fullName>Waterjet</fullName>
+                <default>false</default>
+                <label>Waterjet</label>
+            </value>
+            <value>
+                <fullName>Wave Wash</fullName>
+                <default>false</default>
+                <label>Wave Wash</label>
+            </value>
+            <value>
+                <fullName>WaveWash 55</fullName>
+                <default>false</default>
+                <label>WaveWash 55</label>
+            </value>
+            <value>
+                <fullName>Wazer Desktop</fullName>
+                <default>false</default>
+                <label>Wazer Desktop</label>
+            </value>
+            <value>
+                <fullName>Wazer Starter Bundle</fullName>
+                <default>false</default>
+                <label>Wazer Starter Bundle</label>
+            </value>
+            <value>
+                <fullName>WireWorks</fullName>
+                <default>false</default>
+                <label>WireWorks</label>
+            </value>
+            <value>
+                <fullName>X1F Advanced Furnace</fullName>
+                <default>false</default>
+                <label>X1F Advanced Furnace</label>
+            </value>
+            <value>
+                <fullName>Xact Metal</fullName>
+                <default>false</default>
+                <label>Xact Metal</label>
+            </value>
+            <value>
+                <fullName>Z Corp</fullName>
+                <default>false</default>
+                <label>Z Corp</label>
+            </value>
+            <value>
+                <fullName>Z18</fullName>
+                <default>false</default>
+                <label>Z18</label>
+            </value>
+            <value>
+                <fullName>Zeiss</fullName>
+                <default>false</default>
+                <label>Zeiss</label>
+            </value>
+            <value>
+                <fullName>Zeiss ATOS Q</fullName>
+                <default>false</default>
+                <label>Zeiss ATOS Q</label>
+            </value>
+            <value>
+                <fullName>Zeiss Computer</fullName>
+                <default>false</default>
+                <label>Zeiss Computer</label>
+            </value>
+            <value>
+                <fullName>Zeiss GOM Scan 1</fullName>
+                <default>false</default>
+                <label>Zeiss GOM Scan 1</label>
+            </value>
+            <value>
+                <fullName>Zeiss T-Scan hawk II</fullName>
+                <default>false</default>
+                <label>Zeiss T-Scan hawk II</label>
+            </value>
+            <value>
+                <fullName>Zeiss T-Scan hawk II Lite</fullName>
+                <default>false</default>
+                <label>Zeiss T-Scan hawk II Lite</label>
+            </value>
+            <value>
+                <fullName>Zeiss TRITOP</fullName>
+                <default>false</default>
+                <label>Zeiss TRITOP</label>
+            </value>
+            <value>
+                <fullName>Zeiss TSH2</fullName>
+                <default>false</default>
+                <label>Zeiss TSH2</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

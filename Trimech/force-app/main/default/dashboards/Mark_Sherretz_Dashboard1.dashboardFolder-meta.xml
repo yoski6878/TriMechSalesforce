@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DashboardFolder xmlns="http://soap.sforce.com/2006/04/metadata">
+    <folderShares>
+        <accessLevel>View</accessLevel>
+        <sharedTo>mark.sherretz@trimech.com</sharedTo>
+        <sharedToType>User</sharedToType>
+    </folderShares>
+    <name>Mark Sherretz - Dashboard</name>
+</DashboardFolder>

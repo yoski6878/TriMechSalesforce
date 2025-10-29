@@ -12,6 +12,11 @@ public class Quote_Trigger_UnitTests {
             
         Account a1 = new Account(Name = 'Eustace Consulting');
         insert new Account[]{a1};
+            
+            Schema.location lc = new Schema.location (Name='Test', LocationType = 'Site');
+		insert lc;        
+        Schema.Address addr = new Schema.Address( ParentId = lc.Id, LocationType = 'Site',Account__c = a1.Id);
+        insert addr;
         
         Opportunity o1 = new Opportunity(Name = 'Test', StageName = 'Qualified', CloseDate = system.Today(), AccountId = a1.Id);
         insert new Opportunity[]{o1};

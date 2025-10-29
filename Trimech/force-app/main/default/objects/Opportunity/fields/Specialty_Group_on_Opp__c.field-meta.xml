@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Specialty_Group_on_Opp__c</fullName>
+    <description>Specialty Group for Specialty Products</description>
+    <inlineHelpText>Specialty Group for Specialty Products</inlineHelpText>
+    <label>Specialty Group on Opp</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>Specialty_Group</valueSetName>
+    </valueSet>
+</CustomField>

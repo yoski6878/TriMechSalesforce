@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Status__c</fullName>
+    <label>Status</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>PROSPECT</fullName>
+                <default>true</default>
+                <label>PROSPECT</label>
+            </value>
+            <value>
+                <fullName>SUSPECT-Out of Business</fullName>
+                <default>false</default>
+                <label>SUSPECT-Out of Business</label>
+            </value>
+            <value>
+                <fullName>CLIENT-100% Client - aged</fullName>
+                <default>false</default>
+                <label>CLIENT-100% Client - aged</label>
+            </value>
+            <value>
+                <fullName>CLIENT-(100%) Won</fullName>
+                <default>false</default>
+                <label>CLIENT-(100%) Won</label>
+            </value>
+            <value>
+                <fullName>CLIENT-Client - (0%) Lost</fullName>
+                <default>false</default>
+                <label>CLIENT-Client - (0%) Lost</label>
+            </value>
+            <value>
+                <fullName>CLIENT-100% Client - Out of Business</fullName>
+                <default>false</default>
+                <label>CLIENT-100% Client - Out of Business</label>
+            </value>
+            <value>
+                <fullName>CLIENT-100% Client - other VAR</fullName>
+                <default>false</default>
+                <label>CLIENT-100% Client - other VAR</label>
+            </value>
+            <value>
+                <fullName>PROSPECT-(10%) Surface Pain</fullName>
+                <default>false</default>
+                <label>PROSPECT-(10%) Surface Pain</label>
+            </value>
+            <value>
+                <fullName>PROSPECT-SolidWorks-Other VAR</fullName>
+                <default>false</default>
+                <label>PROSPECT-SolidWorks-Other VAR</label>
+            </value>
+            <value>
+                <fullName>SUSPECT-Unqualified</fullName>
+                <default>false</default>
+                <label>SUSPECT-Unqualified</label>
+            </value>
+            <value>
+                <fullName>PROSPECT-(20%) Discovery Completed</fullName>
+                <default>false</default>
+                <label>PROSPECT-(20%) Discovery Completed</label>
+            </value>
+            <value>
+                <fullName>PROSPECT-Qualified</fullName>
+                <default>false</default>
+                <label>PROSPECT-Qualified</label>
+            </value>
+            <value>
+                <fullName>SUSPECT-Suspect Closed - Other</fullName>
+                <default>false</default>
+                <label>SUSPECT-Suspect Closed - Other</label>
+            </value>
+            <value>
+                <fullName>PROSPECT-Prospect - (0%) Closed - Other</fullName>
+                <default>false</default>
+                <label>PROSPECT-Prospect - (0%) Closed - Other</label>
+            </value>
+            <value>
+                <fullName>PROSPECT-(0%) Closed - Lost to Other VAR</fullName>
+                <default>false</default>
+                <label>PROSPECT-(0%) Closed - Lost to Other VAR</label>
+            </value>
+            <value>
+                <fullName>PROSPECT-(50%) Pain,Budget,Decision Process</fullName>
+                <default>false</default>
+                <label>PROSPECT-(50%) Pain,Budget,Decision Process</label>
+            </value>
+            <value>
+                <fullName>SUSPECT-Suspect Qualified</fullName>
+                <default>false</default>
+                <label>SUSPECT-Suspect Qualified</label>
+            </value>
+            <value>
+                <fullName>PROSPECT-(75%) Decision To Be Made</fullName>
+                <default>false</default>
+                <label>PROSPECT-(75%) Decision To Be Made</label>
+            </value>
+            <value>
+                <fullName>PROSPECT-SolidWorks Lead Import</fullName>
+                <default>false</default>
+                <label>PROSPECT-SolidWorks Lead Import</label>
+            </value>
+            <value>
+                <fullName>PROSPECT-Qualified-Not Interested</fullName>
+                <default>false</default>
+                <label>PROSPECT-Qualified-Not Interested</label>
+            </value>
+            <value>
+                <fullName>PROSPECT-Attempted but not contacted</fullName>
+                <default>false</default>
+                <label>PROSPECT-Attempted but not contacted</label>
+            </value>
+            <value>
+                <fullName>PROSPECT-Out of Business</fullName>
+                <default>false</default>
+                <label>PROSPECT-Out of Business</label>
+            </value>
+            <value>
+                <fullName>PROSPECT-Fortus-Stratasys Imports</fullName>
+                <default>false</default>
+                <label>PROSPECT-Fortus-Stratasys Imports</label>
+            </value>
+            <value>
+                <fullName>PROSPECT-Desktop Metal Qualified Opp</fullName>
+                <default>false</default>
+                <label>PROSPECT-Desktop Metal Qualified Opp</label>
+            </value>
+            <value>
+                <fullName>PROSPECT-(90%) PO In Process</fullName>
+                <default>false</default>
+                <label>PROSPECT-(90%) PO In Process</label>
+            </value>
+            <value>
+                <fullName>PROSPECT-Technical Opportunity</fullName>
+                <default>false</default>
+                <label>PROSPECT-Technical Opportunity</label>
+            </value>
+            <value>
+                <fullName>PROSPECT-Website Lead</fullName>
+                <default>false</default>
+                <label>PROSPECT-Website Lead</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

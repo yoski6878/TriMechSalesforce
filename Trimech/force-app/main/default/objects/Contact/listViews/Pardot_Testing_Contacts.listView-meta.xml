@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Pardot_Testing_Contacts</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.CREATED_DATE</columns>
+    <columns>CREATEDBY_USER.ALIAS</columns>
+    <columns>pi__campaign__c</columns>
+    <columns>Pardot_Lightning_URL__c</columns>
+    <columns>Import_Date_Time__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Campaign_Type__c</field>
+        <operation>equals</operation>
+        <value>SQL</value>
+    </filters>
+    <filters>
+        <field>Lead_Product_Category__c</field>
+        <operation>equals</operation>
+        <value>3D Scanner GOM</value>
+    </filters>
+    <filters>
+        <field>Import_Date_Time__c</field>
+        <operation>contains</operation>
+        <value>6/20/2024 15:00</value>
+    </filters>
+    <label>Pardot Testing Contacts</label>
+    <sharedTo>
+        <group>Sales_Ops</group>
+    </sharedTo>
+</ListView>

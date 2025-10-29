@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Issue__c</fullName>
+    <label>Product</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>3DEXPERIENCE Platform (website)</fullName>
+                <default>false</default>
+                <label>3DEXPERIENCE Platform (website)</label>
+            </value>
+            <value>
+                <fullName>3DEXPERIENCE SOLIDWORKS Connected</fullName>
+                <default>false</default>
+                <label>3DEXPERIENCE SOLIDWORKS Connected</label>
+            </value>
+            <value>
+                <fullName>3DEXPERIENCE xApps (xDesign)</fullName>
+                <default>false</default>
+                <label>3DEXPERIENCE xApps (xDesign)</label>
+            </value>
+            <value>
+                <fullName>3D Printers</fullName>
+                <default>false</default>
+                <label>3D Printers</label>
+            </value>
+            <value>
+                <fullName>3DS Learning Space</fullName>
+                <default>false</default>
+                <label>3DS Learning Space</label>
+            </value>
+            <value>
+                <fullName>3DX Collaborative Designer for SOLIDWORKS (add-on)</fullName>
+                <default>false</default>
+                <label>3DX Collaborative Designer for SOLIDWORKS (add-on)</label>
+            </value>
+            <value>
+                <fullName>3DX Experience Cloud - Design | Engineering</fullName>
+                <default>false</default>
+                <label>3DX Experience Cloud - Design | Engineering</label>
+            </value>
+            <value>
+                <fullName>3DX Experience Cloud - Governance (ENOVIA)</fullName>
+                <default>false</default>
+                <label>3DX Experience Cloud - Governance (ENOVIA)</label>
+            </value>
+            <value>
+                <fullName>3DX Experience Cloud - Manufacturing | Production</fullName>
+                <default>false</default>
+                <label>3DX Experience Cloud - Manufacturing | Production</label>
+            </value>
+            <value>
+                <fullName>3DX Experience Cloud - Simulation</fullName>
+                <default>false</default>
+                <label>3DX Experience Cloud - Simulation</label>
+            </value>
+            <value>
+                <fullName>3DX Experience On Premise - Design | Engineering</fullName>
+                <default>false</default>
+                <label>3DX Experience On Premise - Design | Engineering</label>
+            </value>
+            <value>
+                <fullName>3DX Experience On Premise - Governance (ENOVIA)</fullName>
+                <default>false</default>
+                <label>3DX Experience On Premise - Governance (ENOVIA)</label>
+            </value>
+            <value>
+                <fullName>3DX Experience On Premise - Manufacturing | Production</fullName>
+                <default>false</default>
+                <label>3DX Experience On Premise - Manufacturing | Production</label>
+            </value>
+            <value>
+                <fullName>3DX Experience On Premise - Simulation</fullName>
+                <default>false</default>
+                <label>3DX Experience On Premise - Simulation</label>
+            </value>
+            <value>
+                <fullName>Ansa</fullName>
+                <default>false</default>
+                <label>Ansa</label>
+            </value>
+            <value>
+                <fullName>API/Programming</fullName>
+                <default>false</default>
+                <label>API/Programming</label>
+            </value>
+            <value>
+                <fullName>ARAS PLM</fullName>
+                <default>false</default>
+                <label>ARAS PLM</label>
+            </value>
+            <value>
+                <fullName>Artec</fullName>
+                <default>false</default>
+                <label>Artec</label>
+            </value>
+            <value>
+                <fullName>CATIA (V5)</fullName>
+                <default>false</default>
+                <label>CATIA (V5)</label>
+            </value>
+            <value>
+                <fullName>CATIA No Magic | Magic</fullName>
+                <default>false</default>
+                <label>CATIA No Magic | Magic</label>
+            </value>
+            <value>
+                <fullName>CPE Licenser Servers, License Keys, and Target ID</fullName>
+                <default>false</default>
+                <label>CPE Licenser Servers, License Keys, and Target ID</label>
+            </value>
+            <value>
+                <fullName>DATAKIT</fullName>
+                <default>false</default>
+                <label>DATAKIT</label>
+            </value>
+            <value>
+                <fullName>DELMIA (V5)</fullName>
+                <default>false</default>
+                <label>DELMIA (V5)</label>
+            </value>
+            <value>
+                <fullName>DELMIAWorks</fullName>
+                <default>false</default>
+                <label>DELMIAWorks</label>
+            </value>
+            <value>
+                <fullName>Diota</fullName>
+                <default>false</default>
+                <label>Diota</label>
+            </value>
+            <value>
+                <fullName>DraftSight</fullName>
+                <default>false</default>
+                <label>DraftSight</label>
+            </value>
+            <value>
+                <fullName>DriveWorks License Manager</fullName>
+                <default>false</default>
+                <label>DriveWorks License Manager</label>
+            </value>
+            <value>
+                <fullName>DriveWorks Pro</fullName>
+                <default>false</default>
+                <label>DriveWorks Pro</label>
+            </value>
+            <value>
+                <fullName>DriveWorks Solo</fullName>
+                <default>false</default>
+                <label>DriveWorks Solo</label>
+            </value>
+            <value>
+                <fullName>DriveWorks Xpress</fullName>
+                <default>false</default>
+                <label>DriveWorks Xpress</label>
+            </value>
+            <value>
+                <fullName>DYMOLA</fullName>
+                <default>false</default>
+                <label>DYMOLA</label>
+            </value>
+            <value>
+                <fullName>eDrawings</fullName>
+                <default>false</default>
+                <label>eDrawings</label>
+            </value>
+            <value>
+                <fullName>ENOVIA SmarTeam (V5)</fullName>
+                <default>false</default>
+                <label>ENOVIA SmarTeam (V5)</label>
+            </value>
+            <value>
+                <fullName>ExactFlat</fullName>
+                <default>false</default>
+                <label>ExactFlat</label>
+            </value>
+            <value>
+                <fullName>FlexSim</fullName>
+                <default>false</default>
+                <label>FlexSim</label>
+            </value>
+            <value>
+                <fullName>Geomagic</fullName>
+                <default>false</default>
+                <label>Geomagic</label>
+            </value>
+            <value>
+                <fullName>Isight</fullName>
+                <default>false</default>
+                <label>Isight</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>PhotoView 360</fullName>
+                <default>false</default>
+                <label>PhotoView 360</label>
+            </value>
+            <value>
+                <fullName>Pool Pattern Pro</fullName>
+                <default>false</default>
+                <label>Pool Pattern Pro</label>
+            </value>
+            <value>
+                <fullName>SIMULIA Abaqus</fullName>
+                <default>false</default>
+                <label>SIMULIA Abaqus</label>
+            </value>
+            <value>
+                <fullName>SIMULIA CST</fullName>
+                <default>false</default>
+                <label>SIMULIA CST</label>
+            </value>
+            <value>
+                <fullName>SIMULIA PowerFlow</fullName>
+                <default>false</default>
+                <label>SIMULIA PowerFlow</label>
+            </value>
+            <value>
+                <fullName>SIMULIA Simpack</fullName>
+                <default>false</default>
+                <label>SIMULIA Simpack</label>
+            </value>
+            <value>
+                <fullName>SIMULIA XFlow</fullName>
+                <default>false</default>
+                <label>SIMULIA XFlow</label>
+            </value>
+            <value>
+                <fullName>SolidCAM</fullName>
+                <default>false</default>
+                <label>SolidCAM</label>
+            </value>
+            <value>
+                <fullName>SolidNetwork License (SNL) Manager</fullName>
+                <default>false</default>
+                <label>SolidNetwork License (SNL) Manager</label>
+            </value>
+            <value>
+                <fullName>SolidProfessor</fullName>
+                <default>false</default>
+                <label>SolidProfessor</label>
+            </value>
+            <value>
+                <fullName>SOLIDQ by Solid Solutions</fullName>
+                <default>false</default>
+                <label>SOLIDQ by Solid Solutions</label>
+            </value>
+            <value>
+                <fullName>SOLIDWORKS</fullName>
+                <default>false</default>
+                <label>SOLIDWORKS</label>
+            </value>
+            <value>
+                <fullName>SOLIDWORKS Animator</fullName>
+                <default>false</default>
+                <label>SOLIDWORKS Animator</label>
+            </value>
+            <value>
+                <fullName>SOLIDWORKS CAM</fullName>
+                <default>false</default>
+                <label>SOLIDWORKS CAM</label>
+            </value>
+            <value>
+                <fullName>SOLIDWORKS CircuitWorks</fullName>
+                <default>false</default>
+                <label>SOLIDWORKS CircuitWorks</label>
+            </value>
+            <value>
+                <fullName>SOLIDWORKS Composer</fullName>
+                <default>false</default>
+                <label>SOLIDWORKS Composer</label>
+            </value>
+            <value>
+                <fullName>SOLIDWORKS Costing</fullName>
+                <default>false</default>
+                <label>SOLIDWORKS Costing</label>
+            </value>
+            <value>
+                <fullName>SOLIDWORKS Electrical</fullName>
+                <default>false</default>
+                <label>SOLIDWORKS Electrical</label>
+            </value>
+            <value>
+                <fullName>SOLIDWORKS FeatureWorks</fullName>
+                <default>false</default>
+                <label>SOLIDWORKS FeatureWorks</label>
+            </value>
+            <value>
+                <fullName>SOLIDWORKS Flow Simulation</fullName>
+                <default>false</default>
+                <label>SOLIDWORKS Flow Simulation</label>
+            </value>
+            <value>
+                <fullName>SOLIDWORKS Inspection</fullName>
+                <default>false</default>
+                <label>SOLIDWORKS Inspection</label>
+            </value>
+            <value>
+                <fullName>SOLIDWORKS Manage</fullName>
+                <default>false</default>
+                <label>SOLIDWORKS Manage</label>
+            </value>
+            <value>
+                <fullName>SOLIDWORKS MBD</fullName>
+                <default>false</default>
+                <label>SOLIDWORKS MBD</label>
+            </value>
+            <value>
+                <fullName>SOLIDWORKS Motion</fullName>
+                <default>false</default>
+                <label>SOLIDWORKS Motion</label>
+            </value>
+            <value>
+                <fullName>SOLIDWORKS PDM Professional</fullName>
+                <default>false</default>
+                <label>SOLIDWORKS PDM Professional</label>
+            </value>
+            <value>
+                <fullName>SOLIDWORKS PDM Standard</fullName>
+                <default>false</default>
+                <label>SOLIDWORKS PDM Standard</label>
+            </value>
+            <value>
+                <fullName>SOLIDWORKS Plastics</fullName>
+                <default>false</default>
+                <label>SOLIDWORKS Plastics</label>
+            </value>
+            <value>
+                <fullName>SOLIDWORKS Routing</fullName>
+                <default>false</default>
+                <label>SOLIDWORKS Routing</label>
+            </value>
+            <value>
+                <fullName>SOLIDWORKS Simulation</fullName>
+                <default>false</default>
+                <label>SOLIDWORKS Simulation</label>
+            </value>
+            <value>
+                <fullName>SOLIDWORKS Task Scheduler</fullName>
+                <default>false</default>
+                <label>SOLIDWORKS Task Scheduler</label>
+            </value>
+            <value>
+                <fullName>SOLIDWORKS TolAnalyst</fullName>
+                <default>false</default>
+                <label>SOLIDWORKS TolAnalyst</label>
+            </value>
+            <value>
+                <fullName>SOLIDWORKS Toolbox</fullName>
+                <default>false</default>
+                <label>SOLIDWORKS Toolbox</label>
+            </value>
+            <value>
+                <fullName>SOLIDWORKS Utilities</fullName>
+                <default>false</default>
+                <label>SOLIDWORKS Utilities</label>
+            </value>
+            <value>
+                <fullName>SOLIDWORKS Visualize</fullName>
+                <default>false</default>
+                <label>SOLIDWORKS Visualize</label>
+            </value>
+            <value>
+                <fullName>SWOOD</fullName>
+                <default>false</default>
+                <label>SWOOD</label>
+            </value>
+            <value>
+                <fullName>Tosca</fullName>
+                <default>false</default>
+                <label>Tosca</label>
+            </value>
+            <value>
+                <fullName>Transmagic</fullName>
+                <default>false</default>
+                <label>Transmagic</label>
+            </value>
+            <value>
+                <fullName>TriMech Applications</fullName>
+                <default>false</default>
+                <label>TriMech Applications</label>
+            </value>
+            <value>
+                <fullName>TrueLoad</fullName>
+                <default>false</default>
+                <label>TrueLoad</label>
+            </value>
+            <value>
+                <fullName>Web Portals (MySW, MyProducts, DSxClient)</fullName>
+                <default>false</default>
+                <label>Web Portals (MySW, MyProducts, DSxClient)</label>
+            </value>
+            <value>
+                <fullName>3DEXPERIENCE NC Shop Floor Programmer</fullName>
+                <default>false</default>
+                <label>3DEXPERIENCE NC Shop Floor Programmer</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Product_Interest__c</fullName>
+    <label>Product Interest</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>3DEXPERIENCE WORKS</fullName>
+                <default>false</default>
+                <label>3DEXPERIENCE WORKS</label>
+            </value>
+            <value>
+                <fullName>3D Printer Material</fullName>
+                <default>false</default>
+                <label>3D Printer Material</label>
+            </value>
+            <value>
+                <fullName>3DP Services</fullName>
+                <default>false</default>
+                <label>3DP Services</label>
+            </value>
+            <value>
+                <fullName>Artec 3D Scanners</fullName>
+                <default>false</default>
+                <label>Artec 3D Scanners</label>
+            </value>
+            <value>
+                <fullName>CAMWorks</fullName>
+                <default>false</default>
+                <label>CAMWorks</label>
+            </value>
+            <value>
+                <fullName>Connex3</fullName>
+                <default>false</default>
+                <label>Connex3</label>
+            </value>
+            <value>
+                <fullName>Desktop Metal</fullName>
+                <default>false</default>
+                <label>Desktop Metal</label>
+            </value>
+            <value>
+                <fullName>Desktop Metal Production</fullName>
+                <default>false</default>
+                <label>Desktop Metal Production</label>
+            </value>
+            <value>
+                <fullName>Desktop Metal Studio</fullName>
+                <default>false</default>
+                <label>Desktop Metal Studio</label>
+            </value>
+            <value>
+                <fullName>Dimension</fullName>
+                <default>false</default>
+                <label>Dimension</label>
+            </value>
+            <value>
+                <fullName>DriveWorks</fullName>
+                <default>false</default>
+                <label>DriveWorks</label>
+            </value>
+            <value>
+                <fullName>eDrawings</fullName>
+                <default>false</default>
+                <label>eDrawings</label>
+            </value>
+            <value>
+                <fullName>F123</fullName>
+                <default>false</default>
+                <label>F123</label>
+            </value>
+            <value>
+                <fullName>Fortus</fullName>
+                <default>false</default>
+                <label>Fortus</label>
+            </value>
+            <value>
+                <fullName>Geomagic</fullName>
+                <default>false</default>
+                <label>Geomagic</label>
+            </value>
+            <value>
+                <fullName>J750</fullName>
+                <default>false</default>
+                <label>J750</label>
+            </value>
+            <value>
+                <fullName>Makerbot</fullName>
+                <default>false</default>
+                <label>Makerbot</label>
+            </value>
+            <value>
+                <fullName>Mojo</fullName>
+                <default>false</default>
+                <label>Mojo</label>
+            </value>
+            <value>
+                <fullName>Nano Dimension</fullName>
+                <default>false</default>
+                <label>Nano Dimension</label>
+            </value>
+            <value>
+                <fullName>Objet</fullName>
+                <default>false</default>
+                <label>Objet</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Printer (Generic Product Test)</fullName>
+                <default>false</default>
+                <label>Printer (Generic Product Test)</label>
+            </value>
+            <value>
+                <fullName>Production/End-Use Parts</fullName>
+                <default>false</default>
+                <label>Production/End-Use Parts</label>
+            </value>
+            <value>
+                <fullName>Project Engineering</fullName>
+                <default>false</default>
+                <label>Project Engineering</label>
+            </value>
+            <value>
+                <fullName>Prototyping (Concept Models)</fullName>
+                <default>false</default>
+                <label>Prototyping (Concept Models)</label>
+            </value>
+            <value>
+                <fullName>Prototyping (Functional testing)</fullName>
+                <default>false</default>
+                <label>Prototyping (Functional testing)</label>
+            </value>
+            <value>
+                <fullName>SolidWorks</fullName>
+                <default>false</default>
+                <label>SolidWorks</label>
+            </value>
+            <value>
+                <fullName>Solidworks (Generic Product Test)</fullName>
+                <default>false</default>
+                <label>Solidworks (Generic Product Test)</label>
+            </value>
+            <value>
+                <fullName>SOLIDWORKS CLOUD CAD</fullName>
+                <default>false</default>
+                <label>SOLIDWORKS CLOUD CAD</label>
+            </value>
+            <value>
+                <fullName>Stratasys</fullName>
+                <default>false</default>
+                <label>Stratasys</label>
+            </value>
+            <value>
+                <fullName>SW CAD</fullName>
+                <default>false</default>
+                <label>SW CAD</label>
+            </value>
+            <value>
+                <fullName>SW CAD Premium</fullName>
+                <default>false</default>
+                <label>SW CAD Premium</label>
+            </value>
+            <value>
+                <fullName>SW CAD Professional</fullName>
+                <default>false</default>
+                <label>SW CAD Professional</label>
+            </value>
+            <value>
+                <fullName>SW CAM</fullName>
+                <default>false</default>
+                <label>SW CAM</label>
+            </value>
+            <value>
+                <fullName>SW Composer</fullName>
+                <default>false</default>
+                <label>SW Composer</label>
+            </value>
+            <value>
+                <fullName>SW DraftSight</fullName>
+                <default>false</default>
+                <label>SW DraftSight</label>
+            </value>
+            <value>
+                <fullName>SW Electrical</fullName>
+                <default>false</default>
+                <label>SW Electrical</label>
+            </value>
+            <value>
+                <fullName>SW Electrical 2D</fullName>
+                <default>false</default>
+                <label>SW Electrical 2D</label>
+            </value>
+            <value>
+                <fullName>SW Electrical 3D</fullName>
+                <default>false</default>
+                <label>SW Electrical 3D</label>
+            </value>
+            <value>
+                <fullName>SW Electrical Professional</fullName>
+                <default>false</default>
+                <label>SW Electrical Professional</label>
+            </value>
+            <value>
+                <fullName>SW Electrical Schematic</fullName>
+                <default>false</default>
+                <label>SW Electrical Schematic</label>
+            </value>
+            <value>
+                <fullName>SW Exalead</fullName>
+                <default>false</default>
+                <label>SW Exalead</label>
+            </value>
+            <value>
+                <fullName>SW Inspection</fullName>
+                <default>false</default>
+                <label>SW Inspection</label>
+            </value>
+            <value>
+                <fullName>SW Inspection Professional</fullName>
+                <default>false</default>
+                <label>SW Inspection Professional</label>
+            </value>
+            <value>
+                <fullName>SW Inspection Standard</fullName>
+                <default>false</default>
+                <label>SW Inspection Standard</label>
+            </value>
+            <value>
+                <fullName>SW Manage</fullName>
+                <default>false</default>
+                <label>SW Manage</label>
+            </value>
+            <value>
+                <fullName>SW MBD</fullName>
+                <default>false</default>
+                <label>SW MBD</label>
+            </value>
+            <value>
+                <fullName>SW Model Based Definition</fullName>
+                <default>false</default>
+                <label>SW Model Based Definition</label>
+            </value>
+            <value>
+                <fullName>SW Multiple Products</fullName>
+                <default>false</default>
+                <label>SW Multiple Products</label>
+            </value>
+            <value>
+                <fullName>SW PCB</fullName>
+                <default>false</default>
+                <label>SW PCB</label>
+            </value>
+            <value>
+                <fullName>SW PDM Professional</fullName>
+                <default>false</default>
+                <label>SW PDM Professional</label>
+            </value>
+            <value>
+                <fullName>SW PDM Standard</fullName>
+                <default>false</default>
+                <label>SW PDM Standard</label>
+            </value>
+            <value>
+                <fullName>SW Plastics</fullName>
+                <default>false</default>
+                <label>SW Plastics</label>
+            </value>
+            <value>
+                <fullName>SW Simulation</fullName>
+                <default>false</default>
+                <label>SW Simulation</label>
+            </value>
+            <value>
+                <fullName>SW Simulation Flow</fullName>
+                <default>false</default>
+                <label>SW Simulation Flow</label>
+            </value>
+            <value>
+                <fullName>SW Sustainability</fullName>
+                <default>false</default>
+                <label>SW Sustainability</label>
+            </value>
+            <value>
+                <fullName>SW Training</fullName>
+                <default>false</default>
+                <label>SW Training</label>
+            </value>
+            <value>
+                <fullName>SW Visualize</fullName>
+                <default>false</default>
+                <label>SW Visualize</label>
+            </value>
+            <value>
+                <fullName>Tooling (Jigs &amp; Fixtures)</fullName>
+                <default>false</default>
+                <label>Tooling (Jigs &amp; Fixtures)</label>
+            </value>
+            <value>
+                <fullName>Tooling (Patterns/Molds/Composites)</fullName>
+                <default>false</default>
+                <label>Tooling (Patterns/Molds/Composites)</label>
+            </value>
+            <value>
+                <fullName>Tulip</fullName>
+                <default>false</default>
+                <label>Tulip</label>
+            </value>
+            <value>
+                <fullName>Unknown (Print Application)</fullName>
+                <default>false</default>
+                <label>Unknown (Print Application)</label>
+            </value>
+            <value>
+                <fullName>Unspecified</fullName>
+                <default>false</default>
+                <label>Unspecified</label>
+            </value>
+            <value>
+                <fullName>uPrint</fullName>
+                <default>false</default>
+                <label>uPrint</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

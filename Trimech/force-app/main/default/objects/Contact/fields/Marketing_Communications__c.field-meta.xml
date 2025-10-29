@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Marketing_Communications__c</fullName>
+    <description>Used for Marketing Communications sent out of Marketing App.</description>
+    <inlineHelpText>Used for Marketing Communications sent out of Marketing App.</inlineHelpText>
+    <label>Marketing Communications</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>Marketing_Communications_List</valueSetName>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

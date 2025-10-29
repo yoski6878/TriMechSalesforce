@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Subtype__c</fullName>
+    <label>Subtype</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Settings</fullName>
+                <default>false</default>
+                <label>Settings</label>
+            </value>
+            <value>
+                <fullName>Account / Access Issue</fullName>
+                <default>false</default>
+                <label>Account / Access Issue</label>
+            </value>
+            <value>
+                <fullName>Activation / License Transfer</fullName>
+                <default>false</default>
+                <label>Activation / License Transfer</label>
+            </value>
+            <value>
+                <fullName>Advantage Plus</fullName>
+                <default>false</default>
+                <label>Advantage Plus</label>
+            </value>
+            <value>
+                <fullName>Bug Defect</fullName>
+                <default>false</default>
+                <label>Bug Defect</label>
+            </value>
+            <value>
+                <fullName>Client Onboarding</fullName>
+                <default>false</default>
+                <label>Client Onboarding</label>
+            </value>
+            <value>
+                <fullName>Client Self-Resolved</fullName>
+                <default>false</default>
+                <label>Client Self-Resolved</label>
+            </value>
+            <value>
+                <fullName>Cloud Tenant Down</fullName>
+                <default>false</default>
+                <label>Cloud Tenant Down</label>
+            </value>
+            <value>
+                <fullName>Contact Management</fullName>
+                <default>false</default>
+                <label>Contact Management</label>
+            </value>
+            <value>
+                <fullName>Corrupt File</fullName>
+                <default>false</default>
+                <label>Corrupt File</label>
+            </value>
+            <value>
+                <fullName>Crashing / Hanging / Instability</fullName>
+                <default>false</default>
+                <label>Crashing / Hanging / Instability</label>
+            </value>
+            <value>
+                <fullName>Display / Appearance</fullName>
+                <default>false</default>
+                <label>Display / Appearance</label>
+            </value>
+            <value>
+                <fullName>DVD / USB key / Download Request</fullName>
+                <default>false</default>
+                <label>DVD / USB key / Download Request</label>
+            </value>
+            <value>
+                <fullName>Enhancement Request</fullName>
+                <default>false</default>
+                <label>Enhancement Request</label>
+            </value>
+            <value>
+                <fullName>Error Message</fullName>
+                <default>false</default>
+                <label>Error Message</label>
+            </value>
+            <value>
+                <fullName>Feature Usage</fullName>
+                <default>false</default>
+                <label>Feature Usage</label>
+            </value>
+            <value>
+                <fullName>File Management / References</fullName>
+                <default>false</default>
+                <label>File Management / References</label>
+            </value>
+            <value>
+                <fullName>Handed Off to Another Team</fullName>
+                <default>false</default>
+                <label>Handed Off to Another Team</label>
+            </value>
+            <value>
+                <fullName>Hardware / OS / Network</fullName>
+                <default>false</default>
+                <label>Hardware / OS / Network</label>
+            </value>
+            <value>
+                <fullName>How To</fullName>
+                <default>false</default>
+                <label>How To</label>
+            </value>
+            <value>
+                <fullName>Import / Export</fullName>
+                <default>false</default>
+                <label>Import / Export</label>
+            </value>
+            <value>
+                <fullName>Informational Question</fullName>
+                <default>false</default>
+                <label>Informational Question</label>
+            </value>
+            <value>
+                <fullName>Installation / Update</fullName>
+                <default>false</default>
+                <label>Installation / Update</label>
+            </value>
+            <value>
+                <fullName>Licensing / License File</fullName>
+                <default>false</default>
+                <label>Licensing / License File</label>
+            </value>
+            <value>
+                <fullName>Migration</fullName>
+                <default>false</default>
+                <label>Migration</label>
+            </value>
+            <value>
+                <fullName>Non Bug Defect</fullName>
+                <default>false</default>
+                <label>Non Bug Defect</label>
+            </value>
+            <value>
+                <fullName>NON-CLIENT Sales Opportunity</fullName>
+                <default>false</default>
+                <label>NON-CLIENT Sales Opportunity</label>
+            </value>
+            <value>
+                <fullName>Order / Asset / Serial Inquiry</fullName>
+                <default>false</default>
+                <label>Order / Asset / Serial Inquiry</label>
+            </value>
+            <value>
+                <fullName>Performance Concerns</fullName>
+                <default>false</default>
+                <label>Performance Concerns</label>
+            </value>
+            <value>
+                <fullName>Post Modifications - EXTERNAL</fullName>
+                <default>false</default>
+                <label>Post Modifications - EXTERNAL</label>
+            </value>
+            <value>
+                <fullName>Post Modifications - INTERNAL</fullName>
+                <default>false</default>
+                <label>Post Modifications - INTERNAL</label>
+            </value>
+            <value>
+                <fullName>Post Request</fullName>
+                <default>false</default>
+                <label>Post Request</label>
+            </value>
+            <value>
+                <fullName>Preventative Maintenance</fullName>
+                <default>false</default>
+                <label>Preventative Maintenance</label>
+            </value>
+            <value>
+                <fullName>Printer Installation</fullName>
+                <default>false</default>
+                <label>Printer Installation</label>
+            </value>
+            <value>
+                <fullName>Printing / Plotting</fullName>
+                <default>false</default>
+                <label>Printing / Plotting</label>
+            </value>
+            <value>
+                <fullName>Problem</fullName>
+                <default>false</default>
+                <label>Problem</label>
+            </value>
+            <value>
+                <fullName>Product / Pricing Inquiry</fullName>
+                <default>false</default>
+                <label>Product / Pricing Inquiry</label>
+            </value>
+            <value>
+                <fullName>Software Bug / Limitation</fullName>
+                <default>false</default>
+                <label>Software Bug / Limitation</label>
+            </value>
+            <value>
+                <fullName>Stratasys</fullName>
+                <default>false</default>
+                <label>Stratasys</label>
+            </value>
+            <value>
+                <fullName>Student</fullName>
+                <default>false</default>
+                <label>Student</label>
+            </value>
+            <value>
+                <fullName>Toolpath Support</fullName>
+                <default>false</default>
+                <label>Toolpath Support</label>
+            </value>
+            <value>
+                <fullName>Wanted Info About Training</fullName>
+                <default>false</default>
+                <label>Wanted Info About Training</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

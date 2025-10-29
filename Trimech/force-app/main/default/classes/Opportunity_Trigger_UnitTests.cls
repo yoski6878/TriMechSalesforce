@@ -11,6 +11,10 @@ private class Opportunity_Trigger_UnitTests {
         // Create test account
         Account a = new Account(Name = 'Eustace Consulting', Website = 'www.eustaceconsulting.com');
         insert a;
+		Schema.location lc = new Schema.location (Name='Test', LocationType = 'Site');
+		insert lc;        
+        Schema.Address addr = new Schema.Address( ParentId = lc.Id, LocationType = 'Site',Account__c = a.Id);
+        insert addr;
         
         // Create pricebooks
         Pricebook2 customPB = new Pricebook2(Name = 'Custom PB', IsActive = true);
@@ -53,12 +57,13 @@ private class Opportunity_Trigger_UnitTests {
         
         // Test stage update to 'Closed Lost' and ensure required fields are set
         o2.StageName = 'Closed Lost';
-        o2.CloseDate = System.today().addDays(30); // Ensure CloseDate is valid for this stage
+        o2.Actual_Close_Date__c = System.today().addDays(15);
+        o2.CloseDate = System.today().addDays(15); // Ensure CloseDate is valid for this stage
         update new Opportunity[]{o2};
         
         // Validate the update success
         Opportunity updatedOpp = [SELECT StageName, CloseDate FROM Opportunity WHERE Id = :o2.Id];
         System.assertEquals('Closed Lost', updatedOpp.StageName);
-        System.assertEquals(System.today().addDays(30), updatedOpp.CloseDate);
+        System.assertEquals(System.today().addDays(15), updatedOpp.CloseDate);
     }
 }

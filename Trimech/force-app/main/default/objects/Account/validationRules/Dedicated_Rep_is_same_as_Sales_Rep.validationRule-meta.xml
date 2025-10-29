@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Dedicated_Rep_is_same_as_Sales_Rep</fullName>
+    <active>true</active>
+    <description>When Dedicated Rep is same as Sales Rep, show an error message</description>
+    <errorConditionFormula>OR(
+(NOT(ISBLANK(Sales_Rep_Software__c)) &amp;&amp; Dedicated_Sales_Rep_Software__c = Sales_Rep_Software__c),
+(NOT(ISBLANK(Sales_Rep_Hardware_Outside__c)) &amp;&amp; Dedicated_Sales_Rep_Hardware__c = Sales_Rep_Hardware_Outside__c)
+)
+
+/*
+
+OR(
+(NOT(ISBLANK(Sales_Rep_Software_Inside__c)) &amp;&amp; Dedicated_Sales_Rep_Software_Inside__c = Sales_Rep_Software_Inside__c),
+(NOT(ISBLANK(Sales_Rep_Software__c)) &amp;&amp; Dedicated_Sales_Rep_Software__c = Sales_Rep_Software__c),
+(NOT(ISBLANK(Sales_Rep_Hardware_Outside__c)) &amp;&amp; Dedicated_Sales_Rep_Hardware__c = Sales_Rep_Hardware_Outside__c)
+)
+
+*/</errorConditionFormula>
+    <errorMessage>Dedicated Rep must be different from respective Sales Rep</errorMessage>
+</ValidationRule>

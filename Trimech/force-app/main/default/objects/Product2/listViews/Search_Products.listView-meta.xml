@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Search_Products</fullName>
+    <columns>PRODUCT2.NAME</columns>
+    <columns>NetSuite_Link__c</columns>
+    <columns>PRODUCT2.CUSTOMER_PRODUCT_ID</columns>
+    <columns>Class__c</columns>
+    <columns>Category__c</columns>
+    <columns>celigo_sfnsio__NetSuite_item_type__c</columns>
+    <columns>License_Type__c</columns>
+    <columns>Network_Stand_Alone__c</columns>
+    <columns>Elite_Essential__c</columns>
+    <columns>Client_Type__c</columns>
+    <columns>OEM__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>PRODUCT2.ACTIVE</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <filters>
+        <field>OEM__c</field>
+        <operation>equals</operation>
+        <value>SolidCam</value>
+    </filters>
+    <label>Search Products</label>
+    <sharedTo>
+        <group>Sales_Ops</group>
+    </sharedTo>
+</ListView>

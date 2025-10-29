@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Salesforce_Engage_Permission__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This field governs the access to the below Buttons on Contact Record: 
+Send Engage Email 
+Add to Nurture List</description>
+    <label>Salesforce Engage Permission</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

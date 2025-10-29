@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Government_Classification__c</fullName>
+    <label>Government Classification</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Direct Government Customer</fullName>
+                <default>false</default>
+                <label>Direct Government Customer</label>
+            </value>
+            <value>
+                <fullName>Official Government Sub-Contractor</fullName>
+                <default>false</default>
+                <label>Official Government Sub-Contractor</label>
+            </value>
+            <value>
+                <fullName>Defense Contractor</fullName>
+                <default>false</default>
+                <label>Defense Contractor</label>
+            </value>
+            <value>
+                <fullName>Defense Manufacturer</fullName>
+                <default>false</default>
+                <label>Defense Manufacturer</label>
+            </value>
+            <value>
+                <fullName>Private Aerospace Company</fullName>
+                <default>false</default>
+                <label>Private Aerospace Company</label>
+            </value>
+            <value>
+                <fullName>Education</fullName>
+                <default>false</default>
+                <label>Education</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

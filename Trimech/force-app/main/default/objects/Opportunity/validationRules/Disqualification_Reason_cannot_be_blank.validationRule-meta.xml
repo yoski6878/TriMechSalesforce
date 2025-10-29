@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Disqualification_Reason_cannot_be_blank</fullName>
+    <active>true</active>
+    <description>Disqualification Reason field cannot be blank when Stage is Disqualified</description>
+    <errorConditionFormula>ISPICKVAL(StageName, &apos;Disqualified&apos;) &amp;&amp; ISPICKVAL(Disqualification_Reason__c, &apos;&apos;) &amp;&amp; 
+$User.FirstName &lt;&gt; &apos;Tina&apos;</errorConditionFormula>
+    <errorDisplayField>Disqualification_Reason__c</errorDisplayField>
+    <errorMessage>Disqualification Reason field cannot be blank when Stage is Disqualified</errorMessage>
+</ValidationRule>

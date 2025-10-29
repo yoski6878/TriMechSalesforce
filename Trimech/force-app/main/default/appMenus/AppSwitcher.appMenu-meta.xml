@@ -53,10 +53,6 @@
         <type>CustomApplication</type>
     </appMenuItems>
     <appMenuItems>
-        <name>standard__LightningInstrumentation</name>
-        <type>CustomApplication</type>
-    </appMenuItems>
-    <appMenuItems>
         <name>standard__LightningBolt</name>
         <type>CustomApplication</type>
     </appMenuItems>
@@ -117,6 +113,14 @@
         <type>CustomApplication</type>
     </appMenuItems>
     <appMenuItems>
+        <name>HubSpot_Inc__HubSpot_Sync</name>
+        <type>CustomApplication</type>
+    </appMenuItems>
+    <appMenuItems>
+        <name>HubSpot</name>
+        <type>ConnectedApp</type>
+    </appMenuItems>
+    <appMenuItems>
         <name>Marketing_lightning</name>
         <type>CustomApplication</type>
     </appMenuItems>
@@ -159,14 +163,6 @@
     <appMenuItems>
         <name>standard__Insights</name>
         <type>CustomApplication</type>
-    </appMenuItems>
-    <appMenuItems>
-        <name>Pardot_to_SF_Integration_Secure_Connected_App</name>
-        <type>ConnectedApp</type>
-    </appMenuItems>
-    <appMenuItems>
-        <name>b2bma_canvas</name>
-        <type>ConnectedApp</type>
     </appMenuItems>
     <appMenuItems>
         <name>standard__DataManager</name>
@@ -297,6 +293,18 @@
         <type>CustomApplication</type>
     </appMenuItems>
     <appMenuItems>
+        <name>Pardot_to_SF_Integration_Secure_Connected_App</name>
+        <type>ConnectedApp</type>
+    </appMenuItems>
+    <appMenuItems>
+        <name>b2bma_canvas</name>
+        <type>ConnectedApp</type>
+    </appMenuItems>
+    <appMenuItems>
+        <name>BridgeIT</name>
+        <type>ExternalClientApplication</type>
+    </appMenuItems>
+    <appMenuItems>
         <name>echosign_dev1__EchoSign</name>
         <type>CustomApplication</type>
     </appMenuItems>
@@ -305,39 +313,15 @@
         <type>CustomApplication</type>
     </appMenuItems>
     <appMenuItems>
-        <name>PaperlessPartsIntegration</name>
-        <type>ExternalClientApplication</type>
-    </appMenuItems>
-    <appMenuItems>
-        <name>standard__CommerceStarter</name>
-        <type>CustomApplication</type>
-    </appMenuItems>
-    <appMenuItems>
-        <name>standard__Personalization</name>
-        <type>CustomApplication</type>
-    </appMenuItems>
-    <appMenuItems>
         <name>BridgeIT</name>
         <type>ConnectedApp</type>
     </appMenuItems>
     <appMenuItems>
-        <name>orgcheck__OrgCheck_APP</name>
+        <name>CodeBuilder__CodeBuilder</name>
         <type>CustomApplication</type>
     </appMenuItems>
     <appMenuItems>
-        <name>standard__DigitalWallet</name>
-        <type>CustomApplication</type>
-    </appMenuItems>
-    <appMenuItems>
-        <name>Abnormal_Security</name>
-        <type>ExternalClientApplication</type>
-    </appMenuItems>
-    <appMenuItems>
-        <name>LEXMAGICMOVER__Attachments_and_Notes_migrator</name>
-        <type>CustomApplication</type>
-    </appMenuItems>
-    <appMenuItems>
-        <name>ZoomInfo</name>
+        <name>PandaDoc_to_SF_OAuth2</name>
         <type>ConnectedApp</type>
     </appMenuItems>
 </AppMenu>

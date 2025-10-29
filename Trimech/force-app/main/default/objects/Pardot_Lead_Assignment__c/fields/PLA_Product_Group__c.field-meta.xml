@@ -3,7 +3,6 @@
     <fullName>PLA_Product_Group__c</fullName>
     <deleteConstraint>Restrict</deleteConstraint>
     <description>Used only for mapping the assignments</description>
-    <externalId>false</externalId>
     <label>PLA Product Group</label>
     <referenceTo>Product_Group__c</referenceTo>
     <relationshipLabel>Pardot Lead Assignments</relationshipLabel>

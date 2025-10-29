@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Status_Calculated__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(RecordType.Name = &quot;Software&quot; &amp;&amp; Text(Status) &lt;&gt; &quot;Active&quot;, 
+  IF(UsageEndDate &lt; TODAY() || ISNULL(UsageEndDate), &quot;Inactive&quot;, Text(Status)), 
+  Text(Status)
+)
+
+/*
+IF( (UsageEndDate &lt; TODAY() || ISNULL(UsageEndDate)), &quot;Inactive&quot;, &quot;Active&quot; )
+*/</formula>
+    <label>Status Calculated</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

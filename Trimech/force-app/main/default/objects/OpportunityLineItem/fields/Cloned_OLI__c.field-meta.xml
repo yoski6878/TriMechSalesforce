@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cloned_OLI__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Used for flow decisions - do not use for other references</description>
+    <inlineHelpText>DO NOT MODIFY THIS FIELD</inlineHelpText>
+    <label>Cloned OLI</label>
+    <type>Checkbox</type>
+</CustomField>

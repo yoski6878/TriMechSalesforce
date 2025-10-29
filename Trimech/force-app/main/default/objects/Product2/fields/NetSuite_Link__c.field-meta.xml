@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NetSuite_Link__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF( NOT( ISBLANK(celigo_sfnsio__NetSuite_Id__c) ) , 
+(HYPERLINK(&quot;https://436366.app.netsuite.com/app/common/item/item.nl?id=&quot; + celigo_sfnsio__NetSuite_Id__c, celigo_sfnsio__NetSuite_Id__c)),
+&quot;&quot;)</formula>
+    <label>NetSuite Link</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

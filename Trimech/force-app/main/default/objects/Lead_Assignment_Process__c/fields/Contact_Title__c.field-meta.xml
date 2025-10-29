@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Contact_Title__c</fullName>
-    <externalId>false</externalId>
     <formula>CONTAINS(&quot;CEO:CFO:President&quot;, Contact__r.Title) &amp;&amp; NOT ((ISBLANK(Contact__r.Title) || ISNULL(Contact__r.Title)))</formula>
     <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
     <label>Contact Title</label>

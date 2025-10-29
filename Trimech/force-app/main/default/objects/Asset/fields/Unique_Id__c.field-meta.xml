@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Unique_Id__c</fullName>
+    <caseSensitive>false</caseSensitive>
+    <description>NetSuite Internal Id with hardware and software indicator (H or S)</description>
+    <externalId>true</externalId>
+    <label>Unique Id</label>
+    <length>100</length>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <type>Text</type>
+    <unique>true</unique>
+</CustomField>

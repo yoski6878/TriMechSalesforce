@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FSA_Code__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF( OR(LEFT(TRIM(ShippingPostalCode), 1)=&apos;A&apos;, LEFT(TRIM(ShippingPostalCode), 1)=&apos;B&apos;, LEFT(TRIM(ShippingPostalCode), 1)=&apos;C&apos;, LEFT(TRIM(ShippingPostalCode), 1)=&apos;D&apos;, LEFT(TRIM(ShippingPostalCode), 1)=&apos;E&apos;, LEFT(TRIM(ShippingPostalCode), 1)=&apos;F&apos;, LEFT(TRIM(ShippingPostalCode), 1)=&apos;G&apos;, LEFT(TRIM(ShippingPostalCode), 1)=&apos;H&apos;, LEFT(TRIM(ShippingPostalCode), 1)=&apos;I&apos;, LEFT(TRIM(ShippingPostalCode), 1)=&apos;J&apos;, LEFT(TRIM(ShippingPostalCode), 1)=&apos;K&apos;, LEFT(TRIM(ShippingPostalCode), 1)=&apos;L&apos;, LEFT(TRIM(ShippingPostalCode), 1)=&apos;M&apos;, LEFT(TRIM(ShippingPostalCode), 1)=&apos;N&apos;, LEFT(TRIM(ShippingPostalCode), 1)=&apos;O&apos;, LEFT(TRIM(ShippingPostalCode), 1)=&apos;P&apos;, LEFT(TRIM(ShippingPostalCode), 1)=&apos;Q&apos;, LEFT(TRIM(ShippingPostalCode), 1)=&apos;R&apos;, LEFT(TRIM(ShippingPostalCode), 1)=&apos;S&apos;, LEFT(TRIM(ShippingPostalCode), 1)=&apos;T&apos;, LEFT(TRIM(ShippingPostalCode), 1)=&apos;U&apos;, LEFT(TRIM(ShippingPostalCode), 1)=&apos;V&apos;, LEFT(TRIM(ShippingPostalCode), 1)=&apos;W&apos;, LEFT(TRIM(ShippingPostalCode), 1)=&apos;X&apos;, LEFT(TRIM(ShippingPostalCode), 1)=&apos;Y&apos;, LEFT(TRIM(ShippingPostalCode), 1)=&apos;Z&apos;)
+, LEFT(TRIM(ShippingPostalCode), 3), &apos;&apos;)</formula>
+    <label>FSA Code</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -20,7 +20,14 @@
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Duplicate Merge Email Address</shortDescription>
-        <value>ITrequest@trimech.com</value>
+        <value>yoseph.kinfu@trimech.com</value>
+    </labels>
+    <labels>
+        <fullName>Enterprise_Subsidiary</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Enterprise Subsidiary</shortDescription>
+        <value>TriMech Enterprise Solutions Corp. (formerly Adaptive Corporation)</value>
     </labels>
     <labels>
         <fullName>ExchangeRateCADtoUSD</fullName>
@@ -28,7 +35,7 @@
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>ExchangeRateCADtoUSD</shortDescription>
-        <value>0.72</value>
+        <value>0.69</value>
     </labels>
     <labels>
         <fullName>ExchangeRateUSDtoCAD</fullName>
@@ -36,7 +43,7 @@
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>ExchangeRateUSDtoCAD</shortDescription>
-        <value>1.39</value>
+        <value>1.45</value>
     </labels>
     <labels>
         <fullName>Exchange_Rate_CAD_to_USD_for_GP_Calculations</fullName>
@@ -44,17 +51,38 @@
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Exchange_Rate_CAD_to_USD_for_GP_Calculations</shortDescription>
-        <value>0.72291421</value>
+        <value>0.69321687</value>
     </labels>
     <labels>
         <fullName>Login_Message_for_Flow</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Login Message for Flow</shortDescription>
-        <value>As a follow up to the recent Office Hours meeting, there was a question about adding multiple items at once when creating an Opportunity rather than selecting one item at a time. Yes, you can add multiple items at once and the item descriptions will all populate on the Opportunity Line Items and on the Proposals created from the Opportunity.
+        <value>Please take a few minutes to review the video for the new functionality of managing multiple proposals and syncing line items from the Proposal back to the Opportunity. A link to this video will be emailed out on Friday 11/1/24, so please check your email. It will be live on Monday, November 4th.
 
 
 (Check the below checkbox and click Next to not see this message on next login. Else just click Next to continue to Home Page.)</value>
+    </labels>
+    <labels>
+        <fullName>NDA_Approver_Owner_Alias</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>NDA Approver Owner Alias</shortDescription>
+        <value>ykinf</value>
+    </labels>
+    <labels>
+        <fullName>NDA_High_Lead_Score</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>NDA High Lead Score</shortDescription>
+        <value>ykinf</value>
+    </labels>
+    <labels>
+        <fullName>NewCaseCreationCustomMessage</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>New Case Creation Custom Message</shortDescription>
+        <value>.</value>
     </labels>
     <labels>
         <fullName>NotSupportedMessage</fullName>

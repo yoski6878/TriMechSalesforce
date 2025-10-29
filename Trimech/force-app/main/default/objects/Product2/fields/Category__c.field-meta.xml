@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Category__c</fullName>
+    <description>Item Category</description>
+    <label>Category</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>3DEXPERIENCE</fullName>
+                <default>false</default>
+                <label>3DEXPERIENCE</label>
+            </value>
+            <value>
+                <fullName>Consumables</fullName>
+                <default>false</default>
+                <label>Consumables</label>
+            </value>
+            <value>
+                <fullName>Discount</fullName>
+                <default>false</default>
+                <label>Discount</label>
+            </value>
+            <value>
+                <fullName>Hardware</fullName>
+                <default>false</default>
+                <label>Hardware</label>
+            </value>
+            <value>
+                <fullName>Initial : ALC</fullName>
+                <default>false</default>
+                <label>Initial : ALC</label>
+            </value>
+            <value>
+                <fullName>Initial : ASC</fullName>
+                <default>false</default>
+                <label>Initial : ASC</label>
+            </value>
+            <value>
+                <fullName>Initial : QSC</fullName>
+                <default>false</default>
+                <label>Initial : QSC</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Renewal : ALC-R</fullName>
+                <default>false</default>
+                <label>Renewal : ALC-R</label>
+            </value>
+            <value>
+                <fullName>Renewal : ASC-R</fullName>
+                <default>false</default>
+                <label>Renewal : ASC-R</label>
+            </value>
+            <value>
+                <fullName>Renewal : QLC-R</fullName>
+                <default>false</default>
+                <label>Renewal : QLC-R</label>
+            </value>
+            <value>
+                <fullName>Renewal : QSC-R</fullName>
+                <default>false</default>
+                <label>Renewal : QSC-R</label>
+            </value>
+            <value>
+                <fullName>Renewal : YLC-R</fullName>
+                <default>false</default>
+                <label>Renewal : YLC-R</label>
+            </value>
+            <value>
+                <fullName>Renewal : YSC-R</fullName>
+                <default>false</default>
+                <label>Renewal : YSC-R</label>
+            </value>
+            <value>
+                <fullName>Services</fullName>
+                <default>false</default>
+                <label>Services</label>
+            </value>
+            <value>
+                <fullName>Software</fullName>
+                <default>false</default>
+                <label>Software</label>
+            </value>
+            <value>
+                <fullName>Software : PLC</fullName>
+                <default>false</default>
+                <label>Software : PLC</label>
+            </value>
+            <value>
+                <fullName>Software : PSC</fullName>
+                <default>false</default>
+                <label>Software : PSC</label>
+            </value>
+            <value>
+                <fullName>Software : QLC</fullName>
+                <default>false</default>
+                <label>Software : QLC</label>
+            </value>
+            <value>
+                <fullName>Software : QSC</fullName>
+                <default>false</default>
+                <label>Software : QSC</label>
+            </value>
+            <value>
+                <fullName>Software : YLC</fullName>
+                <default>false</default>
+                <label>Software : YLC</label>
+            </value>
+            <value>
+                <fullName>Software : YSC</fullName>
+                <default>false</default>
+                <label>Software : YSC</label>
+            </value>
+            <value>
+                <fullName>Subscription Initial</fullName>
+                <default>false</default>
+                <label>Subscription Initial</label>
+            </value>
+            <value>
+                <fullName>Subscription Renewal</fullName>
+                <default>false</default>
+                <label>Subscription Renewal</label>
+            </value>
+            <value>
+                <fullName>Training</fullName>
+                <default>false</default>
+                <label>Training</label>
+            </value>
+            <value>
+                <fullName>Training : In-House</fullName>
+                <default>false</default>
+                <label>Training : In-House</label>
+            </value>
+            <value>
+                <fullName>Training : Passport</fullName>
+                <default>false</default>
+                <label>Training : Passport</label>
+            </value>
+            <value>
+                <fullName>Training : Third-Party Delivery</fullName>
+                <default>false</default>
+                <label>Training : Third-Party Delivery</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

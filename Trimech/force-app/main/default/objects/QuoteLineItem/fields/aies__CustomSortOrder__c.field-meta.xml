@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>aies__CustomSortOrder__c</fullName>
+    <deprecated>false</deprecated>
+    <description>Only Populated if the &apos;Populate Custom Sort Order Field&apos; Custom Setting is ticked</description>
+    <externalId>false</externalId>
+    <label>CustomSortOrder</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

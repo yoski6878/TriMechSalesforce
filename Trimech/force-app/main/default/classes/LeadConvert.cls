@@ -166,6 +166,7 @@ public with sharing class LeadConvert {
             opp.LSC_Campaign__c = l.LSC_Campaign__c?.left(255);
             opp.GCLID_Google_Click_Identification__c = l.GCLID_Google_Click_Identification__c?.left(255);
             opp.Touch_Count__c = oppsTouchCount.get(opportunityId).Touch_Count__c + 1;
+            opp.TD_Lead_Score__c =  l.TD_Lead_Score__c;
             
             if(leadIdToCampaignMember.containsKey(l.Id)) {
                 CampaignMember cm = leadIdToCampaignMember.get(l.Id);

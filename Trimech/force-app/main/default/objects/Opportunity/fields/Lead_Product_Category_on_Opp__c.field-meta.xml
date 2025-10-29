@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lead_Product_Category_on_Opp__c</fullName>
+    <description>Used for mapping Lead Product Category values from Pardot</description>
+    <label>Lead Product Category on Opp</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>Lead_Product_Category</valueSetName>
+    </valueSet>
+</CustomField>

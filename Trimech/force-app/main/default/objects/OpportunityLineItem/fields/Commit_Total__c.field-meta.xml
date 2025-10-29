@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Commit_Total__c</fullName>
+    <description>To be used only for Administrative Reports</description>
+    <formula>IF(Opportunity.Probability = 1, Total_Purchase_Price__c,
+IF( (Opportunity.Probability = 0.9 || Opportunity.Probability = 0.75), (Total_Purchase_Price__c * 0.75), 0)
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Commit Total</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <type>Currency</type>
+</CustomField>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Type_Required_once_In_Progress</fullName>
+    <active>true</active>
+    <description>The type field needs to be required AFTER the stage is moved to in progress. They wont know the type right away as cases come in from email or web.</description>
+    <errorConditionFormula>AND(
+    NOT(ISPICKVAL(Status, &quot;New&quot;)),
+    ISPICKVAL(Type,&quot;Unassigned&quot;),
+    $Profile.Name != &quot;System Administrator&quot;
+)</errorConditionFormula>
+    <errorMessage>The Type field is required when moving the status out of &quot;New&quot;.</errorMessage>
+</ValidationRule>

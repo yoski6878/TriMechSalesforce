@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Software_Assets</fullName>
+    <columns>ASSET.NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>ASSET.SERIAL_NUMBER</columns>
+    <columns>Unique_Id__c</columns>
+    <columns>ASSET.QUANTITY</columns>
+    <columns>ASSET.STATUS</columns>
+    <columns>ASSET.USAGE_END_DATE</columns>
+    <columns>ASSET.CREATED_DATE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>ASSET.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Asset.Software</value>
+    </filters>
+    <label>Software Assets</label>
+</ListView>

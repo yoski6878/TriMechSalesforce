@@ -1,0 +1,83 @@
+.dummy{
+    color:black;
+}
+
+.maindiv{
+    width:100%;
+    height: 100%;
+}
+
+.filterLinkCSS {
+    font-size: 16px; 
+    font-weight: 600;
+    color: #0070d2; 
+    text-decoration: none;
+    padding: 5px 10px; 
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+}
+
+.filterLinkCSS:hover {
+    color: #005fb2; /* Darker blue on hover */
+    text-decoration: underline; /* Show underline on hover */
+    cursor: pointer;
+}
+
+.flexConntainer{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+
+.data-table-wrapper{
+    height:38rem;
+    overflow-y: auto;
+    position: relative;
+}
+
+.data-table-wrapper .slds-table thead{
+    position : sticky;
+    top: 0 ;
+    background : white;
+    z-index : 1;
+}
+
+.buttonBar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.buttonCSS{
+    margin-right: 12px ;
+    padding-top: 18px;
+}
+
+.pageDetails{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.filterPanel{
+    min-width: 30%;
+    border-top: solid #C9C9C9 1px; 
+    border-left: solid #C9C9C9 1px;
+}
+
+.filterPanelHeader{
+    border-bottom: solid #C9C9C9 1px; 
+    border-right: solid #C9C9C9 1px; 
+    display: flex; 
+    padding: 12px;
+    justify-content: space-between;
+}
+
+.filterPanelElements{
+    padding: 6px;
+    padding-left: 12px;
+    height: 35rem; 
+    overflow-y: auto;
+    border-right: solid #C9C9C9 1px;
+}

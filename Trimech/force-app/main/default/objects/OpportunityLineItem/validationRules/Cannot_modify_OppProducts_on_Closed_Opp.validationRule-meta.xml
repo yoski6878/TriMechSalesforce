@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cannot_modify_OppProducts_on_Closed_Opp</fullName>
+    <active>true</active>
+    <description>Prevents users from editing Opportunity Products after an Opportunity is Closed.</description>
+    <errorConditionFormula>AND( NOT(CONTAINS($User.ProfileId, &apos;00e6g0000027lpb&apos;)), 
+OR(ISPICKVAL(Opportunity.StageName, &quot;Send to Order Management&quot;), 
+	ISPICKVAL(Opportunity.StageName, &quot;Closed Won&quot;), 
+	ISPICKVAL(Opportunity.StageName, &quot;Closed Lost&quot;))
+)</errorConditionFormula>
+    <errorMessage>Opportunity Line Items cannot be created or edited because the Opportunity is Closed.</errorMessage>
+</ValidationRule>

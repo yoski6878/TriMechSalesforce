@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Chameleon__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Check this box if the Opportunity originated from Chameleon.</description>
+    <inlineHelpText>Check this box if the Opportunity originated from Chameleon.</inlineHelpText>
+    <label>Chameleon</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

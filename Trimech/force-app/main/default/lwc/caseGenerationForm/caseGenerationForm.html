@@ -1,0 +1,196 @@
+<template>
+    
+    <template if:false={isSubmitted}>
+        <div class="mainDiv">
+        <div class="slds--around_medium">
+            <div class="input-wrapper">
+                <div class="slds-text-heading_large boldCSS">Your Contact Information</div>
+                <div class="subHeadingText"> "<span class="red-text">*</span>" indicates required fields</div>
+            </div>
+            <lightning-layout multiple-rows="true">
+                <lightning-layout-item  size="12" large-device-size="6" medium-device-size="6" small-device-size="12">
+                    <div class="input-wrapper">
+                        <div class="input-field-container floating-label-container">
+                            <label class="floating-label">First Name <span class="red-text">*</span>&nbsp;</label>
+                            <lightning-input type="text" class="custom-input"  variant="label-hidden" label="First Name" value={caseObj.FirstName} name="FirstName" required onchange={handleChange}></lightning-input>
+                        </div>
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item  size="12" large-device-size="6" medium-device-size="6" small-device-size="12">
+                    <div class="input-wrapper">
+                        <div class="input-field-container floating-label-container">
+                            <label class="floating-label">Last Name <span class="red-text">*</span>&nbsp;</label>
+                            <lightning-input type="text" class="custom-input"  variant="label-hidden" label="Last Name" value={caseObj.LastName} name="LastName" required onchange={handleChange}></lightning-input>
+                        </div>
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item  size="12" large-device-size="6" medium-device-size="6" small-device-size="12">
+                    <div class="input-wrapper">
+                        <div class="input-field-container floating-label-container">
+                            <label class="floating-label">Company Name <span class="red-text">*</span>&nbsp;</label>
+                            <lightning-input type="text" class="custom-input" variant="label-hidden" label="Company Name" value={caseObj.CompanyName} name="CompanyName" required onchange={handleChange}></lightning-input>
+                        </div>
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item  size="12" large-device-size="6" medium-device-size="6" small-device-size="12">
+                    <div class="input-wrapper">
+                        <div class="input-field-container floating-label-container">
+                            <label class="floating-label">Phone Number <span class="red-text">*</span>&nbsp;</label>
+                            <lightning-input type="text" class="custom-input"  variant="label-hidden" label="Phone Number" value={caseObj.phoneNumber} name="phoneNumber" required onchange={handleChange}></lightning-input>
+                        </div>
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item  size="12" large-device-size="6" medium-device-size="6" small-device-size="12">
+                    <div class="input-wrapper">
+                        <div class="input-field-container floating-label-container">
+                            <label class="floating-label">Email <span class="red-text">*</span>&nbsp;</label>
+                            <lightning-input type="email" class="custom-input" variant="label-hidden" label="Email" value={caseObj.email} name="email" required onchange={handleChange}></lightning-input>
+                        </div>
+                    </div>
+                </lightning-layout-item>
+            </lightning-layout>
+            <div class="slds-text-heading_large input-wrapper boldCSS"> Describe your problem</div>
+            <lightning-layout multiple-rows="true">
+                <lightning-layout-item  size="12" large-device-size="4" medium-device-size="4" small-device-size="12">
+                    <div class="input-wrapper">
+                        <div class="input-field-container floating-label-container">
+                            <label class="floating-label">Product <span class="red-text">*</span>&nbsp;</label>
+                            <lightning-combobox 
+                                name="productName"
+                                variant="label-hidden" label="Product"
+                                value={caseObj.productName}
+                                placeholder="Select an option"
+                                options={productOptions}
+                                required
+                                class="custom-input"
+                                onchange={handleChange}>
+                            </lightning-combobox>
+                        </div>
+                    </div>
+                </lightning-layout-item>
+
+                <lightning-layout-item  size="12" large-device-size="4" medium-device-size="4" small-device-size="12">
+                    <div class="input-field-container floating-label-container">
+                    <div class="input-wrapper">
+                            <label class="floating-label">Software Version</label>
+                            <lightning-combobox
+                                name="softwareVersion"
+                                variant="label-hidden" label="Software Version"
+                                class="custom-input"
+                                value={caseObj.softwareVersion}
+                                placeholder="Select an option"
+                                options={softwareVersionOptions}
+                                onchange={handleChange}>
+                            </lightning-combobox>
+                        </div>
+                    </div>
+                </lightning-layout-item>
+
+                <lightning-layout-item  size="12" large-device-size="4" medium-device-size="4" small-device-size="12">
+                    <div class="input-wrapper">
+                        <div class="input-field-container floating-label-container">
+                            <label class="floating-label">Serial Number</label>
+                            <lightning-input type="text" class="custom-input" variant="label-hidden" label="Serial Number" name="serialNumber" value={caseObj.serialNumber} onchange={handleChange}></lightning-input>
+                        </div>
+                    </div>
+                </lightning-layout-item>
+
+                <lightning-layout-item  size="12" large-device-size="6" medium-device-size="6" small-device-size="12">
+                    <div class="input-wrapper">
+                        <div class="input-field-container floating-label-container">
+                            <label class="floating-label">Subject/Title of Problem <span class="red-text">*</span>&nbsp;</label>
+                            <lightning-input type="text" class="custom-input" variant="label-hidden" label="Subject/Title of Problem" value={caseObj.subject} name="subject" required onchange={handleChange}></lightning-input>
+                        </div>
+                    </div>
+                </lightning-layout-item>
+
+                <lightning-layout-item  size="12" large-device-size="6" medium-device-size="6" small-device-size="12">
+                    <div class="input-wrapper">
+                        <div class="input-field-container floating-label-container">
+                            <label class="floating-label">Priority <span class="red-text">*</span>&nbsp;</label>
+                            <lightning-combobox
+                                name="priority" 
+                                variant="label-hidden" 
+                                required
+                                class="custom-input"
+                                value={caseObj.priority}
+                                placeholder="Select an option"
+                                options={priorityOptions}
+                                onchange={handleChange}>
+                            </lightning-combobox>
+                        </div>
+                    </div>
+                </lightning-layout-item>
+
+                <lightning-layout-item size="12">
+                    <div class="input-wrapper textCSS">
+                        <span class="boldCSS">Priority options:</span>
+                        <ul class="slds-list_dotted">
+                            <li><span class="boldCSS">URGENT:</span> The software or printer is NOT operational. NO workaround exists and/or the business is severely impacted.</li>
+                            <li><span class="boldCSS">HIGH:</span> A major software or printer function is inoperable, but work can continue with moderate impact to business operations.</li>
+                            <li><span class="boldCSS">MEDIUM:</span> An issue which does not seriously affect business operation.</li>
+                            <li><span class="boldCSS">LOW:</span> Just a question and response is not needed for a day or two.</li>
+                        </ul>
+                    </div>
+                </lightning-layout-item>
+
+                <lightning-layout-item size="12">
+                    <div class="input-wrapper">
+                        <div class="input-field-container floating-label-container">
+                            <label class="floating-label">Description of Problem <span class="red-text">*</span>&nbsp;</label>
+                            <lightning-textarea name="description" class="custom-input"  variant="label-hidden" label="Description of Problem" value={caseObj.description} onchange={handleChange} required></lightning-textarea>
+                        </div>
+                    </div>
+                </lightning-layout-item>
+                <!-- <lightning-layout-item size="12">
+                    <div class="input-wrapper">
+                        <c-recaptcha-v2 onbuttonstatus={handleButtonStatus}></c-recaptcha-v2>
+                    </div>
+                </lightning-layout-item>  -->
+                <lightning-layout-item size="12">
+                    <div class="input-wrapper">
+                        <label class="floating-label">Upload a related file of up to 2 GB (ZIP, PDF, DOCX, 7Z, image files are accepted/Only 1 file can be uploaded).
+                      <br/>  SOLIDWORKS files must be zipped, even if a single file.</label>
+                        <lightning-file-upload
+                            name="file"
+                            accept={acceptedFormats}
+                            variant="label-hidden"
+                            disabled={fileUploadDisabled}
+                            file-field-name="Guest_Record_FileUpload__c"
+                            file-field-value={encryptedToken}
+                            onuploadfinished={handleUploadedFile}>
+                        </lightning-file-upload>
+                        <template if:true={fileUploadDisabled}>
+                            <lightning-pill class="custom-input" label={file.name} onremove={handleRemove}></lightning-pill>
+                        </template>
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item size="12">
+                    <div class="input-wrapper">
+                        <input type=hidden name="triggerAutoResponseEmail" value="TRUE">
+                        <button class="buttonCSS slds-button_stretch" onclick={handleSubmit}>SUBMIT</button>
+                    </div>
+                </lightning-layout-item>
+            </lightning-layout>
+        </div> 
+        </div>
+    </template>
+
+    <template if:true={isSubmitted}>
+        <div class="thankYouContainer">
+            <h1 class="thankYouHeader">Thank You for Contacting Support!</h1>
+            <p class="thankYouMessage">
+                Your support case has been successfully registered, and our team will review it shortly. 
+                You will receive an email with your case number soon.
+            </p>
+            <p class="thankYouFooter">
+                If you don’t receive your case number, please reach out to <span class="highlight">support@trimech.com</span> for assistance.
+            </p>
+        </div>
+    </template>
+
+    <template if:true={isLoading}>
+        <lightning-spinner alternative-text="Loading"></lightning-spinner>
+    </template>
+    
+</template>

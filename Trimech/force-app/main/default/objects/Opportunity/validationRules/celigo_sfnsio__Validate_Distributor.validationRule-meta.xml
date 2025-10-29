@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>celigo_sfnsio__Validate_Distributor</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND((TEXT(celigo_sfnsio__Bill_To_Tier__c) == &apos;Distributor&apos;),  (celigo_sfnsio__Distributor__c == null))</errorConditionFormula>
+    <errorDisplayField>celigo_sfnsio__Distributor__c</errorDisplayField>
+    <errorMessage>Bill To Tier is selected as Distributor, please select a value for Distributor.</errorMessage>
+</ValidationRule>

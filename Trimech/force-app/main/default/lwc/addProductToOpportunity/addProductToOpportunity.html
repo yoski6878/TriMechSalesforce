@@ -1,0 +1,181 @@
+<template>
+
+    <template if:true={isSpinner}>
+        <lightning-spinner variant="brand" alternative-text="Loading" size="medium"></lightning-spinner>
+    </template>
+
+    <lightning-quick-action-panel header={modalHeader}>
+            <template if:true={firstPage}>
+                <div style="display: flex; gap: 10px; width: -webkit-fill-available;">
+                    <lightning-input style="width: -webkit-fill-available;" type="text" variant="label-hidden"
+                        placeholder="Search Products..." name="searchValue" value={searchValue}
+                        onchange={handleSearchChange}></lightning-input>
+                    <lightning-button-icon icon-name="utility:filterList" title="Filter"
+                        onclick={hideShowFilterModal}></lightning-button-icon>
+                </div>
+                <div style="display: flex; width: 100%;">
+                    <div style={tableWidth}>
+                        <div class="buttonBar">
+                            <div>
+                                <lightning-combobox name="showRecords" label="Show Records" value={recordsToDsiaply}
+                                    options={recordListOptions} onchange={handleShowRecords}>
+                                </lightning-combobox>
+                            </div>
+                            <div class="buttonCSS">
+                                <lightning-button label="Previous" disabled={isFirstPage} name="previous"
+                                    onclick={handlePagination}></lightning-button>
+            
+                                <span class="pageDetails">
+                                    {currentPage}/{totalPages}
+                                </span>
+            
+                                <lightning-button label="Next" disabled={isLastPage} name="next"
+                                    onclick={handlePagination}></lightning-button>
+                            </div>
+                        </div>                                                                                              
+                        <div class="data-table-wrapper"> 
+                            <lightning-datatable data-id="datatable" data={dataTablePaginationList} columns={firstTableColumns}  key-field="pricebookEntryLinkId" selected-rows={selectedRows}
+                                 onrowselection={handleRowSelection}>
+                            </lightning-datatable>
+                        </div>
+                    </div>
+
+                    <template if:true={displayFilter}>
+                        <div class="filterPanel">
+                            <div class="filterPanelHeader">
+                                <h2>Quick Filter</h2>
+                                <lightning-button-icon icon-name="utility:close" variant="bare" alternative-text="close"
+                                    title="close" onclick={restoreFilter}></lightning-button-icon>
+                            </div>
+                            <div class="filterPanelElements">
+                                
+                                <lightning-input type="text" name="productCode" label="Product Code" value={filterWrapper.productCode}
+                                    onchange={handleFilterChange}></lightning-input>
+
+
+                                <!-- <lightning-dual-listbox label="Licence Type" name="licenseType" options={licenseTypeOptions}
+                                    source-label="Available" selected-label="Selected" value={filterWrapper.licenseType}
+                                    onchange={handleFilterChange} size="4">
+                                </lightning-dual-listbox> -->
+
+                                <!-- <lightning-dual-listbox label="Client Type" name="clientType" options={clientTypeOptions}
+                                    source-label="Available" selected-label="Selected" value={filterWrapper.clientType}
+                                    onchange={handleFilterChange} size="4">
+                                </lightning-dual-listbox>
+
+                                <lightning-dual-listbox label="Network/Stand-Alone" name="network" options={networkOptions}
+                                    source-label="Available" selected-label="Selected" value={filterWrapper.network}
+                                    onchange={handleFilterChange} size="4">
+                                </lightning-dual-listbox> 
+
+
+                                <lightning-dual-listbox label="Elite/Essential" name="eliteEssential" options={eliteEssentialOptions}
+                                    source-label="Available" selected-label="Selected" value={filterWrapper.eliteEssential}
+                                    onchange={handleFilterChange} size="4">
+                                </lightning-dual-listbox>
+
+
+                                <lightning-dual-listbox label="Class" name="productClass" options={productClassOptions} source-label="Available"
+                                    selected-label="Selected" value={filterWrapper.productClass}
+                                    onchange={handleFilterChange} size="4">
+                                </lightning-dual-listbox> -->
+
+                                <c-custom-dual-listbox 
+                                    label="Licence Type" 
+                                    name="licenseType" 
+                                    options={licenseTypeOptions}
+                                    selected-values={filterWrapper.licenseType}
+                                    onchildselectionchange ={handleChildValueUpdates}> 
+                                </c-custom-dual-listbox>
+
+                                <c-custom-dual-listbox 
+                                    label="Client Type" 
+                                    name="clientType" 
+                                    options={clientTypeOptions}
+                                    selected-values={filterWrapper.clientType}
+                                    onchildselectionchange ={handleChildValueUpdates}> 
+                                </c-custom-dual-listbox>
+                                
+                                <c-custom-dual-listbox 
+                                    label="Elite/Essential" 
+                                    name="eliteEssential" 
+                                    options={eliteEssentialOptions}
+                                    selected-values={filterWrapper.eliteEssential}
+                                    onchildselectionchange ={handleChildValueUpdates}> 
+                                </c-custom-dual-listbox>
+
+                                <c-custom-dual-listbox 
+                                    label="Network/Stand-Alone" 
+                                    name="network" 
+                                    options={networkOptions}
+                                    selected-values={filterWrapper.network}
+                                    onchildselectionchange ={handleChildValueUpdates}> 
+                                </c-custom-dual-listbox>
+
+                                <c-custom-dual-listbox 
+                                    label="Business Unit" 
+                                    name="businessUnit" 
+                                    options={businessUnitOptions}
+                                    selected-values={filterWrapper.businessUnit}
+                                    onchildselectionchange ={handleChildValueUpdates}> 
+                                </c-custom-dual-listbox>
+
+                                <c-custom-dual-listbox 
+                                    label="Class" 
+                                    name="productClass" 
+                                    options={productClassOptions}
+                                    selected-values={filterWrapper.productClass}
+                                    onchildselectionchange ={handleChildValueUpdates}> 
+                                </c-custom-dual-listbox>
+
+
+                                <lightning-radio-group  name="productType" label="Product Type" options={radioOptions}
+                                    value={filterWrapper.productType} type="radio" onchange={handleFilterChange}>
+                                </lightning-radio-group>
+
+                            </div>
+                            <div class="filterPanelFooter">
+                                <footer class="slds-modal__footer" style="border-right: solid #C9C9C9 1px">
+                                    <div class="flexConntainer">
+                                        <div>
+                                            <span class="filterLinkCSS" onclick={handleResetFilters}>
+                                                Clear All
+                                            </span>
+                                        </div>
+                                        <div>
+                                            <button class="slds-button slds-button_neutral" onclick={restoreFilter}
+                                                title="Restore Defaults">Cancel</button>
+                                            <button class="slds-button slds-button_brand" onclick={applyFilter}
+                                                title="Apply">Apply</button>
+                                        </div>
+                                    </div>
+                                </footer>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+            </template>
+
+            <template if:true={secondPage}>
+                <div>
+                    <lightning-datatable data={newProductList} columns={secondTableColumns} key-field="pricebookEntryLinkId"
+                        show-row-number-column hide-checkbox-column suppress-bottom-bar oncellchange={handleDataChange}
+                        onrowaction={callRowAction}>
+                    </lightning-datatable>
+                </div>
+            </template>
+
+            <div slot="footer">
+                <button class="slds-button slds-button_neutral" onclick={closeModal}>Cancel</button>
+                <template if:true={firstPage}>
+                    <button class="slds-button slds-button_brand" disabled={disableNext}
+                        onclick={handleNextAction}>Next</button>
+                </template>
+                <template if:true={secondPage}>
+                    <button class="slds-button slds-button_brand" disabled={disablePrevious}
+                        onclick={handlePreviousAction}>Previous</button>
+                    <button class="slds-button slds-button_brand" onclick={handleSaveAction}>Save</button>
+                </template>
+            </div>  
+    </lightning-quick-action-panel>
+</template>

@@ -1,0 +1,1271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Competitor_Hardware</fullName>
+    <active>true</active>
+    <compactLayoutAssignment>Asset_Compact_Layout</compactLayoutAssignment>
+    <description>Used to track Competitor Hardware owned by the Customer (not tracked in NetSuite)</description>
+    <label>Competitor Hardware</label>
+    <picklistValues>
+        <picklist>Asset_Type__c</picklist>
+        <values>
+            <fullName>Computer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Hardware</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Printer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Scanner</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Software License</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Competitor_Asset_Status__c</picklist>
+        <values>
+            <fullName>Active</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Inactive</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NLT %28no longer there%29</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Contract_Type__c</picklist>
+        <values>
+            <fullName>Diamond Care</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Emerald Care</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lifetime Support</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>On Support</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Saphire Care</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Time %26 Material</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Warranty</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Warranty - Self Install</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>DigitalAssetStatus</picklist>
+        <values>
+            <fullName>Error</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Off</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>On</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Warning</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Item__c</picklist>
+        <values>
+            <fullName>Alaris</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>License_Type__c</picklist>
+        <values>
+            <fullName>ALC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ASC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PLC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PSC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>QLC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>QSC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YLC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YSC</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Model__c</picklist>
+        <values>
+            <fullName>Agile</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Alaris</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Altium Designer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Altium Designer SE</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Anark</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Artec Eva</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Artec Eva lite</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Artec Leo</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Artec Metrology Kit Entry</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Artec Metrology Kit Professional</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Artec Micro</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Artec Micro II</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Artec Point</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Artec RAY II</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Artec Ray Scanner</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Artec Space Spider Scanner</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Artec Spider II</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Artec Studio</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Artec Studio Lifetime License</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Base</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CleanStation SRS II</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Computer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Connex</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Connex 351</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Connex260</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Connex500</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DELL 3360 - Design Plus</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DELL 3581 - Design</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DELL 3591 - Design</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DELL 3660 - High End</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DELL 3680 - Design Plus</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DELL 3680 High End</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DELL 7680 - High End</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DM60</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Deci Duo</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Demi 200</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Demi 4000</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Demi 430</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Demi 830</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Demi 830 120V</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Demi 830 240V</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Desktop Metal Studio</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Desktop Metal Studio %2B Debinder</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Desktop Metal Studio %2B Printer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Desktop Metal Studio Debinder</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Desktop Metal Studio Furnace</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Dimension</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Dimension 1200 BST</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Dimension 1200 SST</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Dimension 1200es BST</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Dimension 1200es SST</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Dimension BST 768</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Dimension Elite</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Dimension SST 768</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DriveWorks</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Eden</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Eden 260V</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Eden 350V</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Eden 500V</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>F120</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>F121</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>F170</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>F171</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>F172</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>F190</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>F190 CR</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>F270</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>F370</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>F370 CR</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>F770</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Form 2</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Form 3</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Form 3%2B</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Form 3B</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Form 3B%2B</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Form 3BL</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Form 3L</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Form 4</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Form 4 Basic</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Form 4B</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Form 4B Medical</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Form Cure</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Form Wash</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Form Wash L</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Formlabs</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Forti</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Forti XXP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fortus</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fortus 250</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fortus 360 - Large Env</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fortus 360 - Small Env</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fortus 370</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fortus 380</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fortus 380 CF</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fortus 380mc</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fortus 400 - Large Env</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fortus 400 - Small Env</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fortus 400mc</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fortus 400mc Plus</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fortus 450</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fortus 900</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fortus Smoothing Station</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fuse 1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fuse 1%2B</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fuse Blast</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fuse Sift</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>GearTrax</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Geomagic</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Geomagic Control X</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Geomagic Design X</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Geomagic Essentials</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Geomagic FreeForm</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Geomagic Wrap</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Geomagic for SolidWorks</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Grab Cad Print</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Grab Cad Print Pro</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Grab Cad Shop</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>H350</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HSMWorks</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HyperLynx</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>InspectionXpert</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>J35</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>J35 Pro</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>J5</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>J5 Dentajet</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>J5 Dental</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>J5 Medijet</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>J55</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>J6</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>J735</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>J750</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>J751</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>J752</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>J753</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>J826</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>J835</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>J850</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>J851</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>J852</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>J853</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>J854</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>J855</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>J856</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Levo</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MakerBot Replicator</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MakerBot Replicator 2X</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MakerBot Replicator Mini</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MakerBot Replicator Z18</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Makerbot Method</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Makerbot Method X</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Metal Design Lab</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Metal DesignLab Software</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Method</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mini</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mojo</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MoldWorks</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Nano Dimension DragonFly2020</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Neo450</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Neo800</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Objet</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Objet 1000</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Objet 24</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Objet 260</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Objet 260 Connex 1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Objet 260 Connex 3</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Objet 261</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Objet 30</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Objet 30 Prime</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Objet 30 Pro</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Objet 31</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Objet 32</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Objet 33</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Objet 34</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Objet 500 Connex 1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Objet 500 Connex 3</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Objet Connex 350</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Objet Waterjet</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Objet350 Connex3</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Objet500 Connex 2</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Omnify</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Origin Dental</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Origin Industrial</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Origin Local</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Origin One</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Origin Two</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PADS Professional</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PADS Standard</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Powerfuse S</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Powershot C</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Powershot Dual</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Powershot S</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ROS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Rador</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Replicator</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SolidProfessor Basic</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SolidProfessor Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SolidProfessor Premium</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SolidProfessor Professional</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SolidProfessor Standard</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SpaceMouse</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TactonWorks</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Touch</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Touch X</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>V650</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vorsa 500</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>W7500</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>W7500%2B</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>W7500-C</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>W7500-C Certified</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Waterjet</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Wave Wash</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>WaveWash 55</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Wazer Desktop</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Wazer Starter Bundle</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>WireWorks</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>X1F Advanced Furnace</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Xact Metal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Z Corp</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Z18</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Zeiss</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Zeiss ATOS Q</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Zeiss Computer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Zeiss GOM Scan 1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Zeiss T-Scan hawk II</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Zeiss T-Scan hawk II Lite</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Zeiss TRITOP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Zeiss TSH2</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>uPrint</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>uPrint Plus</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>uPrint SE</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>uPrint SE Plus</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>OEM__c</picklist>
+        <values>
+            <fullName>3D Systems</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bigrep</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Carbon</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Desktop Metal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EOS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EnvisionTec</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Essentium</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FormLABS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Intamsys</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Makerbot</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MarkForg3d</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Nexa3D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other %26 Hobbyist</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Prusa</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Stratasys</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ultimaker</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Orgnization__c</picklist>
+        <values>
+            <fullName>Adaptive Corporation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Javelin Technologies Inc%2E</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TriMech Solutions LLC</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Printer_Technology__c</picklist>
+        <values>
+            <fullName>CNC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FDM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Polyjet</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Post Process</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SLA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SLS</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Renewal_Type__c</picklist>
+        <values>
+            <fullName>Bundled Renewal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Custom Renewal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Direct Renewal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Non Renewal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Perpetual Renewal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Term Renewal</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Status</picklist>
+        <values>
+            <fullName>Active</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Decommissioned</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Deleted</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Disconnected from OEM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Expired</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Global</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Global Not Ours</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Replaced</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>StatusReason</picklist>
+        <values>
+            <fullName>Not Ready</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Off</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Offline</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Online</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Paused</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Standby</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

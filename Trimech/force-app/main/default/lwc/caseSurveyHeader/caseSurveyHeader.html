@@ -1,0 +1,66 @@
+<template>
+
+    <div class="input-wrapper heading">
+        <div>
+            <img class='LogoCSS' src={TMlogo}>
+        </div>
+        <div class="headingText boldCSS">TriMech Support Satisfaction Survey</div>
+        <div class="subHeadingText"> Thank you for working with the TriMech Client Success Team. Please rate your
+            experience.</div>
+    </div>
+
+    <div class="mainDiv">
+
+
+        <lightning-layout multiple-rows="true">
+            <lightning-layout-item size="12" large-device-size="6" medium-device-size="6" small-device-size="12">
+                <div class="input-wrapper">
+                    <div class="input-field-container floating-label-container">
+                        <span class="floating-label">Your Name:</span>
+                        <lightning-input type="text" class="custom-input" value={caseRecord.contactName} read-only>
+                        </lightning-input>
+                    </div>
+                </div>
+            </lightning-layout-item>
+            <lightning-layout-item size="12" large-device-size="6" medium-device-size="6" small-device-size="12">
+                <div class="input-wrapper">
+                    <div class="input-field-container floating-label-container">
+                        <span class="floating-label">Your Company:</span>
+                        <lightning-input type="text" class="custom-input" value={caseRecord.accountName} read-only>
+                        </lightning-input>
+                    </div>
+                </div>
+            </lightning-layout-item>
+            <lightning-layout-item size="12" large-device-size="6" medium-device-size="6" small-device-size="12">
+                <div class="input-wrapper">
+                    <div class="input-field-container floating-label-container">
+                        <span class="floating-label">Assigned Analyst:</span>
+                        <lightning-input type="text" class="custom-input" value={caseRecord.ownerName} read-only>
+                        </lightning-input>
+                    </div>
+                </div>
+            </lightning-layout-item>
+            <lightning-layout-item size="12" large-device-size="6" medium-device-size="6" small-device-size="12">
+                <div class="input-wrapper">
+                    <div class="input-field-container floating-label-container">
+                        <span class="floating-label">Case Number:</span>
+                        <lightning-input type="text" class="custom-input" value={caseRecord.CaseNumber} read-only>
+                        </lightning-input>
+                    </div>
+                </div>
+            </lightning-layout-item>
+            <lightning-layout-item size="12">
+                <div class="input-wrapper">
+                    <div class="input-field-container floating-label-container">
+                        <span class="floating-label">Case Title:</span>
+                        <lightning-input type="text" class="custom-input" value={caseRecord.subject} read-only>
+                        </lightning-input>
+                    </div>
+                </div>
+            </lightning-layout-item>
+        </lightning-layout>
+    </div>
+
+
+    <iframe src={caseRecord.surveyURL} class="iframeCSS"></iframe>
+</template>

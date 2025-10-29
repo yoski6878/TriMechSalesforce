@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Loss_Reason_cannot_be_blank</fullName>
+    <active>true</active>
+    <description>Loss Reason field cannot be blank when Stage is Closed Lost</description>
+    <errorConditionFormula>ISPICKVAL(StageName, &apos;Closed Lost&apos;) &amp;&amp; ISPICKVAL(Loss_Reason__c, &apos;&apos;) &amp;&amp; 
+$User.FirstName &lt;&gt; &apos;Tina&apos;</errorConditionFormula>
+    <errorDisplayField>Loss_Reason__c</errorDisplayField>
+    <errorMessage>Loss Reason field cannot be blank when Stage is Closed Lost</errorMessage>
+</ValidationRule>

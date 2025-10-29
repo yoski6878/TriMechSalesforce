@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Inside_Sales_Rep_cannot_be_blank</fullName>
+    <active>false</active>
+    <description>Checks for Inside Sales Rep field for Inside Influenced or Inside Direct sales.</description>
+    <errorConditionFormula>RecordTypeId &lt;&gt; &apos;0126g000000X4XU&apos; &amp;&amp; (
+ISBLANK(Inside_Sales_Rep__c) &amp;&amp; 
+NOT( ISPICKVAL(Inside_Sales__c, &apos;&apos;) || ISPICKVAL(Inside_Sales__c, &apos;None&apos;) )
+)</errorConditionFormula>
+    <errorDisplayField>Inside_Sales_Rep__c</errorDisplayField>
+    <errorMessage>Inside Sales Rep cannot be blank for Inside Influenced or Inside Direct sales.</errorMessage>
+</ValidationRule>

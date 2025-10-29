@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AVA_SFCLOUD__AvaTax_Exemption_Customer_ID__c</fullName>
+    <deprecated>false</deprecated>
+    <description>An unique ID associated with the customer&apos;s exemption certificate.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>An unique ID associated with the customer&apos;s exemption certificate.</inlineHelpText>
+    <label>AvaTax Exemption Customer ID</label>
+    <length>50</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,1146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lead_Product_of_Interest__c</fullName>
+    <description>Used for mapping Lead Product of Interest values from Pardot</description>
+    <label>Lead Product of Interest</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <controllingField>Lead_Product_Category__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetName>Lead_Product_of_Interest</valueSetName>
+        <valueSettings>
+            <controllingFieldValue>SOLIDWORKS Inspection</controllingFieldValue>
+            <controllingFieldValue>SOLIDWORKS Machinist</controllingFieldValue>
+            <controllingFieldValue>SOLIDWORKS Manage</controllingFieldValue>
+            <controllingFieldValue>SOLIDWORKS MBD</controllingFieldValue>
+            <controllingFieldValue>SOLIDWORKS Motion Manager</controllingFieldValue>
+            <controllingFieldValue>SOLIDWORKS PCB</controllingFieldValue>
+            <controllingFieldValue>SOLIDWORKS PDM</controllingFieldValue>
+            <controllingFieldValue>SOLIDWORKS Plastics</controllingFieldValue>
+            <controllingFieldValue>SOLIDWORKS Routing</controllingFieldValue>
+            <controllingFieldValue>SOLIDWORKS ScanTo3D</controllingFieldValue>
+            <controllingFieldValue>DELMIA</controllingFieldValue>
+            <controllingFieldValue>SOLIDWORKS Services</controllingFieldValue>
+            <controllingFieldValue>DELMIAWorks</controllingFieldValue>
+            <controllingFieldValue>SOLIDWORKS Simulation</controllingFieldValue>
+            <controllingFieldValue>DraftSight</controllingFieldValue>
+            <controllingFieldValue>SOLIDWORKS Sustainability</controllingFieldValue>
+            <controllingFieldValue>DriveWorks</controllingFieldValue>
+            <controllingFieldValue>SOLIDWORKS Term Licensing</controllingFieldValue>
+            <controllingFieldValue>Education Hardware</controllingFieldValue>
+            <controllingFieldValue>SOLIDWORKS Visualize</controllingFieldValue>
+            <controllingFieldValue>Education Software</controllingFieldValue>
+            <controllingFieldValue>Staffing</controllingFieldValue>
+            <controllingFieldValue>Education Cloud</controllingFieldValue>
+            <controllingFieldValue>eDrawings Professional</controllingFieldValue>
+            <controllingFieldValue>EMS</controllingFieldValue>
+            <controllingFieldValue>ENOVIA</controllingFieldValue>
+            <controllingFieldValue>3D Printer ExOne</controllingFieldValue>
+            <controllingFieldValue>3D Printer Makerbot</controllingFieldValue>
+            <controllingFieldValue>3D Printer Stratasys - Small Box</controllingFieldValue>
+            <controllingFieldValue>Advanced Manufacturing Services</controllingFieldValue>
+            <controllingFieldValue>3D Scanner Artec</controllingFieldValue>
+            <controllingFieldValue>3D Scanner GOM</controllingFieldValue>
+            <controllingFieldValue>3DEXPERIENCE</controllingFieldValue>
+            <controllingFieldValue>Aras Innovator</controllingFieldValue>
+            <controllingFieldValue>CATIA</controllingFieldValue>
+            <controllingFieldValue>SOLIDWORKS Subscription Service</controllingFieldValue>
+            <controllingFieldValue>SWOOD</controllingFieldValue>
+            <controllingFieldValue>Training Course</controllingFieldValue>
+            <controllingFieldValue>Training Services</controllingFieldValue>
+            <controllingFieldValue>ExactFlat</controllingFieldValue>
+            <controllingFieldValue>3D Printer Stratasys - Big Box</controllingFieldValue>
+            <controllingFieldValue>Excellerant</controllingFieldValue>
+            <controllingFieldValue>Not Specified</controllingFieldValue>
+            <controllingFieldValue>FlexSim</controllingFieldValue>
+            <controllingFieldValue>SolidProfessor</controllingFieldValue>
+            <controllingFieldValue>Geomagic</controllingFieldValue>
+            <controllingFieldValue>3D Printer - Formlabs</controllingFieldValue>
+            <controllingFieldValue>Mastercam</controllingFieldValue>
+            <controllingFieldValue>Wazer</controllingFieldValue>
+            <controllingFieldValue>MySolidWorks</controllingFieldValue>
+            <controllingFieldValue>DyeMansion</controllingFieldValue>
+            <controllingFieldValue>NESTINGWorks</controllingFieldValue>
+            <controllingFieldValue>NETVIBES OnePart</controllingFieldValue>
+            <controllingFieldValue>PlantWorks</controllingFieldValue>
+            <controllingFieldValue>Pool Pattern Pro</controllingFieldValue>
+            <controllingFieldValue>Dell Workstation</controllingFieldValue>
+            <controllingFieldValue>SolidCAM</controllingFieldValue>
+            <controllingFieldValue>3D Printer - One Click Metal</controllingFieldValue>
+            <controllingFieldValue>PostProcess</controllingFieldValue>
+            <controllingFieldValue>Professional Services</controllingFieldValue>
+            <controllingFieldValue>Project Engineering Group</controllingFieldValue>
+            <controllingFieldValue>SIMULIA</controllingFieldValue>
+            <controllingFieldValue>SOLIDWORKS 3D CAD</controllingFieldValue>
+            <controllingFieldValue>SOLIDWORKS CAM</controllingFieldValue>
+            <controllingFieldValue>SOLIDWORKS Cloud</controllingFieldValue>
+            <controllingFieldValue>SOLIDWORKS Composer</controllingFieldValue>
+            <controllingFieldValue>SOLIDWORKS Costing</controllingFieldValue>
+            <controllingFieldValue>SOLIDWORKS Design Checker</controllingFieldValue>
+            <controllingFieldValue>SOLIDWORKS Electrical</controllingFieldValue>
+            <controllingFieldValue>SOLIDWORKS Extended Reality (XR) Exporter</controllingFieldValue>
+            <controllingFieldValue>SOLIDWORKS Flow Simulation</controllingFieldValue>
+            <controllingFieldValue>SOLIDWORKS FloXpress</controllingFieldValue>
+            <valueName>Not Specified</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SOLIDWORKS Inspection</controllingFieldValue>
+            <controllingFieldValue>Training Course</controllingFieldValue>
+            <valueName>SOLIDWORKS Inspection</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SOLIDWORKS Machinist</controllingFieldValue>
+            <valueName>SOLIDWORKS Machinist</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SOLIDWORKS Manage</controllingFieldValue>
+            <valueName>SOLIDWORKS Manage</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SOLIDWORKS MBD</controllingFieldValue>
+            <controllingFieldValue>Training Course</controllingFieldValue>
+            <valueName>SOLIDWORKS MBD</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SOLIDWORKS Motion Manager</controllingFieldValue>
+            <valueName>SOLIDWORKS Motion Manager</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SOLIDWORKS PCB</controllingFieldValue>
+            <controllingFieldValue>Training Course</controllingFieldValue>
+            <valueName>SOLIDWORKS PCB</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SOLIDWORKS PDM</controllingFieldValue>
+            <valueName>SOLIDWORKS PDM</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SOLIDWORKS PDM</controllingFieldValue>
+            <valueName>SOLIDWORKS PDM Professional</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SOLIDWORKS PDM</controllingFieldValue>
+            <valueName>SOLIDWORKS PDM Standard</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SOLIDWORKS Plastics</controllingFieldValue>
+            <controllingFieldValue>Training Course</controllingFieldValue>
+            <valueName>SOLIDWORKS Plastics</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SOLIDWORKS Plastics</controllingFieldValue>
+            <valueName>SOLIDWORKS Plastics Premium</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SOLIDWORKS Plastics</controllingFieldValue>
+            <valueName>SOLIDWORKS Plastics Professional</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SOLIDWORKS Plastics</controllingFieldValue>
+            <valueName>SOLIDWORKS Plastics Standard</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SOLIDWORKS Routing</controllingFieldValue>
+            <valueName>SOLIDWORKS Routing</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SOLIDWORKS ScanTo3D</controllingFieldValue>
+            <valueName>SOLIDWORKS ScanTo3D</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>DELMIA</controllingFieldValue>
+            <valueName>DELMIA</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>DELMIA</controllingFieldValue>
+            <valueName>DELMIA 3D Lean Team Player</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>DELMIA</controllingFieldValue>
+            <valueName>DELMIA NC Prismatic and Mill-Turn Machine Programmer</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SOLIDWORKS Services</controllingFieldValue>
+            <valueName>Small Business Startup Assistance</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SOLIDWORKS Services</controllingFieldValue>
+            <valueName>SOLIDWORKS Services</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>DELMIAWorks</controllingFieldValue>
+            <valueName>DELMIAWorks</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SOLIDWORKS Simulation</controllingFieldValue>
+            <valueName>HFWorks High Frequency Simulation for SOLIDWORKS</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SOLIDWORKS Simulation</controllingFieldValue>
+            <valueName>SOLIDWORKS Simulation</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SOLIDWORKS Simulation</controllingFieldValue>
+            <valueName>SOLIDWORKS Simulation Premium</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SOLIDWORKS Simulation</controllingFieldValue>
+            <controllingFieldValue>Training Course</controllingFieldValue>
+            <valueName>SOLIDWORKS Simulation Professional</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SOLIDWORKS Simulation</controllingFieldValue>
+            <valueName>SOLIDWORKS Simulation Standard</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SOLIDWORKS Simulation</controllingFieldValue>
+            <valueName>SOLIDWORKS Simulation Term License</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SOLIDWORKS Simulation</controllingFieldValue>
+            <valueName>SOLIDWORKS Simulation Xpress</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>DraftSight</controllingFieldValue>
+            <valueName>DraftSight</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>DraftSight</controllingFieldValue>
+            <valueName>DraftSight Enterprise</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>DraftSight</controllingFieldValue>
+            <valueName>DraftSight Enterprise Plus</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SOLIDWORKS Sustainability</controllingFieldValue>
+            <valueName>SOLIDWORKS Sustainability</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>DriveWorks</controllingFieldValue>
+            <valueName>DriveWorks</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>DriveWorks</controllingFieldValue>
+            <controllingFieldValue>Training Course</controllingFieldValue>
+            <valueName>DriveWorks Professional</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>DriveWorks</controllingFieldValue>
+            <valueName>DriveWorks Solo</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>DriveWorks</controllingFieldValue>
+            <valueName>DriveWorks Xpress</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SOLIDWORKS Term Licensing</controllingFieldValue>
+            <valueName>SOLIDWORKS Term Licensing</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Education Hardware</controllingFieldValue>
+            <controllingFieldValue>3D Scanner Artec</controllingFieldValue>
+            <valueName>Artec Education Package</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Education Hardware</controllingFieldValue>
+            <controllingFieldValue>Training Course</controllingFieldValue>
+            <valueName>DraftSight Essentials</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Education Hardware</controllingFieldValue>
+            <valueName>Education Hardware</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Education Hardware</controllingFieldValue>
+            <controllingFieldValue>3D Printer Makerbot</controllingFieldValue>
+            <valueName>MakerBot Replicator</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Education Hardware</controllingFieldValue>
+            <controllingFieldValue>3D Printer Stratasys - Small Box</controllingFieldValue>
+            <valueName>Stratasys F123</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Education Hardware</controllingFieldValue>
+            <controllingFieldValue>3D Printer Stratasys - Small Box</controllingFieldValue>
+            <valueName>Stratasys F770</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Education Hardware</controllingFieldValue>
+            <valueName>Stratasys J35 Education Bundle</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Education Hardware</controllingFieldValue>
+            <controllingFieldValue>3D Printer Stratasys - Big Box</controllingFieldValue>
+            <valueName>Stratasys J35 Pro</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Education Hardware</controllingFieldValue>
+            <valueName>Stratasys J55</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Education Hardware</controllingFieldValue>
+            <controllingFieldValue>3D Printer Stratasys - Big Box</controllingFieldValue>
+            <valueName>Stratasys J5 MediJet</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Education Hardware</controllingFieldValue>
+            <valueName>Stratasys J750 / J735</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Education Hardware</controllingFieldValue>
+            <controllingFieldValue>3D Printer Stratasys - Big Box</controllingFieldValue>
+            <valueName>Stratasys J750 Digital Anatomy</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Education Hardware</controllingFieldValue>
+            <controllingFieldValue>3D Printer Stratasys - Big Box</controllingFieldValue>
+            <valueName>Stratasys J826</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Education Hardware</controllingFieldValue>
+            <valueName>Stratasys J850 / J835 / J826</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SOLIDWORKS Visualize</controllingFieldValue>
+            <valueName>SOLIDWORKS Visualize</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SOLIDWORKS Visualize</controllingFieldValue>
+            <valueName>SOLIDWORKS Visualize Professional</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SOLIDWORKS Visualize</controllingFieldValue>
+            <valueName>SOLIDWORKS Visualize Standard</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Education Software</controllingFieldValue>
+            <valueName>Education Software</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Education Software</controllingFieldValue>
+            <valueName>SOLIDWORKS Education Edition</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Education Software</controllingFieldValue>
+            <valueName>SOLIDWORKS Research Edition</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Education Software</controllingFieldValue>
+            <valueName>SOLIDWORKS Student Edition</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Staffing</controllingFieldValue>
+            <valueName>Staffing</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Education Cloud</controllingFieldValue>
+            <valueName>Collaborative Business Innovator</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Education Cloud</controllingFieldValue>
+            <valueName>Collaborative Designer for SOLIDWORKS</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Education Cloud</controllingFieldValue>
+            <valueName>Collaborative Industry Innovator</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Education Cloud</controllingFieldValue>
+            <valueName>Education Cloud</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Education Cloud</controllingFieldValue>
+            <valueName>Project Planner</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Education Cloud</controllingFieldValue>
+            <valueName>SOLIDWORKS 3D Creator</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Education Cloud</controllingFieldValue>
+            <valueName>SOLIDWORKS 3D Sculptor</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>eDrawings Professional</controllingFieldValue>
+            <valueName>eDrawings Professional</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>EMS</controllingFieldValue>
+            <valueName>ElectroMagneticWorks EMS</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>EMS</controllingFieldValue>
+            <valueName>EMS</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>EMS</controllingFieldValue>
+            <valueName>EMS Electromagnetic Simulation for SOLIDWORKS</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>ENOVIA</controllingFieldValue>
+            <valueName>ENOVIA</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>3D Printer ExOne</controllingFieldValue>
+            <valueName>3D Printer ExOne</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>3D Printer Makerbot</controllingFieldValue>
+            <valueName>3D Printer Makerbot</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>3D Printer Makerbot</controllingFieldValue>
+            <valueName>MakerBot METHOD</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>3D Printer Makerbot</controllingFieldValue>
+            <valueName>MakerBot METHOD Carbon Fiber</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>3D Printer Makerbot</controllingFieldValue>
+            <valueName>MakerBot METHOD X</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>3D Printer Stratasys - Small Box</controllingFieldValue>
+            <valueName>3D Printer Stratasys - Small Box</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>3D Printer Stratasys - Small Box</controllingFieldValue>
+            <valueName>Objet24 Desktop</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>3D Printer Stratasys - Small Box</controllingFieldValue>
+            <valueName>Objet30 Prime</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>3D Printer Stratasys - Small Box</controllingFieldValue>
+            <valueName>Objet30 Pro</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>3D Printer Stratasys - Small Box</controllingFieldValue>
+            <valueName>Stratasys F170</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>3D Printer Stratasys - Small Box</controllingFieldValue>
+            <valueName>Stratasys F270</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>3D Printer Stratasys - Small Box</controllingFieldValue>
+            <valueName>Stratasys F370</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>3D Printer Stratasys - Small Box</controllingFieldValue>
+            <valueName>Stratasys F370CR</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Advanced Manufacturing Services</controllingFieldValue>
+            <valueName>3D Printing Consulting Services</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Advanced Manufacturing Services</controllingFieldValue>
+            <valueName>3D Printing Service</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Advanced Manufacturing Services</controllingFieldValue>
+            <controllingFieldValue>3D Scanner Artec</controllingFieldValue>
+            <valueName>3D Scanning Service</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Advanced Manufacturing Services</controllingFieldValue>
+            <valueName>Advanced Manufacturing Services</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Advanced Manufacturing Services</controllingFieldValue>
+            <valueName>Conventional Manufacturing</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Advanced Manufacturing Services</controllingFieldValue>
+            <valueName>Laser Cutting &amp; Engraving Service</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Advanced Manufacturing Services</controllingFieldValue>
+            <controllingFieldValue>PostProcess</controllingFieldValue>
+            <valueName>PostProcess</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Advanced Manufacturing Services</controllingFieldValue>
+            <valueName>Post Processing Service</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>3D Scanner Artec</controllingFieldValue>
+            <valueName>3D Scanner Artec</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>3D Scanner Artec</controllingFieldValue>
+            <valueName>Artec Eva</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>3D Scanner Artec</controllingFieldValue>
+            <valueName>Artec Eva Lite</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>3D Scanner Artec</controllingFieldValue>
+            <valueName>Artec Leo</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>3D Scanner Artec</controllingFieldValue>
+            <valueName>Artec Micro</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>3D Scanner Artec</controllingFieldValue>
+            <valueName>Artec Ray</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>3D Scanner Artec</controllingFieldValue>
+            <valueName>Artec Space Spider</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>3D Scanner Artec</controllingFieldValue>
+            <valueName>Artec Studio</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>3D Scanner GOM</controllingFieldValue>
+            <valueName>3D Scanner GOM</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>3DEXPERIENCE</controllingFieldValue>
+            <valueName>3DEXPERIENCE</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>3DEXPERIENCE</controllingFieldValue>
+            <valueName>3DEXPERIENCE 3D Component Designer</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>3DEXPERIENCE</controllingFieldValue>
+            <valueName>3DEXPERIENCE 3D Creator</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>3DEXPERIENCE</controllingFieldValue>
+            <valueName>3DEXPERIENCE 3D Designer for Education</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>3DEXPERIENCE</controllingFieldValue>
+            <valueName>3DEXPERIENCE 3D Mold Creator</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>3DEXPERIENCE</controllingFieldValue>
+            <valueName>3DEXPERIENCE 3D Product Architect</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>3DEXPERIENCE</controllingFieldValue>
+            <valueName>3DEXPERIENCE 3D Render</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>3DEXPERIENCE</controllingFieldValue>
+            <valueName>3DEXPERIENCE 3D Sculptor</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>3DEXPERIENCE</controllingFieldValue>
+            <valueName>3DEXPERIENCE 3D SheetMetal Creator</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>3DEXPERIENCE</controllingFieldValue>
+            <valueName>3DEXPERIENCE 3D Structure Creator</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>3DEXPERIENCE</controllingFieldValue>
+            <valueName>3DEXPERIENCE Collaborative Business Innovator</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>3DEXPERIENCE</controllingFieldValue>
+            <valueName>3DEXPERIENCE Collaborative Designer for SOLIDWORKS</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>3DEXPERIENCE</controllingFieldValue>
+            <valueName>3DEXPERIENCE Collaborative Industry Innovator</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>3DEXPERIENCE</controllingFieldValue>
+            <valueName>3DEXPERIENCE DraftSight</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>3DEXPERIENCE</controllingFieldValue>
+            <valueName>3DEXPERIENCE Electromagnetics Engineer</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>3DEXPERIENCE</controllingFieldValue>
+            <valueName>3DEXPERIENCE Product Communicator</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>3DEXPERIENCE</controllingFieldValue>
+            <valueName>3DEXPERIENCE Product Document Creator</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>3DEXPERIENCE</controllingFieldValue>
+            <valueName>3DEXPERIENCE Product Release Engineer</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>3DEXPERIENCE</controllingFieldValue>
+            <valueName>3DEXPERIENCE Project Planner</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>3DEXPERIENCE</controllingFieldValue>
+            <valueName>3DEXPERIENCE Social Business Analyst</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>3DEXPERIENCE</controllingFieldValue>
+            <valueName>3DEXPERIENCE SOLIDWORKS Offers</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>3DEXPERIENCE</controllingFieldValue>
+            <valueName>3DEXPERIENCE WORKS</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>3DEXPERIENCE</controllingFieldValue>
+            <valueName>3DEXPERIENCE Works PDM</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>3DEXPERIENCE</controllingFieldValue>
+            <valueName>3DEXPERIENCE Works Simulation</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Aras Innovator</controllingFieldValue>
+            <valueName>Aras Innovator</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>CATIA</controllingFieldValue>
+            <valueName>CATIA</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SOLIDWORKS Subscription Service</controllingFieldValue>
+            <valueName>SOLIDWORKS Subscription Service</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SOLIDWORKS Subscription Service</controllingFieldValue>
+            <valueName>Subscription Service 1 Year Plan</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SOLIDWORKS Subscription Service</controllingFieldValue>
+            <valueName>Subscription Service 2 Year Plan</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SOLIDWORKS Subscription Service</controllingFieldValue>
+            <valueName>Subscription Service 3 Year Plan</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SWOOD</controllingFieldValue>
+            <valueName>SWOOD</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Training Course</controllingFieldValue>
+            <valueName>3DEXPERIENCE Platform Administration</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Training Course</controllingFieldValue>
+            <valueName>3D Printing Essentials</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Training Course</controllingFieldValue>
+            <valueName>Administering SOLIDWORKS Manage</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Training Course</controllingFieldValue>
+            <valueName>Administering SOLIDWORKS PDM Professional</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Training Course</controllingFieldValue>
+            <valueName>Administering SOLIDWORKS PDM Standard</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Training Course</controllingFieldValue>
+            <valueName>Advanced Insight Training</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Training Course</controllingFieldValue>
+            <valueName>Artec Scanner Training</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Training Course</controllingFieldValue>
+            <valueName>Design for Additive Manufacturing</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Training Course</controllingFieldValue>
+            <valueName>GD&amp;T Advanced</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Training Course</controllingFieldValue>
+            <valueName>GD&amp;T Fundamentals</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Training Course</controllingFieldValue>
+            <valueName>Geomagic for SOLIDWORKS Training</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Training Course</controllingFieldValue>
+            <valueName>Introduction to SOLIDWORKS Simulation</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Training Course</controllingFieldValue>
+            <valueName>Managing SOLIDWORKS Data in the 3DEXPERIENCE Platform</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Training Course</controllingFieldValue>
+            <valueName>SOLIDWORKS Advanced Part Modeling</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Training Course</controllingFieldValue>
+            <valueName>SOLIDWORKS API</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Training Course</controllingFieldValue>
+            <valueName>SOLIDWORKS Assembly Modeling</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Training Course</controllingFieldValue>
+            <valueName>SOLIDWORKS CAM Essentials</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Training Course</controllingFieldValue>
+            <controllingFieldValue>SOLIDWORKS CAM</controllingFieldValue>
+            <valueName>SOLIDWORKS CAM Professional</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Training Course</controllingFieldValue>
+            <valueName>SOLIDWORKS Composer Essentials</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Training Course</controllingFieldValue>
+            <valueName>SOLIDWORKS CSWP Exam Preparation Workshop</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Training Course</controllingFieldValue>
+            <valueName>SOLIDWORKS Drawings</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Training Course</controllingFieldValue>
+            <valueName>SOLIDWORKS Electrical 3D and Electrical Routing</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Training Course</controllingFieldValue>
+            <valueName>SOLIDWORKS Electrical Advanced</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Training Course</controllingFieldValue>
+            <valueName>SOLIDWORKS Electrical Routing</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Training Course</controllingFieldValue>
+            <valueName>SOLIDWORKS Electrical Schematic</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Training Course</controllingFieldValue>
+            <valueName>SOLIDWORKS Essentials</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Training Course</controllingFieldValue>
+            <valueName>SOLIDWORKS Essentials Refresher</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Training Course</controllingFieldValue>
+            <controllingFieldValue>SOLIDWORKS Flow Simulation</controllingFieldValue>
+            <valueName>SOLIDWORKS Flow Simulation</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Training Course</controllingFieldValue>
+            <valueName>SOLIDWORKS Large Assembly and Drawing Workshop</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Training Course</controllingFieldValue>
+            <valueName>SOLIDWORKS Mold Design</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Training Course</controllingFieldValue>
+            <valueName>SOLIDWORKS Motion</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Training Course</controllingFieldValue>
+            <valueName>SOLIDWORKS Pipe and Tube Routing</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Training Course</controllingFieldValue>
+            <valueName>SOLIDWORKS Sheet Metal</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Training Course</controllingFieldValue>
+            <valueName>SOLIDWORKS Simulation Essentials</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Training Course</controllingFieldValue>
+            <valueName>SOLIDWORKS Simulation Nonlinear</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Training Course</controllingFieldValue>
+            <valueName>SOLIDWORKS Simulation Premium Dynamics</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Training Course</controllingFieldValue>
+            <valueName>SOLIDWORKS Surface Modeling</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Training Course</controllingFieldValue>
+            <valueName>SOLIDWORKS Visual Basic for Applications</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Training Course</controllingFieldValue>
+            <valueName>SOLIDWORKS Visualize Rendering</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Training Course</controllingFieldValue>
+            <valueName>SOLIDWORKS Weldments</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Training Course</controllingFieldValue>
+            <valueName>Training Course</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Training Course</controllingFieldValue>
+            <valueName>Using SOLIDWORKS PDM</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Training Course</controllingFieldValue>
+            <valueName>Using the 3DEXPERIENCE Platform with SOLIDWORKS</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Training Services</controllingFieldValue>
+            <valueName>SOLIDWORKS Drawing Service</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Training Services</controllingFieldValue>
+            <valueName>SOLIDWORKS Large Assembly Service</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Training Services</controllingFieldValue>
+            <valueName>SOLIDWORKS Sheet Metal Service</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Training Services</controllingFieldValue>
+            <valueName>SOLIDWORKS Training Assessment</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Training Services</controllingFieldValue>
+            <valueName>Training Services</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>ExactFlat</controllingFieldValue>
+            <valueName>ExactFlat</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>3D Printer Stratasys - Big Box</controllingFieldValue>
+            <valueName>3D Printer Stratasys - Big Box</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>3D Printer Stratasys - Big Box</controllingFieldValue>
+            <valueName>Objet1000 Plus</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>3D Printer Stratasys - Big Box</controllingFieldValue>
+            <valueName>Objet260 Connex3</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>3D Printer Stratasys - Big Box</controllingFieldValue>
+            <valueName>Stratasys F900</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>3D Printer Stratasys - Big Box</controllingFieldValue>
+            <valueName>Stratasys H350</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>3D Printer Stratasys - Big Box</controllingFieldValue>
+            <valueName>Stratasys J55 Prime</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>3D Printer Stratasys - Big Box</controllingFieldValue>
+            <valueName>Stratasys J835</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>3D Printer Stratasys - Big Box</controllingFieldValue>
+            <valueName>Stratasys J850</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>3D Printer Stratasys - Big Box</controllingFieldValue>
+            <valueName>Stratasys Neo Stereolithography</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>3D Printer Stratasys - Big Box</controllingFieldValue>
+            <valueName>Stratasys Origin One</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>3D Printer Stratasys - Big Box</controllingFieldValue>
+            <valueName>Stratasys ProBleacher</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>3D Printer Stratasys - Big Box</controllingFieldValue>
+            <valueName>Stratasys Support Contracts</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Excellerant</controllingFieldValue>
+            <valueName>Excellerant</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>FlexSim</controllingFieldValue>
+            <valueName>FlexSim</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SolidProfessor</controllingFieldValue>
+            <valueName>SolidProfessor</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Geomagic</controllingFieldValue>
+            <valueName>Geomagic</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>3D Printer - Formlabs</controllingFieldValue>
+            <valueName>3D Printer - Formlabs</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>3D Printer - Formlabs</controllingFieldValue>
+            <valueName>Formlabs Form</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>3D Printer - Formlabs</controllingFieldValue>
+            <valueName>Formlabs Form Cure</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>3D Printer - Formlabs</controllingFieldValue>
+            <valueName>Formlabs Form Wash</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>3D Printer - Formlabs</controllingFieldValue>
+            <valueName>Formlabs Fuse</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Mastercam</controllingFieldValue>
+            <valueName>Mastercam</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Wazer</controllingFieldValue>
+            <valueName>Wazer</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Wazer</controllingFieldValue>
+            <valueName>Wazer Waterjet Cutter</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>MySolidWorks</controllingFieldValue>
+            <valueName>MySolidWorks</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>DyeMansion</controllingFieldValue>
+            <valueName>DyeMansion</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>DyeMansion</controllingFieldValue>
+            <valueName>DyeMansion DM60</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>DyeMansion</controllingFieldValue>
+            <valueName>DyeMansion Powerfuse</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>DyeMansion</controllingFieldValue>
+            <valueName>DyeMansion Powershot</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NESTINGWorks</controllingFieldValue>
+            <valueName>NESTINGWorks</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NETVIBES OnePart</controllingFieldValue>
+            <valueName>NETVIBES OnePart</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>PlantWorks</controllingFieldValue>
+            <valueName>PlantWorks</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Pool Pattern Pro</controllingFieldValue>
+            <valueName>Pool Pattern Pro</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Dell Workstation</controllingFieldValue>
+            <valueName>Dell Workstation</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SolidCAM</controllingFieldValue>
+            <valueName>SolidCAM</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>3D Printer - One Click Metal</controllingFieldValue>
+            <valueName>MPRINT</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>3D Printer - One Click Metal</controllingFieldValue>
+            <valueName>MPUREPro</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>3D Printer - One Click Metal</controllingFieldValue>
+            <valueName>3D Printer - One Click Metal</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Professional Services</controllingFieldValue>
+            <valueName>Cloud Hosting</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Professional Services</controllingFieldValue>
+            <valueName>Data Management</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Professional Services</controllingFieldValue>
+            <valueName>Data Migration</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Professional Services</controllingFieldValue>
+            <valueName>Design Automation</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Professional Services</controllingFieldValue>
+            <valueName>Electrical Design</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Professional Services</controllingFieldValue>
+            <valueName>Professional Services</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Professional Services</controllingFieldValue>
+            <valueName>Programming</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Professional Services</controllingFieldValue>
+            <valueName>Project Management</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Project Engineering Group</controllingFieldValue>
+            <valueName>3D Design</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Project Engineering Group</controllingFieldValue>
+            <valueName>3D Scanning</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Project Engineering Group</controllingFieldValue>
+            <valueName>Design Analysis</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Project Engineering Group</controllingFieldValue>
+            <valueName>Project Engineering Group</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Project Engineering Group</controllingFieldValue>
+            <valueName>Rapid Prototyping</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Project Engineering Group</controllingFieldValue>
+            <valueName>Simulation</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SIMULIA</controllingFieldValue>
+            <valueName>SIMULIA</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SIMULIA</controllingFieldValue>
+            <valueName>SIMULIA Simulation Foundation</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SIMULIA</controllingFieldValue>
+            <valueName>SIMULIA Structural Designer</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SIMULIA</controllingFieldValue>
+            <valueName>SIMULIA Structural Engineer</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SIMULIA</controllingFieldValue>
+            <valueName>SIMULIA Structural Mechanics Engineer</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SIMULIA</controllingFieldValue>
+            <valueName>SIMULIA Structural Performance Engineer</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SIMULIA</controllingFieldValue>
+            <valueName>SIMULIA Structural Professional Engineer</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SIMULIA</controllingFieldValue>
+            <valueName>SIMULIA Structural Simulation Engineer</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SOLIDWORKS 3D CAD</controllingFieldValue>
+            <valueName>SOLIDWORKS 3D CAD</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SOLIDWORKS 3D CAD</controllingFieldValue>
+            <valueName>SOLIDWORKS Premium</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SOLIDWORKS 3D CAD</controllingFieldValue>
+            <valueName>SOLIDWORKS Professional</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SOLIDWORKS 3D CAD</controllingFieldValue>
+            <valueName>SOLIDWORKS Standard</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SOLIDWORKS CAM</controllingFieldValue>
+            <valueName>SOLIDWORKS CAM</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SOLIDWORKS CAM</controllingFieldValue>
+            <valueName>SOLIDWORKS CAM Standard</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SOLIDWORKS Cloud</controllingFieldValue>
+            <valueName>SOLIDWORKS Cloud</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SOLIDWORKS Composer</controllingFieldValue>
+            <valueName>SOLIDWORKS Composer</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SOLIDWORKS Costing</controllingFieldValue>
+            <valueName>SOLIDWORKS Costing</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SOLIDWORKS Design Checker</controllingFieldValue>
+            <valueName>SOLIDWORKS Design Checker</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SOLIDWORKS Electrical</controllingFieldValue>
+            <valueName>SOLIDWORKS Electrical</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SOLIDWORKS Electrical</controllingFieldValue>
+            <valueName>SOLIDWORKS Electrical 3D</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SOLIDWORKS Electrical</controllingFieldValue>
+            <valueName>SOLIDWORKS Electrical Schematic Professional</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SOLIDWORKS Electrical</controllingFieldValue>
+            <valueName>SOLIDWORKS Electrical Schematic Standard</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SOLIDWORKS Extended Reality (XR) Exporter</controllingFieldValue>
+            <valueName>SOLIDWORKS Extended Reality (XR) Exporter</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SOLIDWORKS Flow Simulation</controllingFieldValue>
+            <valueName>SOLIDWORKS Electronic Cooling</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SOLIDWORKS Flow Simulation</controllingFieldValue>
+            <valueName>SOLIDWORKS HVAC Applications</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SOLIDWORKS FloXpress</controllingFieldValue>
+            <valueName>SOLIDWORKS FloXpress</valueName>
+        </valueSettings>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

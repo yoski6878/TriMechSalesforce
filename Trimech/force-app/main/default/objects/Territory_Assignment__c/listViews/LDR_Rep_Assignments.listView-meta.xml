@@ -3,7 +3,6 @@
     <fullName>LDR_Rep_Assignments</fullName>
     <columns>NAME</columns>
     <columns>Account_Field_to_Assign__c</columns>
-    <columns>Specialty_Group__c</columns>
     <columns>Assigned_User__c</columns>
     <columns>Territory_Region__c</columns>
     <columns>Territory__c</columns>

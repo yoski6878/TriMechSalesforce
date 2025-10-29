@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Solution_Type__c</fullName>
-    <externalId>false</externalId>
     <label>Solution Type</label>
     <required>true</required>
     <trackTrending>false</trackTrending>

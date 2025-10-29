@@ -1,0 +1,67 @@
+.main-container {
+    padding: 1rem;
+    background-color: white; /* Light background for a clean look */
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.header-container {
+    margin-bottom: 1rem;
+    text-align: center; /* Center-align the header */
+    color: #1e2447; /* Dark text color for contrast */
+}
+
+.filter-container {
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center; /* Center the dropdown horizontally */
+}
+
+.filter-dropdown {
+    width: 50%;
+    min-width: 200px; /* Ensure dropdown does not shrink too small */
+}
+
+.table-container {
+    background-color: #ffffff; /* White background for the table */
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
+    overflow-x: auto; /* Add horizontal scrolling if table overflows */
+}
+
+.case-datatable {
+    border: none; /* Remove border for cleaner appearance */
+}
+
+h1 {
+    font-weight: 600; /* Slightly bold heading for emphasis */
+}
+
+.header-container {
+    margin-bottom: 1rem;
+    text-align: center;
+    color: #1e2447;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center-align the icon and text */
+    gap: 0.5rem; /* Add space between the icon and the text */
+}
+
+.header-icon {
+    --slds-c-icon-color-background: #0176d3; /* Custom color for the icon background */
+    border-radius: 50%; /* Round background for the icon */
+    background-color: #0176d3; /* Light gray background for better visibility */
+    padding: 0.3rem; /* Add padding around the icon */
+}
+
+h1 {
+    font-weight: 600;
+}
+
+.StatusCSS{
+	width: 240px;
+}

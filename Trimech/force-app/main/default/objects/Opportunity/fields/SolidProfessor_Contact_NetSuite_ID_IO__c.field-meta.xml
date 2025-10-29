@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SolidProfessor_Contact_NetSuite_ID_IO__c</fullName>
+    <externalId>false</externalId>
+    <formula>SolidProfessor_Contact__r.celigo_sfnsio__NetSuite_Id__c</formula>
+    <label>SolidProfessor Contact NetSuite ID (IO)</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

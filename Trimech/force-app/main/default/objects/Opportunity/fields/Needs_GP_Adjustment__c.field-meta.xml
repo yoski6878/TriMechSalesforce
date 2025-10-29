@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Needs_GP_Adjustment__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Check this box if this order needs a GP adjustment.</description>
+    <inlineHelpText>Check this box if this order needs a GP adjustment.</inlineHelpText>
+    <label>Needs GP Adjustment</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

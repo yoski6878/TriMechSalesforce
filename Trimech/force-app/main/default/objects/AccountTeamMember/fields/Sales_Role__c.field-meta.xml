@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sales_Role__c</fullName>
+    <label>Sales Role</label>
+    <required>false</required>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Dedicated Software Sales</fullName>
+                <default>false</default>
+                <label>Dedicated Software Sales</label>
+            </value>
+            <value>
+                <fullName>Software Sales</fullName>
+                <default>false</default>
+                <label>Software Sales (New Logo)</label>
+            </value>
+            <value>
+                <fullName>Hardware Outside Sales</fullName>
+                <default>false</default>
+                <label>Hardware Outside Sales</label>
+            </value>
+            <value>
+                <fullName>Hardware Inside Sales</fullName>
+                <default>false</default>
+                <label>Hardware Inside Sales</label>
+            </value>
+            <value>
+                <fullName>Dedicated Hardware Sales</fullName>
+                <default>false</default>
+                <label>Dedicated Hardware Sales</label>
+            </value>
+            <value>
+                <fullName>Sales Rep SolidCAM</fullName>
+                <default>false</default>
+                <label>Sales Rep SolidCAM</label>
+            </value>
+            <value>
+                <fullName>Dedicated SolidCAM Rep</fullName>
+                <default>false</default>
+                <label>Dedicated SolidCAM Rep</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Matches_Opportunity_Contact_Field__c</fullName>
+    <formula>IF(
+ContactId = Opportunity.Primary_Contact__r.Id,
+true,
+false
+)</formula>
+    <label>Matches Opportunity Contact Field</label>
+    <type>Checkbox</type>
+</CustomField>

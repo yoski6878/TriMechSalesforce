@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Support Portal - Manager</label>
+    <protected>false</protected>
+    <values>
+        <field>tom_woods__Community_Profile_Name_Id__c</field>
+        <value xsi:type="xsd:string">TriMech Customer Portal Manager Profile</value>
+    </values>
+    <values>
+        <field>tom_woods__Permission_Set_Name_Id__c</field>
+        <value xsi:nil="true"/>
+    </values>
+</CustomMetadata>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Disqualification_Reason__c</fullName>
+    <label>Disqualification Reason</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Call limit reached</fullName>
+                <default>false</default>
+                <label>Call limit reached</label>
+            </value>
+            <value>
+                <fullName>Lost to other reseller</fullName>
+                <default>false</default>
+                <label>Lost to other reseller</label>
+            </value>
+            <value>
+                <fullName>Lost to competitor product</fullName>
+                <default>false</default>
+                <label>Lost to competitor product</label>
+            </value>
+            <value>
+                <fullName>Invalid Contact Information</fullName>
+                <default>false</default>
+                <label>Invalid Contact Information</label>
+            </value>
+            <value>
+                <fullName>No budget</fullName>
+                <default>false</default>
+                <label>No budget</label>
+            </value>
+            <value>
+                <fullName>No buying intention</fullName>
+                <default>false</default>
+                <label>No buying intention</label>
+            </value>
+            <value>
+                <fullName>Not decision maker</fullName>
+                <default>false</default>
+                <label>Not decision maker</label>
+            </value>
+            <value>
+                <fullName>Not interested</fullName>
+                <default>false</default>
+                <label>Not interested</label>
+            </value>
+            <value>
+                <fullName>Out of territory</fullName>
+                <default>false</default>
+                <label>Out of territory</label>
+            </value>
+            <value>
+                <fullName>Previously identified</fullName>
+                <default>false</default>
+                <label>Previously identified</label>
+            </value>
+            <value>
+                <fullName>Sent to Staffing</fullName>
+                <default>false</default>
+                <label>Sent to Staffing</label>
+            </value>
+            <value>
+                <fullName>Sent to Consumables</fullName>
+                <default>false</default>
+                <label>Sent to Consumables</label>
+            </value>
+            <value>
+                <fullName>Sent to Technical Support</fullName>
+                <default>false</default>
+                <label>Sent to Technical Support</label>
+            </value>
+            <value>
+                <fullName>Sent to Enterprise Solutions</fullName>
+                <default>false</default>
+                <label>Sent to Enterprise Solutions</label>
+            </value>
+            <value>
+                <fullName>Duplicate</fullName>
+                <default>false</default>
+                <label>Duplicate</label>
+            </value>
+            <value>
+                <fullName>Junk</fullName>
+                <default>false</default>
+                <label>Junk</label>
+            </value>
+            <value>
+                <fullName>Nurture - MKT USE ONLY</fullName>
+                <default>false</default>
+                <label>Nurture - MKT USE ONLY</label>
+            </value>
+            <value>
+                <fullName>Deactivated</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Deactivated</label>
+            </value>
+            <value>
+                <fullName>Expired</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Expired</label>
+            </value>
+            <value>
+                <fullName>Not ready</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Not ready</label>
+            </value>
+            <value>
+                <fullName>Unable to connect</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Unable to connect</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

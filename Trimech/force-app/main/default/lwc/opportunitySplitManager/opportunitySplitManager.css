@@ -1,0 +1,80 @@
+.slds-spinner_container {
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slds-card {
+    margin-bottom: 1rem;
+}
+
+.slds-card__header {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.slds-card__header-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+}
+
+.label-hidden .slds-form-element__label {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    margin: -1px !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    clip: rect(0,0,0,0) !important;
+    border: 0 !important;
+}
+
+.slds-grid {
+    margin: 0 -0.75rem;
+}
+
+.slds-col {
+    padding: 0 0.75rem;
+}
+
+/* Ensure the data table is visible and scrollable */
+
+.button-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+.slds-datatable-container {
+    max-height: 400px;
+    overflow-y: auto;
+    border: 1px solid #e5e5e5;
+    border-radius: 0.25rem;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+}
+
+/* Improve table appearance */
+.slds-table--cell-buffer td,
+.slds-table--cell-buffer th {
+    padding: 0.75rem;
+}
+
+/* Make table more visible */
+.slds-table {
+    border: 1px solid #e5e5e5;
+    border-radius: 0.25rem;
+}
+
+/* Ensure debug info is clearly visible */
+.slds-theme_info {
+    margin: 0.5rem 0;
+    border-radius: 0.25rem;
+    font-weight: bold;
+}
+
+/* Make table headers stand out */
+.slds-table th {
+    background-color: #f4f6f9;
+    font-weight: 600;
+}

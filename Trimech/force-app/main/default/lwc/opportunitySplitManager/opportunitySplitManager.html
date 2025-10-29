@@ -1,0 +1,132 @@
+<template>
+    <div class="slds-box slds-theme_default">
+        <div class="slds-page-header">
+            <div class="slds-page-header__row">
+                <div class="slds-page-header__col-title">
+                    <div class="slds-grid slds-grid_align-spread slds-grid_vertical-align-center">
+                        <div class="slds-media">
+                            <div class="slds-media__body">
+                                <h1 class="slds-page-header__title slds-truncate" title="Opportunity Splits">Opportunity Splits</h1>
+                            </div>
+                        </div>
+                        <lightning-button-icon
+                            icon-name="utility:refresh"
+                            alternative-text="Refresh"
+                            title="Refresh"
+                            onclick={handleRefresh}
+                            variant="border-filled"
+                        ></lightning-button-icon>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <template if:true={isLoading}>
+            <div class="slds-spinner_container">
+                <lightning-spinner alternative-text="Loading opportunity splits..." size="medium"></lightning-spinner>
+            </div>
+        </template>
+        <template if:true={error}>
+            <div class="slds-notify slds-notify_alert slds-theme_error" role="alert">
+                <span class="slds-assistive-text">Error</span>
+                <h2>Error</h2>
+                <p><strong>Message:</strong> {error.message}</p>
+                <template if:true={error.details}>
+                    <p><strong>Details:</strong> {error.details}</p>
+                </template>
+            </div>
+        </template>
+
+    </div>
+
+    <template if:false={isLoading}>
+        <div class="slds-card">
+            <div class="slds-card__body">
+                <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                    <thead>
+                        <tr>
+                            <th>User</th>
+                            <th style="width: 90px;">% Split</th>
+                            <th>Amount</th>
+                            <th>Note</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <template for:each={editableSplits} for:item="split" for:index="index">
+                            <tr key={split.Id} data-index={index}>
+                                <td>
+                                    <lightning-combobox
+                                        label="User"
+                                        class="label-hidden"
+                                        value={split.SplitOwnerId}
+                                        options={users}
+                                        data-id={split.Id}
+                                        data-field="SplitOwnerId"
+                                        onchange={handleTableInputChange}
+                                        placeholder="Select a user"
+                                        required
+                                        disabled={disableEdit}>
+                                    </lightning-combobox>
+                                </td>
+                                <td>
+                                    <lightning-input
+                                        label="% Split"
+                                        class="label-hidden"
+                                        type="number"
+                                        value={split.SplitPercentage}
+                                        min="0" max="100" step="0.01"
+                                        data-id={split.Id}
+                                        data-field="SplitPercentage"
+                                        onchange={handleTableInputChange}
+                                        required
+                                        disabled={disableEdit}
+                                        style="width: 80px;">
+                                    </lightning-input>
+                                </td>
+                                <td>
+                                    <lightning-formatted-number
+                                        value={split.SplitAmount}
+                                        format-style="currency"
+                                        currency-code="USD">
+                                    </lightning-formatted-number>
+                                </td>
+                                <td>
+                                    <lightning-input
+                                        label="Note"
+                                        class="label-hidden"
+                                        type="text"
+                                        value={split.SplitNote}
+                                        data-id={split.Id}
+                                        data-field="SplitNote"
+                                        onchange={handleTableInputChange}
+                                        disabled={disableEdit}>
+                                    </lightning-input>
+                                </td>
+                                <td>
+                                    <template if:true={canEditSplits}>
+                                        <lightning-button-icon
+                                            icon-name="utility:delete"
+                                            alternative-text="Delete"
+                                            title="Delete"
+                                            onclick={handleDeleteRow}
+                                            data-id={split.Id}>
+                                        </lightning-button-icon>
+                                    </template>
+                                </td>
+                            </tr>
+                        </template>
+                    </tbody>
+                </table>
+                    <div class="slds-m-top_medium button-center">
+                        <template if:true={canEditSplits}>
+                            <template if:true={isDirty}>
+                                <lightning-button label="Save" variant="brand" onclick={handleSaveAll}></lightning-button>
+                                <lightning-button label="Cancel" variant="neutral" onclick={handleCancel}></lightning-button>
+                            </template>
+                        </template>
+                    </div>
+            </div>
+        </div>
+    </template>
+</template>

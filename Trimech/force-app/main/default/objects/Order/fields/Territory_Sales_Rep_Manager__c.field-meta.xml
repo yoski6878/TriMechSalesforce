@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Territory_Sales_Rep_Manager__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF (
+ISBLANK (Territory_Sales_Rep__r.ManagerId) ,
+NULL,
+Territory_Sales_Rep__r.Manager.FirstName &amp; &quot; &quot; &amp; Territory_Sales_Rep__r.Manager.LastName
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Territory Sales Rep Manager</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

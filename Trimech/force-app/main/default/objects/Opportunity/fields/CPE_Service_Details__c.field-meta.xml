@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CPE_Service_Details__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Include the number of planned project hours, the client hourly rate, and that it&apos;s approved by the Service Manager</inlineHelpText>
+    <label>CPE Service Details</label>
+    <length>255</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

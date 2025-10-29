@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Asset_Group__c</fullName>
+    <externalId>false</externalId>
+    <formula>CASE(RecordType.Name, 
+&quot;Software&quot;, 
+  IF(CONTAINS(TEXT(Item__c), &quot; PDM &quot;), &quot;PDM&quot;, 
+    IF(CONTAINS(TEXT(Item__c), &quot; CAM &quot;), &quot;CAM&quot;, 
+      IF(CONTAINS(TEXT(Item__c), &quot; CAD &quot;), &quot;CAD&quot;, 
+        IF(CONTAINS(TEXT(Item__c), &quot;Electrical&quot;), &quot;Elec&quot;, 
+          IF(CONTAINS(TEXT(Item__c), &quot;Simulation&quot;), &quot;SIM&quot;, 
+            IF(CONTAINS(TEXT(Item__c), &quot;Motion&quot;), &quot;SIM&quot;, 
+              IF(CONTAINS(TEXT(Item__c), &quot;Plastics&quot;), &quot;SIM&quot;, 
+                IF(CONTAINS(TEXT(Item__c), &quot;Premium&quot;), &quot;CAD&quot;, 
+                  IF(CONTAINS(TEXT(Item__c), &quot;Standard&quot;), &quot;CAD&quot;, 
+                    IF(CONTAINS(TEXT(Item__c), &quot;Professional&quot;) &amp;&amp; (TEXT(Item__c) &lt;&gt; &quot;MySolidWorks Professional&quot;), &quot;CAD&quot;, &quot;&quot;)
+	)))))))))
+, &quot;Hardware&quot;, 
+	IF(TEXT(Printer_Technology__c) &lt;&gt; &quot;&quot;, TEXT(Printer_Technology__c), 
+		IF(TEXT(Asset_Type__c)=&apos;Scanner&apos;, TEXT(Asset_Type__c), &quot;&quot;))
+, &quot;&quot;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Asset Group</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

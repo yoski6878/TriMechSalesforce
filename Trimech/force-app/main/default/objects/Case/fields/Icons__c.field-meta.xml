@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Icons__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+NOT(ISPICKVAL(Status, &quot;Closed&quot;) &amp;&amp; (NOW() - ClosedDate) &gt; 1),
+
+IF(
+    ISPICKVAL(Priority, &quot;Urgent&quot;), 
+    &quot;🔥 &quot;, 
+    &quot;&quot;
+) &amp;
+
+IF( Violated__c , 
+    &quot;⏱️ &quot;, 
+    &quot;&quot;
+) &amp;
+
+IF(
+    OR(Account.ESS_Client__c, Account.STAMClient__c),
+    &quot;📢 &quot;,
+    &quot;&quot;
+) &amp;
+
+IF(
+    AND(
+        NOT(ISBLANK(AssetId)),
+        TEXT(Asset.Contract_Type__c) = &quot;Diamond Care&quot;,
+        Asset.UsageEndDate &gt;= TODAY()
+    ),
+    &quot;💎 &quot;,
+    &quot;&quot;
+) &amp;
+
+IF(
+    AND(
+        NOT(ISPICKVAL(Status, &quot;Closed&quot;)),
+        ISBLANK(OwnerId) || LEFT(OwnerId, 3) = &quot;00G&quot;,
+        FLOOR(
+            (TODAY() - DATEVALUE(CreatedDate)) - 
+            (
+                FLOOR((TODAY() - DATEVALUE(CreatedDate) + WEEKDAY(DATE(1985,6,24))) / 7) * 2 +
+                IF(WEEKDAY(DATEVALUE(CreatedDate)) = 1, 1, 0) +
+                IF(WEEKDAY(TODAY()) = 7, 1, 0)
+            )
+        ) &gt;= 1
+    ),
+    &quot;‼️ &quot;,
+    IF(
+        AND(
+            NOT(ISPICKVAL(Status, &quot;Closed&quot;)),
+            ISBLANK(OwnerId) || LEFT(OwnerId, 3) = &quot;00G&quot;,
+            AND(
+                MOD(WEEKDAY(DATEVALUE(CreatedDate)), 7) &lt;&gt; 0,
+                MOD(WEEKDAY(DATEVALUE(CreatedDate)), 7) &lt;&gt; 1
+            ),
+            NOW() - CreatedDate &gt; (8 / 24)
+        ),
+        &quot;❗&quot;,
+        &quot;&quot;
+    )
+) &amp;
+
+IF(
+    AND(
+        NOT(ISPICKVAL(Status, &quot;Closed&quot;)),
+        (
+            (TODAY() - DATEVALUE(Status_Last_Modified_Date__c))
+            - (FLOOR((TODAY() - DATEVALUE(Status_Last_Modified_Date__c) + WEEKDAY(DATEVALUE(Status_Last_Modified_Date__c))) / 7) * 2)
+            - IF(WEEKDAY(DATEVALUE(Status_Last_Modified_Date__c)) = 1, 1, 0)
+            - IF(WEEKDAY(TODAY()) = 7, 1, 0)
+        ) &gt;= 20
+    ),
+    &quot;2️⃣0️⃣&quot;,
+    IF(
+        AND(
+            NOT(ISPICKVAL(Status, &quot;Closed&quot;)),
+            (
+                (TODAY() - DATEVALUE(Status_Last_Modified_Date__c))
+                - (FLOOR((TODAY() - DATEVALUE(Status_Last_Modified_Date__c) + WEEKDAY(DATEVALUE(Status_Last_Modified_Date__c))) / 7) * 2)
+                - IF(WEEKDAY(DATEVALUE(Status_Last_Modified_Date__c)) = 1, 1, 0)
+                - IF(WEEKDAY(TODAY()) = 7, 1, 0)
+            ) &gt;= 10
+        ),
+        &quot;🔟&quot;,
+        IF(
+            AND(
+                NOT(ISPICKVAL(Status, &quot;Closed&quot;)),
+                TEXT(Status) &lt;&gt; &quot;Client Idle&quot;,
+                (
+                    (TODAY() - DATEVALUE(Status_Last_Modified_Date__c))
+                    - (FLOOR((TODAY() - DATEVALUE(Status_Last_Modified_Date__c) + WEEKDAY(DATEVALUE(Status_Last_Modified_Date__c))) / 7) * 2)
+                    - IF(WEEKDAY(DATEVALUE(Status_Last_Modified_Date__c)) = 1, 1, 0)
+                    - IF(WEEKDAY(TODAY()) = 7, 1, 0)
+                ) &gt;= 5
+            ),
+            &quot;5️⃣&quot;,
+            &quot;&quot;
+        )
+    )
+),
+ 
+  &quot;&quot;
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Icons</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

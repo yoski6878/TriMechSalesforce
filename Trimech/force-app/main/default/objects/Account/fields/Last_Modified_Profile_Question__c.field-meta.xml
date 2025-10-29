@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Last_Modified_Profile_Question__c</fullName>
+    <label>Last Modified Profile Question</label>
+    <summarizedField>Client_Profile_Question__c.LastModifiedDate</summarizedField>
+    <summaryForeignKey>Client_Profile_Question__c.Account__c</summaryForeignKey>
+    <summaryOperation>max</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <type>Summary</type>
+</CustomField>

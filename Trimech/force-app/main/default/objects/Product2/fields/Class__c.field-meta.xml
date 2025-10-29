@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Class__c</fullName>
+    <label>Class</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>1 Solidworks</fullName>
+                <default>false</default>
+                <label>1 Solidworks</label>
+            </value>
+            <value>
+                <fullName>1 Solidworks : 1 SW</fullName>
+                <default>false</default>
+                <label>1 Solidworks : 1 SW</label>
+            </value>
+            <value>
+                <fullName>1 Solidworks : 1 SW STD</fullName>
+                <default>false</default>
+                <label>1 Solidworks : 1 SW STD</label>
+            </value>
+            <value>
+                <fullName>1 Solidworks : 1 SW PRO</fullName>
+                <default>false</default>
+                <label>1 Solidworks : 1 SW PRO</label>
+            </value>
+            <value>
+                <fullName>1 Solidworks : 1 SW PREM</fullName>
+                <default>false</default>
+                <label>1 Solidworks : 1 SW PREM</label>
+            </value>
+            <value>
+                <fullName>1 Solidworks : 2 SIM</fullName>
+                <default>false</default>
+                <label>1 Solidworks : 2 SIM</label>
+            </value>
+            <value>
+                <fullName>1 Solidworks : 3 PDM</fullName>
+                <default>false</default>
+                <label>1 Solidworks : 3 PDM</label>
+            </value>
+            <value>
+                <fullName>1 Solidworks : 4 Electrical</fullName>
+                <default>false</default>
+                <label>1 Solidworks : 4 Electrical</label>
+            </value>
+            <value>
+                <fullName>1 Solidworks : 5 Composer</fullName>
+                <default>false</default>
+                <label>1 Solidworks : 5 Composer</label>
+            </value>
+            <value>
+                <fullName>1 Solidworks : 6 PCB</fullName>
+                <default>false</default>
+                <label>1 Solidworks : 6 PCB</label>
+            </value>
+            <value>
+                <fullName>1 Solidworks : 7 Emerging</fullName>
+                <default>false</default>
+                <label>1 Solidworks : 7 Emerging</label>
+            </value>
+            <value>
+                <fullName>1 Solidworks : 7 Emerging : Inspection</fullName>
+                <default>false</default>
+                <label>1 Solidworks : 7 Emerging : Inspection</label>
+            </value>
+            <value>
+                <fullName>1 Solidworks : 7 Emerging : MBD</fullName>
+                <default>false</default>
+                <label>1 Solidworks : 7 Emerging : MBD</label>
+            </value>
+            <value>
+                <fullName>1 Solidworks : 7 Emerging : CAM</fullName>
+                <default>false</default>
+                <label>1 Solidworks : 7 Emerging : CAM</label>
+            </value>
+            <value>
+                <fullName>1 Solidworks : 7 Emerging : Visualize</fullName>
+                <default>false</default>
+                <label>1 Solidworks : 7 Emerging : Visualize</label>
+            </value>
+            <value>
+                <fullName>1 Solidworks : SW Other</fullName>
+                <default>false</default>
+                <label>1 Solidworks : SW Other</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Additive Manufacturing</fullName>
+                <default>false</default>
+                <label>Additive Manufacturing</label>
+            </value>
+            <value>
+                <fullName>Additive Manufacturing : Desktop</fullName>
+                <default>false</default>
+                <label>Additive Manufacturing : Desktop</label>
+            </value>
+            <value>
+                <fullName>Additive Manufacturing : Production</fullName>
+                <default>false</default>
+                <label>Additive Manufacturing : Production</label>
+            </value>
+            <value>
+                <fullName>Additive Manufacturing : Metal</fullName>
+                <default>false</default>
+                <label>Additive Manufacturing : Metal</label>
+            </value>
+            <value>
+                <fullName>Additive Manufacturing : Scanners</fullName>
+                <default>false</default>
+                <label>Additive Manufacturing : Scanners</label>
+            </value>
+            <value>
+                <fullName>Design Automation</fullName>
+                <default>false</default>
+                <label>Design Automation</label>
+            </value>
+            <value>
+                <fullName>PEG</fullName>
+                <default>false</default>
+                <label>PEG</label>
+            </value>
+            <value>
+                <fullName>SaaS</fullName>
+                <default>false</default>
+                <label>SaaS</label>
+            </value>
+            <value>
+                <fullName>Mastercam</fullName>
+                <default>false</default>
+                <label>Mastercam</label>
+            </value>
+            <value>
+                <fullName>PLM</fullName>
+                <default>false</default>
+                <label>PLM</label>
+            </value>
+            <value>
+                <fullName>Excellerant</fullName>
+                <default>false</default>
+                <label>Excellerant</label>
+            </value>
+            <value>
+                <fullName>Enhanced</fullName>
+                <default>false</default>
+                <label>Enhanced</label>
+            </value>
+            <value>
+                <fullName>Discount</fullName>
+                <default>false</default>
+                <label>Discount</label>
+            </value>
+            <value>
+                <fullName>CAM</fullName>
+                <default>false</default>
+                <label>CAM</label>
+            </value>
+            <value>
+                <fullName>Enterprise Solutions : PLM</fullName>
+                <default>false</default>
+                <label>Enterprise Solutions : PLM</label>
+            </value>
+            <value>
+                <fullName>Computer</fullName>
+                <default>false</default>
+                <label>Computer</label>
+            </value>
+            <value>
+                <fullName>Scanners</fullName>
+                <default>false</default>
+                <label>Scanners</label>
+            </value>
+            <value>
+                <fullName>Printer-Production</fullName>
+                <default>false</default>
+                <label>Printer-Production</label>
+            </value>
+            <value>
+                <fullName>Billable Internal Item</fullName>
+                <default>false</default>
+                <label>Billable Internal Item</label>
+            </value>
+            <value>
+                <fullName>Printer-Desktop</fullName>
+                <default>false</default>
+                <label>Printer-Desktop</label>
+            </value>
+            <value>
+                <fullName>Governance</fullName>
+                <default>false</default>
+                <label>Governance</label>
+            </value>
+            <value>
+                <fullName>CAD</fullName>
+                <default>false</default>
+                <label>CAD</label>
+            </value>
+            <value>
+                <fullName>Electrical</fullName>
+                <default>false</default>
+                <label>Electrical</label>
+            </value>
+            <value>
+                <fullName>Simulation</fullName>
+                <default>false</default>
+                <label>Simulation</label>
+            </value>
+            <value>
+                <fullName>Manufacturing</fullName>
+                <default>false</default>
+                <label>Manufacturing</label>
+            </value>
+            <value>
+                <fullName>LGCY Enterprise Solutions : PLM</fullName>
+                <default>false</default>
+                <label>LGCY Enterprise Solutions : PLM</label>
+            </value>
+            <value>
+                <fullName>LGCY SaaS</fullName>
+                <default>false</default>
+                <label>LGCY SaaS</label>
+            </value>
+            <value>
+                <fullName>LGCY 1 Solidworks : LGCY 1 SW PRO</fullName>
+                <default>false</default>
+                <label>LGCY 1 Solidworks : LGCY 1 SW PRO</label>
+            </value>
+            <value>
+                <fullName>LGCY Enterprise Solutions : PLM : LGCY PLM Dassault</fullName>
+                <default>false</default>
+                <label>LGCY Enterprise Solutions : PLM : LGCY PLM Dassault</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

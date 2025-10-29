@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Link_to_Primary_Contact__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+ISBLANK( Primary_Contact__c),
+NULL,
+HYPERLINK(&quot;/lightning/r/Contact/&quot;&amp;Primary_Contact__c&amp;&quot;/view&quot;,Primary_Contact__r.FirstName &amp; &quot; &quot; &amp; Primary_Contact__r.LastName , &quot;_parent&quot;)
+)</formula>
+    <label>Link to Primary Contact</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

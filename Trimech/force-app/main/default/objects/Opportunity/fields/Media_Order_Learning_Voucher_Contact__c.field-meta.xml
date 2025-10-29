@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Media_Order_Learning_Voucher_Contact__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <label>Media Order | Learning Voucher Contact</label>
+    <referenceTo>Contact</referenceTo>
+    <relationshipLabel>Leads/Opportunities (Media Order | Learning Voucher Contact)</relationshipLabel>
+    <relationshipName>Leads_Opportunities2</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Lookup</type>
+</CustomField>

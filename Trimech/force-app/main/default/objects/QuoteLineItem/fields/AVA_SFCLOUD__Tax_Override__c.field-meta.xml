@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AVA_SFCLOUD__Tax_Override__c</fullName>
+    <defaultValue>false</defaultValue>
+    <deprecated>false</deprecated>
+    <description>If checked, the amount updated in Sales Tax Amount field shall be updated as Tax amount for this line. Ensure Allow Tax Override in AvaTax for Salesforce configuration is also checked.</description>
+    <inlineHelpText>If checked, the amount updated in Sales Tax Amount field shall be updated as Tax amount for this line. Ensure Allow Tax Override in AvaTax for Salesforce configuration is also checked.</inlineHelpText>
+    <label>Tax Override</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

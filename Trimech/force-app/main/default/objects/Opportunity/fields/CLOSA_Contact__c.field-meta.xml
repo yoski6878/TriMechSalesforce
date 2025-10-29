@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CLOSA_Contact__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <inlineHelpText>Add the contact responsible for authorizing the CLOSA contract if applicable. 
+CPE Enterprise Order = Online consent or EUOF contact</inlineHelpText>
+    <label>CLOSA Contact</label>
+    <referenceTo>Contact</referenceTo>
+    <relationshipLabel>Leads/Opportunities (CLOSA Contact)</relationshipLabel>
+    <relationshipName>Leads_Opportunities8</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Lookup</type>
+</CustomField>

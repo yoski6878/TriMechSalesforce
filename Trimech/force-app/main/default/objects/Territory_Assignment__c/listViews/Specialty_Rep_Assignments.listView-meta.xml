@@ -17,7 +17,7 @@
     <filters>
         <field>Specialty_Group__c</field>
         <operation>contains</operation>
-        <value>Staffing</value>
+        <value>Education</value>
     </filters>
     <filters>
         <field>Territory_Product_Group__c</field>

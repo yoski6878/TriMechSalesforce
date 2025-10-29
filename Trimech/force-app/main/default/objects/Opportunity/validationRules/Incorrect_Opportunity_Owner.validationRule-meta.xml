@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Incorrect_Opportunity_Owner</fullName>
+    <active>true</active>
+    <errorConditionFormula>Incorrect_Opp_Owner__c &amp;&amp; $User.FirstName &lt;&gt; &apos;Tina&apos; &amp;&amp; $User.FirstName &lt;&gt; &apos;Lilie&apos; &amp;&amp; $User.FirstName &lt;&gt; &apos;Bhavik&apos; &amp;&amp; ( ($User.FirstName + &apos; &apos; + $User.LastName) &lt;&gt; &apos;TriMech Admin&apos;)</errorConditionFormula>
+    <errorMessage>Opportunity Owner is not part of the Account Subsidiary, please change the Owner to be from the Account&apos;s Subsidiary.</errorMessage>
+</ValidationRule>

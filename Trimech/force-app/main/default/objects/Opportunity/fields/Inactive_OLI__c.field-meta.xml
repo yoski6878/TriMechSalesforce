@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Inactive_OLI__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Only to be used by the Flow - Opportunity Checks before Closing || Flags the Opportunity if any of it&apos;s Line Items have Inactive Products</description>
+    <inlineHelpText>DO NOT MODIFY</inlineHelpText>
+    <label>Inactive OLI</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

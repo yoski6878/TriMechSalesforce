@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Profit_Margin__c</fullName>
+    <description>Profit Margin on Software - Solidworks Products</description>
+    <externalId>false</externalId>
+    <formula>IF( ( NOT(CONTAINS(&apos;Software:Initial:Renewal:Training:Services&apos;, Category_Product__c)) 
+		|| ISBLANK(Category_Product__c) || ISNULL(Category_Product__c)), 	
+	IF(ListPrice&lt;&gt;0,
+		(Purchase_Price__c / ListPrice), 
+		IF(Sales_Price_After_Discount__c&lt;&gt;0, 
+			(Purchase_Price__c / Sales_Price_After_Discount__c)
+		, 0)
+	)
+, 0)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Profit Margin</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

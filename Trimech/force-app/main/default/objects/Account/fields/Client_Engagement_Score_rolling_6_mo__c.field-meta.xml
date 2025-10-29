@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Client_Engagement_Score_rolling_6_mo__c</fullName>
+    <externalId>false</externalId>
+    <formula>(
+(Open_Activities_Last_6_Mo__c * 1) +
+(Completed_Activities_Last_6_Mo__c * 3) +
+(Future_Meetings_Last_6_Mo__c * 5) +
+(Completed_Meetings_Last_6_Mo__c * 10) +
+(Open_Opps_without_Proposal_Last_6_Mo__c * 10) +
+(Open_Opps_with_Proposal_Last_6_Mo__c * 15) +
+(Closed_Won_Opps_Last_6_Mo__c * 25) 
+) - 
+(Number_of_Neglected_Leads__c * 5)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Client Engagement Score (rolling 6 mo)</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

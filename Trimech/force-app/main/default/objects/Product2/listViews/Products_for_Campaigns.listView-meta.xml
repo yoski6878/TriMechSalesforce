@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Products_for_Campaigns</fullName>
+    <columns>PRODUCT2.NAME</columns>
+    <columns>Product_Group__c</columns>
+    <columns>Allow_Add_to_Campaigns__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Allow_Add_to_Campaigns__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <label>Products for Campaigns</label>
+    <sharedTo>
+        <role>Marketing</role>
+    </sharedTo>
+</ListView>

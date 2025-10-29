@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AMS_Line_Item__c</fullName>
+    <formula>( BEGINS(Product2.ProductCode, &quot;AMS-&quot;) || BEGINS(Product2.ProductCode, &quot;RPS-&quot;) )
+&amp;&amp; NOT(BEGINS(Product2.ProductCode, &quot;AMS-QUOTE&quot;))</formula>
+    <label>AMS Line Item</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

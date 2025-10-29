@@ -12,5 +12,18 @@ trigger QuoteLineItem_Trigger on QuoteLineItem (after delete, after insert, afte
             //QuoteLineItem_Trigger.hasRunAfterInsert = true;
             //QuoteLineItem_Trigger.afterInsert(trigger.new,trigger.old,trigger.newMap,trigger.oldMap);
         }
+        if(trigger.isAfter && !QuoteLineItem_Trigger.hasRunAfterInsert){
+            QuoteLineItem_Trigger.hasRunAfterInsert = true;
+            //QuoteLineItem_Trigger.afterInsert(trigger.new);
+        }
+    }
+    
+    
+    //Added By Yoseph
+     if(trigger.isAfter && trigger.isUpdate && !QuoteLineItem_Trigger.hasRunAfterUpdate) {
+        QuoteLineItem_Trigger.hasRunAfterUpdate = true;
+        // CC - uncomment the next line to update opportunity line items
+        QuoteLineItem_Trigger.callFutureToUpdateOLIs(trigger.new);
+        // QuoteLineItem_Trigger.afterUpdate(trigger.new);
     }
 }

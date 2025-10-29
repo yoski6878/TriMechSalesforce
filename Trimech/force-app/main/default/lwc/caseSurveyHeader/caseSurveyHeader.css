@@ -1,0 +1,83 @@
+.custom-container{
+	color : black;
+}
+
+.mainDiv{
+	background-color: #F8F9FA ;
+    font-size: 16px;
+    padding:16px;
+    font-family:  Inter, sans-serif, Helvetica Neue, Helvetica, Arial !important;
+}
+
+.LogoCSS{
+    max-width: 50% !important;
+}
+
+.custom-input {
+    font-size: 16px;
+    width: 100%;
+    outline: none;
+    color: black;
+	border: solid black 1px;
+}
+
+.floating-label {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.input-wrapper {
+    padding:16px;
+    position: relative;
+    width: 100%;
+}
+
+.floating-label-container {
+    /* position: relative; */
+    /* margin-top: 1rem; */
+}
+
+.heading{
+    text-align: center;
+    padding:28px;
+    font-family:  Inter, sans-serif, Helvetica Neue, Helvetica, Arial !important;
+    
+}
+
+.headingText{
+    font-size: 72px;
+    color: black;
+}
+
+.subHeadingText{
+    font-size: 28px;
+    color: #6C757D;
+}
+
+.textCSS{
+    font-size: 20px;
+    line-height: 1.5;
+}
+
+.boldCSS{
+    font-weight: 700;
+}
+
+.iframeCSS{
+    width: 100%;
+    height: 175vh;
+    border: none;
+}
+
+
+@media only screen and (max-width: 768px) {
+    .headingText {
+        font-size: 38px;/* Reduced padding for phones */
+        font-weight: 700;
+            line-height: 1.2;
+    }
+
+    .subHeadingText{
+        font-size: 20px;/* Reduced padding for phones */
+    }
+}

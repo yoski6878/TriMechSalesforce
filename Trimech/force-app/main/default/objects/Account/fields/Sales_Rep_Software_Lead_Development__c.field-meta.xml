@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sales_Rep_Software_Lead_Development__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <label>Sales Rep (Software Lead Development)</label>
+    <referenceTo>User</referenceTo>
+    <relationshipName>Accounts_Sales_Software_LDR</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Lookup</type>
+</CustomField>

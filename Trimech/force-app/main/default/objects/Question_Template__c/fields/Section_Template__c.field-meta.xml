@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Section_Template__c</fullName>
-    <externalId>false</externalId>
     <label>Section Template</label>
     <referenceTo>Section_Template__c</referenceTo>
     <relationshipLabel>Questions</relationshipLabel>

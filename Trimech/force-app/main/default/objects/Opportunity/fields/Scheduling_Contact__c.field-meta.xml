@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Scheduling_Contact__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Populate this when purchasing closed training and corporate training credits.</description>
+    <inlineHelpText>Populate this when purchasing closed training and corporate training credits.</inlineHelpText>
+    <label>Scheduling Contact</label>
+    <referenceTo>Contact</referenceTo>
+    <relationshipLabel>Leads/Opportunities (Scheduling Contact)</relationshipLabel>
+    <relationshipName>Leads_Opportunities1</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Lookup</type>
+</CustomField>

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>GP_x_Contribution__c</fullName>
-    <externalId>false</externalId>
     <formula>IF( Contribution__c &gt; 0, (Sales_Order_Number__r.Commissionable_GP__c * Contribution__c), 0 )</formula>
     <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
     <label>GP x Contribution</label>

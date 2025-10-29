@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>My_3DExperience_License_Activation</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>X3DX_Installation_Status__c</columns>
+    <columns>Licenses_platform__c</columns>
+    <columns>Users__c</columns>
+    <columns>Percent_Active__c</columns>
+    <columns>Not_Activated_Licenses__c</columns>
+    <columns>Monthly_Active_Users__c</columns>
+    <columns>Weekly_Active_Users__c</columns>
+    <columns>Dsx_Site_ID__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Inactive__c</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>celigo_sfnsio__NetSuite_Id__c</field>
+        <operation>notEqual</operation>
+    </filters>
+    <filters>
+        <field>Licenses_platform__c</field>
+        <operation>greaterThan</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>Software_Sales_Person__c</field>
+        <operation>equals</operation>
+        <value>$USER</value>
+    </filters>
+    <label>My 3DExperience License Activation</label>
+</ListView>

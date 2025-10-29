@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Is_Opp_PP_same_as_Product_PP__c</fullName>
+    <description>To be used only in the Flow. Is the Opportunity Purchase Price same as Product Purchase Price?</description>
+    <formula>IF( NOT (OR (ISPICKVAL(Opportunity.StageName, &apos;Send to Order Management&apos;), 
+	ISPICKVAL(Opportunity.StageName, &apos;Order Issue&apos;), 
+	ISPICKVAL(Opportunity.StageName, &apos;Closed Won&apos;), 
+	ISPICKVAL(Opportunity.StageName, &apos;Closed Lost&apos;)
+  ) ), (Purchase_Price__c = Pricebook_Purchase_Price__c), TRUE)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Is Opp PP same as Product PP?</label>
+    <type>Checkbox</type>
+</CustomField>

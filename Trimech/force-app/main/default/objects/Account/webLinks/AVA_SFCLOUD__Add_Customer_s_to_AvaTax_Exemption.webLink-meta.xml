@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AVA_SFCLOUD__Add_Customer_s_to_AvaTax_Exemption</fullName>
+    <availability>online</availability>
+    <displayType>massActionButton</displayType>
+    <height>600</height>
+    <linkType>page</linkType>
+    <masterLabel>Add Customer(s) to AvaTax Exemption (Deprecated)</masterLabel>
+    <openType>sidebar</openType>
+    <page>AVA_SFCLOUD__AvaTax_Save_Multiple_Customer</page>
+    <protected>false</protected>
+    <requireRowSelection>true</requireRowSelection>
+</WebLink>

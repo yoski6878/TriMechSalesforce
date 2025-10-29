@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sales_Group__c</fullName>
+    <description>This field is used for Reporting purpose only.</description>
+    <externalId>false</externalId>
+    <formula>IF ((Owner:User.IsActive &amp;&amp; (CONTAINS(Owner:User.UserRole.Name, &apos;Rep&apos;) || CONTAINS(Owner:User.UserRole.Name, &apos;Manager&apos;))), (
+/* Greater NY */
+  IF(( (Owner:User.Manager.FirstName + &apos; &apos; + Owner:User.Manager.LastName = &apos;Rich Rosenel&apos;) || (Owner:User.FirstName + &apos; &apos; + Owner:User.LastName = &apos;Rich Rosenel&apos;) ), &apos;Greater NY&apos;,
+
+/* Gulf Coast */
+  IF(( (Owner:User.Manager.FirstName + &apos; &apos; + Owner:User.Manager.LastName = &apos;Angel Dieter&apos;) || (Owner:User.FirstName + &apos; &apos; + Owner:User.LastName = &apos;Angel Dieter&apos;) ), &apos;Gulf Coast&apos;,
+
+/* Hardware North */
+  IF( ( (Owner:User.Manager.FirstName + &apos; &apos; + Owner:User.Manager.LastName = &apos;Ken Chvilicek&apos;) || (Owner:User.FirstName + &apos; &apos; + Owner:User.LastName = &apos;Ken Chvilicek&apos;) ), &apos;Hardware North&apos;,
+
+/* Hardware South */
+  IF( ( (Owner:User.Manager.FirstName + &apos; &apos; + Owner:User.Manager.LastName = &apos;David Stockbower&apos;) || (Owner:User.FirstName + &apos; &apos; + Owner:User.LastName = &apos;David Stockbower&apos;) ), &apos;Hardware South&apos;,
+
+/* Inside Sales */
+  IF( ( (Owner:User.Manager.FirstName + &apos; &apos; + Owner:User.Manager.LastName = &apos;John Salvatierra&apos;) || (Owner:User.FirstName + &apos; &apos; + Owner:User.LastName = &apos;John Salvatierra&apos;) ), &apos;New Logo Sales&apos;,
+
+/* Mid-Atlantic */
+  IF( ( (Owner:User.Manager.FirstName + &apos; &apos; + Owner:User.Manager.LastName = &apos;Jason Hanna&apos;)  || (Owner:User.FirstName + &apos; &apos; + Owner:User.LastName = &apos;Jason Hanna&apos;) ), &apos;SolidCAM&apos;,
+
+/* Northeast */
+  IF( ( (Owner:User.Manager.FirstName + &apos; &apos; + Owner:User.Manager.LastName = &apos;Phil Trapani&apos;) || (Owner:User.FirstName + &apos; &apos; + Owner:User.LastName = &apos;Phil Trapani&apos;) ), &apos;Northeast&apos;,
+
+/* South Central */
+  IF( ( (Owner:User.Manager.FirstName + &apos; &apos; + Owner:User.Manager.LastName = &apos;Shelly Crump&apos;) || (Owner:User.FirstName + &apos; &apos; + Owner:User.LastName = &apos;Shelly Crump&apos;) ), &apos;South Central&apos;,
+
+/* Canada Software */
+  IF( ( (Owner:User.Manager.FirstName + &apos; &apos; + Owner:User.Manager.LastName = &apos;Adriana Cortese&apos;) || (Owner:User.FirstName + &apos; &apos; + Owner:User.LastName = &apos;Adriana Cortese&apos;) ), &apos;Canada Software&apos;,
+
+/* Canada Hardware */
+  IF(( (Owner:User.Manager.FirstName + &apos; &apos; + Owner:User.Manager.LastName = &apos;Ken Chvilicek Canada&apos;) || (Owner:User.FirstName + &apos; &apos; + Owner:User.LastName = &apos;Ken Chvilicek Canada&apos;) ), &apos;Canada Hardware&apos;,
+
+/* Default */
+&apos;Others&apos;)
+)))))))))),
+	IF( (Owner:User.ProfileId = &apos;00e6g0000027lpb&apos;), &apos;System Admins&apos;, 
+			IF( (CONTAINS(Owner:User.Title, &apos;Area Sales Director&apos;)), &apos;ASD&apos;, 
+				IF( (Owner:User.ProfileId = &apos;00e6g0000027lpk&apos; || Owner:User.ProfileId = &apos;00e6g000002biWP&apos;), &apos;Marketing&apos;,&apos;&apos;) ) )
+)</formula>
+    <label>Sales Group</label>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

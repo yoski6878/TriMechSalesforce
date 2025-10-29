@@ -5,6 +5,10 @@
 ***************************************************************/
 trigger Contact_Trigger on Contact (after delete, after insert, after undelete, after update, before delete, before insert, before update) {
    
+    if((Trigger.isAfter && (Trigger.isInsert || Trigger.isUpdate)) && BridgeITEventHandler.runOnce()) {
+        BridgeITEventHandler.HandleEvent(trigger.new, trigger.old, 'contact', (Trigger.isInsert) ? 'create' : 'edit');
+    }
+
     if(trigger.isInsert){
         if(trigger.isBefore) Contact_Trigger.beforeInsert(trigger.new,trigger.old,trigger.newMap,trigger.oldMap);
         else if(trigger.isAfter) Contact_Trigger.afterInsert(trigger.new,trigger.old,trigger.newMap,trigger.oldMap);

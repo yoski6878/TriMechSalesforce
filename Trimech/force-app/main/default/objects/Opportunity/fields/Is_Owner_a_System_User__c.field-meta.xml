@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Is_Owner_a_System_User__c</fullName>
+    <description>Check for Owner usernames to decide email notifications</description>
+    <formula>Owner.Username = &apos;admin@trimech.com&apos; || Owner.Username = &apos;tm.marketing@trimech.com&apos;</formula>
+    <label>Is Owner a System User</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

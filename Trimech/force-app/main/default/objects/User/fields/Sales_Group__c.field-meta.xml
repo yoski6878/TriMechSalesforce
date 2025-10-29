@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sales_Group__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF ((IsActive &amp;&amp; (CONTAINS(UserRole.Name, &apos;Rep&apos;)  || CONTAINS(UserRole.Name, &apos;Manager&apos;))), (
+/* Greater NY */
+  IF(( (Manager.FirstName + &apos; &apos; + Manager.LastName = &apos;Rich Rosenel&apos;) || (FirstName + &apos; &apos; + LastName = &apos;Rich Rosenel&apos;) ), &apos;Greater NY&apos;,
+
+/* Gulf Coast */
+  IF(( (Manager.FirstName + &apos; &apos; + Manager.LastName = &apos;Angel Dieter&apos;) || (FirstName + &apos; &apos; + LastName = &apos;Angel Dieter&apos;) ), &apos;Gulf Coast&apos;,
+
+/* Hardware North */
+  IF( ( (Manager.FirstName + &apos; &apos; + Manager.LastName = &apos;Ken Chvilicek&apos;) || (FirstName + &apos; &apos; + LastName = &apos;Ken Chvilicek&apos;) ), &apos;Hardware North&apos;,
+
+/* Hardware South */
+  IF( ( (Manager.FirstName + &apos; &apos; + Manager.LastName = &apos;David Stockbower&apos;) || (FirstName + &apos; &apos; + LastName = &apos;David Stockbower&apos;) ), &apos;Hardware South&apos;,
+
+/* Inside Sales */
+  IF(( (Manager.FirstName + &apos; &apos; + Manager.LastName = &apos;John Salvatierra&apos;) || (FirstName + &apos; &apos; + LastName = &apos;John Salvatierra&apos;) ), &apos;New Logo Sales&apos;,
+
+/* Mid-Atlantic */
+  IF( ( (Manager.FirstName + &apos; &apos; + Manager.LastName = &apos;Jason Hanna&apos;) || (FirstName + &apos; &apos; + LastName = &apos;Jason Hanna&apos;) ), &apos;SolidCAM&apos;,
+
+/* Northeast */
+  IF( ( (Manager.FirstName + &apos; &apos; + Manager.LastName = &apos;Phil Trapani&apos;) || (FirstName + &apos; &apos; + LastName = &apos;Phil Trapani&apos;) ), &apos;Northeast&apos;,
+
+/* South Central */
+  IF(( (Manager.FirstName + &apos; &apos; + Manager.LastName = &apos;Shelly Crump&apos;) || (FirstName + &apos; &apos; + LastName = &apos;Shelly Crump&apos;) ), &apos;South Central&apos;,
+
+/* Canada Software */
+  IF(( (Manager.FirstName + &apos; &apos; + Manager.LastName = &apos;Adriana Cortese&apos;) || (FirstName + &apos; &apos; + LastName = &apos;Adriana Cortese&apos;) ), &apos;Canada Software&apos;,
+
+/* Canada Hardware */
+  IF(( (Manager.FirstName + &apos; &apos; + Manager.LastName = &apos;Ken Chvilicek Canada&apos;) || (FirstName + &apos; &apos; + LastName = &apos;Ken Chvilicek Canada&apos;) ), &apos;Canada Hardware&apos;,
+
+/* Default */
+  &apos;Others&apos;)
+)))))))))), 
+	 IF( (IsActive &amp;&amp;  ProfileId = &apos;00e6g0000027lpb&apos;), &apos;System Admins&apos;, 
+		IF( (IsActive &amp;&amp; CONTAINS(Title, &apos;Area Sales Director&apos;)), &apos;ASD&apos;, 
+			IF( (IsActive &amp;&amp; (ProfileId = &apos;00e6g0000027lpk&apos; || ProfileId = &apos;00e6g000002biWP&apos;) ), &apos;Marketing&apos;,&apos;&apos;) ) ) 
+)</formula>
+    <label>Sales Group</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

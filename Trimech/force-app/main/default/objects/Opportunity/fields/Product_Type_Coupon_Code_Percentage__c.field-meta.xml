@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Product_Type_Coupon_Code_Percentage__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Please add details to align coupons, percentages, and the products together. Include approval name if applicable. Example PLC – PXDECP11514339 – 12% - Sales Manager Name.
+CPE Enterprise Orders:
+PLC – VAR Delegation – 20%,
+YSC - PAO0001441Yr2 Adoption – 60%, 70%
+PLC, YLC – Approved SBO_IUS000000 - Various</inlineHelpText>
+    <label>Product Type + Coupon Code + Percentage</label>
+    <length>255</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

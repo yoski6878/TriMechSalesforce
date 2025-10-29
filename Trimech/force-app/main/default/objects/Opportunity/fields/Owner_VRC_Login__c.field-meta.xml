@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Owner_VRC_Login__c</fullName>
+    <externalId>false</externalId>
+    <formula>Owner.VRC_Login__c</formula>
+    <label>Owner VRC Login</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

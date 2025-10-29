@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>X3DX_Installation_Status__c</fullName>
+    <label>3DX Installation Status</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>New Client Not Activated Yet</fullName>
+                <default>false</default>
+                <label>New Client Not Activated Yet</label>
+            </value>
+            <value>
+                <fullName>New Client Activated- Pending Onboarding</fullName>
+                <default>false</default>
+                <label>New Client Activated- Pending Onboarding</label>
+            </value>
+            <value>
+                <fullName>New Client Onboarding Done- Starting To Use</fullName>
+                <default>false</default>
+                <label>New Client Onboarding Done- Starting To Use</label>
+            </value>
+            <value>
+                <fullName>New Client Onboarding Done – Launch Service Progressing</fullName>
+                <default>false</default>
+                <label>New Client Onboarding Done – Launch Service Progressing</label>
+            </value>
+            <value>
+                <fullName>New Client- Successfully Using</fullName>
+                <default>false</default>
+                <label>New Client- Successfully Using</label>
+            </value>
+            <value>
+                <fullName>New Client- Tech Issues- Support Involved</fullName>
+                <default>false</default>
+                <label>New Client- Tech Issues- Support Involved</label>
+            </value>
+            <value>
+                <fullName>Mature Client- Use/ Renew/ Grow</fullName>
+                <default>false</default>
+                <label>Mature Client- Use/ Renew/ Grow</label>
+            </value>
+            <value>
+                <fullName>Mature Client- Tech Issues-Support Involved</fullName>
+                <default>false</default>
+                <label>Mature Client- Tech Issues-Support Involved</label>
+            </value>
+            <value>
+                <fullName>No longer using 3DX</fullName>
+                <default>false</default>
+                <label>No longer using 3DX</label>
+            </value>
+            <value>
+                <fullName>3DX Prohibited- ITAR or Other</fullName>
+                <default>false</default>
+                <label>3DX Prohibited- ITAR or Other</label>
+            </value>
+            <value>
+                <fullName>Not Interested in 3DX Now</fullName>
+                <default>false</default>
+                <label>Not Interested in 3DX Now</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -83,8 +83,8 @@ public class OpportunityLineItem_Trigger {
                 nextSortOrder = nextSortOrder + 1;
             }
         }*/
-			
-	   Map<Id, Integer> opportunityMaxSortOrder = new Map<Id, Integer>();
+            
+       Map<Id, Integer> opportunityMaxSortOrder = new Map<Id, Integer>();
 
         for (OpportunityLineItem oli : newList) {
             if (oli.OpportunityId != null) {
@@ -135,37 +135,6 @@ public class OpportunityLineItem_Trigger {
         } */
     }
       
-    public static void validateMinimumQuantity(List<OpportunityLineItem> oliList) {
-        Set<Id> pricebookEntryIds = new Set<Id>();
-        for (OpportunityLineItem oli : oliList) {
-            if (oli.PricebookEntryId != null) {
-                pricebookEntryIds.add(oli.PricebookEntryId);
-            }
-        }
-
-        Map<Id, PricebookEntry> pbeMap = new Map<Id, PricebookEntry>(
-            [SELECT Id, Product2Id, Product2.Minimum_Quantity__c, Product2.Name 
-            FROM PricebookEntry 
-            WHERE Id IN :pricebookEntryIds]
-        );
-
-        for (OpportunityLineItem oli : oliList) {
-            if (oli.PricebookEntryId != null && pbeMap.containsKey(oli.PricebookEntryId)) {
-                PricebookEntry pbe = pbeMap.get(oli.PricebookEntryId);
-                Decimal minQty = pbe.Product2.Minimum_Quantity__c;
-                String productName = pbe.Product2.Name;
-
-                if (minQty != null && oli.Quantity < minQty) {
-                    oli.addError('Quantity for product "' + productName + '" is less than the minimum required (' + minQty + '). Please enter equal to or more than the minimum quantity.');
-                }
-            }
-        }
-    }
-
-
-
-
-
  
     
     //Helper methods

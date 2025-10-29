@@ -3,6 +3,5 @@
     <description>Created by Lightning App Builder</description>
     <flexiPage>Bulk_Schedule_DLRS</flexiPage>
     <label>Schedule Account DLRS Rollups</label>
-    <mobileReady>false</mobileReady>
     <motif>Custom12: Circle</motif>
 </CustomTab>

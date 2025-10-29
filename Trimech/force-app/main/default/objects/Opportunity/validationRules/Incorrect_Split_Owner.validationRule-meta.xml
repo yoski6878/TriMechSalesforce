@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Incorrect_Split_Owner</fullName>
+    <active>false</active>
+    <errorConditionFormula>$User.FirstName &lt;&gt; &apos;Tina&apos; &amp;&amp; Incorrect_Split_Owner__c</errorConditionFormula>
+    <errorMessage>Please check the Opportunity Splits; the GP must not be split with an Inside Sales Rep (TDR). Please update to only list the appropriate Client Exec in the Opportunity Splits tab.</errorMessage>
+</ValidationRule>

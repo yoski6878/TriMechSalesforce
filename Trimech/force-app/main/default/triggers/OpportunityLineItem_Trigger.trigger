@@ -4,7 +4,26 @@
 * 
 ***************************************************************/
 trigger OpportunityLineItem_Trigger on OpportunityLineItem (after delete, after insert, after undelete, after update, before delete, before insert, before update) {
-   
+   if(trigger.isInsert){
+        if(trigger.isBefore && !OpportunityLineItem_Trigger.hasRunBeforeInsert){
+            OpportunityLineItem_Trigger.hasRunBeforeInsert = true;
+            OpportunityLineItem_Trigger.beforeInsert(trigger.new,trigger.old,trigger.newMap,trigger.oldMap);
+            //OpportunityLineItem_Trigger.validateMinimumQuantity(trigger.new);
+        }else if(trigger.isAfter && !OpportunityLineItem_Trigger.hasRunAfterInsert){
+            OpportunityLineItem_Trigger.hasRunAfterInsert = true;
+           // OpportunityLineItem_Trigger.afterInsert(trigger.new,trigger.old,trigger.newMap,trigger.oldMap);
+        }
+    }
+    
+    if(trigger.isUpdate){
+        if(trigger.isBefore ){
+            OpportunityLineItem_Trigger.beforeUpdate(trigger.new,trigger.oldMap); 
+           // OpportunityLineItem_Trigger.validateMinimumQuantity(trigger.new);
+        }
+    }
+    
+    
+    /*
     if(trigger.isInsert){
         if(trigger.isBefore && !OpportunityLineItem_Trigger.hasRunBeforeInsert){
             OpportunityLineItem_Trigger.hasRunBeforeInsert = true;

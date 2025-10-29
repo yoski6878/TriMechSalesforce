@@ -30,6 +30,10 @@ public without sharing class Quote_Trigger {
         
   }
     
+    public static void afterInsert(List<Quote> newList,List<Quote> oldList, Map<Id,Quote> newMap, Map<Id,Quote> oldMap){
+        Quote_Trigger.storeAddressFromAccount(newList);
+    }
+    
   /*public static void beforeUpdate(List<Quote> newList,List<Quote> oldList, Map<Id,Quote> newMap, Map<Id,Quote> oldMap){
       //Implement business logic      
   }
@@ -38,9 +42,7 @@ public without sharing class Quote_Trigger {
       //Implement business logic      
   }
     
-  public static void afterInsert(List<Quote> newList,List<Quote> oldList, Map<Id,Quote> newMap, Map<Id,Quote> oldMap){
-      //Implement business logic      
-  }
+  
   
   
   
@@ -55,5 +57,50 @@ public without sharing class Quote_Trigger {
   //helper methods
   public static void helpermethod(Set<Id> quotes) {
     
-  }*/
+    }*/
+    
+    public static void storeAddressFromAccount(List<Quote> newList){
+		
+		Set<Id> OpportunityIds = new Set<Id>();
+        for (Quote Qt : newList) {
+            if (Qt.OpportunityId != null) {
+                OpportunityIds.add(Qt.OpportunityId);
+            }
+        }
+    
+        // Fetch all addresses related to these accounts
+        List<Schema.Address> accountAddresses = [SELECT Id, IsDeleted, Name, CurrencyIsoCode, ParentId, LocationType, AddressType, Street, City, State, PostalCode, Country, Latitude, Longitude, GeocodeAccuracy, Address, Description, DrivingDirections, TimeZone, Lead_Opportunity__c, Primary_Billing_Address__c, Primary_Shipping_Address__c FROM Address WHERE Lead_Opportunity__c IN :OpportunityIds];
+
+        // Group addresses by AccountId
+        Map<Id, List<Schema.Address>> oppToAddresses = new Map<Id, List<Schema.Address>>();
+        for (Schema.Address addr : accountAddresses) {
+            if (!oppToAddresses.containsKey(addr.Lead_Opportunity__c)) {
+                oppToAddresses.put(addr.Lead_Opportunity__c, new List<Schema.Address>());
+            }
+            oppToAddresses.get(addr.Lead_Opportunity__c).add(addr);
+        }
+
+        // Clone and reassign addresses to Opportunity
+        List<Schema.Address> addressesToInsert = new List<Schema.Address>();
+        for (Quote Qt : newList) {
+            if (oppToAddresses.containsKey(Qt.OpportunityId)) {
+                for (Schema.Address addr : oppToAddresses.get(Qt.OpportunityId)) {
+                    Schema.Address newAddr = addr.clone();
+                    newAddr.Lead_Opportunity__c = null ;
+					newAddr.proposal__c = Qt.Id;
+                    addressesToInsert.add(newAddr);
+                }
+            }
+        }
+        
+        if (!addressesToInsert.isEmpty()) {
+            Database.SaveResult[] results = Database.insert(addressesToInsert, false);   
+            for (Integer i = 0; i < results.size(); i++) {
+                if (!results[i].isSuccess()) {
+                    System.debug('Failed to insert address: ' + results[i].getErrors()[0].getMessage());
+                }
+            }
+        }
+    }
+    
 }

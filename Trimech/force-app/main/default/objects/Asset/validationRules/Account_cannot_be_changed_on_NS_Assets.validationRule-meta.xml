@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Account_cannot_be_changed_on_NS_Assets</fullName>
+    <active>true</active>
+    <errorConditionFormula>ISCHANGED(AccountId) &amp;&amp; (RecordTypeId &lt;&gt; &apos;0124V000001ydYJQAY&apos; || RecordTypeId &lt;&gt; &apos;0124V000001ydYJ&apos;) &amp;&amp; NOT(CONTAINS($User.ProfileId, &apos;00e6g0000027lpb&apos;))</errorConditionFormula>
+    <errorDisplayField>AccountId</errorDisplayField>
+    <errorMessage>Account cannot be changed on Assets created from NetSuite.</errorMessage>
+</ValidationRule>

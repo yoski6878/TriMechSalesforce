@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Company_Address__c</fullName>
+    <description>To be used ONLY on Quote Template (Javelin Quote) for Canadian Subsidiary</description>
+    <externalId>false</externalId>
+    <formula>IF(CONTAINS(TEXT(Account__r.Subsidiary__c), &apos;Javelin&apos;),
+
+(&apos;4 - 585 Michigan Drive&apos; &amp; BR() &amp; &apos;Oakville ON L6L 0G1&apos; &amp; BR() &amp; &apos;Canada&apos; &amp; BR() &amp;
+&apos;905-815-1906&apos; &amp; BR() &amp; &apos;Tax ID # 885041145RT0001&apos;),
+
+(&apos;4461 Cox Road, Suite 302&apos; &amp; BR() &amp; &apos;Glen Allen, VA 23060&apos; &amp; BR() &amp; &apos;US&apos;))</formula>
+    <label>Company Address</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

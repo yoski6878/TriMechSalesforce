@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>X6Sense_Country__c</fullName>
+    <description>To be used for Marketing purpose only</description>
+    <externalId>false</externalId>
+    <formula>IF(AND( NOT(ISBLANK(ShippingCountry)), CONTAINS(&quot;USA:U.S.A:US:U.S:United States&quot;, UPPER(ShippingCountry))), &quot;United States&quot;, 
+	IF(AND( NOT(ISBLANK(ShippingCountry)), CONTAINS(&quot;CAN:CA:Canada&quot;, UPPER(ShippingCountry))), &quot;Canada&quot;, 
+			IF( NOT(ISBLANK(ShippingCountry)), ShippingCountry,
+				IF( AND( ISBLANK(ShippingCountry), NOT(ISBLANK(ShippingPostalCode)), OR(CONTAINS(UPPER(TRIM(ShippingPostalCode)), &apos;A&apos;), CONTAINS(UPPER(TRIM(ShippingPostalCode)), &apos;B&apos;), CONTAINS(UPPER(TRIM(ShippingPostalCode)), &apos;C&apos;), CONTAINS(UPPER(TRIM(ShippingPostalCode)), &apos;D&apos;), CONTAINS(UPPER(TRIM(ShippingPostalCode)), &apos;E&apos;), CONTAINS(UPPER(TRIM(ShippingPostalCode)), &apos;F&apos;), CONTAINS(UPPER(TRIM(ShippingPostalCode)), &apos;G&apos;), CONTAINS(UPPER(TRIM(ShippingPostalCode)), &apos;H&apos;), CONTAINS(UPPER(TRIM(ShippingPostalCode)), &apos;I&apos;), CONTAINS(UPPER(TRIM(ShippingPostalCode)), &apos;J&apos;), CONTAINS(UPPER(TRIM(ShippingPostalCode)), &apos;K&apos;), CONTAINS(UPPER(TRIM(ShippingPostalCode)), &apos;L&apos;), CONTAINS(UPPER(TRIM(ShippingPostalCode)), &apos;M&apos;), CONTAINS(UPPER(TRIM(ShippingPostalCode)), &apos;N&apos;), CONTAINS(UPPER(TRIM(ShippingPostalCode)), &apos;O&apos;), CONTAINS(UPPER(TRIM(ShippingPostalCode)), &apos;P&apos;), CONTAINS(UPPER(TRIM(ShippingPostalCode)), &apos;Q&apos;), CONTAINS(UPPER(TRIM(ShippingPostalCode)), &apos;R&apos;), CONTAINS(UPPER(TRIM(ShippingPostalCode)), &apos;S&apos;), CONTAINS(UPPER(TRIM(ShippingPostalCode)), &apos;T&apos;), CONTAINS(UPPER(TRIM(ShippingPostalCode)), &apos;U&apos;), CONTAINS(UPPER(TRIM(ShippingPostalCode)), &apos;V&apos;), CONTAINS(UPPER(TRIM(ShippingPostalCode)), &apos;W&apos;), CONTAINS(UPPER(TRIM(ShippingPostalCode)), &apos;X&apos;), CONTAINS(UPPER(TRIM(ShippingPostalCode)), &apos;Y&apos;), CONTAINS(UPPER(TRIM(ShippingPostalCode)), &apos;Z&apos;) )), &quot;Canada&quot;, &quot;United States&quot;
+				)
+			)
+	)
+)</formula>
+    <label>6Sense Country</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

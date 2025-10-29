@@ -3,7 +3,11 @@ public class BatchNeglectedLead implements Database.Batchable<sObject>, Schedula
     public static void scheduleMe() {
 
         BatchNeglectedLead sch = new BatchNeglectedLead();
-        String cron = '0 0 23 * * ?';
+        
+        /* Luigi */
+        /* Edited the cron to run from MON-FRI */
+        /* String cron = '0 0 23 * * ?'; ** Luigi */ 
+        String cron = '0 0 23 ? * MON-FRI';
         String title = 'Neglected Lead Status';
         if(Test.isRunningTest()) title = 'Test Update Neglected Status Test';
         System.schedule(title, cron, sch);

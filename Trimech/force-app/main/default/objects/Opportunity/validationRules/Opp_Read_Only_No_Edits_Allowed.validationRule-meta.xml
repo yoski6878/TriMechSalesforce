@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Opp_Read_Only_No_Edits_Allowed</fullName>
+    <active>true</active>
+    <description>No Edits Allowed when Opp is set to Read-Only</description>
+    <errorConditionFormula>AND (RecordType.Id = &apos;0124V0000019jmv&apos;, $User.ProfileId &lt;&gt; &apos;00e6g0000027lpb&apos;, 
+	OR(
+	ISCHANGED(Name), 
+	ISCHANGED(CloseDate), 
+	ISCHANGED(StageName), 
+	ISCHANGED(ForecastCategoryName), 
+	ISCHANGED(CurrencyIsoCode)
+	)
+)</errorConditionFormula>
+    <errorMessage>No edits are allowed for Closed Opps. Please contact your system administrator for assistance.</errorMessage>
+</ValidationRule>

@@ -2,7 +2,6 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Specialty_Group__c</fullName>
     <description>Specialty Group for Specialty Products</description>
-    <externalId>false</externalId>
     <label>Specialty Group</label>
     <required>false</required>
     <trackTrending>false</trackTrending>

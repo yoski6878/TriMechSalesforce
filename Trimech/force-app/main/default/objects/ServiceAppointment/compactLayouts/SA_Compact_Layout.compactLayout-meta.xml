@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SA_Compact_Layout</fullName>
+    <fields>AppointmentNumber</fields>
+    <fields>OwnerId</fields>
+    <fields>AccountId</fields>
+    <fields>ParentRecordId</fields>
+    <fields>WorkTypeId</fields>
+    <fields>Status</fields>
+    <fields>FSSK__FSK_Assigned_Service_Resource__c</fields>
+    <fields>SchedStartTime</fields>
+    <fields>SchedEndTime</fields>
+    <label>SA Compact Layout</label>
+</CompactLayout>

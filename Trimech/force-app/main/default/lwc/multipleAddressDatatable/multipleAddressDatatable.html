@@ -1,0 +1,168 @@
+<template>
+    <lightning-card>
+        <div slot="title" class="slds-grid slds-grid_align-spread slds-grid_vertical-align-center">
+            <div class="slds-grid slds-grid_vertical-align-center">
+                <lightning-icon icon-name='standard:address' alternative-text='address'  size="small"
+                    class="slds-m-right_small" title='address'></lightning-icon>
+                <span class="slds-text-heading_small">Addresses</span>
+            </div>
+        </div>
+
+        <div slot="actions">
+            <lightning-button label="New" onclick={openModal}></lightning-button>
+        </div>
+
+        <template if:false={noAddressesFound}>
+            <div slot="footer">
+                <lightning-button variant="brand" label="Save Selection" class="slds-m-top_medium" onclick={handleSave}></lightning-button>
+            </div>
+        </template>
+
+        <div class="slds-scrollable_x slds-scrollable_y" style="max-width: 100%; max-height: 400px;">
+            <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                <thead>
+                    <tr>
+                        <th data-field="isBilling" onclick={handleSort}>
+                            Billing
+                            <template if:true={isSortedBilling}>
+                                <span>{sortArrow}</span>
+                            </template>
+                        </th>
+                        <th data-field="isShipping" onclick={handleSort}>
+                            Shipping
+                            <template if:true={isSortedShipping}>
+                                <span>{sortArrow}</span>
+                            </template>
+                        </th>
+                        <th data-field="AddressType" onclick={handleSort}>
+                            Address Type
+                            <template if:true={isSortedAddressType}>
+                                <span>{sortArrow}</span>
+                            </template>
+                        </th>
+                        <th data-field="Street" style="max-width: 200px; white-space: normal; word-wrap: break-word;" onclick={handleSort}>
+                            Street
+                            <template if:true={isSortedStreet}>
+                                <span>{sortArrow}</span>
+                            </template>
+                        </th>
+                        <th data-field="City" onclick={handleSort}>
+                            City
+                            <template if:true={isSortedCity}>
+                                <span>{sortArrow}</span>
+                            </template>
+                        </th>
+                        <th data-field="State" onclick={handleSort}>
+                            State
+                            <template if:true={isSortedState}>
+                                <span>{sortArrow}</span>
+                            </template>
+                        </th>
+                        <th data-field="PostalCode" onclick={handleSort}>
+                            Postal Code
+                            <template if:true={isSortedPostalCode}>
+                                <span>{sortArrow}</span>
+                            </template>
+                        </th>
+
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <template for:each={addresses} for:item="address">
+                        <tr key={address.Id}>
+                            <td>
+                                <input
+                                    type="checkbox"
+                                    name="billing"
+                                    checked={address.isBilling}
+                                    onchange={handleBillingChange}
+                                    data-id={address.Id}
+                                />
+                            </td>
+                            <td>
+                                <input
+                                    type="checkbox"
+                                    name="shipping"
+                                    checked={address.isShipping}
+                                    onchange={handleShippingChange}
+                                    data-id={address.Id}
+                                />
+                            </td>
+                            <td>{address.AddressType}</td>
+                            <td>{address.Street}</td>
+                            <td>{address.City}</td>
+                            <td>{address.State}</td>
+                            <td>{address.PostalCode}</td>
+                        </tr>
+                    </template>
+
+                    <template if:true={noAddressesFound}>
+                        <tr>
+                            <td colspan="7" style="text-align:center; font-style: italic; color: gray;">
+                                No addresses found.
+                            </td>
+                        </tr>
+                    </template>
+                </tbody>
+
+            </table>
+        </div>
+    </lightning-card>
+
+    <template if:true={isModalOpen}>
+        <section role="dialog" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <header class="slds-modal__header">
+                    <h2 class="slds-text-heading_medium">New Address</h2>
+                </header>
+
+                <div class="slds-modal__content slds-p-around_medium">
+                    <lightning-record-edit-form
+                        data-id="addressForm"
+                        onsuccess={handleSuccess}
+                        object-api-name="Address">
+                            <lightning-layout multiple-rows>
+
+                            <!-- Row 1: Location Type & Address Type -->
+                            <lightning-layout-item size="6" padding="around-small">
+                                <lightning-input-field field-name="LocationType"></lightning-input-field>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="6" padding="around-small">
+                                <lightning-input-field field-name="AddressType"></lightning-input-field>
+                            </lightning-layout-item>
+
+                            <lightning-layout-item size="12" padding="around-small">
+                                <lightning-input-field field-name="Street"></lightning-input-field>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="6" padding="around-small">
+                                <lightning-input-field field-name="City"></lightning-input-field>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="6" padding="around-small">
+                                <lightning-input-field field-name="State"></lightning-input-field>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="6" padding="around-small">
+                                <lightning-input-field field-name="PostalCode"></lightning-input-field>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="6" padding="around-small">
+                                <lightning-input-field field-name="Country"></lightning-input-field>
+                            </lightning-layout-item>
+                            
+                            <lightning-layout-item size="6" padding="around-small">
+                                <lightning-input-field field-name="Account__c" value={accountId}></lightning-input-field>
+                            </lightning-layout-item> 
+                        </lightning-layout>
+                    </lightning-record-edit-form>
+                </div>
+
+                <footer class="slds-modal__footer">
+                    <lightning-button type="submit" label="Save" variant="brand" onclick={handleNewButtonSave}></lightning-button> &nbsp; &nbsp; 
+                    <lightning-button label="Cancel" onclick={closeModal}></lightning-button>
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+
+
+</template>

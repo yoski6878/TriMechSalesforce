@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>celigo_sfnsio__Validate_Reseller_Ship</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND((TEXT(celigo_sfnsio__Ship_To_Tier__c) == &apos;Reseller&apos;),  (celigo_sfnsio__Reseller__c == null))</errorConditionFormula>
+    <errorDisplayField>celigo_sfnsio__Reseller__c</errorDisplayField>
+    <errorMessage>Ship To Tier is selected as Reseller, please select a value for Reseller.</errorMessage>
+</ValidationRule>

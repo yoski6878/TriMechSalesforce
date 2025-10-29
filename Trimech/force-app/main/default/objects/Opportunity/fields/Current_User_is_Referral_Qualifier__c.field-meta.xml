@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Current_User_is_Referral_Qualifier__c</fullName>
+    <formula>Qualifier__r.Id = $User.Id</formula>
+    <label>Current User is Referral Qualifier</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

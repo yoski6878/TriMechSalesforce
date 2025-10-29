@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Pardot_Lightning_URL__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(NOT(ISBLANK(pi__url__c)), 
+	HYPERLINK(&quot;https://trimech12345.lightning.force.com/lightning/page/pardot/prospect?pardot__path=%2Fprospect%2Fread%2Fid%2F&quot; &amp; SUBSTITUTE(pi__url__c, &quot;http://pi.pardot.com/prospect/read?id=&quot;, &quot;&quot;) , SUBSTITUTE(pi__url__c, &quot;http://pi.pardot.com/prospect/read?id=&quot;, &quot;&quot;))
+	, &quot;&quot;
+)</formula>
+    <label>Pardot Lightning URL</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sales_Rep_Notes__c</fullName>
+    <inlineHelpText>This field only exists on Salesforce Hardware Asset record and any values added will not be available on the NetSuite Hardware Asset record.</inlineHelpText>
+    <label>Sales Rep Notes</label>
+    <length>32768</length>
+    <trackHistory>true</trackHistory>
+    <type>LongTextArea</type>
+    <visibleLines>3</visibleLines>
+</CustomField>

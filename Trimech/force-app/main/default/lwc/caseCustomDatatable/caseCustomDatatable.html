@@ -1,0 +1,42 @@
+<template>
+    <div class="main-container">
+        <div class="header-container">
+            <div class="header-content">
+                <lightning-icon
+                    icon-name="standard:case"
+                    size="large"
+                    alternative-text="Case Icon"
+                    class="header-icon">
+                </lightning-icon>
+                <h1 class="slds-text-heading_large">My Cases</h1>
+            </div>
+        </div>
+        </br>
+        <div>
+            <div>
+                <div class='StatusCSS'>
+                <lightning-combobox
+                    name="Status"
+                    label="Filter By Status"
+                    value={filterValue}
+                    placeholder="Select Status"
+                    options={StatusOptions}
+                    onchange={handleInputChange} >
+                </lightning-combobox>
+                </div>
+                </br>
+                <lightning-datatable
+                    key-field="Id"
+                    data={caseList}
+                    show-row-number-column
+                    hide-checkbox-column
+                    columns={caseColumns}
+                    sorted-by={sortedBy}
+                    sorted-direction={sortDirection}
+                    onsort={handleSort}
+                    >
+                </lightning-datatable>
+            </div>
+        </div>
+    </div>
+</template>

@@ -2,7 +2,6 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>LAP_Hot_Lead__c</fullName>
     <defaultValue>false</defaultValue>
-    <externalId>false</externalId>
     <label>LAP Hot Lead</label>
     <trackHistory>false</trackHistory>
     <trackTrending>false</trackTrending>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>ENTERPRISE GENERAL</label>
+    <protected>false</protected>
+    <values>
+        <field>Alias__c</field>
+        <value xsi:type="xsd:string">tball,
+RAbra,
+JMora,
+Wayne.Ta</value>
+    </values>
+    <values>
+        <field>Director_Alias__c</field>
+        <value xsi:type="xsd:string">JMora</value>
+    </values>
+    <values>
+        <field>Manager_Alias__c</field>
+        <value xsi:type="xsd:string">tball</value>
+    </values>
+    <values>
+        <field>Type__c</field>
+        <value xsi:type="xsd:string">Enterprise</value>
+    </values>
+</CustomMetadata>

@@ -1,0 +1,21 @@
+.banner {
+    display: flex;
+    align-items: center;
+    background-color: #d9eaf7; /* Light blue background */
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+.icon {
+    margin-right: 10px;
+}
+
+.content h2 {
+    font-weight: bold;
+    margin: 0;
+}
+
+.content p {
+    margin: 0;
+    font-size: 0.9rem;
+}

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Custom</fullName>
+    <fields>QuoteNumber</fields>
+    <fields>IsSyncing</fields>
+    <fields>Name</fields>
+    <fields>ExpirationDate</fields>
+    <fields>OpportunityId</fields>
+    <fields>AccountId</fields>
+    <fields>GrandTotal</fields>
+    <label>Custom</label>
+</CompactLayout>

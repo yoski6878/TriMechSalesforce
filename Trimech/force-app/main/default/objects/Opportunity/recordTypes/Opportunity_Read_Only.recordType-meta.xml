@@ -1,0 +1,2614 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Opportunity_Read_Only</fullName>
+    <active>true</active>
+    <businessProcess>Opportunity</businessProcess>
+    <description>Fields will be read only when an Opportunity is Submitted to Order Management</description>
+    <label>Opportunity Read-Only</label>
+    <picklistValues>
+        <picklist>ACR_Submission__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>AVA_SFCLOUD__Transport__c</picklist>
+        <values>
+            <fullName>Buyer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>None</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Seller</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ThirdPartyForBuyer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ThirdPartyForSeller</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Agreement_Type__c</picklist>
+        <values>
+            <fullName>Evaluation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Master Agreement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Standard Closa</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Transactional</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Are_Services_Outsourced__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Are_hardware_products_on_this_order__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Are_services_products_on_this_order__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Are_there_additional_courses__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>CEDAR_Import_Lead_Type__c</picklist>
+        <values>
+            <fullName>Select</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>CPE_Fixed_Fee_Service__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>CPE_Order__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Changing_or_Adding_to_Existing_License__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Client_PO_attached__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Corp_credits_or_closed_training_on_order__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Coterming_to_Existing_Assets__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Delivery_Requirements__c</picklist>
+        <values>
+            <fullName>Jack</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lift Gate</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>N%2FA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pallet</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Digital_or_in_person_location_pl__c</picklist>
+        <values>
+            <fullName>Digital</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>In-Person</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Discount_on_Order__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Disqualification_Reason__c</picklist>
+        <values>
+            <fullName>Call limit reached</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lost to competitor product</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lost to other reseller</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No budget</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No buying intention</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Not decision maker</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Not interested</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Out of territory</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Previously identified</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sent to Staffing</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Does_this_order_require_ITAR_Compliance__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>End_User_Department__c</picklist>
+        <values>
+            <fullName>Compliance</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Design Engineering</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Education</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Finance</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Inspection</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Machine Shop %2F Tool Room</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Manufacturing Engineering</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Operations</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Purchasing %2F Planning</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Quality</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>R%26D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sales %2F Marketing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Shop Floor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Warehouse</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>ForecastCategoryName</picklist>
+        <values>
+            <fullName>Closed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Commit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Most Likely</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Omitted</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pipeline</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Forms__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Inside_Sales__c</picklist>
+        <values>
+            <fullName>Inside Sales Direct</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Inside Sales Influenced</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>None</fullName>
+            <default>true</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Is_software_on_this_order__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Is_student_already_enrolled_as_unpaid__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>LeadSource</picklist>
+        <values>
+            <fullName>Blitz Day</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Business Development</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Employee Referral</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Google Ad</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Inbound to Info</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Inbound to Sales</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Partner - 3D Systems%2FOqton%2FGeomagic</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Partner - Artec</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Partner - DS Online</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Partner - Dassault Systemes %28CPE%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Partner - DriveWorks</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Partner - DyeMansion</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Partner - Excellerant</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Partner - Formlabs</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Partner - GOM%2FZeiss</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Partner - MasterCAM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Partner - One Click Metal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Partner - Oryx</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Partner - PostProcess</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Partner - SOLIDWORKS %28ISR%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Partner - SOLIDWORKS %28LSC%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Partner - Stratasys</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Piracy</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Services Request</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TM Marketing Digital</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TM Marketing Events</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Zoominfo</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Lead_Product_Category_on_Opp__c</picklist>
+        <values>
+            <fullName>3D Printer - Formlabs</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3D Printer - One Click Metal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3D Printer ExOne</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3D Printer Makerbot</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3D Printer Stratasys - Big Box</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3D Printer Stratasys - Small Box</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3D Scanner Artec</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3D Scanner GOM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3DEXPERIENCE</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Advanced Manufacturing Services</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Aras Innovator</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CATIA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DELMIA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DELMIAWorks</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Dell Workstation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DraftSight</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DriveWorks</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DyeMansion</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EMS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ENOVIA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Education Cloud</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Education Hardware</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Education Software</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ExactFlat</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Excellerant</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FlexSim</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Geomagic</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mastercam</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MySolidWorks</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NESTINGWorks</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NETVIBES OnePart</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Not Specified</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PlantWorks</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pool Pattern Pro</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PostProcess</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Professional Services</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Project Engineering Group</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SIMULIA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS 3D CAD</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS CAM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS Cloud</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS Composer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS Costing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS Design Checker</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS Electrical</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS Extended Reality %28XR%29 Exporter</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS FloXpress</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS Flow Simulation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS Inspection</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS MBD</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS Machinist</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS Manage</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS Motion Manager</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS PCB</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS PDM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS Plastics</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS Routing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS ScanTo3D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS Services</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS Simulation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS Subscription Service</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS Sustainability</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS Term Licensing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS Visualize</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SWOOD</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SolidCAM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SolidProfessor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Staffing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Training Course</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Training Services</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Wazer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>eDrawings Professional</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Lead_Product_of_Interest_on_Opp__c</picklist>
+        <values>
+            <fullName>3D Design</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3D Printer - Formlabs</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3D Printer - One Click Metal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3D Printer ExOne</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3D Printer Makerbot</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3D Printer Stratasys - Big Box</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3D Printer Stratasys - Small Box</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3D Printing Consulting Services</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3D Printing Essentials</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3D Printing Service</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3D Scanner Artec</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3D Scanner GOM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3D Scanning</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3D Scanning Service</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3DEXPERIENCE</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3DEXPERIENCE 3D Component Designer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3DEXPERIENCE 3D Creator</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3DEXPERIENCE 3D Designer for Education</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3DEXPERIENCE 3D Mold Creator</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3DEXPERIENCE 3D Product Architect</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3DEXPERIENCE 3D Render</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3DEXPERIENCE 3D Sculptor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3DEXPERIENCE 3D SheetMetal Creator</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3DEXPERIENCE 3D Structure Creator</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3DEXPERIENCE Collaborative Business Innovator</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3DEXPERIENCE Collaborative Designer for SOLIDWORKS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3DEXPERIENCE Collaborative Industry Innovator</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3DEXPERIENCE DraftSight</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3DEXPERIENCE Electromagnetics Engineer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3DEXPERIENCE Platform Administration</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3DEXPERIENCE Product Communicator</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3DEXPERIENCE Product Document Creator</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3DEXPERIENCE Product Release Engineer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3DEXPERIENCE Project Planner</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3DEXPERIENCE SOLIDWORKS Offers</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3DEXPERIENCE Social Business Analyst</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3DEXPERIENCE WORKS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3DEXPERIENCE Works PDM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3DEXPERIENCE Works Simulation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Administering SOLIDWORKS Manage</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Administering SOLIDWORKS PDM Professional</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Administering SOLIDWORKS PDM Standard</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Advanced Insight Training</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Advanced Manufacturing Services</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Aras Innovator</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Artec Education Package</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Artec Eva</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Artec Eva Lite</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Artec Leo</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Artec Micro</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Artec Ray</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Artec Scanner Training</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Artec Space Spider</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Artec Studio</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CATIA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cloud Hosting</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Collaborative Business Innovator</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Collaborative Designer for SOLIDWORKS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Collaborative Industry Innovator</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Conventional Manufacturing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DELMIA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DELMIA 3D Lean Team Player</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DELMIA NC Prismatic and Mill-Turn Machine Programmer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DELMIAWorks</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Data Management</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Data Migration</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Dell Workstation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Design Analysis</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Design Automation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Design for Additive Manufacturing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DraftSight</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DraftSight Enterprise</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DraftSight Enterprise Plus</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DraftSight Essentials</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DriveWorks</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DriveWorks Professional</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DriveWorks Solo</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DriveWorks Xpress</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DyeMansion</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DyeMansion DM60</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DyeMansion Powerfuse</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DyeMansion Powershot</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EMS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EMS Electromagnetic Simulation for SOLIDWORKS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ENOVIA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Education Cloud</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Education Hardware</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Education Software</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Electrical Design</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ElectroMagneticWorks EMS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ExactFlat</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Excellerant</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FlexSim</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Formlabs Form</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Formlabs Form Cure</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Formlabs Form Wash</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Formlabs Fuse</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>GD%26T Advanced</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>GD%26T Fundamentals</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Geomagic</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Geomagic for SOLIDWORKS Training</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HFWorks High Frequency Simulation for SOLIDWORKS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Introduction to SOLIDWORKS Simulation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Laser Cutting %26 Engraving Service</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MPRINT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MPUREPro</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MakerBot METHOD</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MakerBot METHOD Carbon Fiber</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MakerBot METHOD X</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MakerBot Replicator</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Managing SOLIDWORKS Data in the 3DEXPERIENCE Platform</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mastercam</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MySolidWorks</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NESTINGWorks</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NETVIBES OnePart</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Not Specified</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Objet1000 Plus</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Objet24 Desktop</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Objet260 Connex3</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Objet30 Prime</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Objet30 Pro</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PlantWorks</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pool Pattern Pro</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Post Processing Service</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PostProcess</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Professional Services</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Programming</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Project Engineering Group</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Project Management</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Project Planner</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Rapid Prototyping</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SIMULIA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SIMULIA Simulation Foundation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SIMULIA Structural Designer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SIMULIA Structural Engineer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SIMULIA Structural Mechanics Engineer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SIMULIA Structural Performance Engineer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SIMULIA Structural Professional Engineer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SIMULIA Structural Simulation Engineer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS 3D CAD</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS 3D Creator</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS 3D Sculptor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS API</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS Advanced Part Modeling</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS Assembly Modeling</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS CAM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS CAM Essentials</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS CAM Professional</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS CAM Standard</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS CSWP Exam Preparation Workshop</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS Cloud</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS Composer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS Composer Essentials</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS Costing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS Design Checker</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS Drawing Service</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS Drawings</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS Education Edition</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS Electrical</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS Electrical 3D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS Electrical 3D and Electrical Routing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS Electrical Advanced</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS Electrical Routing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS Electrical Schematic</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS Electrical Schematic Professional</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS Electrical Schematic Standard</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS Electronic Cooling</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS Essentials</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS Essentials Refresher</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS Extended Reality %28XR%29 Exporter</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS FloXpress</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS Flow Simulation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS HVAC Applications</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS Inspection</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS Large Assembly Service</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS Large Assembly and Drawing Workshop</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS MBD</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS Machinist</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS Manage</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS Mold Design</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS Motion</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS Motion Manager</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS PCB</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS PDM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS PDM Professional</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS PDM Standard</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS Pipe and Tube Routing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS Plastics</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS Plastics Premium</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS Plastics Professional</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS Plastics Standard</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS Premium</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS Professional</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS Research Edition</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS Routing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS ScanTo3D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS Services</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS Sheet Metal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS Sheet Metal Service</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS Simulation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS Simulation Essentials</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS Simulation Nonlinear</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS Simulation Premium</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS Simulation Premium Dynamics</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS Simulation Professional</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS Simulation Standard</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS Simulation Term License</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS Simulation Xpress</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS Standard</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS Student Edition</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS Subscription Service</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS Surface Modeling</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS Sustainability</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS Term Licensing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS Training Assessment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS Visual Basic for Applications</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS Visualize</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS Visualize Professional</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS Visualize Rendering</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS Visualize Standard</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS Weldments</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SWOOD</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Simulation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Small Business Startup Assistance</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SolidCAM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SolidProfessor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Staffing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Stratasys F123</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Stratasys F170</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Stratasys F270</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Stratasys F370</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Stratasys F370CR</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Stratasys F770</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Stratasys F900</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Stratasys H350</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Stratasys J35 Education Bundle</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Stratasys J35 Pro</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Stratasys J5 MediJet</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Stratasys J55</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Stratasys J55 Prime</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Stratasys J750 %2F J735</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Stratasys J750 Digital Anatomy</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Stratasys J826</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Stratasys J835</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Stratasys J850</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Stratasys J850 %2F J835 %2F J826</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Stratasys Neo Stereolithography</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Stratasys Origin One</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Stratasys ProBleacher</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Stratasys Support Contracts</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Subscription Service 1 Year Plan</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Subscription Service 2 Year Plan</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Subscription Service 3 Year Plan</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Training Course</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Training Services</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Using SOLIDWORKS PDM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Using the 3DEXPERIENCE Platform with SOLIDWORKS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Wazer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Wazer Waterjet Cutter</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>eDrawings Professional</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Letter_of_Authorization_LOA__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Lift_Gate_or_Pallet_Jack_required__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Local_Office__c</picklist>
+        <values>
+            <fullName>Enter Local Office</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Loss_Reason__c</picklist>
+        <values>
+            <fullName>Duplicate Opp%2FQuote</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lost to Competitor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No Budget %2F Lost Funding</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No Decision %2F Non-Responsive</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Price</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>NDA_Approval_Process_Status__c</picklist>
+        <values>
+            <fullName>Approved</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Rejected</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>OEM__c</picklist>
+        <values>
+            <fullName>Aesub</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Aras</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Artec</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Autodesk</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Camnetics</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CimQuest</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Dassault</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DataKit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Dell</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DriveWorks</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DyeMansion</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EFICAD</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EXACTFLAT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ElectroMagneticWorks</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Excellerant</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FlexSim</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Formlabs</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Gravotech</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>IMS Software</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MakerBot</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Materialise</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Nano Dimension</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>One Click Metal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Onulis</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Oryx</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Post Process Technologies</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Product Development</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>R%26B Mold %26 Die Design</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>RazorLeaf</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SolidCam</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SolidProfessor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Stratasys</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TransMagic</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TriMech</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Wazer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Wolf Star Technologies LLC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Zeiss</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Opportunity_Type__c</picklist>
+        <values>
+            <fullName>Existing Product</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New Product</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Payment_Type__c</picklist>
+        <values>
+            <fullName>ACH%2FEFT%2FWire</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Credit Card</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Purchase Order</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Signed Quote</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Piracy__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Product_Interest__c</picklist>
+        <values>
+            <fullName>3D Printer Material</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3DEXPERIENCE WORKS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3DP Services</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Artec 3D Scanners</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CAMWorks</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Connex3</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Desktop Metal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Desktop Metal Production</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Desktop Metal Studio</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Dimension</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DriveWorks</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>F123</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fortus</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Geomagic</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>J750</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Makerbot</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mojo</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Nano Dimension</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Objet</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Printer %28Generic Product Test%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Production%2FEnd-Use Parts</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Project Engineering</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Prototyping %28Concept Models%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Prototyping %28Functional testing%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS CLOUD CAD</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SW CAD</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SW CAD Premium</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SW CAD Professional</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SW CAM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SW Composer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SW DraftSight</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SW Electrical</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SW Electrical 2D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SW Electrical 3D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SW Electrical Professional</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SW Electrical Schematic</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SW Exalead</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SW Inspection</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SW Inspection Professional</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SW Inspection Standard</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SW MBD</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SW Manage</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SW Model Based Definition</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SW Multiple Products</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SW PCB</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SW PDM Professional</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SW PDM Standard</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SW Plastics</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SW Simulation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SW Simulation Flow</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SW Sustainability</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SW Training</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SW Visualize</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SolidWorks</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Solidworks %28Generic Product Test%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Stratasys</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tooling %28Jigs %26 Fixtures%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tooling %28Patterns%2FMolds%2FComposites%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tulip</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Unknown %28Print Application%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Unspecified</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>eDrawings</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>uPrint</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Referral__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Special_Discount_Approval_email_attached__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Specialty_Group_on_Opp__c</picklist>
+        <values>
+            <fullName>AMS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DELMIA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DriveWorks</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Education</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Excellerant</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Formlabs</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mastercam</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Metal Printers</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PLM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Scanners</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SolidCAM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Staffing</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Strataforce_Quote_attached__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Strataforce_Quote_with_American_Reseller__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Terms__c</picklist>
+        <values>
+            <fullName>10%25 down net 365</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>50%25 Down Net 15</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>50%25 Down Net 30</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>50%25 Down Net 60</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Credit Card</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Due on Receipt</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NO TERMS ON CREDIT HOLD</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Net 10</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Net 120</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Net 15</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Net 20</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Net 30</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Net 40</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Net 45</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Net 60</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Net 75</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Net 90</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Special</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Territory__c</picklist>
+        <values>
+            <fullName>Enter Territory Name</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Training_on_PO__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Type</picklist>
+        <values>
+            <fullName>Existing_Client</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New_Client</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Vendor_Pricing_Details__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>celigo_sfnsio__Bill_To_Tier__c</picklist>
+        <values>
+            <fullName>Distributor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>End User</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Reseller</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>celigo_sfnsio__Ship_To_Tier__c</picklist>
+        <values>
+            <fullName>Distributor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>End User</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Reseller</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

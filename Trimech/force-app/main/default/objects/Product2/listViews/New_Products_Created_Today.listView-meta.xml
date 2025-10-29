@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>New_Products_Created_Today</fullName>
+    <columns>PRODUCT2.NAME</columns>
+    <columns>PRODUCT2.CUSTOMER_PRODUCT_ID</columns>
+    <columns>Category__c</columns>
+    <columns>Client_Type__c</columns>
+    <columns>Elite_Essential__c</columns>
+    <columns>License_Type__c</columns>
+    <columns>Network_Stand_Alone__c</columns>
+    <columns>Commissionable__c</columns>
+    <columns>PRODUCT2.CREATED_DATE</columns>
+    <columns>CREATEDBY_USER.ALIAS</columns>
+    <columns>NetSuite_Link__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>PRODUCT2.CREATED_DATE</field>
+        <operation>greaterOrEqual</operation>
+        <value>9/10/2024 12:00 AM</value>
+    </filters>
+    <label>New Products Created Today</label>
+</ListView>

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Terms__c</fullName>
+    <label>Terms</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>10% down net 365</fullName>
+                <default>false</default>
+                <label>10% down net 365</label>
+            </value>
+            <value>
+                <fullName>50% Down Net 15</fullName>
+                <default>false</default>
+                <label>50% Down Net 15</label>
+            </value>
+            <value>
+                <fullName>50% Down Net 30</fullName>
+                <default>false</default>
+                <label>50% Down Net 30</label>
+            </value>
+            <value>
+                <fullName>50% Down Net 60</fullName>
+                <default>false</default>
+                <label>50% Down Net 60</label>
+            </value>
+            <value>
+                <fullName>Net 10</fullName>
+                <default>false</default>
+                <label>Net 10</label>
+            </value>
+            <value>
+                <fullName>Net 15</fullName>
+                <default>false</default>
+                <label>Net 15</label>
+            </value>
+            <value>
+                <fullName>Net 20</fullName>
+                <default>false</default>
+                <label>Net 20</label>
+            </value>
+            <value>
+                <fullName>Net 30</fullName>
+                <default>true</default>
+                <label>Net 30</label>
+            </value>
+            <value>
+                <fullName>Net 40</fullName>
+                <default>false</default>
+                <label>Net 40</label>
+            </value>
+            <value>
+                <fullName>Net 45</fullName>
+                <default>false</default>
+                <label>Net 45</label>
+            </value>
+            <value>
+                <fullName>Net 60</fullName>
+                <default>false</default>
+                <label>Net 60</label>
+            </value>
+            <value>
+                <fullName>Net 90</fullName>
+                <default>false</default>
+                <label>Net 90</label>
+            </value>
+            <value>
+                <fullName>Net 120</fullName>
+                <default>false</default>
+                <label>Net 120</label>
+            </value>
+            <value>
+                <fullName>Due on Receipt</fullName>
+                <default>false</default>
+                <label>Due on Receipt</label>
+            </value>
+            <value>
+                <fullName>Special</fullName>
+                <default>false</default>
+                <label>Special</label>
+            </value>
+            <value>
+                <fullName>Prepayment - Due in Advance</fullName>
+                <default>false</default>
+                <label>Prepayment - Due in Advance</label>
+            </value>
+            <value>
+                <fullName>25% Down Net 30</fullName>
+                <default>false</default>
+                <label>25% Down Net 30</label>
+            </value>
+            <value>
+                <fullName>50% Down/25% Deliv/25% Install</fullName>
+                <default>false</default>
+                <label>50% Down/25% Deliv/25% Install</label>
+            </value>
+            <value>
+                <fullName>50% Down/25% Net 30/25% Net 60</fullName>
+                <default>false</default>
+                <label>50% Down/25% Net 30/25% Net 60</label>
+            </value>
+            <value>
+                <fullName>50% deposit, 50% on delivery</fullName>
+                <default>false</default>
+                <label>50% deposit, 50% on delivery</label>
+            </value>
+            <value>
+                <fullName>50% deposit/50% before shipping</fullName>
+                <default>false</default>
+                <label>50% deposit/50% before shipping</label>
+            </value>
+            <value>
+                <fullName>Due by Due Date</fullName>
+                <default>false</default>
+                <label>Due by Due Date</label>
+            </value>
+            <value>
+                <fullName>OAC</fullName>
+                <default>false</default>
+                <label>OAC</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

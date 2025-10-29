@@ -1,0 +1,134 @@
+.mainDiv{
+    padding: 24px;
+    background-color: #1d4f90;
+    color: white;
+    padding-left: 72px;
+    padding-right: 72px;
+    font-family: sans-serif;
+}
+
+.input-wrapper {
+    padding:16px;
+    position: relative;
+    width: 100%;
+}
+
+.floating-label-container {
+    /* position: relative; */
+    /* margin-top: 1rem; */
+}
+
+.custom-input {
+    font-size: 16px;
+    width: 100%;
+    outline: none;
+    color: black;
+   /* --sds-c-textarea-sizing-min-height:200px; */
+}
+
+.floating-label {
+    /* position: absolute; */
+    /* left: 16px; */
+    /* transform: translateY(-50%); */
+    /* background-color: white; */
+    /* padding: 0 4px; */
+    /* pointer-events: none; */
+    /* transition: none; No transition effect */
+    /* top: 0px; */
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.textCSS{
+    font-size: 20px;
+    line-height: 1.5;
+}
+
+.boldCSS{
+    font-weight: 700;
+}
+
+.buttonCSS{
+    border: none;
+    width: 100%;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    font-size: 28px;
+    font-weight: 700;
+    background-color: #0071ee;
+    color: white;
+    border-radius: none;
+}
+
+.red-text{
+    color: #ff6218;
+}
+
+.subHeadingText{
+    font-size: 18px;
+}
+
+
+@media only screen and (max-width: 768px) {
+    .mainDiv {
+        padding: 8px; /* Reduced padding for phones */
+    }
+
+    .input-wrapper{
+        padding: 8px;
+    }
+}
+
+/* Make the container cover the full page */
+.thankYouContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    height: 100vh; /* Full viewport height */
+    background-color: #f4f9fe;
+    color: #1d4f90;
+    font-family: 'Arial, sans-serif';
+    padding: 20px;
+}
+
+/* Header styling with increased size */
+.thankYouHeader {
+    font-size: 36px; /* Increased font size */
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* General message styling */
+.thankYouMessage {
+    font-size: 20px; /* Slightly larger font */
+    margin-bottom: 16px;
+    line-height: 1.8;
+}
+
+/* Footer message styling */
+.thankYouFooter {
+    font-size: 18px;
+    margin-top: 24px;
+    color: #333;
+}
+
+.highlight {
+    font-weight: bold;
+    color: #0071ee;
+    text-decoration: underline;
+}
+
+/* Responsive styling */
+@media only screen and (max-width: 768px) {
+    .thankYouHeader {
+        font-size: 28px; /* Adjusted for smaller screens */
+    }
+
+    .thankYouMessage,
+    .thankYouFooter {
+        font-size: 16px;
+    }
+}

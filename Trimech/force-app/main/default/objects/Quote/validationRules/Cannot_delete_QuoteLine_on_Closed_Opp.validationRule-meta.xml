@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cannot_delete_QuoteLine_on_Closed_Opp</fullName>
+    <active>true</active>
+    <description>Prevents users from deleting Quote Line Items after an Opportunity is Closed.</description>
+    <errorConditionFormula>AND(OR(ISPICKVAL(Opportunity.StageName, &quot;Send to Order Management&quot;), 
+		ISPICKVAL(Opportunity.StageName, &quot;Closed Won&quot;), 
+		ISPICKVAL(Opportunity.StageName, &quot;Closed Lost&quot;)),
+	Number_of_Quote_Line_Items__c &lt; PRIORVALUE(Number_of_Quote_Line_Items__c) )</errorConditionFormula>
+    <errorMessage>Quote Line Items cannot be deleted because the Opportunity is Closed.</errorMessage>
+</ValidationRule>

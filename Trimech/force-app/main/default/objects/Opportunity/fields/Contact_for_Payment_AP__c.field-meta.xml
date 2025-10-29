@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Contact_for_Payment_AP__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <inlineHelpText>Attach the individual that should receive payment requests.</inlineHelpText>
+    <label>Contact for Payment / AP</label>
+    <referenceTo>Contact</referenceTo>
+    <relationshipLabel>Leads/Opportunities (Contact for Payment / AP)</relationshipLabel>
+    <relationshipName>Leads_Opportunities_contact_for_ap</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Lookup</type>
+</CustomField>

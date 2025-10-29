@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>celigo_sfnsio__Validate_Start_Date</fullName>
+    <active>true</active>
+    <errorConditionFormula>Opportunity.celigo_sfnsio__Start_Date__c &gt; celigo_sfnsio__Start_Date__c</errorConditionFormula>
+    <errorDisplayField>celigo_sfnsio__Start_Date__c</errorDisplayField>
+    <errorMessage>Start date on line item should not be less than start date on opportunity.</errorMessage>
+</ValidationRule>

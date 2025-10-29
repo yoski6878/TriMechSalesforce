@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cant_delete_Product_Quote_on_Closed_Opp</fullName>
+    <active>true</active>
+    <description>Prevents users from deleting Opportunity Products or Quotes after an Opportunity is Closed.</description>
+    <errorConditionFormula>AND(OR(ISPICKVAL(StageName, &quot;Send to Order Management&quot;), 
+		ISPICKVAL(StageName, &quot;Closed Won&quot;), 
+		ISPICKVAL(StageName, &quot;Closed Lost&quot;)),
+	OR( (Number_of_Opp_Line_Items__c &lt; PRIORVALUE(Number_of_Opp_Line_Items__c)), 
+		(Number_of_Proposals__c &lt; PRIORVALUE(Number_of_Proposals__c)) )
+	)</errorConditionFormula>
+    <errorMessage>Opportunity Line Items or Quotes cannot be deleted because the Opportunity is Closed.</errorMessage>
+</ValidationRule>

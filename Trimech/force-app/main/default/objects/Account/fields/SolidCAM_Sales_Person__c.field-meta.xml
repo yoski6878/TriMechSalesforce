@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SolidCAM_Sales_Person__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(NOT(ISBLANK( Dedicated_SolidCAM_Rep__c )) , Dedicated_SolidCAM_Rep__r.Full_Name__c,   Sales_Rep_SolidCAM__r.Full_Name__c )
+
+
+/*
+IF( NOT(ISBLANK( Dedicated_SolidCAM_Rep__c )) , 
+	HYPERLINK((&quot;/lightning/r/&quot; &amp; Dedicated_SolidCAM_Rep__r.Id &amp; &quot;/view&quot;), Dedicated_SolidCAM_Rep__r.Full_Name__c), 
+	HYPERLINK((&quot;/lightning/r/&quot; &amp;  Sales_Rep_SolidCAM__r.Id &amp; &quot;/view&quot;), Sales_Rep_SolidCAM__r.Full_Name__c)
+)
+
+*/</formula>
+    <label>SolidCAM Sales Person</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

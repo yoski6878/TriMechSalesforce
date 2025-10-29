@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>My_Opportunities_Influenced</fullName>
+    <columns>OPPORTUNITY.NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>Contact_Last_Activity_Date__c</columns>
+    <columns>OPPORTUNITY.CLOSE_DATE</columns>
+    <columns>OPPORTUNITY.STAGE_NAME</columns>
+    <columns>OPPORTUNITY.PROBABILITY</columns>
+    <columns>Loss_Reason__c</columns>
+    <columns>OPPORTUNITY.LEAD_SOURCE</columns>
+    <columns>Gross_Profit__c</columns>
+    <columns>OPPORTUNITY.AMOUNT</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>OPPORTUNITY.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Opportunity.Opportunity</value>
+    </filters>
+    <filters>
+        <field>OPPORTUNITY.STAGE_NAME</field>
+        <operation>notEqual</operation>
+        <value>Disqualified,Send to Order Management,Closed Won,Closed Lost</value>
+    </filters>
+    <filters>
+        <field>Inside_Sales__c</field>
+        <operation>equals</operation>
+        <value>Inside Sales Influenced</value>
+    </filters>
+    <filters>
+        <field>Current_User_is_Inside_Rep__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <label>My Opportunities - Influenced</label>
+</ListView>

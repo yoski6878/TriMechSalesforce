@@ -2,7 +2,6 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Training_Class_Reconciliation__c</fullName>
     <deleteConstraint>SetNull</deleteConstraint>
-    <externalId>false</externalId>
     <label>Training Class Reconciliation</label>
     <referenceTo>Training_Class_Reconciliation__c</referenceTo>
     <relationshipLabel>Training Class Attendees</relationshipLabel>

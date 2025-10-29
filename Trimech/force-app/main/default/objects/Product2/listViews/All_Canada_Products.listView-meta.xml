@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_Canada_Products</fullName>
+    <columns>PRODUCT2.NAME</columns>
+    <columns>PRODUCT2.CUSTOMER_PRODUCT_ID</columns>
+    <columns>PRODUCT2.CREATED_DATE</columns>
+    <columns>celigo_sfnsio__NetSuite_Id__c</columns>
+    <columns>Product_Group__c</columns>
+    <columns>Avalara_Tax_Code__c</columns>
+    <columns>Purchase_Price__c</columns>
+    <columns>Commissionable__c</columns>
+    <columns>PRODUCT2.ACTIVE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Product_Country__c</field>
+        <operation>contains</operation>
+        <value>Canada,CA</value>
+    </filters>
+    <label>All Canada Products</label>
+    <sharedTo>
+        <group>Sales_Ops</group>
+    </sharedTo>
+</ListView>

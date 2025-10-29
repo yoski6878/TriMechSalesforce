@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Contract_Type__c</fullName>
+    <label>Contract Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Time &amp; Material</fullName>
+                <default>false</default>
+                <label>Time &amp; Material</label>
+            </value>
+            <value>
+                <fullName>Warranty</fullName>
+                <default>false</default>
+                <label>Warranty</label>
+            </value>
+            <value>
+                <fullName>Warranty - Self Install</fullName>
+                <default>false</default>
+                <label>Warranty - Self Install</label>
+            </value>
+            <value>
+                <fullName>On Support</fullName>
+                <default>false</default>
+                <label>On Support</label>
+            </value>
+            <value>
+                <fullName>Lifetime Support</fullName>
+                <default>false</default>
+                <label>Lifetime Support</label>
+            </value>
+            <value>
+                <fullName>Emerald Care</fullName>
+                <default>false</default>
+                <label>Emerald Care</label>
+            </value>
+            <value>
+                <fullName>Diamond Care</fullName>
+                <default>false</default>
+                <label>Diamond Care</label>
+            </value>
+            <value>
+                <fullName>Saphire Care</fullName>
+                <default>false</default>
+                <label>Saphire Care</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

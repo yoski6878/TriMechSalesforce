@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Active_Asset_Count__c</fullName>
+    <label>Active Asset Count</label>
+    <summarizedField>Asset_Summary__c.Asset_Count__c</summarizedField>
+    <summaryForeignKey>Asset_Summary__c.Account__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <type>Summary</type>
+</CustomField>

@@ -1,0 +1,12 @@
+.custom-container{
+	color : black;
+}
+
+.reCaptchaSmall{
+    height: 60px;
+	z-index: 2;
+}
+.reCaptchaBig{
+    height: 500px;
+	z-index: 2;
+}

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Enhanced_Subs_Onboarding_Stage__c</fullName>
+    <label>Enhanced Subs Onboarding Stage</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>New</fullName>
+                <default>false</default>
+                <label>New</label>
+            </value>
+            <value>
+                <fullName>Touch 1</fullName>
+                <default>false</default>
+                <label>Touch 1</label>
+            </value>
+            <value>
+                <fullName>Touch 2</fullName>
+                <default>false</default>
+                <label>Touch 2</label>
+            </value>
+            <value>
+                <fullName>Touch 3</fullName>
+                <default>false</default>
+                <label>Touch 3</label>
+            </value>
+            <value>
+                <fullName>Touch 4</fullName>
+                <default>false</default>
+                <label>Touch 4</label>
+            </value>
+            <value>
+                <fullName>Onboarding Scheduled</fullName>
+                <default>false</default>
+                <label>Onboarding Scheduled</label>
+            </value>
+            <value>
+                <fullName>Onboarded</fullName>
+                <default>false</default>
+                <label>Onboarded</label>
+            </value>
+            <value>
+                <fullName>Not Interested</fullName>
+                <default>false</default>
+                <label>Not Interested</label>
+            </value>
+            <value>
+                <fullName>Unresponsive</fullName>
+                <default>false</default>
+                <label>Unresponsive</label>
+            </value>
+            <value>
+                <fullName>Follow Up</fullName>
+                <default>false</default>
+                <label>Follow Up</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

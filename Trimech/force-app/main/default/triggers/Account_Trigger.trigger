@@ -5,6 +5,10 @@
 ***************************************************************/
 trigger Account_Trigger on Account (after delete, after insert, after undelete, after update, before delete, before insert, before update) {
    
+    if((Trigger.isAfter && (Trigger.isInsert || Trigger.isUpdate)) && BridgeITEventHandler.runOnce()) {
+        //BridgeITEventHandler.HandleEvent(trigger.new, trigger.old, 'account', (Trigger.isInsert) ? 'create' : 'edit');
+    }
+
     if(trigger.isInsert){
         if(trigger.isBefore) Account_Trigger.beforeInsert(trigger.new,trigger.old,trigger.newMap,trigger.oldMap);
         else if(trigger.isAfter) Account_Trigger.afterInsert(trigger.new,trigger.old,trigger.newMap,trigger.oldMap);

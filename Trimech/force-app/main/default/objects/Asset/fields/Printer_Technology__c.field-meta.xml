@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Printer_Technology__c</fullName>
+    <description>Receives values from NS Printer Technology field</description>
+    <label>Printer Technology</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>CNC</fullName>
+                <default>false</default>
+                <label>CNC</label>
+            </value>
+            <value>
+                <fullName>FDM</fullName>
+                <default>false</default>
+                <label>FDM</label>
+            </value>
+            <value>
+                <fullName>Polyjet</fullName>
+                <default>false</default>
+                <label>Polyjet</label>
+            </value>
+            <value>
+                <fullName>Post Process</fullName>
+                <default>false</default>
+                <label>Post Process</label>
+            </value>
+            <value>
+                <fullName>SLA</fullName>
+                <default>false</default>
+                <label>SLA</label>
+            </value>
+            <value>
+                <fullName>SLS</fullName>
+                <default>false</default>
+                <label>SLS</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

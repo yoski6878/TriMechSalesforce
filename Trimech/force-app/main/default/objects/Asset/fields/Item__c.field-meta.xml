@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Item__c</fullName>
+    <label>Item Class</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Alaris</fullName>
+                <default>false</default>
+                <label>Alaris</label>
+            </value>
+            <value>
+                <fullName>WaveWash 55</fullName>
+                <default>false</default>
+                <label>WaveWash 55</label>
+            </value>
+            <value>
+                <fullName>Mojo</fullName>
+                <default>false</default>
+                <label>Mojo</label>
+            </value>
+            <value>
+                <fullName>Objet500 Connex 3</fullName>
+                <default>false</default>
+                <label>Objet500 Connex 3</label>
+            </value>
+            <value>
+                <fullName>Objet 30</fullName>
+                <default>false</default>
+                <label>Objet 30</label>
+            </value>
+            <value>
+                <fullName>uPrint SE Plus</fullName>
+                <default>false</default>
+                <label>uPrint SE Plus</label>
+            </value>
+            <value>
+                <fullName>Dimension 1200es SST</fullName>
+                <default>false</default>
+                <label>Dimension 1200es SST</label>
+            </value>
+            <value>
+                <fullName>Dimension Elite</fullName>
+                <default>false</default>
+                <label>Dimension Elite</label>
+            </value>
+            <value>
+                <fullName>Fortus 900</fullName>
+                <default>false</default>
+                <label>Fortus 900</label>
+            </value>
+            <value>
+                <fullName>Fortus 400 - Large Env</fullName>
+                <default>false</default>
+                <label>Fortus 400 - Large Env</label>
+            </value>
+            <value>
+                <fullName>Fortus 360 - Large Env</fullName>
+                <default>false</default>
+                <label>Fortus 360 - Large Env</label>
+            </value>
+            <value>
+                <fullName>Fortus 450</fullName>
+                <default>false</default>
+                <label>Fortus 450</label>
+            </value>
+            <value>
+                <fullName>ScX0000</fullName>
+                <default>false</default>
+                <label>ScX0000</label>
+            </value>
+            <value>
+                <fullName>Fortus 250</fullName>
+                <default>false</default>
+                <label>Fortus 250</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>
