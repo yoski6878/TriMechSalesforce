@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Category__c</fullName>
-    <description>Item Category</description>
+    <description>Sources from NetSuite&apos;s Product Type field</description>
     <label>Category</label>
     <required>false</required>
     <trackHistory>true</trackHistory>
     <type>Picklist</type>
     <valueSet>
-        <restricted>true</restricted>
         <valueSetDefinition>
             <sorted>false</sorted>
             <value>
@@ -119,6 +118,16 @@
                 <fullName>Software : YSC</fullName>
                 <default>false</default>
                 <label>Software : YSC</label>
+            </value>
+            <value>
+                <fullName>Staffing - Contractor</fullName>
+                <default>false</default>
+                <label>Staffing - Contractor</label>
+            </value>
+            <value>
+                <fullName>Staffing - Permanent</fullName>
+                <default>false</default>
+                <label>Staffing - Permanent</label>
             </value>
             <value>
                 <fullName>Subscription Initial</fullName>

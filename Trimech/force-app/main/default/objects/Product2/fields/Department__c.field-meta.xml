@@ -14,14 +14,34 @@
                 <label>Printers</label>
             </value>
             <value>
+                <fullName>Project Engineering</fullName>
+                <default>false</default>
+                <label>Project Engineering</label>
+            </value>
+            <value>
                 <fullName>Sales</fullName>
                 <default>false</default>
                 <label>Sales</label>
             </value>
             <value>
-                <fullName>Project Engineering</fullName>
+                <fullName>Services : Professional Services : Application Solutions - ProSrv</fullName>
                 <default>false</default>
-                <label>Project Engineering</label>
+                <label>Services : Professional Services : Application Solutions - ProSrv</label>
+            </value>
+            <value>
+                <fullName>Services : Professional Services : Application Solutions - ProSrv : Design Automation</fullName>
+                <default>false</default>
+                <label>Services : Professional Services : Application Solutions - ProSrv : Design Automation</label>
+            </value>
+            <value>
+                <fullName>Services : Professional Services : Application Solutions - ProSrv : Implementation Services</fullName>
+                <default>false</default>
+                <label>Services : Professional Services : Application Solutions - ProSrv : Implementation Services</label>
+            </value>
+            <value>
+                <fullName>Services : Professional Services : Application Solutions - ProSrv : Solutions</fullName>
+                <default>false</default>
+                <label>Services : Professional Services : Application Solutions - ProSrv : Solutions</label>
             </value>
         </valueSetDefinition>
     </valueSet>

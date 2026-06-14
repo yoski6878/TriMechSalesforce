@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Active_Parent_with_DNU_Child</fullName>
+    <columns>NAME</columns>
+    <columns>Parent_Product_Name__c</columns>
+    <columns>Parent_Product_is_Active__c</columns>
+    <columns>Child_Product_Name__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Parent_Product_is_Active__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <filters>
+        <field>Child_Product_Name__c</field>
+        <operation>startsWith</operation>
+        <value>DNU</value>
+    </filters>
+    <label>Active Parent with DNU Child</label>
+</ListView>

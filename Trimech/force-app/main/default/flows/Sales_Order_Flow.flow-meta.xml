@@ -7,6 +7,7 @@
         <locationY>947</locationY>
         <actionName>emailSimple</actionName>
         <actionType>emailSimple</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
         <inputParameters>
             <name>emailAddresses</name>
             <value>
@@ -31,7 +32,11 @@
                 <booleanValue>true</booleanValue>
             </value>
         </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <offset>0</offset>
     </actionCalls>
+    <apiVersion>58.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
     <constants>
         <name>conRecordTypeOpportunity</name>
         <dataType>String</dataType>
@@ -186,6 +191,7 @@
             <connector>
                 <targetReference>Unlock_Related_Opportunity</targetReference>
             </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
             <label>Cancelled Order</label>
         </rules>
         <rules>
@@ -211,6 +217,7 @@
             <label>Not Cancelled | Draft=No</label>
         </rules>
     </decisions>
+    <environments>Default</environments>
     <formulas>
         <name>formulaAccountforGPAdjustments</name>
         <dataType>Boolean</dataType>
@@ -381,6 +388,18 @@ IF( (ISPICKVAL({!$Record.Inside_Sales__c}, &apos;None&apos;) || ISPICKVAL({!$Rec
             </value>
         </inputAssignments>
         <inputAssignments>
+            <field>Updated_via_Sales_Order__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Weighted_Commissionable_GP__c</field>
+            <value>
+                <elementReference>$Record.Commissionable_GP__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
             <field>celigo_sfnsio__NetSuite_Id__c</field>
             <value>
                 <elementReference>$Record.celigo_sfnsio__NetSuite_Id__c</elementReference>
@@ -403,6 +422,7 @@ IF( (ISPICKVAL({!$Record.Inside_Sales__c}, &apos;None&apos;) || ISPICKVAL({!$Rec
         <connector>
             <targetReference>Email_Notification_Cancelled_Order</targetReference>
         </connector>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
             <operator>EqualTo</operator>
@@ -444,11 +464,12 @@ IF( (ISPICKVAL({!$Record.Inside_Sales__c}, &apos;None&apos;) || ISPICKVAL({!$Rec
         <object>Opportunity</object>
     </recordUpdates>
     <recordUpdates>
-        <description>UPDATE FIELDS: Commissionable GP Currency, Stage</description>
+        <description>UPDATE FIELDS: Commissionable GP Currency, Stage, Weighted Commissionable GP</description>
         <name>Update_Related_Opportunity_Fields</name>
         <label>Update Related Opportunity Fields</label>
         <locationX>314</locationX>
         <locationY>839</locationY>
+        <filterLogic>1 AND (2 OR 3)</filterLogic>
         <filters>
             <field>Id</field>
             <operator>EqualTo</operator>
@@ -482,6 +503,18 @@ IF( (ISPICKVAL({!$Record.Inside_Sales__c}, &apos;None&apos;) || ISPICKVAL({!$Rec
                 <stringValue>Closed Won</stringValue>
             </value>
         </inputAssignments>
+        <inputAssignments>
+            <field>Updated_via_Sales_Order__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Weighted_Commissionable_GP__c</field>
+            <value>
+                <elementReference>$Record.Commissionable_GP__c</elementReference>
+            </value>
+        </inputAssignments>
         <object>Opportunity</object>
     </recordUpdates>
     <recordUpdates>
@@ -513,10 +546,20 @@ IF( (ISPICKVAL({!$Record.Inside_Sales__c}, &apos;None&apos;) || ISPICKVAL({!$Rec
         </inputAssignments>
         <inputReference>$Record</inputReference>
     </recordUpdates>
-    <startElementReference>Check_if_Sales_Order_is_in_CAD_Currency</startElementReference>
+    <start>
+        <locationX>518</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Check_if_Sales_Order_is_in_CAD_Currency</targetReference>
+        </connector>
+        <object>Order</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
     <status>Active</status>
     <textTemplates>
         <name>txtTempEmailBody</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
         <text>&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); color: rgb(68, 68, 68);&quot;&gt;Your order for Opportunity Name: &lt;/span&gt;&lt;a href=&quot;https://trimech12345.lightning.force.com/lightning/r/%7B!$Record.OpportunityId%7D/view&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; style=&quot;background-color: rgb(255, 255, 255); color: rgb(68, 68, 68);&quot;&gt;{!$Record.Opportunity.Name}&lt;/a&gt; and &lt;span style=&quot;background-color: rgb(255, 255, 255); color: rgb(68, 68, 68);&quot;&gt;Opportunity Record Id: {!$Record.OpportunityId} has been cancelled by Order Management. Please update the opportunity and re-submit.&lt;/span&gt;&lt;/p&gt;</text>
     </textTemplates>
     <variables>

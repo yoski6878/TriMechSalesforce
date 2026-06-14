@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Emp_Referral_Name_Required</fullName>
+    <active>true</active>
+    <description>When Lead Source = Employee Referral, the Employee Referral Name field must be populated.</description>
+    <errorConditionFormula>AND(
+    $UserRole.Name &lt;&gt; &apos;System Administrator&apos;,
+    $User.User_Id__c &lt;&gt; &apos;0054V00000FQ5sTQAT&apos;,
+    ISPICKVAL(LeadSource, &apos;Employee Referral&apos;),
+    ISBLANK(Employee_Referral_Name__c),
+    OR (
+		ISNEW(), 
+		ISCHANGED(LeadSource), 
+		ISCHANGED(Employee_Referral_Name__c)
+		)
+)</errorConditionFormula>
+    <errorDisplayField>Employee_Referral_Name__c</errorDisplayField>
+    <errorMessage>When Lead Source = Employee Referral, the Employee Referral Name field must be populated.</errorMessage>
+</ValidationRule>

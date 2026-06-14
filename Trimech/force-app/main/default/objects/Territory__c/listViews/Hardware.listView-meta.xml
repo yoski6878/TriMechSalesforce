@@ -4,7 +4,8 @@
     <columns>NAME</columns>
     <columns>Region__c</columns>
     <columns>Product_Group__c</columns>
-    <columns>To_Be_Deleted__c</columns>
+    <columns>CURRENCY_ISO_CODE</columns>
+    <columns>OBJECT_ID</columns>
     <filterScope>Everything</filterScope>
     <filters>
         <field>Product_Group__c</field>

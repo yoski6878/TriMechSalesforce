@@ -6,15 +6,9 @@
     <columns>CONTACT.TITLE</columns>
     <columns>CONTACT.PHONE1</columns>
     <columns>CONTACT.EMAIL</columns>
-    <columns>CORE.USERS.FIRST_NAME</columns>
-    <columns>CORE.USERS.LAST_NAME</columns>
+    <columns>CONTACT.LAST_UPDATE</columns>
     <columns>CREATEDBY_USER.ALIAS</columns>
     <columns>CONTACT.CREATED_DATE</columns>
-    <columns>Contact_Type__c</columns>
-    <columns>CONTACT.EMAIL_OPT_OUT</columns>
-    <columns>Job_Level__c</columns>
-    <columns>pi__campaign__c</columns>
-    <columns>pi__notes__c</columns>
     <filterScope>Everything</filterScope>
     <label>All Contacts</label>
 </ListView>

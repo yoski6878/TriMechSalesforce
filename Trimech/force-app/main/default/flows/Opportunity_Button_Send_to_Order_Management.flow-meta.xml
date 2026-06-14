@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>58.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
     <assignments>
         <name>Set_Variable_Changing_Existing_License</name>
         <label>Set Variable Changing Existing License</label>
@@ -425,6 +427,7 @@
         </rules>
     </decisions>
     <description>Button on Opportunity that checks order management fields and and if all data has been verified, changes stage to &quot;Send to Order Management&quot;.</description>
+    <environments>Default</environments>
     <interviewLabel>Opportunity | Button | Send to Order Management {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Opportunity | Button | Send to Order Management</label>
     <processMetadataValues>
@@ -455,6 +458,7 @@
         <connector>
             <targetReference>Opportunity_Checks_Subflow</targetReference>
         </connector>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
             <operator>EqualTo</operator>
@@ -462,7 +466,9 @@
                 <elementReference>recordId</elementReference>
             </value>
         </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
         <object>Opportunity</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordUpdates>
         <name>Update_Opp_Stage</name>
@@ -472,6 +478,7 @@
         <connector>
             <targetReference>Done_Screen</targetReference>
         </connector>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
             <operator>EqualTo</operator>
@@ -499,6 +506,14 @@
             <name>DoneText</name>
             <fieldText>&lt;p&gt;&lt;span style=&quot;color: rgb(8, 8, 8);&quot;&gt;Thank you! Your Opportunity Stage has been changed to &lt;/span&gt;&lt;strong style=&quot;color: rgb(8, 8, 8);&quot;&gt;Send to Order Management&lt;/strong&gt;&lt;span style=&quot;color: rgb(8, 8, 8);&quot;&gt;.&lt;/span&gt;&lt;strong style=&quot;color: rgb(250, 0, 0);&quot;&gt; &lt;/strong&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <showFooter>true</showFooter>
         <showHeader>false</showHeader>
@@ -515,61 +530,255 @@
             <name>ErrorHeader</name>
             <fieldText>&lt;p&gt;&lt;strong style=&quot;color: rgb(250, 0, 0);&quot;&gt;Please fix the following errors before you can send this Opportunity to Order Management.&lt;/strong&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <fields>
             <name>Incorrect_Owner_Text</name>
             <fieldText>&lt;ul&gt;&lt;li&gt;&lt;span style=&quot;background-color: transparent; color: rgb(244, 5, 5); font-family: Roboto, sans-serif; font-size: 10pt;&quot;&gt;Owner is either an Inside Sales Rep or not part of the Account Subsidiary, please change the Owner to be the Client Exec from the Account&apos;s Subsidiary.&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>Opportunity_Checks_Subflow.bHasIncorrectOppOwner</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <booleanValue>true</booleanValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
         </fields>
         <fields>
             <name>Incorrect_Split_Owner_Text</name>
             <fieldText>&lt;ul&gt;&lt;li&gt;&lt;span style=&quot;font-size: 10pt; font-family: Roboto, sans-serif; color: rgb(255, 0, 0); background-color: transparent;&quot;&gt;Please check the Opportunity Splits; the GP must not be split with an Inside Sales Rep (TDR). Please update to only list the appropriate Client Exec in the Opportunity Splits tab.&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>Opportunity_Checks_Subflow.bHasIncorrectSplitOwner</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <booleanValue>true</booleanValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
         </fields>
         <fields>
             <name>Inactive_Products_Text</name>
             <fieldText>&lt;ul&gt;&lt;li&gt;&lt;span style=&quot;background-color: transparent; color: rgb(255, 0, 0); font-family: Roboto, sans-serif; font-size: 10pt;&quot;&gt;This Opportunity includes inactive Products. Please remove inactive Products from the Products list.&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>Opportunity_Checks_Subflow.bHasInactiveProducts</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <booleanValue>true</booleanValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
         </fields>
         <fields>
             <name>Missing_Summary_Text</name>
             <fieldText>&lt;ul&gt;&lt;li&gt;&lt;span style=&quot;background-color: transparent; color: rgb(255, 0, 0); font-family: Roboto, sans-serif; font-size: 10pt;&quot;&gt;The &lt;/span&gt;&lt;strong style=&quot;background-color: transparent; color: rgb(255, 0, 0); font-family: Roboto, sans-serif; font-size: 10pt;&quot;&gt;Summary Description of Order&lt;/strong&gt;&lt;span style=&quot;background-color: transparent; color: rgb(255, 0, 0); font-family: Roboto, sans-serif; font-size: 10pt;&quot;&gt; field is required. &lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>bMissingSummary</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <booleanValue>true</booleanValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
         </fields>
         <fields>
             <name>Missing_Payment_Type_Text</name>
             <fieldText>&lt;ul&gt;&lt;li&gt;&lt;span style=&quot;font-size: 10pt; font-family: Roboto, sans-serif; color: rgb(255, 0, 0); background-color: transparent;&quot;&gt;The &lt;/span&gt;&lt;strong style=&quot;font-size: 10pt; font-family: Roboto, sans-serif; color: rgb(255, 0, 0); background-color: transparent;&quot;&gt;Payment Type&lt;/strong&gt;&lt;span style=&quot;font-size: 10pt; font-family: Roboto, sans-serif; color: rgb(255, 0, 0); background-color: transparent;&quot;&gt; field is required. &lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>bMissingPaymentType</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <booleanValue>true</booleanValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
         </fields>
         <fields>
             <name>Missing_EndUser_Software_Text</name>
             <fieldText>&lt;ul&gt;&lt;li&gt;&lt;span style=&quot;font-size: 10pt; font-family: Roboto, sans-serif; color: rgb(255, 0, 0); background-color: transparent;&quot;&gt;The &lt;/span&gt;&lt;strong style=&quot;font-size: 10pt; font-family: Roboto, sans-serif; color: rgb(255, 0, 0); background-color: transparent;&quot;&gt;End User(s) &lt;/strong&gt;&lt;span style=&quot;font-size: 10pt; font-family: Roboto, sans-serif; color: rgb(255, 0, 0); background-color: transparent;&quot;&gt;field is required when software is on the order.&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>bMissingEndUsersSoftware</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <booleanValue>true</booleanValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
         </fields>
         <fields>
             <name>Missing_Changing_Existing_License_Text</name>
             <fieldText>&lt;ul&gt;&lt;li&gt;&lt;span style=&quot;font-size: 10pt; font-family: Roboto, sans-serif; color: rgb(255, 0, 0); background-color: transparent;&quot;&gt;The &lt;/span&gt;&lt;strong style=&quot;font-size: 10pt; font-family: Roboto, sans-serif; color: rgb(255, 0, 0); background-color: transparent;&quot;&gt;Changing or Adding to Existing License &lt;/strong&gt;&lt;span style=&quot;font-size: 10pt; font-family: Roboto, sans-serif; color: rgb(255, 0, 0); background-color: transparent;&quot;&gt;field is required when software is on the order.&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>bMissingChangingExistingLicense</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <booleanValue>true</booleanValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
         </fields>
         <fields>
             <name>MissingPaymentContactText</name>
             <fieldText>&lt;ul&gt;&lt;li&gt;&lt;span style=&quot;color: rgb(247, 3, 3);&quot;&gt;The &lt;/span&gt;&lt;strong style=&quot;color: rgb(247, 3, 3);&quot;&gt;Contact for Payment / AP &lt;/strong&gt;&lt;span style=&quot;color: rgb(247, 3, 3);&quot;&gt;field is required when Payment Type is Credit Card. &lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>bMissingPaymentContact</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <booleanValue>true</booleanValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
         </fields>
         <fields>
             <name>MissingSNText</name>
             <fieldText>&lt;ul&gt;&lt;li&gt;&lt;span style=&quot;color: rgb(247, 2, 2);&quot;&gt;The &lt;/span&gt;&lt;strong style=&quot;color: rgb(247, 2, 2);&quot;&gt;Provide current SN we are adjusting&lt;/strong&gt;&lt;span style=&quot;color: rgb(247, 2, 2);&quot;&gt; field is required when changing or adding to an existing license. &lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>bMissingSN</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <booleanValue>true</booleanValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
         </fields>
         <fields>
             <name>MIssingCaseIDText</name>
             <fieldText>&lt;ul&gt;&lt;li&gt;&lt;span style=&quot;color: rgb(251, 0, 0);&quot;&gt;The &lt;/span&gt;&lt;strong style=&quot;color: rgb(251, 0, 0);&quot;&gt;Case ID and Site ID&lt;/strong&gt;&lt;span style=&quot;color: rgb(251, 0, 0);&quot;&gt; field is required when there is a Piracy Order. &lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>bMissingCaseID</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <booleanValue>true</booleanValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
         </fields>
         <showFooter>true</showFooter>
         <showHeader>false</showHeader>
     </screens>
-    <startElementReference>Get_Opportunity</startElementReference>
+    <start>
+        <locationX>56</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Opportunity</targetReference>
+        </connector>
+    </start>
     <status>Draft</status>
     <subflows>
         <name>Opportunity_Checks_Subflow</name>
@@ -586,6 +795,7 @@
                 <elementReference>Get_Opportunity.Id</elementReference>
             </value>
         </inputAssignments>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
     </subflows>
     <variables>
         <name>bMissingCaseID</name>

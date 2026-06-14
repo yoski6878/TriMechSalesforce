@@ -11,6 +11,16 @@
         <valueSetDefinition>
             <sorted>false</sorted>
             <value>
+                <fullName>FULL_MATCH</fullName>
+                <default>false</default>
+                <label>FULL_MATCH</label>
+            </value>
+            <value>
+                <fullName>NO_MATCH</fullName>
+                <default>false</default>
+                <label>NO_MATCH</label>
+            </value>
+            <value>
                 <fullName>Enriched</fullName>
                 <default>false</default>
                 <label>Enriched</label>

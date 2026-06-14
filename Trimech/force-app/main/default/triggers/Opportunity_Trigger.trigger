@@ -5,6 +5,10 @@
 ***************************************************************/
 trigger Opportunity_Trigger on Opportunity (after delete, after insert, after undelete, after update, before delete, before insert, before update) {
    
+    if((trigger.isInsert || trigger.isUpdate) && trigger.isAfter && BridgeITEventHandler.runOnce()){
+        BridgeITEventHandler.HandleEvent(trigger.new, trigger.old, 'opportunity', 'create');
+    }
+
     if(trigger.isInsert){
         if(trigger.isBefore && !Opportunity_Trigger.hasRunBeforeInsert){
             Opportunity_Trigger.hasRunBeforeInsert = true;

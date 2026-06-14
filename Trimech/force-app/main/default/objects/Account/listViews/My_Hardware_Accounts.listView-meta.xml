@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ListView xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>My_Hardware_Accounts</fullName>
-    <booleanFilter>(1 OR 2 OR 3) AND 4</booleanFilter>
+    <booleanFilter>(1 OR 2) AND 3</booleanFilter>
     <columns>ACCOUNT.NAME</columns>
     <columns>ACCOUNT.LAST_ACTIVITY</columns>
     <columns>Client_Engagement_Score_rolling_6_mo__c</columns>
@@ -11,12 +11,7 @@
     <columns>ACCOUNT.ADDRESS2_ZIP</columns>
     <filterScope>Everything</filterScope>
     <filters>
-        <field>Dedicated_Sales_Rep_Hardware__c</field>
-        <operation>equals</operation>
-        <value>$USER</value>
-    </filters>
-    <filters>
-        <field>Sales_Rep_Hardware_Outside__c</field>
+        <field>Hardware_Sales_Person__c</field>
         <operation>equals</operation>
         <value>$USER</value>
     </filters>

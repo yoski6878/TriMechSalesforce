@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>54.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
     <assignments>
         <name>Add_Triggering_Record_to_Collection</name>
         <label>Add Triggering Record to Collection</label>
@@ -119,6 +121,7 @@
         </rules>
     </decisions>
     <description>Updated to run if Run_Assignment_Rules__c = true</description>
+    <environments>Default</environments>
     <formulas>
         <name>ISNEW</name>
         <dataType>Boolean</dataType>
@@ -154,6 +157,7 @@
         <connector>
             <targetReference>Converted_Lead_found_with_Account_Territory_Region_set</targetReference>
         </connector>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
             <operator>EqualTo</operator>
@@ -161,7 +165,9 @@
                 <elementReference>$Record.AccountId</elementReference>
             </value>
         </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
         <object>Account</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordLookups>
         <name>Get_Converted_Lead</name>
@@ -172,6 +178,7 @@
         <connector>
             <targetReference>Get_Account</targetReference>
         </connector>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>ConvertedOpportunityId</field>
             <operator>EqualTo</operator>
@@ -179,9 +186,24 @@
                 <elementReference>$Record.Id</elementReference>
             </value>
         </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
         <object>Lead</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
-    <startElementReference>Opp_Owner_Changing</startElementReference>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Opp_Owner_Changing</targetReference>
+        </connector>
+        <filterFormula>OR (
+{!$Record.RecordTypeId} = &quot;0126g000000X4XUAA0&quot;, /*lead*/
+{!$Record.Run_Assignment_Rules__c}=true
+)</filterFormula>
+        <object>Opportunity</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
     <status>Active</status>
     <subflows>
         <name>Run_Opportunity_Assignment</name>

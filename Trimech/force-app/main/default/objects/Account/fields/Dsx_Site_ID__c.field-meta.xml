@@ -3,7 +3,7 @@
     <fullName>Dsx_Site_ID__c</fullName>
     <externalId>false</externalId>
     <label>Dsx Site ID</label>
-    <length>30</length>
+    <length>100</length>
     <required>false</required>
     <trackFeedHistory>false</trackFeedHistory>
     <trackHistory>false</trackHistory>

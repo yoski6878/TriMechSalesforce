@@ -14,6 +14,11 @@
         <field>Issue__c</field>
         <operation>equals</operation>
     </filters>
+    <filters>
+        <field>OWNER_NAME</field>
+        <operation>notEqual</operation>
+        <value>trimech admin</value>
+    </filters>
     <label>APPLICATIONS | GENERAL</label>
     <sharedTo>
         <group>APPLICATIONS_GENERAL</group>

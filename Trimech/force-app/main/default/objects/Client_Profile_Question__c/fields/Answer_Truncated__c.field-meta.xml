@@ -3,7 +3,6 @@
     <fullName>Answer_Truncated__c</fullName>
     <label>Answer Truncated</label>
     <required>false</required>
-    <trackHistory>true</trackHistory>
     <trackTrending>false</trackTrending>
     <type>TextArea</type>
 </CustomField>

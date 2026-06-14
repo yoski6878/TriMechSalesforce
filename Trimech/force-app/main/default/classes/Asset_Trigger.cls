@@ -4,128 +4,119 @@
  *
  *********************************************************/
 public without sharing class Asset_Trigger {
+        public static void beforeInsert(List<Asset> newList, List<Asset> oldList, Map<Id, Asset> newMap, Map<Id, Asset> oldMap) {
+            if (newList == null || oldList == null || newMap == null || oldMap == null) {
+                return;
+            }
+            // No logic needed for before insert
+        }
+
+        public static void beforeUpdate(List<Asset> newList, List<Asset> oldList, Map<Id, Asset> newMap, Map<Id, Asset> oldMap) {
+            if (newList == null || oldList == null || newMap == null || oldMap == null) {
+                return;
+            }
+            // No logic needed for before update
+        }
+
+        public static void beforeDelete(List<Asset> newList, List<Asset> oldList, Map<Id, Asset> newMap, Map<Id, Asset> oldMap) {
+            if (newList == null || oldList == null || newMap == null || oldMap == null) {
+                return;
+            }
+            // No logic needed for before delete
+        }
     
-    public static void beforeInsert(List<Asset> newList,List<Asset> oldList, Map<Id,Asset> newMap, Map<Id,Asset> oldMap){
-		//Implement business logic
-	}
-	  
-	public static void beforeUpdate(List<Asset> newList,List<Asset> oldList, Map<Id,Asset> newMap, Map<Id,Asset> oldMap){
-	  	//Implement business logic	  	
-	}
-	  
-    public static void beforeDelete(List<Asset> newList,List<Asset> oldList, Map<Id,Asset> newMap, Map<Id,Asset> oldMap){
-	  	//Implement business logic	  	
-	}
-		
-	public static void afterInsert(List<Asset> newList,List<Asset> oldList, Map<Id,Asset> newMap, Map<Id,Asset> oldMap){
-		
-        /*Set<Id> accountsWithAssetInserts = new Set<Id>();
-        List<Asset_Summary__c> newAssetSummaries = new List<Asset_Summary__c>{};
-        for(Asset a : newList){
-        	accountsWithAssetInserts.add(a.AccountId);	        
+    // Private helper method to batch and enqueue account summary jobs
+    private static void batchAndEnqueueAccountJobs(List<Asset> assets, String context) {
+        // Get all account IDs from assets
+        Set<Id> allAccounts = new Set<Id>();
+        for(Asset a : assets) {
+            if(a.AccountId != null) {
+                allAccounts.add(a.AccountId);
+            }
         }
-        if(!accountsWithAssetInserts.isEmpty()) {
-            //createAssetSummaries(accountsWithAssetInserts);
-        }
-        AssetBatchable assetBatch = new AssetBatchable(newList);
-        Database.executeBatch(assetBatch,200);*/
         
-        /*List<Asset> assetList = new List<Asset>();
-        assetList.addAll(newList);
-        AssetQueueable assetQueue = new AssetQueueable(assetList,10);
-        System.enqueueJob(assetQueue);*/
-
-        Set<Id> accounts = new Set<Id>();
+        // Separate accounts with High_Asset_Inventory__c flag into individual jobs
+        Set<Id> highVolumeAccounts = new Set<Id>();
+        Set<Id> normalAccounts = new Set<Id>();
         
-        for(Asset a : newList) {
-            accounts.add(a.AccountId);
-        }
-
-        List<Id> acctList = new List<Id>(accounts);
-        System.debug(acctList);
-
-        AccountSummarizeAssetsQueueable queue = new AccountSummarizeAssetsQueueable(acctList);
-        System.enqueueJob(queue);
-    }
-	
-	public static void afterUpdate(List<Asset> newList,List<Asset> oldList, Map<Id,Asset> newMap, Map<Id,Asset> oldMap){
-		
-        /*Set<Id> accountsWithAssetUpdates = new Set<Id>();
-        for(Asset a : newList){
-        	accountsWithAssetUpdates.add(a.AccountId);	        
-        }
-        if(!accountsWithAssetUpdates.isEmpty()) createAssetSummaries(accountsWithAssetUpdates);
-        AssetBatchable assetBatch = new AssetBatchable(newList);
-        Database.executeBatch(assetBatch,200);*/
-        
-        /*List<Asset> assetList = new List<Asset>();
-        assetList.addAll(newList);
-        AssetQueueable assetQueue = new AssetQueueable(assetList,10);
-        System.enqueueJob(assetQueue);*/
-
-        Set<Id> accounts = new Set<Id>();
-        
-        for(Asset a : newList) {
-            accounts.add(a.AccountId);
-        }
-
-        List<Id> acctList = new List<Id>(accounts);
-
-        AccountSummarizeAssetsQueueable queue = new AccountSummarizeAssetsQueueable(acctList);
-        System.enqueueJob(queue);
-	}
-	
-	public static void afterDelete(List<Asset> newList,List<Asset> oldList, Map<Id,Asset> newMap, Map<Id,Asset> oldMap){
-	  	
-	  	/*Set<Id> accountsWithAssetDeletes = new Set<Id>();
-        for(Asset a : oldList){
-        	accountsWithAssetDeletes.add(a.AccountId);	        
-        }
-        if(!accountsWithAssetDeletes.isEmpty()) createAssetSummaries(accountsWithAssetDeletes);
-        AssetBatchable assetBatch = new AssetBatchable(oldList);
-        Database.executeBatch(assetBatch,200);*/
-        
-        /*List<Asset> assetList = new List<Asset>();
-        assetList.addAll(oldList);
-        AssetQueueable assetQueue = new AssetQueueable(assetList,10);
-        System.enqueueJob(assetQueue);*/
-
-        Set<Id> accounts = new Set<Id>();
-        
-        for(Asset a : oldList) {
-            accounts.add(a.AccountId);
-        }
-
-        List<Id> acctList = new List<Id>(accounts);
-
-        AccountSummarizeAssetsQueueable queue = new AccountSummarizeAssetsQueueable(acctList);
-        System.enqueueJob(queue);
-	}
-	
-	/*public static void afterUnDelete(List<Asset> newList,List<Asset> oldList, Map<Id,Asset> newMap, Map<Id,Asset> oldMap){
-	  	//Implement business logic		
-	}*/	
-	
-	/*public static void createAssetSummaries(Set<Id> accountIds) {
-		
-        delete new List<Asset_Summary__c>([SELECT Id FROM Asset_Summary__c WHERE Account__c IN :accountIds]);
-        
-        Asset_Summary__c[] newAssetSummaries = new Asset_Summary__c[]{};
-        for(Account acc : [SELECT Id, (SELECT Id, Asset_Group__c, Quantity FROM Assets WHERE Status = 'Active' AND Asset_Group__c != null AND Quantity != null) FROM Account WHERE Id IN :accountIds]){
-            if(!acc.Assets.isEmpty()){
-                Map<String,Decimal> groupToQuantity = new Map<String,Decimal>();
-                for(Asset a : acc.Assets){
-                	Decimal qnt = a.Quantity;
-                    if(groupToQuantity.containsKey(a.Asset_Group__c)) qnt += groupToQuantity.get(a.Asset_Group__c);
-                    groupToQuantity.put(a.Asset_Group__c,qnt);
-                }
-                
-                for(String grpType : groupToQuantity.keySet()){
-                    if(groupToQuantity.get(grpType) > 0.0) newAssetSummaries.add(new Asset_Summary__c(Account__c = acc.Id, Asset_Group__c = grpType, Asset_Count__c = groupToQuantity.get(grpType)));
+        if(!allAccounts.isEmpty()) {
+            // Query accounts that have the High_Asset_Inventory__c flag set
+            for(Account acc : [
+                SELECT Id 
+                FROM Account 
+                WHERE Id IN :allAccounts 
+                  AND High_Asset_Inventory__c = true
+            ]) {
+                highVolumeAccounts.add(acc.Id);
+            }
+            
+            // Find accounts without the flag
+            for(Id accId : allAccounts) {
+                if(!highVolumeAccounts.contains(accId)) {
+                    normalAccounts.add(accId);
                 }
             }
         }
         
-        if(!newAssetSummaries.isEmpty()) insert newAssetSummaries;
-	}*/
+        // Process high-volume accounts individually (one job per account)
+        for(Id accountId : highVolumeAccounts) {
+            List<Id> singleAccountList = new List<Id>{accountId};
+            AccountSummarizeAssetsQueueable queue = new AccountSummarizeAssetsQueueable(singleAccountList);
+            System.enqueueJob(queue);
+        }
+        
+        // Process normal accounts with batching
+        if(!normalAccounts.isEmpty()) {
+            // Create batches of account IDs to reduce job count
+            List<List<Id>> accountBatches = new List<List<Id>>();
+            Integer batchSize = 500; // Increased batch size as requested
+            List<Id> currentBatch = new List<Id>();
+            
+            for(Id accountId : normalAccounts) {
+                currentBatch.add(accountId);
+                if(currentBatch.size() >= batchSize) {
+                    accountBatches.add(currentBatch);
+                    currentBatch = new List<Id>();
+                }
+            }
+            
+            // Add remaining accounts if any
+            if(!currentBatch.isEmpty()) {
+                accountBatches.add(currentBatch);
+            }
+            
+            // Create one Queueable job per batch
+            for(List<Id> batch : accountBatches) {
+                AccountSummarizeAssetsQueueable queue = new AccountSummarizeAssetsQueueable(batch);
+                System.enqueueJob(queue);
+            }
+        }
+    }
+    
+	public static void afterInsert(List<Asset> newList,List<Asset> oldList, Map<Id,Asset> newMap, Map<Id,Asset> oldMap){
+        try {
+            batchAndEnqueueAccountJobs(newList, 'afterInsert');
+        } catch(Exception e) {
+            // Log the error and continue - this is a best-effort async operation
+            System.debug('ERROR: Failed to enqueue account summary jobs for afterInsert: ' + e.getMessage());
+        }
+    }
+	
+	public static void afterUpdate(List<Asset> newList,List<Asset> oldList, Map<Id,Asset> newMap, Map<Id,Asset> oldMap){
+        try {
+            batchAndEnqueueAccountJobs(newList, 'afterUpdate');
+        } catch(Exception e) {
+            // Log the error and continue - this is a best-effort async operation
+            System.debug('ERROR: Failed to enqueue account summary jobs for afterUpdate: ' + e.getMessage());
+        }
+    }
+	
+	public static void afterDelete(List<Asset> newList,List<Asset> oldList, Map<Id,Asset> newMap, Map<Id,Asset> oldMap){
+        try {
+            batchAndEnqueueAccountJobs(oldList, 'afterDelete');
+        } catch(Exception e) {
+            // Log the error and continue - this is a best-effort async operation
+            System.debug('ERROR: Failed to enqueue account summary jobs for afterDelete: ' + e.getMessage());
+        }
+    }
 }

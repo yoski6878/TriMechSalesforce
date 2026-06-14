@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>No_DNU_NFS_Products</fullName>
+    <active>true</active>
+    <errorConditionFormula>OR(
+  BEGINS(Product2.ProductCode, &quot;DNU-&quot;),
+  BEGINS(Product2.ProductCode, &quot;NFS-&quot;),
+  BEGINS(Product2.Name, &quot;DNU&quot;),
+  BEGINS(Product2.Name, &quot;NFS&quot;),
+  BEGINS(Product2.Name, &quot;Legacy&quot;)
+)</errorConditionFormula>
+    <errorMessage>Product marked as DNU, NFS, or Legacy. Please select a different product.</errorMessage>
+</ValidationRule>

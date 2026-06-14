@@ -15,12 +15,13 @@ public without sharing class caseSurveyHeaderController {
 	public static caseRecordWrapper getCaseDetails(String caseId){
 		caseRecordWrapper caseRecord = new caseRecordWrapper();
 		if(caseId != null && caseId != '' ){
-			List<Case> caseList = [Select CaseNumber, contact.Name, Assigned_Analyst__c, Account.Name,  subject FROM Case where Id =:caseId ];
+			List<Case> caseList = [Select CaseNumber, contact.Name, Assigned_Analyst__c, Account.Name,Survey_Completed__c,  subject FROM Case where Id =:caseId ];
 			caseRecord.contactName = caseList[0].contact.Name;
 			caseRecord.accountName = caseList[0].Account.Name;
 			caseRecord.ownerName = caseList[0].Assigned_Analyst__c;
 			caseRecord.CaseNumber = caseList[0].CaseNumber;
 			caseRecord.subject = caseList[0].subject;
+			caseRecord.surveyCom =  caseList[0].Survey_Completed__c;
 
 			List<SurveySubject> getLatestSubject = [SELECT Id, ParentId FROM SurveySubject  WHERE SubjectId =:caseId AND Parent.Type = 'SurveyInvitation' ORDER BY CreatedDate desc LIMIT 1];
 			
@@ -40,5 +41,6 @@ public without sharing class caseSurveyHeaderController {
         @AuraEnabled public String CaseNumber {get;set;}
         @AuraEnabled public String subject {get;set;}
 		@AuraEnabled public String surveyURL{get;set;}
+		@AuraEnabled public Boolean surveyCom {get;set;}
     }
 }

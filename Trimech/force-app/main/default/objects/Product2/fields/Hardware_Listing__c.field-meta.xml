@@ -1,0 +1,830 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Hardware_Listing__c</fullName>
+    <label>Hardware Listing</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>3-Matic</fullName>
+                <default>false</default>
+                <label>3-Matic</label>
+            </value>
+            <value>
+                <fullName>Advanced</fullName>
+                <default>false</default>
+                <label>Advanced</label>
+            </value>
+            <value>
+                <fullName>Alaris (Legacy)</fullName>
+                <default>false</default>
+                <label>Alaris (Legacy)</label>
+            </value>
+            <value>
+                <fullName>Artec Eva</fullName>
+                <default>false</default>
+                <label>Artec Eva</label>
+            </value>
+            <value>
+                <fullName>Artec Eva lite</fullName>
+                <default>false</default>
+                <label>Artec Eva lite</label>
+            </value>
+            <value>
+                <fullName>Artec Leo</fullName>
+                <default>false</default>
+                <label>Artec Leo</label>
+            </value>
+            <value>
+                <fullName>Artec Metrology Kit Entry</fullName>
+                <default>false</default>
+                <label>Artec Metrology Kit Entry</label>
+            </value>
+            <value>
+                <fullName>Artec Metrology Kit Professional</fullName>
+                <default>false</default>
+                <label>Artec Metrology Kit Professional</label>
+            </value>
+            <value>
+                <fullName>Artec Micro II</fullName>
+                <default>false</default>
+                <label>Artec Micro II</label>
+            </value>
+            <value>
+                <fullName>Artec Point</fullName>
+                <default>false</default>
+                <label>Artec Point</label>
+            </value>
+            <value>
+                <fullName>Artec RAY II</fullName>
+                <default>false</default>
+                <label>Artec RAY II</label>
+            </value>
+            <value>
+                <fullName>Artec Space Spider Scanner</fullName>
+                <default>false</default>
+                <label>Artec Space Spider Scanner</label>
+            </value>
+            <value>
+                <fullName>Artec Spider II</fullName>
+                <default>false</default>
+                <label>Artec Spider II</label>
+            </value>
+            <value>
+                <fullName>Artec Studio</fullName>
+                <default>false</default>
+                <label>Artec Studio</label>
+            </value>
+            <value>
+                <fullName>BASE</fullName>
+                <default>false</default>
+                <label>BASE</label>
+            </value>
+            <value>
+                <fullName>CENTI</fullName>
+                <default>false</default>
+                <label>CENTI</label>
+            </value>
+            <value>
+                <fullName>CleanPoint</fullName>
+                <default>false</default>
+                <label>CleanPoint</label>
+            </value>
+            <value>
+                <fullName>Connex 260 (Legacy)</fullName>
+                <default>false</default>
+                <label>Connex 260 (Legacy)</label>
+            </value>
+            <value>
+                <fullName>Connex 500 (Legacy)</fullName>
+                <default>false</default>
+                <label>Connex 500 (Legacy)</label>
+            </value>
+            <value>
+                <fullName>Demi 200 (Legacy)</fullName>
+                <default>false</default>
+                <label>Demi 200 (Legacy)</label>
+            </value>
+            <value>
+                <fullName>Demi 4000 (Legacy)</fullName>
+                <default>false</default>
+                <label>Demi 4000 (Legacy)</label>
+            </value>
+            <value>
+                <fullName>DEMI 4100</fullName>
+                <default>false</default>
+                <label>DEMI 4100</label>
+            </value>
+            <value>
+                <fullName>Demi 430</fullName>
+                <default>false</default>
+                <label>Demi 430</label>
+            </value>
+            <value>
+                <fullName>Demi 830 120V</fullName>
+                <default>false</default>
+                <label>Demi 830 120V</label>
+            </value>
+            <value>
+                <fullName>Demi 830 240V</fullName>
+                <default>false</default>
+                <label>Demi 830 240V</label>
+            </value>
+            <value>
+                <fullName>DEMI UHP1</fullName>
+                <default>false</default>
+                <label>DEMI UHP1</label>
+            </value>
+            <value>
+                <fullName>DEMI-X 520</fullName>
+                <default>false</default>
+                <label>DEMI-X 520</label>
+            </value>
+            <value>
+                <fullName>Desktop Metal (Legacy)</fullName>
+                <default>false</default>
+                <label>Desktop Metal (Legacy)</label>
+            </value>
+            <value>
+                <fullName>Dimension (Legacy)</fullName>
+                <default>false</default>
+                <label>Dimension (Legacy)</label>
+            </value>
+            <value>
+                <fullName>Dimension 1200 (Legacy)</fullName>
+                <default>false</default>
+                <label>Dimension 1200 (Legacy)</label>
+            </value>
+            <value>
+                <fullName>Dimension 1200esBST (Legacy)</fullName>
+                <default>false</default>
+                <label>Dimension 1200esBST (Legacy)</label>
+            </value>
+            <value>
+                <fullName>Dimension 1200esSST (Legacy)</fullName>
+                <default>false</default>
+                <label>Dimension 1200esSST (Legacy)</label>
+            </value>
+            <value>
+                <fullName>Dimension 768 (Legacy)</fullName>
+                <default>false</default>
+                <label>Dimension 768 (Legacy)</label>
+            </value>
+            <value>
+                <fullName>Dimension Elite (Legacy)</fullName>
+                <default>false</default>
+                <label>Dimension Elite (Legacy)</label>
+            </value>
+            <value>
+                <fullName>DM60</fullName>
+                <default>false</default>
+                <label>DM60</label>
+            </value>
+            <value>
+                <fullName>Eden (Legacy)</fullName>
+                <default>false</default>
+                <label>Eden (Legacy)</label>
+            </value>
+            <value>
+                <fullName>ExOne (Legacy)</fullName>
+                <default>false</default>
+                <label>ExOne (Legacy)</label>
+            </value>
+            <value>
+                <fullName>F120</fullName>
+                <default>false</default>
+                <label>F120</label>
+            </value>
+            <value>
+                <fullName>F120 (Legacy)</fullName>
+                <default>false</default>
+                <label>F120 (Legacy)</label>
+            </value>
+            <value>
+                <fullName>F170</fullName>
+                <default>false</default>
+                <label>F170</label>
+            </value>
+            <value>
+                <fullName>F170 (Legacy)</fullName>
+                <default>false</default>
+                <label>F170 (Legacy)</label>
+            </value>
+            <value>
+                <fullName>F190CR</fullName>
+                <default>false</default>
+                <label>F190CR</label>
+            </value>
+            <value>
+                <fullName>F270 (Legacy)</fullName>
+                <default>false</default>
+                <label>F270 (Legacy)</label>
+            </value>
+            <value>
+                <fullName>F3300</fullName>
+                <default>false</default>
+                <label>F3300</label>
+            </value>
+            <value>
+                <fullName>F370</fullName>
+                <default>false</default>
+                <label>F370</label>
+            </value>
+            <value>
+                <fullName>F370CR</fullName>
+                <default>false</default>
+                <label>F370CR</label>
+            </value>
+            <value>
+                <fullName>F770</fullName>
+                <default>false</default>
+                <label>F770</label>
+            </value>
+            <value>
+                <fullName>Form 2 (Legacy)</fullName>
+                <default>false</default>
+                <label>Form 2 (Legacy)</label>
+            </value>
+            <value>
+                <fullName>Form 3</fullName>
+                <default>false</default>
+                <label>Form 3</label>
+            </value>
+            <value>
+                <fullName>Form 3+</fullName>
+                <default>false</default>
+                <label>Form 3+</label>
+            </value>
+            <value>
+                <fullName>Form 3B</fullName>
+                <default>false</default>
+                <label>Form 3B</label>
+            </value>
+            <value>
+                <fullName>Form 3B+</fullName>
+                <default>false</default>
+                <label>Form 3B+</label>
+            </value>
+            <value>
+                <fullName>Form 3BL</fullName>
+                <default>false</default>
+                <label>Form 3BL</label>
+            </value>
+            <value>
+                <fullName>Form 3L</fullName>
+                <default>false</default>
+                <label>Form 3L</label>
+            </value>
+            <value>
+                <fullName>Form 4</fullName>
+                <default>false</default>
+                <label>Form 4</label>
+            </value>
+            <value>
+                <fullName>Form 4B</fullName>
+                <default>false</default>
+                <label>Form 4B</label>
+            </value>
+            <value>
+                <fullName>Form 4 Basic</fullName>
+                <default>false</default>
+                <label>Form 4 Basic</label>
+            </value>
+            <value>
+                <fullName>Form 4B Medical</fullName>
+                <default>false</default>
+                <label>Form 4B Medical</label>
+            </value>
+            <value>
+                <fullName>Form Auto</fullName>
+                <default>false</default>
+                <label>Form Auto</label>
+            </value>
+            <value>
+                <fullName>Form Cure</fullName>
+                <default>false</default>
+                <label>Form Cure</label>
+            </value>
+            <value>
+                <fullName>Form Wash</fullName>
+                <default>false</default>
+                <label>Form Wash</label>
+            </value>
+            <value>
+                <fullName>Form Wash L</fullName>
+                <default>false</default>
+                <label>Form Wash L</label>
+            </value>
+            <value>
+                <fullName>Forti</fullName>
+                <default>false</default>
+                <label>Forti</label>
+            </value>
+            <value>
+                <fullName>Fortus 250 (Legacy)</fullName>
+                <default>false</default>
+                <label>Fortus 250 (Legacy)</label>
+            </value>
+            <value>
+                <fullName>Fortus 360 (Legacy)</fullName>
+                <default>false</default>
+                <label>Fortus 360 (Legacy)</label>
+            </value>
+            <value>
+                <fullName>Fortus 380 (Legacy)</fullName>
+                <default>false</default>
+                <label>Fortus 380 (Legacy)</label>
+            </value>
+            <value>
+                <fullName>Fortus 380mc (Legacy)</fullName>
+                <default>false</default>
+                <label>Fortus 380mc (Legacy)</label>
+            </value>
+            <value>
+                <fullName>Fortus 400 (Legacy)</fullName>
+                <default>false</default>
+                <label>Fortus 400 (Legacy)</label>
+            </value>
+            <value>
+                <fullName>Fortus 400mc</fullName>
+                <default>false</default>
+                <label>Fortus 400mc</label>
+            </value>
+            <value>
+                <fullName>Fortus 450</fullName>
+                <default>false</default>
+                <label>Fortus 450</label>
+            </value>
+            <value>
+                <fullName>Fortus 450 (Legacy)</fullName>
+                <default>false</default>
+                <label>Fortus 450 (Legacy)</label>
+            </value>
+            <value>
+                <fullName>Fortus 900</fullName>
+                <default>false</default>
+                <label>Fortus 900</label>
+            </value>
+            <value>
+                <fullName>Fortus 900 (Legacy)</fullName>
+                <default>false</default>
+                <label>Fortus 900 (Legacy)</label>
+            </value>
+            <value>
+                <fullName>Fortus Smoothing Station (Legacy)</fullName>
+                <default>false</default>
+                <label>Fortus Smoothing Station (Legacy)</label>
+            </value>
+            <value>
+                <fullName>Fuse 1</fullName>
+                <default>false</default>
+                <label>Fuse 1</label>
+            </value>
+            <value>
+                <fullName>Fuse 1+</fullName>
+                <default>false</default>
+                <label>Fuse 1+</label>
+            </value>
+            <value>
+                <fullName>Fuse Blast</fullName>
+                <default>false</default>
+                <label>Fuse Blast</label>
+            </value>
+            <value>
+                <fullName>Fuse Sift</fullName>
+                <default>false</default>
+                <label>Fuse Sift</label>
+            </value>
+            <value>
+                <fullName>Geomagic</fullName>
+                <default>false</default>
+                <label>Geomagic</label>
+            </value>
+            <value>
+                <fullName>Grab Cad Print</fullName>
+                <default>false</default>
+                <label>Grab Cad Print</label>
+            </value>
+            <value>
+                <fullName>Grab Cad Print Pro</fullName>
+                <default>false</default>
+                <label>Grab Cad Print Pro</label>
+            </value>
+            <value>
+                <fullName>Grab Cad Shop</fullName>
+                <default>false</default>
+                <label>Grab Cad Shop</label>
+            </value>
+            <value>
+                <fullName>H350</fullName>
+                <default>false</default>
+                <label>H350</label>
+            </value>
+            <value>
+                <fullName>J35 Pro</fullName>
+                <default>false</default>
+                <label>J35 Pro</label>
+            </value>
+            <value>
+                <fullName>J55</fullName>
+                <default>false</default>
+                <label>J55</label>
+            </value>
+            <value>
+                <fullName>J5 Dentajet</fullName>
+                <default>false</default>
+                <label>J5 Dentajet</label>
+            </value>
+            <value>
+                <fullName>J5 Digital</fullName>
+                <default>false</default>
+                <label>J5 Digital</label>
+            </value>
+            <value>
+                <fullName>J5 Medijet</fullName>
+                <default>false</default>
+                <label>J5 Medijet</label>
+            </value>
+            <value>
+                <fullName>J735</fullName>
+                <default>false</default>
+                <label>J735</label>
+            </value>
+            <value>
+                <fullName>J735 (Legacy)</fullName>
+                <default>false</default>
+                <label>J735 (Legacy)</label>
+            </value>
+            <value>
+                <fullName>J750</fullName>
+                <default>false</default>
+                <label>J750</label>
+            </value>
+            <value>
+                <fullName>J750 (Legacy)</fullName>
+                <default>false</default>
+                <label>J750 (Legacy)</label>
+            </value>
+            <value>
+                <fullName>J826</fullName>
+                <default>false</default>
+                <label>J826</label>
+            </value>
+            <value>
+                <fullName>J835 (Legacy)</fullName>
+                <default>false</default>
+                <label>J835 (Legacy)</label>
+            </value>
+            <value>
+                <fullName>J850</fullName>
+                <default>false</default>
+                <label>J850</label>
+            </value>
+            <value>
+                <fullName>J850 (Legacy)</fullName>
+                <default>false</default>
+                <label>J850 (Legacy)</label>
+            </value>
+            <value>
+                <fullName>J855 (Legacy)</fullName>
+                <default>false</default>
+                <label>J855 (Legacy)</label>
+            </value>
+            <value>
+                <fullName>Magics</fullName>
+                <default>false</default>
+                <label>Magics</label>
+            </value>
+            <value>
+                <fullName>Makerbot (Legacy)</fullName>
+                <default>false</default>
+                <label>Makerbot (Legacy)</label>
+            </value>
+            <value>
+                <fullName>Micro (Legacy)</fullName>
+                <default>false</default>
+                <label>Micro (Legacy)</label>
+            </value>
+            <value>
+                <fullName>Mini (Legacy)</fullName>
+                <default>false</default>
+                <label>Mini (Legacy)</label>
+            </value>
+            <value>
+                <fullName>Mojo (Legacy)</fullName>
+                <default>false</default>
+                <label>Mojo (Legacy)</label>
+            </value>
+            <value>
+                <fullName>Mprint</fullName>
+                <default>false</default>
+                <label>Mprint</label>
+            </value>
+            <value>
+                <fullName>MPure</fullName>
+                <default>false</default>
+                <label>MPure</label>
+            </value>
+            <value>
+                <fullName>NanoDimensions (Legacy)</fullName>
+                <default>false</default>
+                <label>NanoDimensions (Legacy)</label>
+            </value>
+            <value>
+                <fullName>Neo450</fullName>
+                <default>false</default>
+                <label>Neo450</label>
+            </value>
+            <value>
+                <fullName>Neo800</fullName>
+                <default>false</default>
+                <label>Neo800</label>
+            </value>
+            <value>
+                <fullName>Objet 1000 (Legacy)</fullName>
+                <default>false</default>
+                <label>Objet 1000 (Legacy)</label>
+            </value>
+            <value>
+                <fullName>Objet 24 (Legacy)</fullName>
+                <default>false</default>
+                <label>Objet 24 (Legacy)</label>
+            </value>
+            <value>
+                <fullName>Objet 260 (Legacy)</fullName>
+                <default>false</default>
+                <label>Objet 260 (Legacy)</label>
+            </value>
+            <value>
+                <fullName>Objet 260 Connex 1 (Legacy)</fullName>
+                <default>false</default>
+                <label>Objet 260 Connex 1 (Legacy)</label>
+            </value>
+            <value>
+                <fullName>Objet 260 Connex 3 (Legacy)</fullName>
+                <default>false</default>
+                <label>Objet 260 Connex 3 (Legacy)</label>
+            </value>
+            <value>
+                <fullName>Objet 30 (Legacy)</fullName>
+                <default>false</default>
+                <label>Objet 30 (Legacy)</label>
+            </value>
+            <value>
+                <fullName>Objet 350 Connex 3 (Legacy)</fullName>
+                <default>false</default>
+                <label>Objet 350 Connex 3 (Legacy)</label>
+            </value>
+            <value>
+                <fullName>Objet 500 Connex 1 (Legacy)</fullName>
+                <default>false</default>
+                <label>Objet 500 Connex 1 (Legacy)</label>
+            </value>
+            <value>
+                <fullName>Objet 500 Connex 2 (Legacy)</fullName>
+                <default>false</default>
+                <label>Objet 500 Connex 2 (Legacy)</label>
+            </value>
+            <value>
+                <fullName>Objet 500 Connex 3 (Legacy)</fullName>
+                <default>false</default>
+                <label>Objet 500 Connex 3 (Legacy)</label>
+            </value>
+            <value>
+                <fullName>Objet Connex 350 (Legacy)</fullName>
+                <default>false</default>
+                <label>Objet Connex 350 (Legacy)</label>
+            </value>
+            <value>
+                <fullName>Origin One</fullName>
+                <default>false</default>
+                <label>Origin One</label>
+            </value>
+            <value>
+                <fullName>Origin One (Legacy)</fullName>
+                <default>false</default>
+                <label>Origin One (Legacy)</label>
+            </value>
+            <value>
+                <fullName>Origin Two</fullName>
+                <default>false</default>
+                <label>Origin Two</label>
+            </value>
+            <value>
+                <fullName>Photobleaching</fullName>
+                <default>false</default>
+                <label>Photobleaching</label>
+            </value>
+            <value>
+                <fullName>Powerfuse S (Legacy)</fullName>
+                <default>false</default>
+                <label>Powerfuse S (Legacy)</label>
+            </value>
+            <value>
+                <fullName>Powershot C</fullName>
+                <default>false</default>
+                <label>Powershot C</label>
+            </value>
+            <value>
+                <fullName>Powershot Dual</fullName>
+                <default>false</default>
+                <label>Powershot Dual</label>
+            </value>
+            <value>
+                <fullName>Powershot S (Legacy)</fullName>
+                <default>false</default>
+                <label>Powershot S (Legacy)</label>
+            </value>
+            <value>
+                <fullName>Powershot X</fullName>
+                <default>false</default>
+                <label>Powershot X</label>
+            </value>
+            <value>
+                <fullName>Prosurface</fullName>
+                <default>false</default>
+                <label>Prosurface</label>
+            </value>
+            <value>
+                <fullName>Rador</fullName>
+                <default>false</default>
+                <label>Rador</label>
+            </value>
+            <value>
+                <fullName>Ray (Legacy)</fullName>
+                <default>false</default>
+                <label>Ray (Legacy)</label>
+            </value>
+            <value>
+                <fullName>ROS</fullName>
+                <default>false</default>
+                <label>ROS</label>
+            </value>
+            <value>
+                <fullName>SpaceSpider (Legacy)</fullName>
+                <default>false</default>
+                <label>SpaceSpider (Legacy)</label>
+            </value>
+            <value>
+                <fullName>Touch</fullName>
+                <default>false</default>
+                <label>Touch</label>
+            </value>
+            <value>
+                <fullName>Touch X</fullName>
+                <default>false</default>
+                <label>Touch X</label>
+            </value>
+            <value>
+                <fullName>UPrint (Legacy)</fullName>
+                <default>false</default>
+                <label>UPrint (Legacy)</label>
+            </value>
+            <value>
+                <fullName>UPrint Plus (Legacy)</fullName>
+                <default>false</default>
+                <label>UPrint Plus (Legacy)</label>
+            </value>
+            <value>
+                <fullName>UPrintSE (Legacy)</fullName>
+                <default>false</default>
+                <label>UPrintSE (Legacy)</label>
+            </value>
+            <value>
+                <fullName>UPrintSE Plus (Legacy)</fullName>
+                <default>false</default>
+                <label>UPrintSE Plus (Legacy)</label>
+            </value>
+            <value>
+                <fullName>V650 (Legacy)</fullName>
+                <default>false</default>
+                <label>V650 (Legacy)</label>
+            </value>
+            <value>
+                <fullName>Vorsa 500</fullName>
+                <default>false</default>
+                <label>Vorsa 500</label>
+            </value>
+            <value>
+                <fullName>W7500</fullName>
+                <default>false</default>
+                <label>W7500</label>
+            </value>
+            <value>
+                <fullName>W7500+</fullName>
+                <default>false</default>
+                <label>W7500+</label>
+            </value>
+            <value>
+                <fullName>W7500-C (Legacy)</fullName>
+                <default>false</default>
+                <label>W7500-C (Legacy)</label>
+            </value>
+            <value>
+                <fullName>W7500-C Certified (Legacy)</fullName>
+                <default>false</default>
+                <label>W7500-C Certified (Legacy)</label>
+            </value>
+            <value>
+                <fullName>Waterjet System</fullName>
+                <default>false</default>
+                <label>Waterjet System</label>
+            </value>
+            <value>
+                <fullName>Wazer Desktop</fullName>
+                <default>false</default>
+                <label>Wazer Desktop</label>
+            </value>
+            <value>
+                <fullName>Wazer Starter Bundle</fullName>
+                <default>false</default>
+                <label>Wazer Starter Bundle</label>
+            </value>
+            <value>
+                <fullName>Wrap Prime</fullName>
+                <default>false</default>
+                <label>Wrap Prime</label>
+            </value>
+            <value>
+                <fullName>Wrap Pro</fullName>
+                <default>false</default>
+                <label>Wrap Pro</label>
+            </value>
+            <value>
+                <fullName>XactMetal (Legacy)</fullName>
+                <default>false</default>
+                <label>XactMetal (Legacy)</label>
+            </value>
+            <value>
+                <fullName>Z18 (Legacy)</fullName>
+                <default>false</default>
+                <label>Z18 (Legacy)</label>
+            </value>
+            <value>
+                <fullName>Zeiss</fullName>
+                <default>false</default>
+                <label>Zeiss</label>
+            </value>
+            <value>
+                <fullName>Zeiss (Legacy)</fullName>
+                <default>false</default>
+                <label>Zeiss (Legacy)</label>
+            </value>
+            <value>
+                <fullName>Zeiss ATOS Q</fullName>
+                <default>false</default>
+                <label>Zeiss ATOS Q</label>
+            </value>
+            <value>
+                <fullName>Zeiss Desktop</fullName>
+                <default>false</default>
+                <label>Zeiss Desktop</label>
+            </value>
+            <value>
+                <fullName>Zeiss GOM Scan 1</fullName>
+                <default>false</default>
+                <label>Zeiss GOM Scan 1</label>
+            </value>
+            <value>
+                <fullName>Zeiss Laptop</fullName>
+                <default>false</default>
+                <label>Zeiss Laptop</label>
+            </value>
+            <value>
+                <fullName>Zeiss TRITOP</fullName>
+                <default>false</default>
+                <label>Zeiss TRITOP</label>
+            </value>
+            <value>
+                <fullName>Zeiss T-Scan hawk II</fullName>
+                <default>false</default>
+                <label>Zeiss T-Scan hawk II</label>
+            </value>
+            <value>
+                <fullName>Zeiss T-Scan hawk II Lite</fullName>
+                <default>false</default>
+                <label>Zeiss T-Scan hawk II Lite</label>
+            </value>
+            <value>
+                <fullName>Streamline</fullName>
+                <default>false</default>
+                <label>Streamline</label>
+            </value>
+            <value>
+                <fullName>Grab CAD Print Anatomy</fullName>
+                <default>false</default>
+                <label>Grab CAD Print Anatomy</label>
+            </value>
+            <value>
+                <fullName>Eden (Legacy</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Eden (Legacy</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -3,10 +3,11 @@
     <actionCalls>
         <name>Call_Batch_Apex</name>
         <label>Call Batch Apex</label>
-        <locationX>402</locationX>
-        <locationY>1298</locationY>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
         <actionName>RecreateAccountTerritoriesInvocable</actionName>
         <actionType>apex</actionType>
+        <flowTransactionModel>Automatic</flowTransactionModel>
         <inputParameters>
             <name>taList</name>
             <value>
@@ -19,12 +20,16 @@
                 <elementReference>Select_User</elementReference>
             </value>
         </inputParameters>
+        <nameSegment>RecreateAccountTerritoriesInvocable</nameSegment>
+        <offset>0</offset>
     </actionCalls>
+    <apiVersion>64.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
     <assignments>
         <name>Add_Current_Item_to_Record_Collection_for_Updates</name>
         <label>Add Current Item to Record Collection for Updates</label>
-        <locationX>490</locationX>
-        <locationY>890</locationY>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
         <assignmentItems>
             <assignToReference>recColVarAssignedUsers</assignToReference>
             <operator>Add</operator>
@@ -39,8 +44,8 @@
     <assignments>
         <name>Assign_Selected_User_to_Collection</name>
         <label>Assign Selected User to Collection</label>
-        <locationX>402</locationX>
-        <locationY>1190</locationY>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
         <assignmentItems>
             <assignToReference>SelectedUsers</assignToReference>
             <operator>Add</operator>
@@ -55,8 +60,8 @@
     <assignments>
         <name>Assign_the_Assigned_User_Values</name>
         <label>Assign the Assigned User Values</label>
-        <locationX>490</locationX>
-        <locationY>782</locationY>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
         <assignmentItems>
             <assignToReference>Loop_Territory_Assignments.Assigned_User__c</assignToReference>
             <operator>Assign</operator>
@@ -71,8 +76,8 @@
     <assignments>
         <name>Set_UnselectedUser_to_True</name>
         <label>Set UnselectedUser to True</label>
-        <locationX>50</locationX>
-        <locationY>674</locationY>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
         <assignmentItems>
             <assignToReference>varUnselectedUser</assignToReference>
             <operator>Assign</operator>
@@ -81,6 +86,7 @@
             </value>
         </assignmentItems>
         <connector>
+            <isGoTo>true</isGoTo>
             <targetReference>Select_Territory_Assignment_Records</targetReference>
         </connector>
     </assignments>
@@ -92,8 +98,8 @@
     <decisions>
         <name>Check_if_the_New_Assignee_is_selected_or_not</name>
         <label>Check if the New Assignee is selected or not</label>
-        <locationX>226</locationX>
-        <locationY>566</locationY>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
         <defaultConnector>
             <targetReference>Loop_Territory_Assignments</targetReference>
         </defaultConnector>
@@ -117,8 +123,8 @@
     <decisions>
         <name>Has_Territory_Assignments</name>
         <label>Has Territory Assignments</label>
-        <locationX>446</locationX>
-        <locationY>350</locationY>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
         <defaultConnector>
             <targetReference>No_Assignments</targetReference>
         </defaultConnector>
@@ -140,9 +146,10 @@
         </rules>
     </decisions>
     <dynamicChoiceSets>
-        <name>choice_uesrs_lesscurrentuser</name>
+        <name>choice_users</name>
         <dataType>String</dataType>
         <displayField>Name</displayField>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>IsActive</field>
             <operator>EqualTo</operator>
@@ -152,32 +159,30 @@
         </filters>
         <filters>
             <field>ProfileId</field>
-            <operator>EqualTo</operator>
-            <value>
-                <stringValue>00e6g000002bcra</stringValue>
-            </value>
-        </filters>
-        <filters>
-            <field>Id</field>
             <operator>NotEqualTo</operator>
             <value>
-                <elementReference>Select_User</elementReference>
+                <stringValue>00ePZ0000055PJ3</stringValue>
             </value>
         </filters>
-        <object>User</object>
-        <sortField>Name</sortField>
-        <sortOrder>Asc</sortOrder>
-        <valueField>Id</valueField>
-    </dynamicChoiceSets>
-    <dynamicChoiceSets>
-        <name>choice_users</name>
-        <dataType>String</dataType>
-        <displayField>Name</displayField>
         <filters>
-            <field>IsActive</field>
+            <field>UserType</field>
             <operator>EqualTo</operator>
             <value>
-                <booleanValue>true</booleanValue>
+                <stringValue>Standard</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Sales_Group__c</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>Others</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Sales_Group__c</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>CS-APPLICATIONS</stringValue>
             </value>
         </filters>
         <object>User</object>
@@ -185,20 +190,21 @@
         <sortOrder>Asc</sortOrder>
         <valueField>Id</valueField>
     </dynamicChoiceSets>
+    <environments>Default</environments>
     <interviewLabel>Replace Territory Assignments {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Replace Territory Assignments</label>
     <loops>
         <name>Loop_Territory_Assignments</name>
         <label>Loop Territory Assignments</label>
-        <locationX>402</locationX>
-        <locationY>674</locationY>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
         <collectionReference>selected_territory_assignments</collectionReference>
         <iterationOrder>Asc</iterationOrder>
         <nextValueConnector>
             <targetReference>Assign_the_Assigned_User_Values</targetReference>
         </nextValueConnector>
         <noMoreValuesConnector>
-            <targetReference>Update_Assigned_User</targetReference>
+            <targetReference>Update_Territory_Assignments</targetReference>
         </noMoreValuesConnector>
     </loops>
     <processMetadataValues>
@@ -223,12 +229,13 @@
     <recordLookups>
         <name>Get_Territory_Assignments</name>
         <label>Get Territory Assignments</label>
-        <locationX>446</locationX>
-        <locationY>242</locationY>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Has_Territory_Assignments</targetReference>
         </connector>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>Assigned_User__c</field>
             <operator>EqualTo</operator>
@@ -236,15 +243,17 @@
                 <elementReference>Select_User</elementReference>
             </value>
         </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
         <object>Territory_Assignment__c</object>
         <sortField>Territory_Name__c</sortField>
         <sortOrder>Asc</sortOrder>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordUpdates>
-        <name>Update_Assigned_User</name>
-        <label>Update Assigned User</label>
-        <locationX>402</locationX>
-        <locationY>1082</locationY>
+        <name>Update_Territory_Assignments</name>
+        <label>Update Territory Assignments</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
         <connector>
             <targetReference>Assign_Selected_User_to_Collection</targetReference>
         </connector>
@@ -253,18 +262,27 @@
     <screens>
         <name>No_Assignments</name>
         <label>No Assignments</label>
-        <locationX>666</locationX>
-        <locationY>458</locationY>
-        <allowBack>true</allowBack>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
-        <allowPause>true</allowPause>
+        <allowPause>false</allowPause>
         <connector>
+            <isGoTo>true</isGoTo>
             <targetReference>Select_User_to_Replace</targetReference>
         </connector>
         <fields>
             <name>no_assignments_user</name>
             <fieldText>&lt;p&gt;{!Select_User} has no territory assignments.&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <showFooter>true</showFooter>
         <showHeader>true</showHeader>
@@ -272,11 +290,11 @@
     <screens>
         <name>Select_Territory_Assignment_Records</name>
         <label>Select Territory Assignment Records</label>
-        <locationX>226</locationX>
-        <locationY>458</locationY>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
-        <allowPause>true</allowPause>
+        <allowPause>false</allowPause>
         <connector>
             <targetReference>Check_if_the_New_Assignee_is_selected_or_not</targetReference>
         </connector>
@@ -288,15 +306,46 @@
             <defaultSelectedChoiceReference>selectuser</defaultSelectedChoiceReference>
             <fieldText>New Assignee</fieldText>
             <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <fields>
             <name>ErrorMessage</name>
             <fieldText>&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); color: rgb(255, 0, 0);&quot;&gt;Please Select the New Assignee!&lt;/span&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>varUnselectedUser</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <booleanValue>true</booleanValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
         </fields>
         <fields>
             <name>TerritoryAssignmentList</name>
+            <dataTypeMappings>
+                <typeName>T</typeName>
+                <typeValue>Territory_Assignment__c</typeValue>
+            </dataTypeMappings>
             <extensionName>c:datatableV2</extensionName>
             <fieldType>ComponentInstance</fieldType>
             <inputParameters>
@@ -341,11 +390,20 @@
                     <stringValue>Territory Assignments</stringValue>
                 </value>
             </inputParameters>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
             <outputParameters>
                 <assignToReference>selected_territory_assignments</assignToReference>
                 <name>outputSelectedRows</name>
             </outputParameters>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <showFooter>true</showFooter>
         <showHeader>true</showHeader>
@@ -353,11 +411,11 @@
     <screens>
         <name>Select_User_to_Replace</name>
         <label>Select User to Replace</label>
-        <locationX>446</locationX>
-        <locationY>134</locationY>
-        <allowBack>true</allowBack>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
-        <allowPause>true</allowPause>
+        <allowPause>false</allowPause>
         <connector>
             <targetReference>Get_Territory_Assignments</targetReference>
         </connector>
@@ -369,20 +427,28 @@
             <defaultSelectedChoiceReference>selectuser</defaultSelectedChoiceReference>
             <fieldText>Select User</fieldText>
             <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <showFooter>true</showFooter>
         <showHeader>true</showHeader>
     </screens>
-    <startElementReference>Select_User_to_Replace</startElementReference>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Select_User_to_Replace</targetReference>
+        </connector>
+    </start>
     <status>Active</status>
-    <variables>
-        <name>colAccountsToRecreateTerritories</name>
-        <dataType>String</dataType>
-        <isCollection>true</isCollection>
-        <isInput>false</isInput>
-        <isOutput>false</isOutput>
-    </variables>
     <variables>
         <description>Record Collection Variable for Territory Assignment - Assigned User field</description>
         <name>recColVarAssignedUsers</name>

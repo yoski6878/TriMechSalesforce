@@ -3,7 +3,7 @@
     <fullName>ACR__c</fullName>
     <defaultValue>false</defaultValue>
     <inlineHelpText>ACR, CPE Enterprise Change of Channel or Change of VAR</inlineHelpText>
-    <label>Commissionable Renewal</label>
+    <label>ACR Commissionable Renewal</label>
     <trackFeedHistory>false</trackFeedHistory>
     <trackHistory>false</trackHistory>
     <type>Checkbox</type>

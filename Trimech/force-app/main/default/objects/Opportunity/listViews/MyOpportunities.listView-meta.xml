@@ -4,18 +4,22 @@
     <columns>OPPORTUNITY.NAME</columns>
     <columns>ACCOUNT.NAME</columns>
     <columns>OPPORTUNITY.RECORDTYPE</columns>
-    <columns>OPPORTUNITY.AMOUNT</columns>
+    <columns>Gross_Profit__c</columns>
     <columns>OPPORTUNITY.CLOSE_DATE</columns>
     <columns>OPPORTUNITY.STAGE_NAME</columns>
     <columns>OPPORTUNITY.PROBABILITY</columns>
     <columns>OPPORTUNITY.TYPE</columns>
-    <columns>OPPORTUNITY.LEAD_SOURCE</columns>
     <columns>CORE.USERS.FULL_NAME</columns>
     <filterScope>Team</filterScope>
     <filters>
+        <field>OPPORTUNITY.CLOSE_DATE</field>
+        <operation>equals</operation>
+        <value>THIS_YEAR</value>
+    </filters>
+    <filters>
         <field>OPPORTUNITY.STAGE_NAME</field>
-        <operation>notEqual</operation>
-        <value>Disqualified,Send to Order Management,Closed Won,Closed Lost</value>
+        <operation>equals</operation>
+        <value>New,Neglected,In Progress,Qualified,Surface Pain / Discovery,&quot;Pain, Budget, Decision&quot;,Decision Made,PO in Process,Order Issue</value>
     </filters>
     <label>My Leads/Opportunities</label>
 </ListView>

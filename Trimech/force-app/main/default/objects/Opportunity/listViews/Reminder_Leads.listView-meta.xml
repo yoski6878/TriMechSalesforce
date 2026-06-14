@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Reminder_Leads</fullName>
+    <columns>OPPORTUNITY.NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>OPPORTUNITY.STAGE_NAME</columns>
+    <columns>OPPORTUNITY.CLOSE_DATE</columns>
+    <columns>OPPORTUNITY.AMOUNT</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>Primary_Contact__c</columns>
+    <columns>Primary_Contact_Email__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Lead_Product_Category_on_Opp__c</field>
+        <operation>equals</operation>
+        <value>Product Development</value>
+    </filters>
+    <filters>
+        <field>Trigger_NDA_Reminder_Emails__c</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <label>Reminder Leads</label>
+</ListView>

@@ -3,15 +3,6 @@
     <fullName>SolidProfessor_Contact__c</fullName>
     <deleteConstraint>SetNull</deleteConstraint>
     <label>SolidProfessor Contact</label>
-    <lookupFilter>
-        <active>false</active>
-        <filterItems>
-            <field>Contact.AccountId</field>
-            <operation>equals</operation>
-            <valueField>$Source.AccountId</valueField>
-        </filterItems>
-        <isOptional>true</isOptional>
-    </lookupFilter>
     <referenceTo>Contact</referenceTo>
     <relationshipLabel>Leads/Opportunities (SolidProfessor Contact)</relationshipLabel>
     <relationshipName>Leads_Opportunities</relationshipName>

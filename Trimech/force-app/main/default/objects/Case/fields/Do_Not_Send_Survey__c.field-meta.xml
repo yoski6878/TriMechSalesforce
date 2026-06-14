@@ -3,8 +3,8 @@
     <fullName>Do_Not_Send_Survey__c</fullName>
     <defaultValue>false</defaultValue>
     <label>Do Not Send Survey</label>
-    <trackFeedHistory>true</trackFeedHistory>
-    <trackHistory>false</trackHistory>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
     <trackTrending>false</trackTrending>
     <type>Checkbox</type>
 </CustomField>

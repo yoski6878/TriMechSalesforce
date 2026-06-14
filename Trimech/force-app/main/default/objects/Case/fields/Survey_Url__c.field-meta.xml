@@ -3,7 +3,7 @@
     <fullName>Survey_Url__c</fullName>
     <description>Contains Survey Url</description>
     <externalId>false</externalId>
-    <formula>&apos;https://trimech12345.my.site.com/Support/s/trimech-support-satisfaction-survey?caseId=&apos; + Id</formula>
+    <formula>&apos;https://trimech12345--uat.sandbox.my.site.com/Support/s/trimech-support-satisfaction-survey?caseId=&apos; + Id</formula>
     <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
     <label>Survey Url</label>
     <required>false</required>

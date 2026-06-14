@@ -7,10 +7,11 @@
         <locationY>1958</locationY>
         <actionName>LeadConvertInvocable</actionName>
         <actionType>apex</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
         <inputParameters>
             <name>batchSize</name>
             <value>
-                <numberValue>25.0</numberValue>
+                <elementReference>BatchSize</elementReference>
             </value>
         </inputParameters>
         <inputParameters>
@@ -25,6 +26,8 @@
                 <elementReference>vLeadsToConvert</elementReference>
             </value>
         </inputParameters>
+        <nameSegment>LeadConvertInvocable</nameSegment>
+        <offset>0</offset>
         <outputParameters>
             <assignToReference>vBatchErrorMessage</assignToReference>
             <name>errorMessage</name>
@@ -34,6 +37,8 @@
             <name>leadBatched</name>
         </outputParameters>
     </actionCalls>
+    <apiVersion>54.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
     <assignments>
         <name>Assign_Lead_to_Conversion_Collection</name>
         <label>Assign Lead to Conversion Collection</label>
@@ -151,6 +156,27 @@
             <targetReference>Assign_Updated_Lead_to_Update_Collection</targetReference>
         </connector>
     </assignments>
+    <collectionProcessors>
+        <name>Filter_Pardot_Lead_Assignment</name>
+        <elementSubtype>FilterCollectionProcessor</elementSubtype>
+        <label>Filter Pardot Lead Assignment</label>
+        <locationX>490</locationX>
+        <locationY>458</locationY>
+        <assignNextValueToReference>currentItem_Filter_Pardot_Lead_Assignment_0</assignNextValueToReference>
+        <collectionProcessorType>FilterCollectionProcessor</collectionProcessorType>
+        <collectionReference>Get_Pardot_Lead_Assignments</collectionReference>
+        <conditionLogic>and</conditionLogic>
+        <conditions>
+            <leftValueReference>currentItem_Filter_Pardot_Lead_Assignment_0.Name</leftValueReference>
+            <operator>EqualTo</operator>
+            <rightValue>
+                <elementReference>Loop_Leads.Lead_Product_Category__c</elementReference>
+            </rightValue>
+        </conditions>
+        <connector>
+            <targetReference>Matching_PLA_Found</targetReference>
+        </connector>
+    </collectionProcessors>
     <decisions>
         <name>Check_if_UQL_Lead</name>
         <label>Check if UQL Lead</label>
@@ -320,6 +346,13 @@
         </rules>
     </decisions>
     <description>Updated to send collection of Leads to batch Apex for conversion rather than one by one.</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>BatchSize</name>
+        <dataType>Number</dataType>
+        <expression>VALUE({!$Label.Lead_Conversion_Batch_Size})</expression>
+        <scale>2</scale>
+    </formulas>
     <interviewLabel>Pardot Lead Conversion Sub-Routine {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Pardot Lead Conversion Sub-Routine</label>
     <loops>
@@ -378,7 +411,9 @@
         <connector>
             <targetReference>Loop_Leads</targetReference>
         </connector>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
         <object>Pardot_Lead_Assignment__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordUpdates>
         <name>Update_Leads</name>
@@ -390,7 +425,14 @@
         </connector>
         <inputReference>vLeadsToUpdate</inputReference>
     </recordUpdates>
-    <startElementReference>Get_Pardot_Lead_Assignments</startElementReference>
+    <runInMode>SystemModeWithoutSharing</runInMode>
+    <start>
+        <locationX>56</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Pardot_Lead_Assignments</targetReference>
+        </connector>
+    </start>
     <status>Active</status>
     <variables>
         <name>currentItem_Filter_Pardot_Lead_Assignment_0</name>

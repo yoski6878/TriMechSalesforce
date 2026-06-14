@@ -11,6 +11,11 @@
         <valueSetDefinition>
             <sorted>false</sorted>
             <value>
+                <fullName>Enterprise</fullName>
+                <default>false</default>
+                <label>Enterprise</label>
+            </value>
+            <value>
                 <fullName>Inside</fullName>
                 <default>false</default>
                 <label>Inside</label>
@@ -21,11 +26,6 @@
                 <label>Outside</label>
             </value>
             <value>
-                <fullName>Specialty</fullName>
-                <default>false</default>
-                <label>Specialty</label>
-            </value>
-            <value>
                 <fullName>Software</fullName>
                 <default>false</default>
                 <label>Software</label>
@@ -34,6 +34,11 @@
                 <fullName>SolidCAM</fullName>
                 <default>false</default>
                 <label>SolidCAM</label>
+            </value>
+            <value>
+                <fullName>Specialty</fullName>
+                <default>false</default>
+                <label>Specialty</label>
             </value>
         </valueSetDefinition>
         <valueSettings>
@@ -48,6 +53,10 @@
             <controllingFieldValue>Hardware</controllingFieldValue>
             <controllingFieldValue>Software</controllingFieldValue>
             <valueName>Specialty</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Software</controllingFieldValue>
+            <valueName>Enterprise</valueName>
         </valueSettings>
         <valueSettings>
             <controllingFieldValue>Software</controllingFieldValue>

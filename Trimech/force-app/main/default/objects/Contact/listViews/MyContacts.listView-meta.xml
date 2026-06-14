@@ -1,12 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ListView xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>MyContacts</fullName>
+    <booleanFilter>1 OR 2 OR 3 OR 4 OR 5</booleanFilter>
     <columns>FULL_NAME</columns>
     <columns>ACCOUNT.NAME</columns>
     <columns>CONTACT.TITLE</columns>
     <columns>CONTACT.PHONE1</columns>
     <columns>CONTACT.EMAIL</columns>
     <columns>CORE.USERS.ALIAS</columns>
-    <filterScope>Mine</filterScope>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Account.Hardware_Sales_Person__c</field>
+        <operation>equals</operation>
+        <value>$USER</value>
+    </filters>
+    <filters>
+        <field>Account.Software_Sales_Person__c</field>
+        <operation>equals</operation>
+        <value>$USER</value>
+    </filters>
+    <filters>
+        <field>Account.SolidCAM_Sales_Person__c</field>
+        <operation>equals</operation>
+        <value>$USER</value>
+    </filters>
+    <filters>
+        <field>Account.Sales_Rep_Hardware_Inside__c</field>
+        <operation>equals</operation>
+        <value>$USER</value>
+    </filters>
+    <filters>
+        <field>Account.Enterprise_Sales_Person__c</field>
+        <operation>equals</operation>
+        <value>$USER</value>
+    </filters>
     <label>My Contacts</label>
 </ListView>

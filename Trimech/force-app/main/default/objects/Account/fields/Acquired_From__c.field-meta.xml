@@ -7,13 +7,12 @@
     <trackHistory>false</trackHistory>
     <type>Picklist</type>
     <valueSet>
-        <restricted>true</restricted>
         <valueSetDefinition>
             <sorted>false</sorted>
             <value>
-                <fullName>Javelin</fullName>
+                <fullName>CADD Edge</fullName>
                 <default>false</default>
-                <label>Javelin</label>
+                <label>CADD Edge</label>
             </value>
             <value>
                 <fullName>CAPINC</fullName>
@@ -21,9 +20,9 @@
                 <label>CAPINC</label>
             </value>
             <value>
-                <fullName>CADD Edge</fullName>
+                <fullName>Compumachine</fullName>
                 <default>false</default>
-                <label>CADD Edge</label>
+                <label>Compumachine</label>
             </value>
             <value>
                 <fullName>InterPRO</fullName>
@@ -31,14 +30,19 @@
                 <label>InterPRO</label>
             </value>
             <value>
-                <fullName>Compumachine</fullName>
+                <fullName>Javelin</fullName>
                 <default>false</default>
-                <label>Compumachine</label>
+                <label>Javelin</label>
             </value>
             <value>
                 <fullName>Macdac</fullName>
                 <default>false</default>
                 <label>Macdac</label>
+            </value>
+            <value>
+                <fullName>Mako</fullName>
+                <default>false</default>
+                <label>Mako</label>
             </value>
         </valueSetDefinition>
     </valueSet>

@@ -4,20 +4,26 @@
     <formula>IF(Product_Item_Type__c = &apos;Other Charge&apos;, UnitPrice, 
   IF(Product_Item_Type__c = &apos;Discount&apos;, 
     (UnitPrice - (UnitPrice * Vendor_Discount_Percent__c )),
-    IF ( Purchase_Price__c &lt;&gt; 0,
-      IF ( ( CONTAINS(&apos;Training:Services&apos;, Category_Product__c) &amp;&amp; 
-        NOT(ISBLANK(Category_Product__c) || ISNULL(Category_Product__c)) ),
-        Purchase_Price__c,
-        IF ( ( CONTAINS(&apos;Software:Initial:Renewal&apos;, Category_Product__c) &amp;&amp; 
-          NOT(ISBLANK(Category_Product__c) || ISNULL(Category_Product__c)) ),
-          (IF(ListPrice&lt;&gt;0, 
-  			Purchase_Price__c - (Purchase_Price__c * ((ListPrice - Sales_Price_After_Discount__c)/ListPrice)), 
-  			Purchase_Price__c)),
-          Sales_Price_After_Discount__c * Profit_Margin__c
-        )
-      )
-    , 0
-    )
+	IF ( Purchase_Price__c &lt;&gt; 0,
+		IF( (TEXT(Business_Unit__c) = &apos;Enterprise Solutions&apos;) &amp;&amp; (Purchase_Price_Override__c), 
+			Purchase_Price__c,
+			IF( (TEXT(Business_Unit__c) = &apos;Enterprise Solutions&apos;) &amp;&amp; NOT(Purchase_Price_Override__c), 
+				Purchase_Price__c - (Purchase_Price__c * ((ListPrice - Sales_Price_After_Discount__c)/ListPrice)),
+				IF ( ( CONTAINS(&apos;Training:Services&apos;, Category_Product__c) &amp;&amp; 
+					NOT(ISBLANK(Category_Product__c) || ISNULL(Category_Product__c)) ), 
+					Purchase_Price__c,
+					IF ( ( CONTAINS(&apos;Software:Initial:Renewal&apos;, Category_Product__c) &amp;&amp; 
+					  NOT(ISBLANK(Category_Product__c) || ISNULL(Category_Product__c)) ),
+					  (IF(ListPrice&lt;&gt;0, 
+						Purchase_Price__c - (Purchase_Price__c * ((ListPrice - Sales_Price_After_Discount__c)/ListPrice)), 
+						Purchase_Price__c)),
+					  Sales_Price_After_Discount__c * Profit_Margin__c
+					)
+				)
+			)
+		)
+	, 0
+	)
   )
 )</formula>
     <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>

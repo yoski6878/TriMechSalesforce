@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FieldSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Mass_Update</fullName>
+    <description>Used in map plotter. This is set of fields which will be updated in bulk.</description>
+    <label>Mass_Update</label>
+</FieldSet>

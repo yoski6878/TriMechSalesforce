@@ -111,12 +111,6 @@ public without sharing class OpportunitySplitController {
         String COMMISSIONABLE_GP_SPLIT_TYPE_ID = '1494V00000009uwQAA';
         try {
             if (splitObjs != null && !splitObjs.isEmpty()) {
-                System.debug('createOpportunitySplits input: ' + JSON.serialize(splitObjs));
-                List<String> pctDebug = new List<String>();
-                for (Map<String, Object> splitMap : splitObjs) {
-                    pctDebug.add(String.valueOf(splitMap.get('SplitOwnerId')) + ':' + String.valueOf(splitMap.get('SplitPercentage')));
-                }
-                System.debug('SplitOwnerId:SplitPercentage pairs: ' + String.join(pctDebug, ', '));
                 Id opportunityId;
                 for (Map<String, Object> splitMap : splitObjs) {
                     if (splitMap.containsKey('OpportunityId')) {

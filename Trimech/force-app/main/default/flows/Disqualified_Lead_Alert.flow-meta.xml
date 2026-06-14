@@ -7,6 +7,7 @@
         <locationY>323</locationY>
         <actionName>emailSimple</actionName>
         <actionType>emailSimple</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
         <inputParameters>
             <name>emailAddresses</name>
             <value>
@@ -31,7 +32,10 @@
                 <booleanValue>true</booleanValue>
             </value>
         </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
     </actionCalls>
+    <apiVersion>56.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
     <constants>
         <description>Notification Email goes to Barb Johnson (barb.johnson@trimech.com)</description>
         <name>consRecipientEmailAddress</name>
@@ -40,6 +44,7 @@
             <stringValue>erin.elliott@trimech.com</stringValue>
         </value>
     </constants>
+    <environments>Default</environments>
     <interviewLabel>Disqualified Lead Alert {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Disqualified Lead Alert</label>
     <processMetadataValues>
@@ -61,10 +66,35 @@
         </value>
     </processMetadataValues>
     <processType>AutoLaunchedFlow</processType>
-    <startElementReference>Send_Disqualified_Lead_Email_Notification</startElementReference>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Send_Disqualified_Lead_Email_Notification</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>StageName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Disqualified</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Disqualification_Reason__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Nurture - MKT USE ONLY</stringValue>
+            </value>
+        </filters>
+        <object>Opportunity</object>
+        <recordTriggerType>Update</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
     <status>Active</status>
     <textTemplates>
         <name>textTempEmailBody</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
         <text>&lt;p&gt;The Disqualification Reason was set to&amp;nbsp;&lt;em&gt;{!$Record.Disqualification_Reason__c}&lt;/em&gt; for &lt;a href=&quot;https://trimech12345.lightning.force.com/lightning/r/{!$Record.Id}/view&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;{!$Record.Name}&lt;/a&gt;&lt;/p&gt;</text>
     </textTemplates>
 </Flow>

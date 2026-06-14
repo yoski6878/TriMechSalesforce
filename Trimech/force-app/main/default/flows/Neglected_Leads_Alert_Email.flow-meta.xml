@@ -7,6 +7,7 @@
         <locationY>539</locationY>
         <actionName>emailSimple</actionName>
         <actionType>emailSimple</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
         <inputParameters>
             <name>emailBody</name>
             <value>
@@ -31,7 +32,11 @@
                 <stringValue>Neglected Lead Alert</stringValue>
             </value>
         </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <offset>0</offset>
     </actionCalls>
+    <apiVersion>56.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
     <decisions>
         <description>Check if Owner is TriMech Admin or TriMech Marketing user, then ignore the email notifications</description>
         <name>Check_if_Owner_is_System_user</name>
@@ -58,7 +63,7 @@
     <decisions>
         <name>Is_the_Owner_an_Active_User</name>
         <label>Is the Owner an Active User?</label>
-        <locationX>380</locationX>
+        <locationX>336</locationX>
         <locationY>323</locationY>
         <defaultConnectorLabel>Owner is Inactive User</defaultConnectorLabel>
         <rules>
@@ -78,6 +83,7 @@
         </rules>
     </decisions>
     <description>Neglected Leads Alert Email - Individual record alerts</description>
+    <environments>Default</environments>
     <interviewLabel>Neglected Leads Alert Email {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Neglected Leads Alert Email</label>
     <processMetadataValues>
@@ -99,10 +105,44 @@
         </value>
     </processMetadataValues>
     <processType>AutoLaunchedFlow</processType>
-    <startElementReference>Is_the_Owner_an_Active_User</startElementReference>
+    <start>
+        <locationX>210</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Is_the_Owner_an_Active_User</targetReference>
+        </connector>
+        <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>RecordTypeId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>0126g000000X4XUAA0</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>StageName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Neglected</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Case__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <object>Opportunity</object>
+        <recordTriggerType>Update</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
     <status>Active</status>
     <textTemplates>
         <name>txtTempEmailBody</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
         <text>&lt;p&gt;The Lead &lt;a href=&quot;https://trimech12345.lightning.force.com/lightning/r/{!$Record.Id}/view&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;{!$Record.Name}&lt;/a&gt; assigned to you is marked as Neglected.&lt;/p&gt;</text>
     </textTemplates>
+    <triggerOrder>1300</triggerOrder>
 </Flow>

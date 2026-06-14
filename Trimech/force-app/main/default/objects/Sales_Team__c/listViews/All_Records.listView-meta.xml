@@ -7,5 +7,10 @@
     <columns>Contribution__c</columns>
     <columns>NetSuite_Line_ID__c</columns>
     <filterScope>Everything</filterScope>
+    <filters>
+        <field>Contribution__c</field>
+        <operation>equals</operation>
+        <value>75.00</value>
+    </filters>
     <label>All Records</label>
 </ListView>

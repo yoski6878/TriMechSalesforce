@@ -131,8 +131,10 @@
     <externalSharingModel>Private</externalSharingModel>
     <searchLayouts>
         <customTabListAdditionalFields>DataType</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Code</customTabListAdditionalFields>
         <customTabListAdditionalFields>IsActive</customTabListAdditionalFields>
         <searchResultsAdditionalFields>DataType</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Code</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>IsActive</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>Private</sharingModel>

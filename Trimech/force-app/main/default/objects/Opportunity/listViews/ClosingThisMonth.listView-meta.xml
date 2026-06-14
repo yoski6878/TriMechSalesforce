@@ -18,10 +18,5 @@
         <operation>equals</operation>
         <value>THIS_MONTH</value>
     </filters>
-    <filters>
-        <field>OPPORTUNITY.PROBABILITY</field>
-        <operation>greaterThan</operation>
-        <value>70.0</value>
-    </filters>
     <label>Closing This Month</label>
 </ListView>

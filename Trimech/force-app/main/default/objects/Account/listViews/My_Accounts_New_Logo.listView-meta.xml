@@ -8,14 +8,14 @@
     <columns>ACCOUNT.ADDRESS2_CITY</columns>
     <columns>ACCOUNT.ADDRESS2_STATE</columns>
     <columns>ACCOUNT.ADDRESS2_ZIP</columns>
-    <filterScope>Team</filterScope>
+    <filterScope>Everything</filterScope>
     <filters>
         <field>Inactive__c</field>
         <operation>equals</operation>
         <value>0</value>
     </filters>
     <filters>
-        <field>Sales_Rep_Software__c</field>
+        <field>Software_Sales_Person__c</field>
         <operation>equals</operation>
         <value>$USER</value>
     </filters>

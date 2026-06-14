@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>56.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
     <decisions>
         <name>Check_if_Dismiss_Message_Checkbox_is_Unchecked</name>
         <label>Check if Dismiss Message Checkbox is Unchecked</label>
@@ -44,6 +46,7 @@
             <label>Checked</label>
         </rules>
     </decisions>
+    <environments>Default</environments>
     <interviewLabel>Display Flow on Login {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Display Flow on Login</label>
     <processMetadataValues>
@@ -70,6 +73,7 @@
         <label>Update Dismiss Message Checkbox on User Record</label>
         <locationX>50</locationX>
         <locationY>518</locationY>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
             <operator>EqualTo</operator>
@@ -100,6 +104,14 @@
             <name>Display_Message</name>
             <fieldText>&lt;p style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;font-size: 16px; color: rgb(255, 0, 0);&quot;&gt;{!$Label.Login_Message_for_Flow}&lt;/span&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <fields>
             <name>I_have_read_this_message_and_don_t_want_to_see_it_again</name>
@@ -110,10 +122,24 @@
             <fieldText>I have read this message and don&apos;t want to see it again</fieldText>
             <fieldType>InputField</fieldType>
             <isRequired>true</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <showFooter>true</showFooter>
         <showHeader>false</showHeader>
     </screens>
-    <startElementReference>Check_if_Dismiss_Message_Checkbox_is_Unchecked</startElementReference>
+    <start>
+        <locationX>210</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Check_if_Dismiss_Message_Checkbox_is_Unchecked</targetReference>
+        </connector>
+    </start>
     <status>Active</status>
 </Flow>

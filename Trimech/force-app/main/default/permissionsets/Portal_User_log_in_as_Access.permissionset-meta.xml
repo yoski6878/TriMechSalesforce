@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>This permisson set provides log in access to partener portal users</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Log in As Portal User Access</label>
+</PermissionSet>

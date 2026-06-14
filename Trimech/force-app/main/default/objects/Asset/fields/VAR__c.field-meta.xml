@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VAR__c</fullName>
+    <label>VAR</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>AdvancedTek</fullName>
+                <default>false</default>
+                <label>AdvancedTek</label>
+            </value>
+            <value>
+                <fullName>Fidelis Engineering Associates</fullName>
+                <default>false</default>
+                <label>Fidelis Engineering Associates</label>
+            </value>
+            <value>
+                <fullName>GoEngineer</fullName>
+                <default>false</default>
+                <label>GoEngineer</label>
+            </value>
+            <value>
+                <fullName>GSA</fullName>
+                <default>false</default>
+                <label>GSA</label>
+            </value>
+            <value>
+                <fullName>Hawk Ridge Systems</fullName>
+                <default>false</default>
+                <label>Hawk Ridge Systems</label>
+            </value>
+            <value>
+                <fullName>Inceptra</fullName>
+                <default>false</default>
+                <label>Inceptra</label>
+            </value>
+            <value>
+                <fullName>Mecania Solutions</fullName>
+                <default>false</default>
+                <label>Mecania Solutions</label>
+            </value>
+            <value>
+                <fullName>Prototying Solutions</fullName>
+                <default>false</default>
+                <label>Prototying Solutions</label>
+            </value>
+            <value>
+                <fullName>Purple Platypus</fullName>
+                <default>false</default>
+                <label>Purple Platypus</label>
+            </value>
+            <value>
+                <fullName>SolidXperts</fullName>
+                <default>false</default>
+                <label>SolidXperts</label>
+            </value>
+            <value>
+                <fullName>Toward Zero</fullName>
+                <default>false</default>
+                <label>Toward Zero</label>
+            </value>
+            <value>
+                <fullName>Other (indicate in comments)</fullName>
+                <default>false</default>
+                <label>Other (indicate in comments)</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

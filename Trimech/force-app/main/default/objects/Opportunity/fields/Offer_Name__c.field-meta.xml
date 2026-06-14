@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Offer_Name__c</fullName>
+    <label>Offer Name</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>3DEXCITE_3DEXCITE DELTAGEN_On Premise</fullName>
+                <default>false</default>
+                <label>3DEXCITE_3DEXCITE DELTAGEN_On Premise</label>
+            </value>
+            <value>
+                <fullName>3DEXCITE_Marketing/Sales_On Premise</fullName>
+                <default>false</default>
+                <label>3DEXCITE_Marketing/Sales_On Premise</label>
+            </value>
+            <value>
+                <fullName>3DEXCITE_Public Cloud Marketing/Sales_Public Cloud</fullName>
+                <default>false</default>
+                <label>3DEXCITE_Public Cloud Marketing/Sales_Public Cloud</label>
+            </value>
+            <value>
+                <fullName>3DEXPERIENCE_3DEXPERIENCE Platform_On Premise</fullName>
+                <default>false</default>
+                <label>3DEXPERIENCE_3DEXPERIENCE Platform_On Premise</label>
+            </value>
+            <value>
+                <fullName>3DEXPERIENCE_Business Analytics_On Premise</fullName>
+                <default>false</default>
+                <label>3DEXPERIENCE_Business Analytics_On Premise</label>
+            </value>
+            <value>
+                <fullName>3DEXPERIENCE_Design/Engineering_On Premise</fullName>
+                <default>false</default>
+                <label>3DEXPERIENCE_Design/Engineering_On Premise</label>
+            </value>
+            <value>
+                <fullName>3DEXPERIENCE_Governance/Lifecycle_On Premise</fullName>
+                <default>false</default>
+                <label>3DEXPERIENCE_Governance/Lifecycle_On Premise</label>
+            </value>
+            <value>
+                <fullName>3DEXPERIENCE_Manufacturing/Production_On Premise</fullName>
+                <default>false</default>
+                <label>3DEXPERIENCE_Manufacturing/Production_On Premise</label>
+            </value>
+            <value>
+                <fullName>3DEXPERIENCE_Marketing/Sales_On Premise</fullName>
+                <default>false</default>
+                <label>3DEXPERIENCE_Marketing/Sales_On Premise</label>
+            </value>
+            <value>
+                <fullName>3DEXPERIENCE_Public Cloud 3DEXPERIENCE Platform_On Premise</fullName>
+                <default>false</default>
+                <label>3DEXPERIENCE_Public Cloud 3DEXPERIENCE Platform_On Premise</label>
+            </value>
+            <value>
+                <fullName>3DEXPERIENCE_Public Cloud 3DEXPERIENCE Platform_Public Cloud</fullName>
+                <default>false</default>
+                <label>3DEXPERIENCE_Public Cloud 3DEXPERIENCE Platform_Public Cloud</label>
+            </value>
+            <value>
+                <fullName>3DEXPERIENCE_Public Cloud Biosphere and Materials_Public Cloud</fullName>
+                <default>false</default>
+                <label>3DEXPERIENCE_Public Cloud Biosphere and Materials_Public Cloud</label>
+            </value>
+            <value>
+                <fullName>3DEXPERIENCE_Public Cloud Business Analytics_Public Cloud</fullName>
+                <default>false</default>
+                <label>3DEXPERIENCE_Public Cloud Business Analytics_Public Cloud</label>
+            </value>
+            <value>
+                <fullName>3DEXPERIENCE_Public Cloud Design/Engineering_Public Cloud</fullName>
+                <default>false</default>
+                <label>3DEXPERIENCE_Public Cloud Design/Engineering_Public Cloud</label>
+            </value>
+            <value>
+                <fullName>3DEXPERIENCE_Public Cloud Governance/Lifecycle_Public Cloud</fullName>
+                <default>false</default>
+                <label>3DEXPERIENCE_Public Cloud Governance/Lifecycle_Public Cloud</label>
+            </value>
+            <value>
+                <fullName>3DEXPERIENCE_Public Cloud Manufacturing/Production_Public Cloud</fullName>
+                <default>false</default>
+                <label>3DEXPERIENCE_Public Cloud Manufacturing/Production_Public Cloud</label>
+            </value>
+            <value>
+                <fullName>3DEXPERIENCE_Public Cloud Marketing/Sales_Public Cloud</fullName>
+                <default>false</default>
+                <label>3DEXPERIENCE_Public Cloud Marketing/Sales_Public Cloud</label>
+            </value>
+            <value>
+                <fullName>3DEXPERIENCE_Public Cloud Simulation_Public Cloud</fullName>
+                <default>false</default>
+                <label>3DEXPERIENCE_Public Cloud Simulation_Public Cloud</label>
+            </value>
+            <value>
+                <fullName>3DEXPERIENCE_Simulation_On Premise</fullName>
+                <default>false</default>
+                <label>3DEXPERIENCE_Simulation_On Premise</label>
+            </value>
+            <value>
+                <fullName>3DEXPERIENCE_Virtual Planet_On Premise</fullName>
+                <default>false</default>
+                <label>3DEXPERIENCE_Virtual Planet_On Premise</label>
+            </value>
+            <value>
+                <fullName>CATIA_CATIA Composer_On Premise</fullName>
+                <default>false</default>
+                <label>CATIA_CATIA Composer_On Premise</label>
+            </value>
+            <value>
+                <fullName>CATIA_CATIA Magic_On Premise</fullName>
+                <default>false</default>
+                <label>CATIA_CATIA Magic_On Premise</label>
+            </value>
+            <value>
+                <fullName>CATIA_CATIA V4_On Premise</fullName>
+                <default>false</default>
+                <label>CATIA_CATIA V4_On Premise</label>
+            </value>
+            <value>
+                <fullName>CATIA_CATIA V5_On Premise</fullName>
+                <default>false</default>
+                <label>CATIA_CATIA V5_On Premise</label>
+            </value>
+            <value>
+                <fullName>CATIA_CATIA V5 PLM Express Edition 3_On Premise</fullName>
+                <default>false</default>
+                <label>CATIA_CATIA V5 PLM Express Edition 3_On Premise</label>
+            </value>
+            <value>
+                <fullName>CATIA_CATIA V6_On Premise</fullName>
+                <default>false</default>
+                <label>CATIA_CATIA V6_On Premise</label>
+            </value>
+            <value>
+                <fullName>CATIA_DYMOLA_On Premise</fullName>
+                <default>false</default>
+                <label>CATIA_DYMOLA_On Premise</label>
+            </value>
+            <value>
+                <fullName>CATIA_ICEM Surf_On Premise</fullName>
+                <default>false</default>
+                <label>CATIA_ICEM Surf_On Premise</label>
+            </value>
+            <value>
+                <fullName>CATIA_No Magic_On Premise</fullName>
+                <default>false</default>
+                <label>CATIA_No Magic_On Premise</label>
+            </value>
+            <value>
+                <fullName>CATIA_Q-Checker for V5 &amp; V4_On Premise</fullName>
+                <default>false</default>
+                <label>CATIA_Q-Checker for V5 &amp; V4_On Premise</label>
+            </value>
+            <value>
+                <fullName>CATIA_Q-Checker for V6_On Premise</fullName>
+                <default>false</default>
+                <label>CATIA_Q-Checker for V6_On Premise</label>
+            </value>
+            <value>
+                <fullName>CATIA_Reqtify - ControlBuild - AUTOSAR Builder_On Premise</fullName>
+                <default>false</default>
+                <label>CATIA_Reqtify - ControlBuild - AUTOSAR Builder_On Premise</label>
+            </value>
+            <value>
+                <fullName>DELMIA_Dedicated Cloud Manufacturing/Production_Private Cloud</fullName>
+                <default>false</default>
+                <label>DELMIA_Dedicated Cloud Manufacturing/Production_Private Cloud</label>
+            </value>
+            <value>
+                <fullName>DELMIA_DELMIA Apriso_On Premise</fullName>
+                <default>false</default>
+                <label>DELMIA_DELMIA Apriso_On Premise</label>
+            </value>
+            <value>
+                <fullName>DELMIA_DELMIA Augmented Experience_On Premise</fullName>
+                <default>false</default>
+                <label>DELMIA_DELMIA Augmented Experience_On Premise</label>
+            </value>
+            <value>
+                <fullName>DELMIA_DELMIA Augmented Experience Hardware_On Premise</fullName>
+                <default>false</default>
+                <label>DELMIA_DELMIA Augmented Experience Hardware_On Premise</label>
+            </value>
+            <value>
+                <fullName>DELMIA_DELMIA D5_On Premise</fullName>
+                <default>false</default>
+                <label>DELMIA_DELMIA D5_On Premise</label>
+            </value>
+            <value>
+                <fullName>DELMIA_DELMIA Ortems_On Premise</fullName>
+                <default>false</default>
+                <label>DELMIA_DELMIA Ortems_On Premise</label>
+            </value>
+            <value>
+                <fullName>DELMIA_DELMIA Process Engineer_On Premise</fullName>
+                <default>false</default>
+                <label>DELMIA_DELMIA Process Engineer_On Premise</label>
+            </value>
+            <value>
+                <fullName>DELMIA_DELMIA V5_On Premise</fullName>
+                <default>false</default>
+                <label>DELMIA_DELMIA V5_On Premise</label>
+            </value>
+            <value>
+                <fullName>DELMIA_DELMIA V5 PLM Express products_On Premise</fullName>
+                <default>false</default>
+                <label>DELMIA_DELMIA V5 PLM Express products_On Premise</label>
+            </value>
+            <value>
+                <fullName>EDUCATION_CATIA / ENOVIA DMU_On Premise</fullName>
+                <default>false</default>
+                <label>EDUCATION_CATIA / ENOVIA DMU_On Premise</label>
+            </value>
+            <value>
+                <fullName>EDUCATION_CATIA V5_On Premise</fullName>
+                <default>false</default>
+                <label>EDUCATION_CATIA V5_On Premise</label>
+            </value>
+            <value>
+                <fullName>EDUCATION_ENOVIA SmarTeam V5_On Premise</fullName>
+                <default>false</default>
+                <label>EDUCATION_ENOVIA SmarTeam V5_On Premise</label>
+            </value>
+            <value>
+                <fullName>EDUCATION_ENOVIA VPLM V5_On Premise</fullName>
+                <default>false</default>
+                <label>EDUCATION_ENOVIA VPLM V5_On Premise</label>
+            </value>
+            <value>
+                <fullName>EDUCATION_Online Learning Experience Domains of Excellence_Public Cloud</fullName>
+                <default>false</default>
+                <label>EDUCATION_Online Learning Experience Domains of Excellence_Public Cloud</label>
+            </value>
+            <value>
+                <fullName>EDUCATION_Online Learning Experience for 3DEXPERIENCE_Public Cloud</fullName>
+                <default>false</default>
+                <label>EDUCATION_Online Learning Experience for 3DEXPERIENCE_Public Cloud</label>
+            </value>
+            <value>
+                <fullName>EDUCATION_Online Learning Experience for BIOVIA_Public Cloud</fullName>
+                <default>false</default>
+                <label>EDUCATION_Online Learning Experience for BIOVIA_Public Cloud</label>
+            </value>
+            <value>
+                <fullName>EDUCATION_Online Learning Experience for CATIA_Public Cloud</fullName>
+                <default>false</default>
+                <label>EDUCATION_Online Learning Experience for CATIA_Public Cloud</label>
+            </value>
+            <value>
+                <fullName>EDUCATION_Online Learning Experience for CATIA Composer_Public Cloud</fullName>
+                <default>false</default>
+                <label>EDUCATION_Online Learning Experience for CATIA Composer_Public Cloud</label>
+            </value>
+            <value>
+                <fullName>EDUCATION_Online Learning Experience for DELMIA_Public Cloud</fullName>
+                <default>false</default>
+                <label>EDUCATION_Online Learning Experience for DELMIA_Public Cloud</label>
+            </value>
+            <value>
+                <fullName>EDUCATION_Online Learning Experience for DELMIAWorks_Public Cloud</fullName>
+                <default>false</default>
+                <label>EDUCATION_Online Learning Experience for DELMIAWorks_Public Cloud</label>
+            </value>
+            <value>
+                <fullName>EDUCATION_Online Learning Experience for Education_Public Cloud</fullName>
+                <default>false</default>
+                <label>EDUCATION_Online Learning Experience for Education_Public Cloud</label>
+            </value>
+            <value>
+                <fullName>EDUCATION_Online Learning Experience for GEOVIA_Public Cloud</fullName>
+                <default>false</default>
+                <label>EDUCATION_Online Learning Experience for GEOVIA_Public Cloud</label>
+            </value>
+            <value>
+                <fullName>EDUCATION_Online Learning Experience for SIMULIA_Public Cloud</fullName>
+                <default>false</default>
+                <label>EDUCATION_Online Learning Experience for SIMULIA_Public Cloud</label>
+            </value>
+            <value>
+                <fullName>EDUCATION_Online Learning Experience for V5_Public Cloud</fullName>
+                <default>false</default>
+                <label>EDUCATION_Online Learning Experience for V5_Public Cloud</label>
+            </value>
+            <value>
+                <fullName>ENOVIA_3DEXPERIENCE Platform_On Premise</fullName>
+                <default>false</default>
+                <label>ENOVIA_3DEXPERIENCE Platform_On Premise</label>
+            </value>
+            <value>
+                <fullName>ENOVIA_ENOVIA SmarTeam V5_On Premise</fullName>
+                <default>false</default>
+                <label>ENOVIA_ENOVIA SmarTeam V5_On Premise</label>
+            </value>
+            <value>
+                <fullName>ENOVIA_ENOVIA Synchronicity V6_On Premise</fullName>
+                <default>false</default>
+                <label>ENOVIA_ENOVIA Synchronicity V6_On Premise</label>
+            </value>
+            <value>
+                <fullName>SIMULIA_SIMULIA Abaqus Unified FEA_On Premise</fullName>
+                <default>false</default>
+                <label>SIMULIA_SIMULIA Abaqus Unified FEA_On Premise</label>
+            </value>
+            <value>
+                <fullName>SIMULIA_SIMULIA Cloud_Public Cloud</fullName>
+                <default>false</default>
+                <label>SIMULIA_SIMULIA Cloud_Public Cloud</label>
+            </value>
+            <value>
+                <fullName>SIMULIA_SIMULIA CST Studio Suite_On Premise</fullName>
+                <default>false</default>
+                <label>SIMULIA_SIMULIA CST Studio Suite_On Premise</label>
+            </value>
+            <value>
+                <fullName>SIMULIA_SIMULIA Electromagnetics for Education_On Premise</fullName>
+                <default>false</default>
+                <label>SIMULIA_SIMULIA Electromagnetics for Education_On Premise</label>
+            </value>
+            <value>
+                <fullName>SIMULIA_SIMULIA Isight_On Premise</fullName>
+                <default>false</default>
+                <label>SIMULIA_SIMULIA Isight_On Premise</label>
+            </value>
+            <value>
+                <fullName>SIMULIA_SIMULIA Opera_On Premise</fullName>
+                <default>false</default>
+                <label>SIMULIA_SIMULIA Opera_On Premise</label>
+            </value>
+            <value>
+                <fullName>SIMULIA_SIMULIA PowerFLOW Suite_On Premise</fullName>
+                <default>false</default>
+                <label>SIMULIA_SIMULIA PowerFLOW Suite_On Premise</label>
+            </value>
+            <value>
+                <fullName>SIMULIA_SIMULIA Simpack_On Premise</fullName>
+                <default>false</default>
+                <label>SIMULIA_SIMULIA Simpack_On Premise</label>
+            </value>
+            <value>
+                <fullName>SIMULIA_SIMULIA Tosca_On Premise</fullName>
+                <default>false</default>
+                <label>SIMULIA_SIMULIA Tosca_On Premise</label>
+            </value>
+            <value>
+                <fullName>SIMULIA_SIMULIA Wave6_On Premise</fullName>
+                <default>false</default>
+                <label>SIMULIA_SIMULIA Wave6_On Premise</label>
+            </value>
+            <value>
+                <fullName>SIMULIA_SIMULIA XFlow_On Premise</fullName>
+                <default>false</default>
+                <label>SIMULIA_SIMULIA XFlow_On Premise</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

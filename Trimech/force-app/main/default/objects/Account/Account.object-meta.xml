@@ -141,6 +141,20 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>ResumeBilling</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>ResumeBilling</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>ResumeBilling</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>SaveEdit</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -165,6 +179,20 @@
     </actionOverrides>
     <actionOverrides>
         <actionName>SmsHighlightAction</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SuspendBilling</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SuspendBilling</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SuspendBilling</actionName>
         <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
@@ -186,7 +214,7 @@
         <actionName>View</actionName>
         <comment>Action override updated by Lightning App Builder during activation.</comment>
         <content>Account_Record_Page3</content>
-        <formFactor>Large</formFactor>
+        <formFactor>Small</formFactor>
         <skipRecordTypeSelect>false</skipRecordTypeSelect>
         <type>Flexipage</type>
     </actionOverrides>
@@ -194,7 +222,7 @@
         <actionName>View</actionName>
         <comment>Action override updated by Lightning App Builder during activation.</comment>
         <content>Account_Record_Page3</content>
-        <formFactor>Small</formFactor>
+        <formFactor>Large</formFactor>
         <skipRecordTypeSelect>false</skipRecordTypeSelect>
         <type>Flexipage</type>
     </actionOverrides>
@@ -244,8 +272,19 @@
         <fields>ACCOUNT.ADDRESS2_STATE</fields>
         <fields>celigo_sfnsio__NetSuite_Id__c</fields>
         <fields>Account_Type__c</fields>
-        <fields>ACCOUNT.CREATED_DATE</fields>
-        <fields>CREATEDBY_USER.ALIAS</fields>
+        <fields>Subsidiary__c</fields>
+        <profileName>Administrator Limited</profileName>
+    </profileSearchLayouts>
+    <profileSearchLayouts>
+        <fields>ACCOUNT.NAME</fields>
+        <fields>ACCOUNT.PHONE1</fields>
+        <fields>Account_Status__c</fields>
+        <fields>ACCOUNT.ADDRESS2_ZIP</fields>
+        <fields>ACCOUNT.ADDRESS2_CITY</fields>
+        <fields>ACCOUNT.ADDRESS2_STATE</fields>
+        <fields>celigo_sfnsio__NetSuite_Id__c</fields>
+        <fields>Account_Type__c</fields>
+        <fields>Subsidiary__c</fields>
         <profileName>System Administrator</profileName>
     </profileSearchLayouts>
     <searchLayouts>
@@ -257,14 +296,14 @@
         <customTabListAdditionalFields>ACCOUNT.ADDRESS2_STATE</customTabListAdditionalFields>
         <customTabListAdditionalFields>celigo_sfnsio__NetSuite_Id__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Account_Type__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>ACCOUNT.CREATED_DATE</customTabListAdditionalFields>
-        <customTabListAdditionalFields>CREATEDBY_USER.ALIAS</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Subsidiary__c</customTabListAdditionalFields>
         <excludedStandardButtons>OpenListInQuip</excludedStandardButtons>
         <excludedStandardButtons>NewFromDocument</excludedStandardButtons>
         <excludedStandardButtons>DataDotComGetAccountsMultiAddAction</excludedStandardButtons>
         <excludedStandardButtons>DiscoveryGetAccountsAction</excludedStandardButtons>
         <excludedStandardButtons>Import</excludedStandardButtons>
         <excludedStandardButtons>MassCreateCallList</excludedStandardButtons>
+        <excludedStandardButtons>MassCancelSdrOutreach</excludedStandardButtons>
         <excludedStandardButtons>SendBulkMessageAction</excludedStandardButtons>
         <excludedStandardButtons>MassAddToActionableList</excludedStandardButtons>
         <excludedStandardButtons>NavigateToAccountDiscoveryDashboard</excludedStandardButtons>
@@ -281,9 +320,12 @@
         <lookupPhoneDialogsAdditionalFields>ACCOUNT.PHONE1</lookupPhoneDialogsAdditionalFields>
         <searchResultsAdditionalFields>ACCOUNT.NAME</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>ACCOUNT.PHONE1</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>CORE.USERS.ALIAS</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Account_Status__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>ACCOUNT.ADDRESS2_STATE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Subsidiary__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Software_Sales_Person__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Enterprise_Sales_Person__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Hardware_Sales_Person__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
 </CustomObject>

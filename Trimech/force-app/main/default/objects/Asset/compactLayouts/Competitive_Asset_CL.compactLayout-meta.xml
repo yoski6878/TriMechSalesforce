@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Competitive_Asset_CL</fullName>
+    <fields>Name</fields>
+    <fields>Asset_Type__c</fields>
+    <fields>Competitor_Status__c</fields>
+    <fields>Quantity</fields>
+    <fields>Renewal_Expiration_date__c</fields>
+    <label>Competitive Asset CL</label>
+</CompactLayout>

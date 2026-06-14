@@ -1,0 +1,17 @@
+<template>
+    <div class="container">
+        <template if:true={isCompetitorAsset}>
+            <div class="banner">
+                <div class="ship-container">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1355/1355901.png" alt="Pirate Ship" class="pirate-ship">
+                </div>
+                <p class="message">Ahoy! Competitor Asset Ahead!</p>
+            </div>
+        </template>
+        <template if:false={isCompetitorAsset}>
+            <div class="info-message">
+                <p>This is not a competitor asset record.</p>
+            </div>
+        </template>
+    </div>
+</template>

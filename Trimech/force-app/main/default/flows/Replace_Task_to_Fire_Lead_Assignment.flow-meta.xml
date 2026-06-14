@@ -7,13 +7,18 @@
         <locationY>878</locationY>
         <actionName>c:Redirect</actionName>
         <actionType>component</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
         <inputParameters>
             <name>recordId</name>
             <value>
                 <elementReference>newTaskId</elementReference>
             </value>
         </inputParameters>
+        <nameSegment>c:Redirect</nameSegment>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
     </actionCalls>
+    <apiVersion>51.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
     <assignments>
         <name>Assign_New_Task_Id</name>
         <label>Assign New Task Id</label>
@@ -118,6 +123,7 @@
         <connector>
             <targetReference>Redirect_to_new_task</targetReference>
         </connector>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
             <operator>EqualTo</operator>
@@ -136,6 +142,7 @@
         <connector>
             <targetReference>Update_Record_Variable</targetReference>
         </connector>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
             <operator>EqualTo</operator>
@@ -143,7 +150,9 @@
                 <elementReference>recordId</elementReference>
             </value>
         </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
         <object>Task</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <screens>
         <name>Select_Campaign</name>
@@ -163,11 +172,25 @@
             <fieldText>Select Campaign to Apply</fieldText>
             <fieldType>DropdownBox</fieldType>
             <isRequired>true</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <showFooter>true</showFooter>
         <showHeader>true</showHeader>
     </screens>
-    <startElementReference>Select_Campaign</startElementReference>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Select_Campaign</targetReference>
+        </connector>
+    </start>
     <status>Active</status>
     <variables>
         <name>newTaskId</name>

@@ -16,5 +16,5 @@
     <protected>false</protected>
     <showsLocation>false</showsLocation>
     <showsStatus>false</showsStatus>
-    <url>{!URLFOR(&apos;/apex/echosign_dev1__AgreementTemplateProcess&apos;, null, [masterId = Quote.Id, templateId=&apos;a2KOt0000060rTtMAI&apos;])}</url>
+    <url>{!URLFOR(&apos;/apex/echosign_dev1__AgreementTemplateProcess&apos;, null, [masterId = Quote.Id, templateId=&apos;a2KPZ00000BtJN32AN&apos;])}</url>
 </WebLink>

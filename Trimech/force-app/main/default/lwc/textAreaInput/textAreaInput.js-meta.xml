@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>61.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>Text Area Input</masterLabel>
+    <targets>
+        <target>lightning__FlowScreen</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__FlowScreen">
+            <property
+                name="value"
+                type="String"
+                label="Value (Input)"
+                description="Default value passed into the component from Flow."
+                role="inputOnly"/>
+            <property
+                name="valueOutput"
+                type="String"
+                label="Value (Output)"
+                description="Updated value returned from the component to Flow."
+                role="outputOnly"/>
+            <property
+                name="label"
+                type="String"
+                label="Label"
+                description="Label displayed above the textarea."
+                role="inputOnly"/>
+            <property
+                name="required"
+                type="Boolean"
+                label="Required"
+                description="Whether the textarea is required."
+                role="inputOnly"/>
+            <property
+                name="rows"
+                type="Integer"
+                label="Rows"
+                description="Number of visible lines for the textarea (default 5; min 1, max 20)."
+                role="inputOnly"/>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

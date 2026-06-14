@@ -4,6 +4,7 @@
     <columns>ACCOUNT.CREATED_DATE</columns>
     <columns>ACCOUNT.NAME</columns>
     <columns>Account_Type__c</columns>
+    <columns>Subsidiary__c</columns>
     <columns>Dedicated_Sales_Rep_Software__c</columns>
     <columns>Sales_Rep_Software__c</columns>
     <columns>Dedicated_Sales_Rep_Hardware__c</columns>

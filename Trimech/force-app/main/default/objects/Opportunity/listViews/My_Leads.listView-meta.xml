@@ -5,12 +5,14 @@
     <columns>ACCOUNT.NAME</columns>
     <columns>Primary_Contact__c</columns>
     <columns>Primary_Contact_Title__c</columns>
+    <columns>Last_Activity_Date__c</columns>
     <columns>OPPORTUNITY.CREATED_DATE</columns>
     <columns>OPPORTUNITY.CLOSE_DATE</columns>
     <columns>OPPORTUNITY.STAGE_NAME</columns>
+    <columns>Disqualification_Reason__c</columns>
+    <columns>OPPORTUNITY.LAST_UPDATE</columns>
     <columns>OPPORTUNITY.TYPE</columns>
-    <columns>OPPORTUNITY.LEAD_SOURCE</columns>
-    <columns>Owner__c</columns>
+    <columns>CORE.USERS.FULL_NAME</columns>
     <filterScope>Team</filterScope>
     <filters>
         <field>OPPORTUNITY.RECORDTYPE</field>

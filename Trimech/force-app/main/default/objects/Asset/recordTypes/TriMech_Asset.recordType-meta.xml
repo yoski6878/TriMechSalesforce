@@ -2,7 +2,39 @@
 <RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>TriMech_Asset</fullName>
     <active>true</active>
+    <compactLayoutAssignment>TriMech_asset_CL</compactLayoutAssignment>
     <label>TriMech Asset</label>
+    <picklistValues>
+        <picklist>Asset_Renewal_Type__c</picklist>
+        <values>
+            <fullName>Bundled Renewal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Custom Renewal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Direct Renewal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MRN Other or Direct Renewal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Non Renewal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Perpetual Renewal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Term Renewal</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
     <picklistValues>
         <picklist>Asset_Type__c</picklist>
         <values>
@@ -22,7 +54,250 @@
             <default>false</default>
         </values>
         <values>
-            <fullName>Software License</fullName>
+            <fullName>Software</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Competitive_OEM__c</picklist>
+        <values>
+            <fullName>3D Systems</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>AMT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Aesub</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ansys</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Aras</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Artec</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>AutoDesk</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bigrep</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Camnetics</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Carbon</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CimQuest</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Dassault Systemes</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DataKit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Desktop Metal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DriveWorks</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DyeMansion</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EFICAD</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EOS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EXACTFLAT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ElectroMagneticWorks</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EnvisionTec</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Essentium</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ExOne</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Excellerant</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FlexSim</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Formlabs</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>GOM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>GRM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Gravotech</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Hexagon</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>IMS Software</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Intamsys</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Makerbot</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MarkForg3d</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Materialise</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Nano Dimension</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Nexa3D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>One Click Metal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Onulis</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Oryx</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other %26 Hobbyist</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other %28indicate in comments%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PTC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PostProcess</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Product Development</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Prusa</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>RazorLeaf</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SOLIDWORKS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Siemens</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SolidCam</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SolidProfessor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Stratasys</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TransMagic</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TriMech</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ultimaker</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Wazer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Wolf Star Technologies LLC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Xact Metal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Zeiss</fullName>
             <default>false</default>
         </values>
     </picklistValues>
@@ -38,6 +313,21 @@
         </values>
         <values>
             <fullName>NLT %28no longer there%29</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Competitor_Status__c</picklist>
+        <values>
+            <fullName>Actively used</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Actively used but no subscription %2F maintenance</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No Longer in use</fullName>
             <default>false</default>
         </values>
     </picklistValues>
@@ -67,11 +357,19 @@
     <picklistValues>
         <picklist>Contract_Type__c</picklist>
         <values>
+            <fullName>Artec Care</fullName>
+            <default>false</default>
+        </values>
+        <values>
             <fullName>Diamond Care</fullName>
             <default>false</default>
         </values>
         <values>
             <fullName>Emerald Care</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Emerald Care-TriMech</fullName>
             <default>false</default>
         </values>
         <values>
@@ -83,7 +381,7 @@
             <default>false</default>
         </values>
         <values>
-            <fullName>Saphire Care</fullName>
+            <fullName>Sapphire Care</fullName>
             <default>false</default>
         </values>
         <values>
@@ -1239,13 +1537,13 @@
         </values>
     </picklistValues>
     <picklistValues>
-        <picklist>Orgnization__c</picklist>
+        <picklist>Organization__c</picklist>
         <values>
-            <fullName>Adaptive Corporation</fullName>
+            <fullName>Javelin Technologies Inc%2E</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>Javelin Technologies Inc%2E</fullName>
+            <fullName>TriMech Enterprise Solutions Corp%2E %28formerly Adaptive Corporation%29</fullName>
             <default>false</default>
         </values>
         <values>
@@ -1254,64 +1552,18 @@
         </values>
     </picklistValues>
     <picklistValues>
-        <picklist>Printer_Technology__c</picklist>
-        <values>
-            <fullName>CNC</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>FDM</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Polyjet</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Post Process</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>SLA</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>SLS</fullName>
-            <default>false</default>
-        </values>
-    </picklistValues>
-    <picklistValues>
-        <picklist>Renewal_Type__c</picklist>
-        <values>
-            <fullName>Bundled Renewal</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Custom Renewal</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Direct Renewal</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Non Renewal</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Perpetual Renewal</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Term Renewal</fullName>
-            <default>false</default>
-        </values>
-    </picklistValues>
-    <picklistValues>
         <picklist>Status</picklist>
+        <values>
+            <fullName>ACR</fullName>
+            <default>false</default>
+        </values>
         <values>
             <fullName>Active</fullName>
             <default>true</default>
+        </values>
+        <values>
+            <fullName>Active w%2Fo subscription %2F maintenance</fullName>
+            <default>false</default>
         </values>
         <values>
             <fullName>Decommissioned</fullName>
@@ -1341,6 +1593,18 @@
             <fullName>Replaced</fullName>
             <default>false</default>
         </values>
+        <values>
+            <fullName>Sold</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Traded In</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Unknown</fullName>
+            <default>false</default>
+        </values>
     </picklistValues>
     <picklistValues>
         <picklist>StatusReason</picklist>
@@ -1366,6 +1630,57 @@
         </values>
         <values>
             <fullName>Standby</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>VAR__c</picklist>
+        <values>
+            <fullName>AdvancedTek</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fidelis Engineering Associates</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>GSA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>GoEngineer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Hawk Ridge Systems</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Inceptra</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mecania Solutions</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other %28indicate in comments%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Prototying Solutions</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Purple Platypus</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SolidXperts</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Toward Zero</fullName>
             <default>false</default>
         </values>
     </picklistValues>

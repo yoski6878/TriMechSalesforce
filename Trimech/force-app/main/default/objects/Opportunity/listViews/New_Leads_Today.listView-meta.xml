@@ -12,11 +12,6 @@
     <columns>OPPORTUNITY.LEAD_SOURCE</columns>
     <filterScope>Everything</filterScope>
     <filters>
-        <field>OPPORTUNITY.RECORDTYPE</field>
-        <operation>equals</operation>
-        <value>Opportunity.Lead</value>
-    </filters>
-    <filters>
         <field>OPPORTUNITY.CREATED_DATE</field>
         <operation>equals</operation>
         <value>TODAY</value>

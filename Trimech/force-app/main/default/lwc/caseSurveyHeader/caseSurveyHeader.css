@@ -69,6 +69,31 @@
     border: none;
 }
 
+.thankYouWrapper {
+    background: #ffffff;
+    padding: 32px;
+    margin: 24px auto;
+    border-radius: 12px;
+    max-width: 900px;
+    text-align: center;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+    font-family: Inter, sans-serif, Helvetica Neue, Helvetica, Arial !important;
+}
+
+.thankYouTitle {
+    font-size: 32px;
+    font-weight: 700;
+    color: #212529;
+    margin-bottom: 12px;
+}
+
+.thankYouSubtext {
+    font-size: 20px;
+    color: #6C757D;
+    line-height: 1.6;
+}
+
+
 
 @media only screen and (max-width: 768px) {
     .headingText {

@@ -38,6 +38,11 @@
                 <default>false</default>
                 <label>Sales_Rep_SolidCAM__c</label>
             </value>
+            <value>
+                <fullName>Sales_Rep_Enterprise__c</fullName>
+                <default>false</default>
+                <label>Sales_Rep_Enterprise__c</label>
+            </value>
         </valueSetDefinition>
     </valueSet>
 </CustomField>

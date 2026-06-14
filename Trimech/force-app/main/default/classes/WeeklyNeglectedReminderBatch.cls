@@ -5,10 +5,12 @@ public class WeeklyNeglectedReminderBatch implements Database.Batchable<SObject>
     public Database.QueryLocator start(Database.BatchableContext bc) {
         return Database.getQueryLocator([
             SELECT Id, Name, OwnerId, Account.Name, ProductGroup_Name__c
-            FROM Opportunity 
+            FROM Opportunity
             WHERE RecordType.DeveloperName = 'Lead'
               AND StageName = 'Neglected'
-              AND ProductGroup_Name__c IN ('Hardware','AMS')
+              AND IsClosed = false
+              AND CreatedDate >= 2026-01-01T00:00:00Z
+              AND ProductGroup_Name__c IN ('Hardware','AMS','Software','Staffing','Product Development','SSG-CRE','CPQ','Aras','SSG-BT','SolidCAM')
         ]);
     }
     
@@ -30,33 +32,54 @@ public class WeeklyNeglectedReminderBatch implements Database.Batchable<SObject>
             LIMIT 1
         ];
 
+        Map<Id, User> ownerById = new Map<Id, User>([
+            SELECT Id, Email, IsActive
+            FROM User
+            WHERE Id IN :ownerToOpps.keySet()
+        ]);
 
+        String baseUrl = URL.getOrgDomainUrl().toExternalForm();
+        List<Messaging.SingleEmailMessage> emails = new List<Messaging.SingleEmailMessage>();
         for (Id ownerId : ownerToOpps.keySet()) {
-            
-            String csvHeader = 'Id,Link,Name,AccountName\n';
-            String csvBody = '';
-            String baseUrl = URL.getOrgDomainUrl().toExternalForm();
-            for (Opportunity o : ownerToOpps.get(ownerId)) {
-				String link = baseUrl + '/' + o.Id;
-                String acctName = (o.Account != null ? o.Account.Name : '');
-                csvBody += '"' + o.Id + '","' + link + '","' + o.Name + '","' + acctName + '"\n';
+            User owner = ownerById.get(ownerId);
+            if (owner == null || !owner.IsActive) {
+                continue;
             }
-            
+            String csvHeader = csvField('Id') + ',' + csvField('Link') + ',' + csvField('Name') + ',' + csvField('AccountName') + '\n';
+            String csvBody = '';
+            for (Opportunity o : ownerToOpps.get(ownerId)) {
+                String link = baseUrl + '/' + o.Id;
+                String acctName = (o.Account != null ? o.Account.Name : '');
+                csvBody += csvField(o.Id) + ',' + csvField(link) + ',' + csvField(o.Name) + ',' + csvField(acctName) + '\n';
+            }
             String csvContent = csvHeader + csvBody;
-            
             Messaging.EmailFileAttachment attachment = new Messaging.EmailFileAttachment();
             attachment.setFileName('NeglectedLeads.csv');
             attachment.setBody(Blob.valueOf(csvContent));
             attachment.setContentType('text/csv');
-            
             Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
-            mail.setTargetObjectId(ownerId);
+            mail.setToAddresses(new String[] { owner.Email });
             mail.setOrgWideEmailAddressId(owea.Id);
-            mail.setSaveAsActivity(false);
             mail.setSubject('Weekly Reminder: Neglected Leads');
             mail.setPlainTextBody('Attached is the list of your neglected leads.');
             mail.setFileAttachments(new Messaging.EmailFileAttachment[] {attachment});
-            Messaging.sendEmail(new Messaging.SingleEmailMessage[]{mail});
+            emails.add(mail);
         }
+        if (!emails.isEmpty()) {
+            Messaging.sendEmail(emails);
+        }
+    }
+
+    // Escapes a value for safe CSV output: doubles embedded quotes and prefixes
+    // formula-trigger characters with a single quote to prevent injection in Excel/Sheets.
+    private static String csvField(String value) {
+        if (value == null) {
+            return '""';
+        }
+        String safe = value;
+        if (safe.startsWith('=') || safe.startsWith('+') || safe.startsWith('-') || safe.startsWith('@')) {
+            safe = '\'' + safe;
+        }
+        return '"' + safe.replace('"', '""') + '"';
     }
 }

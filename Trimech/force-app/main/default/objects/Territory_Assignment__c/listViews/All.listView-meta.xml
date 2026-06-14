@@ -7,5 +7,10 @@
     <columns>Territory__c</columns>
     <columns>Territory_Product_Group__c</columns>
     <filterScope>Everything</filterScope>
+    <filters>
+        <field>Territory__c</field>
+        <operation>contains</operation>
+        <value>qc,qu</value>
+    </filters>
     <label>All</label>
 </ListView>

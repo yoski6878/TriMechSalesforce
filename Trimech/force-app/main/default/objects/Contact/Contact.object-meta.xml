@@ -337,6 +337,7 @@
         <fields>CONTACT.EMAIL</fields>
         <fields>CORE.USERS.ALIAS</fields>
         <fields>celigo_sfnsio__NetSuite_Id__c</fields>
+        <fields>Account_Subsidiary__c</fields>
         <fields>Pardot_Lightning_URL__c</fields>
         <profileName>System Administrator</profileName>
     </profileSearchLayouts>
@@ -347,6 +348,7 @@
         <customTabListAdditionalFields>CONTACT.EMAIL</customTabListAdditionalFields>
         <customTabListAdditionalFields>CORE.USERS.ALIAS</customTabListAdditionalFields>
         <customTabListAdditionalFields>celigo_sfnsio__NetSuite_Id__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Account_Subsidiary__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Pardot_Lightning_URL__c</customTabListAdditionalFields>
         <excludedStandardButtons>OpenListInQuip</excludedStandardButtons>
         <excludedStandardButtons>NewFromDocument</excludedStandardButtons>
@@ -375,6 +377,7 @@
         <searchResultsAdditionalFields>CONTACT.EMAIL</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>CORE.USERS.ALIAS</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>celigo_sfnsio__NetSuite_Id__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Account_Subsidiary__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
 </CustomObject>

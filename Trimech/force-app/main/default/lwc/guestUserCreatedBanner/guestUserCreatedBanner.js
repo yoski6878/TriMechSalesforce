@@ -4,7 +4,7 @@ import CASE_ACCOUNT_FIELD from '@salesforce/schema/Case.AccountId';
 import CASE_CONTACT_FIELD from '@salesforce/schema/Case.ContactId';
 import CASE_CREATED_ALIAS_FIELD from '@salesforce/schema/Case.CreatedBy.Alias';
 
-export default class GuestCreatorAlert extends LightningElement {
+export default class guestUserCreatedBanner extends LightningElement {
     @api recordId;
     showMessage = false;
     relatedRecordId;

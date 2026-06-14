@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>56.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <environments>Default</environments>
     <formulas>
         <description>Gets the value of the Custom Label - Exchange_Rate_CAD_to_USD_for_GP_Calculations</description>
         <name>formLabelValue</name>
@@ -41,6 +44,23 @@
         </inputAssignments>
         <inputReference>$Record</inputReference>
     </recordUpdates>
-    <startElementReference>Update_Exchange_Rate_for_Canadian_Orders</startElementReference>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Update_Exchange_Rate_for_Canadian_Orders</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>CurrencyIsoCode</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>CAD</stringValue>
+            </value>
+        </filters>
+        <object>Order</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
     <status>Obsolete</status>
 </Flow>

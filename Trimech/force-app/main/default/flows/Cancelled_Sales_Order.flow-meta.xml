@@ -8,6 +8,7 @@
         <locationY>647</locationY>
         <actionName>emailSimple</actionName>
         <actionType>emailSimple</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
         <inputParameters>
             <name>emailAddresses</name>
             <value>
@@ -32,7 +33,10 @@
                 <booleanValue>true</booleanValue>
             </value>
         </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
     </actionCalls>
+    <apiVersion>53.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
     <constants>
         <name>conRecordTypeOpportunity</name>
         <dataType>String</dataType>
@@ -62,6 +66,7 @@
             <label>Yes</label>
         </rules>
     </decisions>
+    <environments>Default</environments>
     <formulas>
         <description>If Inside Sales = None, sets the email address of the Owner, else will set the email address to Inside Sales Rep</description>
         <name>formulaRecipientEmailId</name>
@@ -98,6 +103,7 @@
         <connector>
             <targetReference>Is_Opportunity_Record_Found</targetReference>
         </connector>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
             <operator>EqualTo</operator>
@@ -105,7 +111,9 @@
                 <elementReference>$Record.OpportunityId</elementReference>
             </value>
         </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
         <object>Opportunity</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordUpdates>
         <description>When a Sales Order is Cancelled in Netsuite, this flow will update the Related Opportunity&apos;s Stage to Order Issue, will set the Netsuite ID and NetSuite Order Number (IO) to blank</description>
@@ -116,6 +124,7 @@
         <connector>
             <targetReference>Email_Notification_Cancelled_Order</targetReference>
         </connector>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
             <operator>EqualTo</operator>
@@ -149,10 +158,36 @@
         </inputAssignments>
         <object>Opportunity</object>
     </recordUpdates>
-    <startElementReference>Get_Opportunity_Record</startElementReference>
+    <start>
+        <locationX>56</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Opportunity_Record</targetReference>
+        </connector>
+        <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>celigo_sfnsio__NetSuite_Order_Status__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Cancelled</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>OpportunityId</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <object>Order</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
     <status>Obsolete</status>
     <textTemplates>
         <name>txtTempEmailBody</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
         <text>&lt;p&gt;Your order for Opportunity Name: &lt;a href=&quot;https://trimech12345.lightning.force.com/lightning/r/{!$Record.OpportunityId}/view&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;{!Get_Opportunity_Record.Name}&lt;/a&gt; &amp;amp; Opportunity RecordID: {!Get_Opportunity_Record.Id} has been cancelled by Order Management. Please update the opportunity and re-submit.&lt;/p&gt;</text>
     </textTemplates>
 </Flow>

@@ -7,13 +7,18 @@
         <locationY>2942</locationY>
         <actionName>c:Redirect</actionName>
         <actionType>component</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
         <inputParameters>
             <name>recordId</name>
             <value>
                 <elementReference>varOpportunityId</elementReference>
             </value>
         </inputParameters>
+        <nameSegment>c:Redirect</nameSegment>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
     </actionCalls>
+    <apiVersion>51.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
     <assignments>
         <name>Assign_Values</name>
         <label>Assign Values</label>
@@ -426,6 +431,7 @@
             </value>
         </inputAssignments>
         <object>OpportunityContactRole</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordCreates>
     <recordCreates>
         <name>Create_Proposal</name>
@@ -561,6 +567,7 @@
         <connector>
             <targetReference>Get_Contact_Roles</targetReference>
         </connector>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
             <operator>EqualTo</operator>
@@ -568,7 +575,9 @@
                 <elementReference>Get_Opportunity_Record.AccountId</elementReference>
             </value>
         </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
         <object>Account</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordLookups>
         <name>Get_Contact_Roles</name>
@@ -579,6 +588,7 @@
         <connector>
             <targetReference>New_Opportunity_Input_Screen</targetReference>
         </connector>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>OpportunityId</field>
             <operator>EqualTo</operator>
@@ -586,7 +596,9 @@
                 <elementReference>recordId</elementReference>
             </value>
         </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
         <object>OpportunityContactRole</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordLookups>
         <name>Get_Opportunity_Record</name>
@@ -597,6 +609,7 @@
         <connector>
             <targetReference>Get_Account_Record</targetReference>
         </connector>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
             <operator>EqualTo</operator>
@@ -604,7 +617,9 @@
                 <elementReference>recordId</elementReference>
             </value>
         </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
         <object>Opportunity</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordLookups>
         <name>Get_Primary_Proposal</name>
@@ -615,6 +630,7 @@
         <connector>
             <targetReference>select_proposals_screen</targetReference>
         </connector>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>OpportunityId</field>
             <operator>EqualTo</operator>
@@ -629,7 +645,9 @@
                 <booleanValue>true</booleanValue>
             </value>
         </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
         <object>Quote</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordLookups>
         <name>Get_Proposal_Line_Items</name>
@@ -640,6 +658,7 @@
         <connector>
             <targetReference>Proposal_Input_Screen</targetReference>
         </connector>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>QuoteId</field>
             <operator>EqualTo</operator>
@@ -647,7 +666,9 @@
                 <elementReference>Loop_Selected_Proposals.Id</elementReference>
             </value>
         </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
         <object>QuoteLineItem</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordLookups>
         <name>Get_Proposals</name>
@@ -658,6 +679,7 @@
         <connector>
             <targetReference>Get_Primary_Proposal</targetReference>
         </connector>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>OpportunityId</field>
             <operator>EqualTo</operator>
@@ -665,7 +687,9 @@
                 <elementReference>recordId</elementReference>
             </value>
         </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
         <object>Quote</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <screens>
         <name>New_Opportunity_Input_Screen</name>
@@ -687,6 +711,14 @@
             <fieldText>Name</fieldText>
             <fieldType>InputField</fieldType>
             <isRequired>true</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <fields>
             <name>Expected_Close_Date</name>
@@ -697,6 +729,14 @@
             <fieldText>Expected Close Date</fieldText>
             <fieldType>InputField</fieldType>
             <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <showFooter>true</showFooter>
         <showHeader>true</showHeader>
@@ -716,6 +756,14 @@
             <name>current_proposal_to_clone</name>
             <fieldText>&lt;p&gt;&lt;b&gt;Existing Proposal:&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Name: {!Loop_Selected_Proposals.Name}&lt;/p&gt;&lt;p&gt;Primary: {!Loop_Selected_Proposals.Is_Primary__c}&lt;/p&gt;&lt;p&gt;Date: {!Loop_Selected_Proposals.Date__c}&lt;/p&gt;&lt;p&gt;Expiration Date: {!Loop_Selected_Proposals.ExpirationDate}&lt;/p&gt;&lt;p&gt;Status: {!Loop_Selected_Proposals.Status}&lt;/p&gt;&lt;p&gt;Amount: {!Loop_Selected_Proposals.TotalPrice}&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;New Proposal:&lt;/b&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <fields>
             <name>Set_to_Primary_Proposal</name>
@@ -726,6 +774,14 @@
             <fieldText>Set to Primary Proposal</fieldText>
             <fieldType>InputField</fieldType>
             <isRequired>true</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <fields>
             <name>Proposal_Name</name>
@@ -736,6 +792,14 @@
             <fieldText>Proposal Name</fieldText>
             <fieldType>InputField</fieldType>
             <isRequired>true</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <fields>
             <name>Date</name>
@@ -746,6 +810,14 @@
             <fieldText>Date</fieldText>
             <fieldType>InputField</fieldType>
             <isRequired>true</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <fields>
             <name>Expiration_Date</name>
@@ -756,6 +828,14 @@
             <fieldText>Expiration Date</fieldText>
             <fieldType>InputField</fieldType>
             <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <fields>
             <name>Status</name>
@@ -765,6 +845,14 @@
             <fieldText>Status</fieldText>
             <fieldType>DropdownBox</fieldType>
             <isRequired>true</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <fields>
             <name>payment_terms</name>
@@ -812,11 +900,20 @@
                     <elementReference>formula_defaultpaymentterm</elementReference>
                 </value>
             </inputParameters>
+            <inputsOnNextNavToAssocScrn>ResetValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
             <outputParameters>
                 <assignToReference>var_selected_pay_term</assignToReference>
                 <name>value</name>
             </outputParameters>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <showFooter>true</showFooter>
         <showHeader>true</showHeader>
@@ -834,6 +931,10 @@
         </connector>
         <fields>
             <name>select_proposals_table</name>
+            <dataTypeMappings>
+                <typeName>T</typeName>
+                <typeValue>Quote</typeValue>
+            </dataTypeMappings>
             <extensionName>c:datatableV2</extensionName>
             <fieldType>ComponentInstance</fieldType>
             <inputParameters>
@@ -878,16 +979,31 @@
                     <elementReference>Get_Primary_Proposal</elementReference>
                 </value>
             </inputParameters>
+            <inputsOnNextNavToAssocScrn>ResetValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
             <outputParameters>
                 <assignToReference>var_selectedProposals</assignToReference>
                 <name>outputSelectedRows</name>
             </outputParameters>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <showFooter>true</showFooter>
         <showHeader>true</showHeader>
     </screens>
-    <startElementReference>Get_Opportunity_Record</startElementReference>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Opportunity_Record</targetReference>
+        </connector>
+    </start>
     <status>Obsolete</status>
     <subflows>
         <name>Set_Primary</name>

@@ -2,6 +2,7 @@
 <ListView xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Applications_Enterprise_Support_Case</fullName>
     <columns>Business_Unit__c</columns>
+    <columns>Icons__c</columns>
     <columns>CASES.CASE_NUMBER</columns>
     <columns>ACCOUNT.NAME</columns>
     <columns>NAME</columns>

@@ -7,6 +7,7 @@
         <locationY>539</locationY>
         <actionName>emailSimple</actionName>
         <actionType>emailSimple</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
         <inputParameters>
             <name>emailSubject</name>
             <value>
@@ -31,7 +32,10 @@
                 <elementReference>consErrorEmailRecipientId</elementReference>
             </value>
         </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
     </actionCalls>
+    <apiVersion>60.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
     <constants>
         <name>consErrorEmailRecipientId</name>
         <dataType>String</dataType>
@@ -104,6 +108,7 @@
             <label>Task Owner Id is Found</label>
         </rules>
     </decisions>
+    <environments>Default</environments>
     <formulas>
         <name>formulaCalculatedActivityDueDate</name>
         <dataType>Date</dataType>
@@ -146,6 +151,7 @@
         <locationX>50</locationX>
         <locationY>647</locationY>
         <faultConnector>
+            <isGoTo>true</isGoTo>
             <targetReference>Send_Email_for_errors_encountered</targetReference>
         </faultConnector>
         <inputAssignments>
@@ -197,6 +203,7 @@
             </value>
         </inputAssignments>
         <object>Task</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordCreates>
     <recordLookups>
         <name>Get_Task_Owner_Id</name>
@@ -210,6 +217,7 @@
         <faultConnector>
             <targetReference>Send_Email_for_errors_encountered</targetReference>
         </faultConnector>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>Name</field>
             <operator>EqualTo</operator>
@@ -224,11 +232,44 @@
                 <booleanValue>true</booleanValue>
             </value>
         </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
         <object>User</object>
         <queriedFields>Id</queriedFields>
         <sortField>Id</sortField>
         <sortOrder>Asc</sortOrder>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
-    <startElementReference>Check_if_Contact_is_for_Task_Import</startElementReference>
+    <start>
+        <locationX>584</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Check_if_Contact_is_for_Task_Import</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Task_Owner__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>AccountId</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Task_Import_Date_Time__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <object>Contact</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
     <status>Active</status>
 </Flow>

@@ -11,24 +11,14 @@
         <valueSetDefinition>
             <sorted>false</sorted>
             <value>
+                <fullName>3DEXPERIENCE</fullName>
+                <default>false</default>
+                <label>3DEXPERIENCE</label>
+            </value>
+            <value>
                 <fullName>CAD</fullName>
                 <default>false</default>
                 <label>CAD</label>
-            </value>
-            <value>
-                <fullName>SIM</fullName>
-                <default>false</default>
-                <label>SIM</label>
-            </value>
-            <value>
-                <fullName>ELEC</fullName>
-                <default>false</default>
-                <label>ELEC</label>
-            </value>
-            <value>
-                <fullName>PDM</fullName>
-                <default>false</default>
-                <label>PDM</label>
             </value>
             <value>
                 <fullName>CAM</fullName>
@@ -36,44 +26,9 @@
                 <label>CAM</label>
             </value>
             <value>
-                <fullName>3DEXPERIENCE</fullName>
+                <fullName>CCV</fullName>
                 <default>false</default>
-                <label>3DEXPERIENCE</label>
-            </value>
-            <value>
-                <fullName>FDM Printers</fullName>
-                <default>false</default>
-                <label>FDM Printers</label>
-            </value>
-            <value>
-                <fullName>Polyjet Printers</fullName>
-                <default>false</default>
-                <label>Polyjet Printers</label>
-            </value>
-            <value>
-                <fullName>Scanners</fullName>
-                <default>false</default>
-                <label>Scanners</label>
-            </value>
-            <value>
-                <fullName>Print/Scanning Services</fullName>
-                <default>false</default>
-                <label>Print/Scanning Services</label>
-            </value>
-            <value>
-                <fullName>Training</fullName>
-                <default>false</default>
-                <label>Training</label>
-            </value>
-            <value>
-                <fullName>Project Engineering</fullName>
-                <default>false</default>
-                <label>Project Engineering</label>
-            </value>
-            <value>
-                <fullName>Staffing</fullName>
-                <default>false</default>
-                <label>Staffing</label>
+                <label>CCV</label>
             </value>
             <value>
                 <fullName>Client Assessment</fullName>
@@ -81,14 +36,49 @@
                 <label>Client Assessment</label>
             </value>
             <value>
+                <fullName>DriveWorks</fullName>
+                <default>false</default>
+                <label>DriveWorks</label>
+            </value>
+            <value>
+                <fullName>ELEC</fullName>
+                <default>false</default>
+                <label>ELEC</label>
+            </value>
+            <value>
+                <fullName>Excellerant</fullName>
+                <default>false</default>
+                <label>Excellerant</label>
+            </value>
+            <value>
+                <fullName>FDM Printers</fullName>
+                <default>false</default>
+                <label>FDM Printers</label>
+            </value>
+            <value>
+                <fullName>Metal</fullName>
+                <default>false</default>
+                <label>Metal</label>
+            </value>
+            <value>
                 <fullName>Other Multi-Product</fullName>
                 <default>false</default>
                 <label>Other Multi-Product</label>
             </value>
             <value>
-                <fullName>CCV</fullName>
+                <fullName>PDM</fullName>
                 <default>false</default>
-                <label>CCV</label>
+                <label>PDM</label>
+            </value>
+            <value>
+                <fullName>Polyjet Printers</fullName>
+                <default>false</default>
+                <label>Polyjet Printers</label>
+            </value>
+            <value>
+                <fullName>Print/Scanning Services</fullName>
+                <default>false</default>
+                <label>Print/Scanning Services</label>
             </value>
             <value>
                 <fullName>Professional Services</fullName>
@@ -96,14 +86,34 @@
                 <label>Professional Services</label>
             </value>
             <value>
-                <fullName>DriveWorks</fullName>
+                <fullName>Project Engineering</fullName>
                 <default>false</default>
-                <label>DriveWorks</label>
+                <label>Project Engineering</label>
             </value>
             <value>
-                <fullName>Excellerant</fullName>
+                <fullName>Scanners</fullName>
                 <default>false</default>
-                <label>Excellerant</label>
+                <label>Scanners</label>
+            </value>
+            <value>
+                <fullName>SIM</fullName>
+                <default>false</default>
+                <label>SIM</label>
+            </value>
+            <value>
+                <fullName>Staffing</fullName>
+                <default>false</default>
+                <label>Staffing</label>
+            </value>
+            <value>
+                <fullName>Training</fullName>
+                <default>false</default>
+                <label>Training</label>
+            </value>
+            <value>
+                <fullName>MBSE</fullName>
+                <default>false</default>
+                <label>MBSE</label>
             </value>
         </valueSetDefinition>
     </valueSet>

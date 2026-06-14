@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NetSuite_Record_Link__c</fullName>
+    <description>Link to the NetSuite&apos;s Contact Record</description>
+    <externalId>false</externalId>
+    <formula>IF( (NetSuite_Id__c != &quot;&quot;), HYPERLINK(&quot;https://436366.app.netsuite.com/app/common/entity/contact.nl?id=&quot; &amp; NetSuite_Id__c, NetSuite_Id__c), &quot;&quot;)</formula>
+    <label>NetSuite Record Link</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

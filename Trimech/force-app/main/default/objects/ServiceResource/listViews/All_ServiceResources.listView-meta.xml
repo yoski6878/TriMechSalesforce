@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ListView xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>All_ServiceResources</fullName>
+    <columns>Name</columns>
+    <columns>RelatedRecord</columns>
+    <columns>ResourceType</columns>
+    <columns>IsActive</columns>
+    <columns>Role__c</columns>
+    <columns>Team__c</columns>
+    <columns>LastModifiedBy</columns>
+    <columns>LastModifiedDate</columns>
     <filterScope>Everything</filterScope>
     <label>All Service Resources</label>
 </ListView>

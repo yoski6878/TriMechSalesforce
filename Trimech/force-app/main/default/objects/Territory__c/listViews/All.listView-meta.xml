@@ -4,8 +4,13 @@
     <columns>NAME</columns>
     <columns>Region__c</columns>
     <columns>Product_Group__c</columns>
+    <columns>CURRENCY_ISO_CODE</columns>
     <columns>OBJECT_ID</columns>
-    <columns>To_Be_Deleted__c</columns>
     <filterScope>Everything</filterScope>
+    <filters>
+        <field>NAME</field>
+        <operation>startsWith</operation>
+        <value>CA</value>
+    </filters>
     <label>All</label>
 </ListView>

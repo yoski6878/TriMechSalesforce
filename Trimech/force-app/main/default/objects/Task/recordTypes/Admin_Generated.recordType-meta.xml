@@ -121,6 +121,14 @@
             <default>false</default>
         </values>
         <values>
+            <fullName>MBSE</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Metal</fullName>
+            <default>false</default>
+        </values>
+        <values>
             <fullName>PDM</fullName>
             <default>false</default>
         </values>

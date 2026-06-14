@@ -3,6 +3,15 @@
     <fullName>Contact__c</fullName>
     <deleteConstraint>SetNull</deleteConstraint>
     <label>Contact</label>
+    <lookupFilter>
+        <active>true</active>
+        <filterItems>
+            <field>Contact.AccountId</field>
+            <operation>equals</operation>
+            <valueField>$Source.AccountId</valueField>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
     <referenceTo>Contact</referenceTo>
     <relationshipLabel>Assets</relationshipLabel>
     <relationshipName>Assets</relationshipName>

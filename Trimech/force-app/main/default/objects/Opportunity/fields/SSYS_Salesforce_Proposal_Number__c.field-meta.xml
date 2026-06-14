@@ -2,7 +2,7 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>SSYS_Salesforce_Proposal_Number__c</fullName>
     <externalId>false</externalId>
-    <label>OEM Deal Number</label>
+    <label>SSYS Salesforce Proposal Number</label>
     <length>255</length>
     <required>false</required>
     <trackFeedHistory>false</trackFeedHistory>

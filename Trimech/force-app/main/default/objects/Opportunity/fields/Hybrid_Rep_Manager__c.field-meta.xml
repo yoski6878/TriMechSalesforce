@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Hybrid_Rep_Manager__c</fullName>
+    <description>Used for Reporting on Hybrid Reps</description>
+    <externalId>false</externalId>
+    <formula>IF( (Owner.Full_Name__c = &apos;Mike LaHatte&apos; || Owner.Full_Name__c = &apos;Mike Waller&apos;) &amp;&amp; (Product_Group__r.Name = &apos;Hardware&apos; || Product_Group__r.Name = &apos;AMS&apos;),
+&apos;David Stockbower&apos;, Owner.Manager.Full_Name__c)</formula>
+    <label>Hybrid Rep Manager</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Send_to_OM_Required_Fields</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND (
+ISCHANGED(StageName),
+ISPICKVAL(StageName, &quot;Send To Order Management&quot;),
+OR (
+ISPICKVAL(Payment_Type__c, &quot;&quot;),
+ISPICKVAL( Is_software_on_this_order__c , &quot;&quot;),
+ISPICKVAL( Training_on_PO__c , &quot;&quot;),
+ISPICKVAL( Are_services_products_on_this_order__c , &quot;&quot;),
+ISPICKVAL( Are_hardware_products_on_this_order__c , &quot;&quot;)
+)
+)</errorConditionFormula>
+    <errorMessage>Go to the Order Management tab and ensure the following fields are populated:
+
+1. Payment Type
+2. Is software on this order? 
+3. Are training products on this order?
+4. Are services products on this order?
+5. Are hardware products on this order?</errorMessage>
+</ValidationRule>

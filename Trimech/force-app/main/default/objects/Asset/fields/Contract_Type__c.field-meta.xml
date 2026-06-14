@@ -34,6 +34,11 @@
                 <label>Lifetime Support</label>
             </value>
             <value>
+                <fullName>Emerald Care-TriMech</fullName>
+                <default>false</default>
+                <label>Emerald Care-TriMech</label>
+            </value>
+            <value>
                 <fullName>Emerald Care</fullName>
                 <default>false</default>
                 <label>Emerald Care</label>
@@ -44,9 +49,14 @@
                 <label>Diamond Care</label>
             </value>
             <value>
-                <fullName>Saphire Care</fullName>
+                <fullName>Sapphire Care</fullName>
                 <default>false</default>
-                <label>Saphire Care</label>
+                <label>Sapphire Care</label>
+            </value>
+            <value>
+                <fullName>Artec Care</fullName>
+                <default>false</default>
+                <label>Artec Care</label>
             </value>
         </valueSetDefinition>
     </valueSet>

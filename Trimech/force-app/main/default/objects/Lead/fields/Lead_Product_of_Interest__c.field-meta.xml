@@ -70,9 +70,12 @@
             <controllingFieldValue>Dell Workstation</controllingFieldValue>
             <controllingFieldValue>SolidCAM</controllingFieldValue>
             <controllingFieldValue>3D Printer - One Click Metal</controllingFieldValue>
+            <controllingFieldValue>MBSE</controllingFieldValue>
             <controllingFieldValue>PostProcess</controllingFieldValue>
+            <controllingFieldValue>Robotics</controllingFieldValue>
             <controllingFieldValue>Professional Services</controllingFieldValue>
-            <controllingFieldValue>Project Engineering Group</controllingFieldValue>
+            <controllingFieldValue>Product Development</controllingFieldValue>
+            <controllingFieldValue>3D Scan Services</controllingFieldValue>
             <controllingFieldValue>SIMULIA</controllingFieldValue>
             <controllingFieldValue>SOLIDWORKS 3D CAD</controllingFieldValue>
             <controllingFieldValue>SOLIDWORKS CAM</controllingFieldValue>
@@ -447,11 +450,6 @@
         </valueSettings>
         <valueSettings>
             <controllingFieldValue>Advanced Manufacturing Services</controllingFieldValue>
-            <controllingFieldValue>3D Scanner Artec</controllingFieldValue>
-            <valueName>3D Scanning Service</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Advanced Manufacturing Services</controllingFieldValue>
             <valueName>Advanced Manufacturing Services</valueName>
         </valueSettings>
         <valueSettings>
@@ -610,6 +608,22 @@
         <valueSettings>
             <controllingFieldValue>CATIA</controllingFieldValue>
             <valueName>CATIA</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>CATIA</controllingFieldValue>
+            <valueName>CATIA 3DEXPERIENCE</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>CATIA</controllingFieldValue>
+            <valueName>CATIA Generative Design</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>CATIA</controllingFieldValue>
+            <valueName>CATIA Training</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>CATIA</controllingFieldValue>
+            <valueName>CATIA V5</valueName>
         </valueSettings>
         <valueSettings>
             <controllingFieldValue>SOLIDWORKS Subscription Service</controllingFieldValue>
@@ -971,6 +985,10 @@
         </valueSettings>
         <valueSettings>
             <controllingFieldValue>3D Printer - One Click Metal</controllingFieldValue>
+            <valueName>3D Printer - One Click Metal</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>3D Printer - One Click Metal</controllingFieldValue>
             <valueName>MPRINT</valueName>
         </valueSettings>
         <valueSettings>
@@ -978,8 +996,12 @@
             <valueName>MPUREPro</valueName>
         </valueSettings>
         <valueSettings>
-            <controllingFieldValue>3D Printer - One Click Metal</controllingFieldValue>
-            <valueName>3D Printer - One Click Metal</valueName>
+            <controllingFieldValue>MBSE</controllingFieldValue>
+            <valueName>MBSE</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Robotics</controllingFieldValue>
+            <valueName>Robotics</valueName>
         </valueSettings>
         <valueSettings>
             <controllingFieldValue>Professional Services</controllingFieldValue>
@@ -1014,32 +1036,80 @@
             <valueName>Project Management</valueName>
         </valueSettings>
         <valueSettings>
-            <controllingFieldValue>Project Engineering Group</controllingFieldValue>
-            <valueName>3D Design</valueName>
+            <controllingFieldValue>Enterprise</controllingFieldValue>
+            <valueName>Enterprise</valueName>
         </valueSettings>
         <valueSettings>
-            <controllingFieldValue>Project Engineering Group</controllingFieldValue>
-            <valueName>3D Scanning</valueName>
+            <controllingFieldValue>Product Development</controllingFieldValue>
+            <valueName>3D Visualization</valueName>
         </valueSettings>
         <valueSettings>
-            <controllingFieldValue>Project Engineering Group</controllingFieldValue>
-            <valueName>Design Analysis</valueName>
+            <controllingFieldValue>Product Development</controllingFieldValue>
+            <valueName>CAD Services</valueName>
         </valueSettings>
         <valueSettings>
-            <controllingFieldValue>Project Engineering Group</controllingFieldValue>
-            <valueName>Project Engineering Group</valueName>
+            <controllingFieldValue>Product Development</controllingFieldValue>
+            <valueName>Engineering Services</valueName>
         </valueSettings>
         <valueSettings>
-            <controllingFieldValue>Project Engineering Group</controllingFieldValue>
-            <valueName>Rapid Prototyping</valueName>
+            <controllingFieldValue>Product Development</controllingFieldValue>
+            <valueName>Industrial Design</valueName>
         </valueSettings>
         <valueSettings>
-            <controllingFieldValue>Project Engineering Group</controllingFieldValue>
-            <valueName>Simulation</valueName>
+            <controllingFieldValue>Product Development</controllingFieldValue>
+            <valueName>Patent Referral</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Product Development</controllingFieldValue>
+            <valueName>Product Design</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Product Development</controllingFieldValue>
+            <valueName>Product Development</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Product Development</controllingFieldValue>
+            <valueName>Product Manufacturing</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Product Development</controllingFieldValue>
+            <valueName>Product Prototyping</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Product Development</controllingFieldValue>
+            <valueName>Simulation Services</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Product Development</controllingFieldValue>
+            <valueName>Startup Business Support</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>3D Scan Services</controllingFieldValue>
+            <valueName>3D Scan Services</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SIMULIA</controllingFieldValue>
+            <valueName>MODSIM</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SIMULIA</controllingFieldValue>
+            <valueName>PowerFLOW</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SIMULIA</controllingFieldValue>
+            <valueName>Simpack</valueName>
         </valueSettings>
         <valueSettings>
             <controllingFieldValue>SIMULIA</controllingFieldValue>
             <valueName>SIMULIA</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SIMULIA</controllingFieldValue>
+            <valueName>SIMULIA 3DEXPERIENCE</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SIMULIA</controllingFieldValue>
+            <valueName>SIMULIA CST</valueName>
         </valueSettings>
         <valueSettings>
             <controllingFieldValue>SIMULIA</controllingFieldValue>
@@ -1068,6 +1138,14 @@
         <valueSettings>
             <controllingFieldValue>SIMULIA</controllingFieldValue>
             <valueName>SIMULIA Structural Simulation Engineer</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SIMULIA</controllingFieldValue>
+            <valueName>Tosca</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SIMULIA</controllingFieldValue>
+            <valueName>Xflow</valueName>
         </valueSettings>
         <valueSettings>
             <controllingFieldValue>SOLIDWORKS 3D CAD</controllingFieldValue>

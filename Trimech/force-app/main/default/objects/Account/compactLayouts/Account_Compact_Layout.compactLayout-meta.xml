@@ -5,9 +5,10 @@
     <fields>Phone</fields>
     <fields>Website</fields>
     <fields>ShippingAddress</fields>
+    <fields>Credit_Hold_Status__c</fields>
+    <fields>Subsidiary__c</fields>
     <fields>Territory__c</fields>
     <fields>Region__c</fields>
-    <fields>Credit_Hold_Status__c</fields>
     <fields>Account_Type__c</fields>
     <label>Account Compact Layout</label>
 </CompactLayout>

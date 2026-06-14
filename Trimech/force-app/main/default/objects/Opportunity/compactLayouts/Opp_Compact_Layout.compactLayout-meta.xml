@@ -7,6 +7,7 @@
     <fields>Actual_Close_Date__c</fields>
     <fields>Amount</fields>
     <fields>Opp_Commissionable_GP__c</fields>
+    <fields>Probability</fields>
     <fields>Pricebook2Id</fields>
     <label>Opp Compact Layout</label>
 </CompactLayout>

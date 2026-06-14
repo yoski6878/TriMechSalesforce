@@ -16,11 +16,7 @@
         </valueSettings>
         <valueSettings>
             <controllingFieldValue>Specialty</controllingFieldValue>
-            <valueName>DELMIA</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Specialty</controllingFieldValue>
-            <valueName>DriveWorks</valueName>
+            <valueName>DELMIAWorks</valueName>
         </valueSettings>
         <valueSettings>
             <controllingFieldValue>Specialty</controllingFieldValue>
@@ -28,23 +24,7 @@
         </valueSettings>
         <valueSettings>
             <controllingFieldValue>Specialty</controllingFieldValue>
-            <valueName>Excellerant</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Specialty</controllingFieldValue>
-            <valueName>Formlabs</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Specialty</controllingFieldValue>
-            <valueName>Mastercam</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Specialty</controllingFieldValue>
-            <valueName>Metal Printers</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Specialty</controllingFieldValue>
-            <valueName>PLM</valueName>
+            <valueName>PEG</valueName>
         </valueSettings>
         <valueSettings>
             <controllingFieldValue>Specialty</controllingFieldValue>
@@ -52,7 +32,7 @@
         </valueSettings>
         <valueSettings>
             <controllingFieldValue>Specialty</controllingFieldValue>
-            <valueName>SolidCAM</valueName>
+            <valueName>Scan Services</valueName>
         </valueSettings>
         <valueSettings>
             <controllingFieldValue>Specialty</controllingFieldValue>

@@ -3,6 +3,7 @@
     <fullName>All_Cases</fullName>
     <columns>CASES.CASE_NUMBER</columns>
     <columns>ACCOUNT.NAME</columns>
+    <columns>Icons__c</columns>
     <columns>NAME</columns>
     <columns>CASES.SUBJECT</columns>
     <columns>CASES.STATUS</columns>
@@ -11,6 +12,7 @@
     <columns>CASES.LAST_UPDATE_DATE_ONLY</columns>
     <columns>NetSuite_Case_Number__c</columns>
     <columns>Business_Unit__c</columns>
+    <columns>CASES.CREATED_DATE</columns>
     <filterScope>Everything</filterScope>
     <label>All Cases</label>
 </ListView>

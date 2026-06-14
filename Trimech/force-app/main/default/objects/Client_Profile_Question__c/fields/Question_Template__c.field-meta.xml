@@ -7,7 +7,6 @@
     <relationshipLabel>Client Profile Questions</relationshipLabel>
     <relationshipName>Client_Profile_Questions</relationshipName>
     <required>false</required>
-    <trackHistory>false</trackHistory>
     <trackTrending>false</trackTrending>
     <type>Lookup</type>
 </CustomField>

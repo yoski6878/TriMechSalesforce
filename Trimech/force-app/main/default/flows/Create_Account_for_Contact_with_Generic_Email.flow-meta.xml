@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>51.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
     <interviewLabel>Create Account for Contact with Generic Email {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Create Account for Contact with Generic Email</label>
     <processMetadataValues>
@@ -71,6 +73,7 @@
         <connector>
             <targetReference>Create_Account</targetReference>
         </connector>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
             <operator>EqualTo</operator>
@@ -78,13 +81,16 @@
                 <elementReference>recordId</elementReference>
             </value>
         </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
         <object>Contact</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordUpdates>
         <name>Update_Contact</name>
         <label>Update Contact</label>
         <locationX>176</locationX>
         <locationY>398</locationY>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
             <operator>EqualTo</operator>
@@ -100,8 +106,14 @@
         </inputAssignments>
         <object>Contact</object>
     </recordUpdates>
-    <startElementReference>Get_Contact</startElementReference>
-    <status>Active</status>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Contact</targetReference>
+        </connector>
+    </start>
+    <status>Obsolete</status>
     <variables>
         <name>recordId</name>
         <dataType>String</dataType>

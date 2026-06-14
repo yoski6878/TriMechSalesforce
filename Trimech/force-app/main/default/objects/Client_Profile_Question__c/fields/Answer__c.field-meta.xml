@@ -3,7 +3,6 @@
     <fullName>Answer__c</fullName>
     <label>Answer</label>
     <length>1000</length>
-    <trackHistory>true</trackHistory>
     <trackTrending>false</trackTrending>
     <type>LongTextArea</type>
     <visibleLines>3</visibleLines>

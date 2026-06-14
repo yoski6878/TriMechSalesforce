@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FieldSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MapPointDetails</fullName>
+    <description>Display additional details related to map point</description>
+    <label>MapPointDetails</label>
+</FieldSet>

@@ -7,33 +7,7 @@
     <trackHistory>false</trackHistory>
     <type>Picklist</type>
     <valueSet>
-        <valueSetDefinition>
-            <sorted>false</sorted>
-            <value>
-                <fullName>Software License</fullName>
-                <default>false</default>
-                <label>Software License</label>
-            </value>
-            <value>
-                <fullName>Printer</fullName>
-                <default>false</default>
-                <label>Printer</label>
-            </value>
-            <value>
-                <fullName>Scanner</fullName>
-                <default>false</default>
-                <label>Scanner</label>
-            </value>
-            <value>
-                <fullName>Computer</fullName>
-                <default>false</default>
-                <label>Computer</label>
-            </value>
-            <value>
-                <fullName>Hardware</fullName>
-                <default>false</default>
-                <label>Hardware</label>
-            </value>
-        </valueSetDefinition>
+        <restricted>true</restricted>
+        <valueSetName>Asset_Type</valueSetName>
     </valueSet>
 </CustomField>

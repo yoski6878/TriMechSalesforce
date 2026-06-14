@@ -14,8 +14,6 @@ public without sharing class Opportunity_Trigger {
     public static Boolean hasRunAfterUnDelete = false;
     //TH-Added below line to avoid hardcoding of the Id for Opportunity Record Type on lines 27 and 56 (previously 25 and 54)
     public static final ID OPPORTUNITY_RECORD_TYPE_ID = Schema.SObjectType.Opportunity.getRecordTypeInfosByName().get('Opportunity').getRecordTypeId();
-    //YK - Added as part of - 729 Hardware Neglected Lead Requirements
-	public static final ID LEAD_RECORD_TYPE_ID = Schema.SObjectType.Opportunity.getRecordTypeInfosByName().get('Lead').getRecordTypeId();
 
     public static void beforeInsert(List<Opportunity> newList,List<Opportunity> oldList, Map<Id,Opportunity> newMap, Map<Id,Opportunity> oldMap){
         
@@ -35,11 +33,15 @@ public without sharing class Opportunity_Trigger {
             
             if(o.Isclosed) {o.Actual_Close_Date__c = system.Today();}
             
+            if(o.TD_Lead_Score__c != '' && o.TD_Lead_Score__c != null){
+                o.Lead_Score_Changed__c = true;
+            }
+            
+            
             /*if(o.Product_Group__c != null){
                 oppsWithProductGroups.add(o);
                 prodGroupIds.add(o.Product_Group__c);
             }*/
-
         }
         
         //if(!oppsWithProductGroups.isEmpty()) {setPricebookFromProductGroup(oppsWithProductGroups,prodGroupIds);}
@@ -53,8 +55,6 @@ public without sharing class Opportunity_Trigger {
         Set<Id> setAccount = new Set<Id>();
         
         for(Opportunity o : newList){
-			
-            Opportunity oldRec = oldMap.get(o.Id);
             
             if(o.StageName != oldMap.get(o.Id).StageName){
                 if(o.StageName == 'Qualified'){
@@ -69,11 +69,6 @@ public without sharing class Opportunity_Trigger {
                 }
             }
             
-            //YK - Added as part of - 729 Hardware Neglected Lead Requirements
-            if (o.StageName == 'Neglected' && oldRec.StageName != 'Neglected') {
-                o.Neglected_Date__c = Date.today();
-            }
-
  
             
             /*if(o.Product_Group__c != oldMap.get(o.Id).Product_Group__c){
@@ -89,16 +84,37 @@ public without sharing class Opportunity_Trigger {
     }
       
     public static void afterInsert(List<Opportunity> newList,List<Opportunity> oldList, Map<Id,Opportunity> newMap, Map<Id,Opportunity> oldMap){
-        
-        //integrator_da__.RealTimeExportResult res = integrator_da__.RealTimeExporter.processExport(); 
-		Opportunity_Trigger.storeAddressFromAccount(newList);
-        
+
+        //integrator_da__.RealTimeExportResult res = integrator_da__.RealTimeExporter.processExport();
     }
     
     public static void afterUpdate(List<Opportunity> newList,List<Opportunity> oldList, Map<Id,Opportunity> newMap, Map<Id,Opportunity> oldMap){
         
-        //integrator_da__.RealTimeExportResult res = integrator_da__.RealTimeExporter.processExport();
- 
+        for (Opportunity newOpp : newList) {
+            Opportunity oldOpp = oldMap.get(newOpp.Id);
+
+            if (oldOpp == null) {
+                continue;
+            }
+
+        }
+        
+
+        List<Opportunity> oppsToUpdate = new List<Opportunity>();
+        for (Opportunity newOpp : newList) {
+            Opportunity oldOpp = oldMap.get(newOpp.Id);
+            // Check if TD_Lead_Score__c changed (handles null as well)
+            if (newOpp.TD_Lead_Score__c != oldOpp.TD_Lead_Score__c) {
+                oppsToUpdate.add(new Opportunity(
+                    Id = newOpp.Id,
+                    Lead_Score_Changed__c = true
+                ));
+            }
+        }
+        if (!oppsToUpdate.isEmpty()) {
+            update oppsToUpdate;
+        }
+        //integrator_da__.RealTimeExportResult res = integrator_da__.RealTimeExporter.processExport(); 
          
     }
     
@@ -183,49 +199,5 @@ public without sharing class Opportunity_Trigger {
             } else {o.Pricebook2Id = null;}
         }    
     }*/
-    
-    public static void storeAddressFromAccount(List<Opportunity> oppList){
-		
-		Set<Id> accountIds = new Set<Id>();
-        for (Opportunity opp : oppList) {
-            if (opp.AccountId != null) {
-                accountIds.add(opp.AccountId);
-            }
-        }
-    
-        // Fetch all addresses related to these accounts
-        List<Schema.Address> accountAddresses = [SELECT Id, IsDeleted, Name, CurrencyIsoCode, ParentId, LocationType, AddressType, Street, City, State, PostalCode, Country, Latitude, Longitude, GeocodeAccuracy, Address, Description, DrivingDirections, TimeZone, Account__c, Primary_Billing_Address__c, Primary_Shipping_Address__c FROM Address WHERE Account__c IN :accountIds];
 
-        // Group addresses by AccountId
-        Map<Id, List<Schema.Address>> accountToAddresses = new Map<Id, List<Schema.Address>>();
-        for (Schema.Address addr : accountAddresses) {
-            if (!accountToAddresses.containsKey(addr.Account__c)) {
-                accountToAddresses.put(addr.Account__c, new List<Schema.Address>());
-            }
-            accountToAddresses.get(addr.Account__c).add(addr);
-        }
-
-        // Clone and reassign addresses to Opportunity
-        List<Schema.Address> addressesToInsert = new List<Schema.Address>();
-        for (Opportunity opp : oppList) {
-            if (accountToAddresses.containsKey(opp.AccountId)) {
-                for (Schema.Address addr : accountToAddresses.get(opp.AccountId)) {
-                    Schema.Address newAddr = addr.clone();
-                    newAddr.Account__c = null;
-					newAddr.Lead_Opportunity__c = opp.Id;
-                    addressesToInsert.add(newAddr);
-                }
-            }
-        }
-        
-        if (!addressesToInsert.isEmpty()) {
-            Database.SaveResult[] results = Database.insert(addressesToInsert, false);   
-            for (Integer i = 0; i < results.size(); i++) {
-                if (!results[i].isSuccess()) {
-                    // Optional: Log or handle the failed insert
-                    System.debug('Failed to insert address: ' + results[i].getErrors()[0].getMessage());
-                }
-            }
-        }
-    }
 }

@@ -5,8 +5,8 @@
     <description>The type field needs to be required AFTER the stage is moved to in progress. They wont know the type right away as cases come in from email or web.</description>
     <errorConditionFormula>AND(
     NOT(ISPICKVAL(Status, &quot;New&quot;)),
-    ISPICKVAL(Type,&quot;Unassigned&quot;),
+     OR(ISPICKVAL(Type,&quot;Unassigned&quot;),ISBLANK(TEXT(Type))),
     $Profile.Name != &quot;System Administrator&quot;
 )</errorConditionFormula>
-    <errorMessage>The Type field is required when moving the status out of &quot;New&quot;.</errorMessage>
+    <errorMessage>The Type field is required when moving the status out of &quot;New&quot; and Type is &quot;Unassigned&quot; or &quot;Blank&quot;.</errorMessage>
 </ValidationRule>

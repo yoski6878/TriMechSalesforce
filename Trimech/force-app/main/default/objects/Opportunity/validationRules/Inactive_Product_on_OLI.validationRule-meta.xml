@@ -2,6 +2,6 @@
 <ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Inactive_Product_on_OLI</fullName>
     <active>true</active>
-    <errorConditionFormula>AND(Inactive_OLI__c, $User.Id &lt;&gt; &apos;0056g000005NSkz&apos;, $User.Id &lt;&gt; &apos;0054V00000FA3TL&apos;, $User.Id &lt;&gt; &apos;0054V00000C2IXJ&apos;, $User.Id &lt;&gt; &apos;0054V00000FdtRY&apos;)</errorConditionFormula>
+    <errorConditionFormula>AND(Inactive_OLI__c, $User.Id &lt;&gt; &apos;0056g000005NSkz&apos;, $User.Id &lt;&gt; &apos;0054V00000FA3TL&apos;, $User.Id &lt;&gt; &apos;005PZ000004vsXd&apos;, $User.Id &lt;&gt; &apos;005PZ000004Owa1&apos;, $User.Id &lt;&gt; &apos;0056g000003ZuPF&apos;, $User.Id &lt;&gt; &apos;005PZ0000015xwX&apos;, $User.Id &lt;&gt; &apos;0054V00000F9yWx&apos;, $User.Id &lt;&gt; &apos;005PZ000004Owa1&apos;)</errorConditionFormula>
     <errorMessage>Inactive Product Line Item(s), please remove or replace the inactive Product Line Item</errorMessage>
 </ValidationRule>

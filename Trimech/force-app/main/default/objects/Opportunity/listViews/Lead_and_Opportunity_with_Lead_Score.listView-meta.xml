@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lead_and_Opportunity_with_Lead_Score</fullName>
+    <columns>OPPORTUNITY.NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>Primary_Contact__c</columns>
+    <columns>OPPORTUNITY.STAGE_NAME</columns>
+    <columns>TD_Lead_Score__c</columns>
+    <columns>NDA_Approval_Process_Status__c</columns>
+    <columns>Product_Group__c</columns>
+    <columns>OPPORTUNITY.RECORDTYPE</columns>
+    <columns>OPPORTUNITY.CREATED_DATE</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>TD_Lead_Score__c</field>
+        <operation>notEqual</operation>
+    </filters>
+    <label>Lead and Opportunity with Lead Score</label>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

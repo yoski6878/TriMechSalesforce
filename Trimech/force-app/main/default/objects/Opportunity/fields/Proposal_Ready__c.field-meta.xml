@@ -3,7 +3,6 @@
     <fullName>Proposal_Ready__c</fullName>
     <formula>IF( 
 NOT(ISPICKVAL(End_User_Department__c, &quot;&quot;)) &amp;&amp; 
-HasOpportunityLineItem = TRUE &amp;&amp; 
 NOT(ISBLANK(Primary_Contact__c)), 
 true, 
 false

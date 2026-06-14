@@ -5,17 +5,6 @@
     <businessProcess>Lead</businessProcess>
     <label>Lead</label>
     <picklistValues>
-        <picklist>ACR_Submission__c</picklist>
-        <values>
-            <fullName>No</fullName>
-            <default>true</default>
-        </values>
-        <values>
-            <fullName>Yes</fullName>
-            <default>false</default>
-        </values>
-    </picklistValues>
-    <picklistValues>
         <picklist>AVA_SFCLOUD__Transport__c</picklist>
         <values>
             <fullName>Buyer</fullName>
@@ -35,40 +24,6 @@
         </values>
         <values>
             <fullName>ThirdPartyForSeller</fullName>
-            <default>false</default>
-        </values>
-    </picklistValues>
-    <picklistValues>
-        <picklist>Agreement_Type__c</picklist>
-        <values>
-            <fullName>Evaluation</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Master Agreement</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Other</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Standard Closa</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Transactional</fullName>
-            <default>false</default>
-        </values>
-    </picklistValues>
-    <picklistValues>
-        <picklist>Are_Services_Outsourced__c</picklist>
-        <values>
-            <fullName>No</fullName>
-            <default>true</default>
-        </values>
-        <values>
-            <fullName>Yes</fullName>
             <default>false</default>
         </values>
     </picklistValues>
@@ -113,40 +68,7 @@
         </values>
     </picklistValues>
     <picklistValues>
-        <picklist>CPE_Fixed_Fee_Service__c</picklist>
-        <values>
-            <fullName>No</fullName>
-            <default>true</default>
-        </values>
-        <values>
-            <fullName>Yes</fullName>
-            <default>false</default>
-        </values>
-    </picklistValues>
-    <picklistValues>
-        <picklist>CPE_Order__c</picklist>
-        <values>
-            <fullName>No</fullName>
-            <default>true</default>
-        </values>
-        <values>
-            <fullName>Yes</fullName>
-            <default>false</default>
-        </values>
-    </picklistValues>
-    <picklistValues>
         <picklist>Changing_or_Adding_to_Existing_License__c</picklist>
-        <values>
-            <fullName>No</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Yes</fullName>
-            <default>false</default>
-        </values>
-    </picklistValues>
-    <picklistValues>
-        <picklist>Client_PO_attached__c</picklist>
         <values>
             <fullName>No</fullName>
             <default>false</default>
@@ -462,6 +384,10 @@
             <default>false</default>
         </values>
         <values>
+            <fullName>Natural Google Search</fullName>
+            <default>false</default>
+        </values>
+        <values>
             <fullName>Partner - 3D Systems%2FOqton%2FGeomagic</fullName>
             <default>false</default>
         </values>
@@ -573,6 +499,10 @@
             <default>false</default>
         </values>
         <values>
+            <fullName>3D Scan Services</fullName>
+            <default>false</default>
+        </values>
+        <values>
             <fullName>3D Scanner Artec</fullName>
             <default>false</default>
         </values>
@@ -641,6 +571,10 @@
             <default>false</default>
         </values>
         <values>
+            <fullName>Enterprise</fullName>
+            <default>false</default>
+        </values>
+        <values>
             <fullName>ExactFlat</fullName>
             <default>false</default>
         </values>
@@ -654,6 +588,10 @@
         </values>
         <values>
             <fullName>Geomagic</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MBSE</fullName>
             <default>false</default>
         </values>
         <values>
@@ -689,11 +627,15 @@
             <default>false</default>
         </values>
         <values>
+            <fullName>Product Development</fullName>
+            <default>false</default>
+        </values>
+        <values>
             <fullName>Professional Services</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>Project Engineering Group</fullName>
+            <fullName>Robotics</fullName>
             <default>false</default>
         </values>
         <values>
@@ -840,10 +782,6 @@
     <picklistValues>
         <picklist>Lead_Product_of_Interest_on_Opp__c</picklist>
         <values>
-            <fullName>3D Design</fullName>
-            <default>false</default>
-        </values>
-        <values>
             <fullName>3D Printer - Formlabs</fullName>
             <default>false</default>
         </values>
@@ -880,6 +818,10 @@
             <default>false</default>
         </values>
         <values>
+            <fullName>3D Scan Services</fullName>
+            <default>false</default>
+        </values>
+        <values>
             <fullName>3D Scanner Artec</fullName>
             <default>false</default>
         </values>
@@ -888,11 +830,7 @@
             <default>false</default>
         </values>
         <values>
-            <fullName>3D Scanning</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>3D Scanning Service</fullName>
+            <fullName>3D Visualization</fullName>
             <default>false</default>
         </values>
         <values>
@@ -1056,7 +994,27 @@
             <default>false</default>
         </values>
         <values>
+            <fullName>CAD Services</fullName>
+            <default>false</default>
+        </values>
+        <values>
             <fullName>CATIA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CATIA 3DEXPERIENCE</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CATIA Generative Design</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CATIA Training</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CATIA V5</fullName>
             <default>false</default>
         </values>
         <values>
@@ -1105,10 +1063,6 @@
         </values>
         <values>
             <fullName>Dell Workstation</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Design Analysis</fullName>
             <default>false</default>
         </values>
         <values>
@@ -1200,6 +1154,14 @@
             <default>false</default>
         </values>
         <values>
+            <fullName>Engineering Services</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Enterprise</fullName>
+            <default>false</default>
+        </values>
+        <values>
             <fullName>ExactFlat</fullName>
             <default>false</default>
         </values>
@@ -1248,11 +1210,23 @@
             <default>false</default>
         </values>
         <values>
+            <fullName>Industrial Design</fullName>
+            <default>false</default>
+        </values>
+        <values>
             <fullName>Introduction to SOLIDWORKS Simulation</fullName>
             <default>false</default>
         </values>
         <values>
             <fullName>Laser Cutting %26 Engraving Service</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MBSE</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MODSIM</fullName>
             <default>false</default>
         </values>
         <values>
@@ -1324,6 +1298,10 @@
             <default>false</default>
         </values>
         <values>
+            <fullName>Patent Referral</fullName>
+            <default>false</default>
+        </values>
+        <values>
             <fullName>PlantWorks</fullName>
             <default>false</default>
         </values>
@@ -1340,15 +1318,31 @@
             <default>false</default>
         </values>
         <values>
+            <fullName>PowerFLOW</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Product Design</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Product Development</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Product Manufacturing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Product Prototyping</fullName>
+            <default>false</default>
+        </values>
+        <values>
             <fullName>Professional Services</fullName>
             <default>false</default>
         </values>
         <values>
             <fullName>Programming</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Project Engineering Group</fullName>
             <default>false</default>
         </values>
         <values>
@@ -1360,11 +1354,19 @@
             <default>false</default>
         </values>
         <values>
-            <fullName>Rapid Prototyping</fullName>
+            <fullName>Robotics</fullName>
             <default>false</default>
         </values>
         <values>
             <fullName>SIMULIA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SIMULIA 3DEXPERIENCE</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SIMULIA CST</fullName>
             <default>false</default>
         </values>
         <values>
@@ -1728,7 +1730,11 @@
             <default>false</default>
         </values>
         <values>
-            <fullName>Simulation</fullName>
+            <fullName>Simpack</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Simulation Services</fullName>
             <default>false</default>
         </values>
         <values>
@@ -1745,6 +1751,10 @@
         </values>
         <values>
             <fullName>Staffing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Startup Business Support</fullName>
             <default>false</default>
         </values>
         <values>
@@ -1852,6 +1862,10 @@
             <default>false</default>
         </values>
         <values>
+            <fullName>Tosca</fullName>
+            <default>false</default>
+        </values>
+        <values>
             <fullName>Training Course</fullName>
             <default>false</default>
         </values>
@@ -1876,18 +1890,11 @@
             <default>false</default>
         </values>
         <values>
+            <fullName>Xflow</fullName>
+            <default>false</default>
+        </values>
+        <values>
             <fullName>eDrawings Professional</fullName>
-            <default>false</default>
-        </values>
-    </picklistValues>
-    <picklistValues>
-        <picklist>Letter_of_Authorization_LOA__c</picklist>
-        <values>
-            <fullName>No</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Yes</fullName>
             <default>false</default>
         </values>
     </picklistValues>
@@ -1948,157 +1955,285 @@
         </values>
     </picklistValues>
     <picklistValues>
-        <picklist>OEM__c</picklist>
+        <picklist>Offer_Name__c</picklist>
         <values>
-            <fullName>Aesub</fullName>
+            <fullName>3DEXCITE_3DEXCITE DELTAGEN_On Premise</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>Aras</fullName>
+            <fullName>3DEXCITE_Marketing%2FSales_On Premise</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>Artec</fullName>
+            <fullName>3DEXCITE_Public Cloud Marketing%2FSales_Public Cloud</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>Autodesk</fullName>
+            <fullName>3DEXPERIENCE_3DEXPERIENCE Platform_On Premise</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>Camnetics</fullName>
+            <fullName>3DEXPERIENCE_Business Analytics_On Premise</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>CimQuest</fullName>
+            <fullName>3DEXPERIENCE_Design%2FEngineering_On Premise</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>Dassault</fullName>
+            <fullName>3DEXPERIENCE_Governance%2FLifecycle_On Premise</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>DataKit</fullName>
+            <fullName>3DEXPERIENCE_Manufacturing%2FProduction_On Premise</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>Dell</fullName>
+            <fullName>3DEXPERIENCE_Marketing%2FSales_On Premise</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>DriveWorks</fullName>
+            <fullName>3DEXPERIENCE_Public Cloud 3DEXPERIENCE Platform_On Premise</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>DyeMansion</fullName>
+            <fullName>3DEXPERIENCE_Public Cloud 3DEXPERIENCE Platform_Public Cloud</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>EFICAD</fullName>
+            <fullName>3DEXPERIENCE_Public Cloud Biosphere and Materials_Public Cloud</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>EXACTFLAT</fullName>
+            <fullName>3DEXPERIENCE_Public Cloud Business Analytics_Public Cloud</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>ElectroMagneticWorks</fullName>
+            <fullName>3DEXPERIENCE_Public Cloud Design%2FEngineering_Public Cloud</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>Excellerant</fullName>
+            <fullName>3DEXPERIENCE_Public Cloud Governance%2FLifecycle_Public Cloud</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>FlexSim</fullName>
+            <fullName>3DEXPERIENCE_Public Cloud Manufacturing%2FProduction_Public Cloud</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>Formlabs</fullName>
+            <fullName>3DEXPERIENCE_Public Cloud Marketing%2FSales_Public Cloud</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>Gravotech</fullName>
+            <fullName>3DEXPERIENCE_Public Cloud Simulation_Public Cloud</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>IMS Software</fullName>
+            <fullName>3DEXPERIENCE_Simulation_On Premise</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>MakerBot</fullName>
+            <fullName>3DEXPERIENCE_Virtual Planet_On Premise</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>Materialise</fullName>
+            <fullName>CATIA_CATIA Composer_On Premise</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>Nano Dimension</fullName>
+            <fullName>CATIA_CATIA Magic_On Premise</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>One Click Metal</fullName>
+            <fullName>CATIA_CATIA V4_On Premise</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>Onulis</fullName>
+            <fullName>CATIA_CATIA V5 PLM Express Edition 3_On Premise</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>Oryx</fullName>
+            <fullName>CATIA_CATIA V5_On Premise</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>Other</fullName>
+            <fullName>CATIA_CATIA V6_On Premise</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>Post Process Technologies</fullName>
+            <fullName>CATIA_DYMOLA_On Premise</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>Product Development</fullName>
+            <fullName>CATIA_ICEM Surf_On Premise</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>R%26B Mold %26 Die Design</fullName>
+            <fullName>CATIA_No Magic_On Premise</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>RazorLeaf</fullName>
+            <fullName>CATIA_Q-Checker for V5 %26 V4_On Premise</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>SolidCam</fullName>
+            <fullName>CATIA_Q-Checker for V6_On Premise</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>SolidProfessor</fullName>
+            <fullName>CATIA_Reqtify - ControlBuild - AUTOSAR Builder_On Premise</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>Stratasys</fullName>
+            <fullName>DELMIA_DELMIA Apriso_On Premise</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>TransMagic</fullName>
+            <fullName>DELMIA_DELMIA Augmented Experience Hardware_On Premise</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>TriMech</fullName>
+            <fullName>DELMIA_DELMIA Augmented Experience_On Premise</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>Wazer</fullName>
+            <fullName>DELMIA_DELMIA D5_On Premise</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>Wolf Star Technologies LLC</fullName>
+            <fullName>DELMIA_DELMIA Ortems_On Premise</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>Zeiss</fullName>
+            <fullName>DELMIA_DELMIA Process Engineer_On Premise</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DELMIA_DELMIA V5 PLM Express products_On Premise</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DELMIA_DELMIA V5_On Premise</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DELMIA_Dedicated Cloud Manufacturing%2FProduction_Private Cloud</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EDUCATION_CATIA %2F ENOVIA DMU_On Premise</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EDUCATION_CATIA V5_On Premise</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EDUCATION_ENOVIA SmarTeam V5_On Premise</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EDUCATION_ENOVIA VPLM V5_On Premise</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EDUCATION_Online Learning Experience Domains of Excellence_Public Cloud</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EDUCATION_Online Learning Experience for 3DEXPERIENCE_Public Cloud</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EDUCATION_Online Learning Experience for BIOVIA_Public Cloud</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EDUCATION_Online Learning Experience for CATIA Composer_Public Cloud</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EDUCATION_Online Learning Experience for CATIA_Public Cloud</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EDUCATION_Online Learning Experience for DELMIAWorks_Public Cloud</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EDUCATION_Online Learning Experience for DELMIA_Public Cloud</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EDUCATION_Online Learning Experience for Education_Public Cloud</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EDUCATION_Online Learning Experience for GEOVIA_Public Cloud</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EDUCATION_Online Learning Experience for SIMULIA_Public Cloud</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EDUCATION_Online Learning Experience for V5_Public Cloud</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ENOVIA_3DEXPERIENCE Platform_On Premise</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ENOVIA_ENOVIA SmarTeam V5_On Premise</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ENOVIA_ENOVIA Synchronicity V6_On Premise</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SIMULIA_SIMULIA Abaqus Unified FEA_On Premise</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SIMULIA_SIMULIA CST Studio Suite_On Premise</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SIMULIA_SIMULIA Cloud_Public Cloud</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SIMULIA_SIMULIA Electromagnetics for Education_On Premise</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SIMULIA_SIMULIA Isight_On Premise</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SIMULIA_SIMULIA Opera_On Premise</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SIMULIA_SIMULIA PowerFLOW Suite_On Premise</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SIMULIA_SIMULIA Simpack_On Premise</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SIMULIA_SIMULIA Tosca_On Premise</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SIMULIA_SIMULIA Wave6_On Premise</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SIMULIA_SIMULIA XFlow_On Premise</fullName>
             <default>false</default>
         </values>
     </picklistValues>
@@ -2121,7 +2256,7 @@
         </values>
         <values>
             <fullName>Credit Card</fullName>
-            <default>true</default>
+            <default>false</default>
         </values>
         <values>
             <fullName>Purchase Order</fullName>
@@ -2403,21 +2538,21 @@
         </values>
     </picklistValues>
     <picklistValues>
-        <picklist>Referral__c</picklist>
+        <picklist>Referral_Source__c</picklist>
         <values>
-            <fullName>No</fullName>
-            <default>true</default>
+            <fullName>Referral resulted from inbound inquiry where the client called or emailed asking for a quote or to be referred to sales rep%2E</fullName>
+            <default>false</default>
         </values>
         <values>
-            <fullName>Yes</fullName>
+            <fullName>Referral resulted from outbound%2Fproactive engagement with client%2C or from a support case where TriMech products%2Fservices were discussed%2E</fullName>
             <default>false</default>
         </values>
     </picklistValues>
     <picklistValues>
-        <picklist>Special_Discount_Approval_email_attached__c</picklist>
+        <picklist>Referral__c</picklist>
         <values>
             <fullName>No</fullName>
-            <default>false</default>
+            <default>true</default>
         </values>
         <values>
             <fullName>Yes</fullName>
@@ -2431,11 +2566,7 @@
             <default>false</default>
         </values>
         <values>
-            <fullName>DELMIA</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>DriveWorks</fullName>
+            <fullName>DELMIAWorks</fullName>
             <default>false</default>
         </values>
         <values>
@@ -2443,23 +2574,11 @@
             <default>false</default>
         </values>
         <values>
-            <fullName>Excellerant</fullName>
+            <fullName>PEG</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>Formlabs</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Mastercam</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Metal Printers</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>PLM</fullName>
+            <fullName>Scan Services</fullName>
             <default>false</default>
         </values>
         <values>
@@ -2467,33 +2586,7 @@
             <default>false</default>
         </values>
         <values>
-            <fullName>SolidCAM</fullName>
-            <default>false</default>
-        </values>
-        <values>
             <fullName>Staffing</fullName>
-            <default>false</default>
-        </values>
-    </picklistValues>
-    <picklistValues>
-        <picklist>Strataforce_Quote_attached__c</picklist>
-        <values>
-            <fullName>No</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Yes</fullName>
-            <default>false</default>
-        </values>
-    </picklistValues>
-    <picklistValues>
-        <picklist>Strataforce_Quote_with_American_Reseller__c</picklist>
-        <values>
-            <fullName>No</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Yes</fullName>
             <default>false</default>
         </values>
     </picklistValues>
@@ -2585,11 +2678,11 @@
     <picklistValues>
         <picklist>Type</picklist>
         <values>
-            <fullName>Existing_Client</fullName>
+            <fullName>Existing Client</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>New_Client</fullName>
+            <fullName>New Client</fullName>
             <default>false</default>
         </values>
     </picklistValues>

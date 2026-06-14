@@ -26,7 +26,12 @@
     <filters>
         <field>CORE.PROFILE.NAME</field>
         <operation>notContain</operation>
-        <value>Marketing,Admin,User,API</value>
+        <value>Marketing,Admin,User,API,Customer</value>
+    </filters>
+    <filters>
+        <field>Sales_Group__c</field>
+        <operation>notContain</operation>
+        <value>Other</value>
     </filters>
     <label>Non Forecasting Users</label>
     <sharedTo>

@@ -3,7 +3,6 @@
     <fullName>Active_Question__c</fullName>
     <formula>Question_Template__r.Active__c</formula>
     <label>Active Question</label>
-    <trackHistory>false</trackHistory>
     <trackTrending>false</trackTrending>
     <type>Checkbox</type>
 </CustomField>

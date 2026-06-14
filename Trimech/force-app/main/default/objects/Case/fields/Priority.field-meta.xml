@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Priority</fullName>
+    <inlineHelpText>◼ URGENT: The software or printer is NOT operational. NO workaround exists and/or the business is severely impacted.                                         
+◼ HIGH: A major software or printer function is inoperable, but work can continue with moderate impact to business operations.                                         
+◼ MEDIUM: An issue which does not seriously affect business operation.                               
+◼LOW: Just a question and response is not needed for a day or two.</inlineHelpText>
     <trackFeedHistory>true</trackFeedHistory>
     <trackHistory>true</trackHistory>
     <trackTrending>false</trackTrending>

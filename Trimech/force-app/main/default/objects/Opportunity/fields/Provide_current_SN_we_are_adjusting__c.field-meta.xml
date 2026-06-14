@@ -2,7 +2,7 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Provide_current_SN_we_are_adjusting__c</fullName>
     <externalId>false</externalId>
-    <label>Serial, Target ID, Key Releases</label>
+    <label>Provide current SN we are adjusting</label>
     <length>255</length>
     <required>false</required>
     <trackFeedHistory>false</trackFeedHistory>

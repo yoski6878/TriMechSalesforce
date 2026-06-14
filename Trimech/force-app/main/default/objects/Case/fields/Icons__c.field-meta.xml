@@ -5,16 +5,9 @@
     <formula>IF(
 NOT(ISPICKVAL(Status, &quot;Closed&quot;) &amp;&amp; (NOW() - ClosedDate) &gt; 1),
 
-IF(
-    ISPICKVAL(Priority, &quot;Urgent&quot;), 
-    &quot;🔥 &quot;, 
-    &quot;&quot;
-) &amp;
+If(Missing_Case_Contact__c,&quot;⚠️ &quot;,&quot;&quot;) &amp;
 
-IF( Violated__c , 
-    &quot;⏱️ &quot;, 
-    &quot;&quot;
-) &amp;
+IF(ISPICKVAL(Priority, &quot;Urgent&quot;), &quot;🔥 &quot;, &quot;&quot;) &amp;
 
 IF(
     OR(Account.ESS_Client__c, Account.STAMClient__c),

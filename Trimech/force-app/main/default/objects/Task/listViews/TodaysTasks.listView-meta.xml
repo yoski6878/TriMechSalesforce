@@ -18,8 +18,8 @@
     </filters>
     <filters>
         <field>DUE_DATE</field>
-        <operation>equals</operation>
-        <value>TODAY,LAST_N_DAYS:30</value>
+        <operation>lessOrEqual</operation>
+        <value>TODAY</value>
     </filters>
     <filters>
         <field>IS_RECURRENCE</field>

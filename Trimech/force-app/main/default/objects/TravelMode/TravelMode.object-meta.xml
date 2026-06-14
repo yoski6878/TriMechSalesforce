@@ -131,15 +131,19 @@
     <externalSharingModel>Private</externalSharingModel>
     <searchLayouts>
         <customTabListAdditionalFields>TransportType</customTabListAdditionalFields>
+        <customTabListAdditionalFields>TravelTimeScalingFactor</customTabListAdditionalFields>
         <customTabListAdditionalFields>CanUseTollRoads</customTabListAdditionalFields>
         <customTabListAdditionalFields>IsTransportingHazmat</customTabListAdditionalFields>
         <lookupDialogsAdditionalFields>TransportType</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>TravelTimeScalingFactor</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>CanUseTollRoads</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>IsTransportingHazmat</lookupDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>TransportType</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>TravelTimeScalingFactor</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>CanUseTollRoads</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>IsTransportingHazmat</lookupPhoneDialogsAdditionalFields>
         <searchResultsAdditionalFields>TransportType</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>TravelTimeScalingFactor</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>CanUseTollRoads</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>IsTransportingHazmat</searchResultsAdditionalFields>
     </searchLayouts>

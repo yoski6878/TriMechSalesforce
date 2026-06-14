@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>51.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
     <interviewLabel>Accept Proposal {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Accept Proposal</label>
     <loops>
@@ -116,6 +118,7 @@
             </value>
         </inputAssignments>
         <object>OpportunityLineItem</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordCreates>
     <recordDeletes>
         <name>Delete_Current_Line_Items</name>
@@ -136,6 +139,7 @@
         <connector>
             <targetReference>Delete_Current_Line_Items</targetReference>
         </connector>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>OpportunityId</field>
             <operator>EqualTo</operator>
@@ -143,7 +147,9 @@
                 <elementReference>$Record.Opportunity.Id</elementReference>
             </value>
         </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
         <object>OpportunityLineItem</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordLookups>
         <name>Get_Proposal_Line_Items</name>
@@ -154,6 +160,7 @@
         <connector>
             <targetReference>Loop_Proposal_Line_Items</targetReference>
         </connector>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>QuoteId</field>
             <operator>EqualTo</operator>
@@ -161,7 +168,9 @@
                 <elementReference>Get_Proposal_Record.Id</elementReference>
             </value>
         </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
         <object>QuoteLineItem</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordLookups>
         <name>Get_Proposal_Record</name>
@@ -172,6 +181,7 @@
         <connector>
             <targetReference>Update_Opportunity_Primary_Proposal</targetReference>
         </connector>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
             <operator>EqualTo</operator>
@@ -179,13 +189,16 @@
                 <elementReference>$Record.Id</elementReference>
             </value>
         </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
         <object>Quote</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordUpdates>
         <name>Update_Opportunity</name>
         <label>Update Opportunity</label>
         <locationX>176</locationX>
         <locationY>1367</locationY>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
             <operator>EqualTo</operator>
@@ -209,6 +222,7 @@
         <connector>
             <targetReference>Update_Status_of_Other_Proposals</targetReference>
         </connector>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
             <operator>EqualTo</operator>
@@ -238,6 +252,7 @@
         <connector>
             <targetReference>Get_Opportunity_Line_Items</targetReference>
         </connector>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>OpportunityId</field>
             <operator>EqualTo</operator>
@@ -260,6 +275,31 @@
         </inputAssignments>
         <object>Quote</object>
     </recordUpdates>
-    <startElementReference>Get_Proposal_Record</startElementReference>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Proposal_Record</targetReference>
+        </connector>
+        <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Status</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Accepted</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Test_Accept_Process__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <object>Quote</object>
+        <recordTriggerType>Update</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
     <status>Active</status>
 </Flow>

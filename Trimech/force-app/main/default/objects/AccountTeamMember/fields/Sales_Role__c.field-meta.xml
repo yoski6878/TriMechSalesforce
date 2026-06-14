@@ -42,6 +42,16 @@
                 <default>false</default>
                 <label>Dedicated SolidCAM Rep</label>
             </value>
+            <value>
+                <fullName>Dedicated Enterprise Rep</fullName>
+                <default>false</default>
+                <label>Dedicated Enterprise Rep</label>
+            </value>
+            <value>
+                <fullName>Sales Rep Enterprise</fullName>
+                <default>false</default>
+                <label>Sales Rep Enterprise</label>
+            </value>
         </valueSetDefinition>
     </valueSet>
     <visibleLines>4</visibleLines>

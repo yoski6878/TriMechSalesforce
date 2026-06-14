@@ -16,7 +16,7 @@
     <filters>
         <field>Issue__c</field>
         <operation>equals</operation>
-        <value>SolidCAM,SOLIDWORKS CAM,SWOOD</value>
+        <value>SolidCAM,SOLIDWORKS CAM,SWOOD,3DEXPERIENCE NC Shop Floor Programmer</value>
     </filters>
     <filters>
         <field>CASES.STATUS</field>

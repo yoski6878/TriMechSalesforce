@@ -95,6 +95,11 @@
                 <label>Sales</label>
             </value>
             <value>
+                <fullName>SolidCAM</fullName>
+                <default>false</default>
+                <label>SolidCAM</label>
+            </value>
+            <value>
                 <fullName>SolidProfessor Contact</fullName>
                 <default>false</default>
                 <label>SolidProfessor Contact</label>

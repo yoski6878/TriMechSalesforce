@@ -15,8 +15,11 @@
     <filterScope>Everything</filterScope>
     <filters>
         <field>PRODUCT2.CREATED_DATE</field>
-        <operation>greaterOrEqual</operation>
-        <value>9/10/2024 12:00 AM</value>
+        <operation>equals</operation>
+        <value>TODAY</value>
     </filters>
     <label>New Products Created Today</label>
+    <sharedTo>
+        <group>Sales_Ops</group>
+    </sharedTo>
 </ListView>

@@ -405,6 +405,16 @@
                 <default>false</default>
                 <label>3DEXPERIENCE NC Shop Floor Programmer</label>
             </value>
+            <value>
+                <fullName>3DX Experience On Premise - Infrastructure / Indexing</fullName>
+                <default>false</default>
+                <label>3DX Experience On Premise - Infrastructure / Indexing</label>
+            </value>
+            <value>
+                <fullName>Team Work Cloud</fullName>
+                <default>false</default>
+                <label>Team Work Cloud</label>
+            </value>
         </valueSetDefinition>
     </valueSet>
 </CustomField>
