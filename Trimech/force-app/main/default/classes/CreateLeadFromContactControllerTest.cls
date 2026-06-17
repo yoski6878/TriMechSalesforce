@@ -1,24 +1,5 @@
 @isTest
 private class CreateLeadFromContactControllerTest {
-    @testSetup
-    static void setup() {
-        Account a = new Account(Name = 'Acme Test');
-        insert a;
-        insert new Contact(FirstName = 'Pat', LastName = 'Tester', AccountId = a.Id);
-    }
-
-    @isTest
-    static void getInitData_returnsAccountDefaults() {
-        Contact c = [SELECT Id FROM Contact LIMIT 1];
-        Test.startTest();
-        CreateLeadFromContactController.InitData data = CreateLeadFromContactController.getInitData(c.Id);
-        Test.stopTest();
-
-        System.assertEquals(true, data.hasAccount, 'Contact should have an account');
-        System.assertEquals('Acme Test - New Lead', data.defaultOppName, 'Default name should follow flow convention');
-        System.assertNotEquals(null, data.leadRecordTypeId, 'Lead record type should resolve');
-    }
-
     @isTest
     static void getTeamRoleOptions_returnsActiveValues() {
         Test.startTest();
@@ -32,16 +13,72 @@ private class CreateLeadFromContactControllerTest {
     }
 
     @isTest
+    static void getDefaultTeamMembers_returnsList() {
+        Test.startTest();
+        List<Map<String, String>> members = CreateLeadFromContactController.getDefaultTeamMembers();
+        Test.stopTest();
+
+        System.assertNotEquals(null, members, 'Should return a list (possibly empty)');
+        for (Map<String, String> m : members) {
+            System.assert(m.containsKey('name') && m.containsKey('role'), 'Each entry needs name and role');
+        }
+    }
+
+    @isTest
+    static void getInitData_fromContact_returnsAccountDefaults() {
+        Account a = new Account(Name = 'Acme Test');
+        insert a;
+        Contact c = new Contact(FirstName = 'Pat', LastName = 'Tester', AccountId = a.Id);
+        insert c;
+
+        Test.startTest();
+        CreateLeadFromContactController.InitData data = CreateLeadFromContactController.getInitData(c.Id);
+        Test.stopTest();
+
+        System.assertEquals(false, data.isAccount, 'Launched from a Contact');
+        System.assertEquals(true, data.hasAccount, 'Contact should have an account');
+        System.assertEquals('Acme Test - New Lead', data.defaultOppName, 'Default name should follow flow convention');
+        System.assertNotEquals(null, data.leadRecordTypeId, 'Lead record type should resolve');
+    }
+
+    @isTest
+    static void getInitData_fromAccount_returnsAccountDefaults() {
+        Account a = new Account(Name = 'Acme Test');
+        insert a;
+
+        Test.startTest();
+        CreateLeadFromContactController.InitData data = CreateLeadFromContactController.getInitData(a.Id);
+        Test.stopTest();
+
+        System.assertEquals(true, data.isAccount, 'Launched from an Account');
+        System.assertEquals(a.Id, data.accountId, 'Account should be the record itself');
+        System.assertEquals('Acme Test - New Lead', data.defaultOppName, 'Default name should follow flow convention');
+    }
+
+    // SeeAllData=true so the running user's Default Opportunity Team (UserTeamMember rows)
+    // is visible. Without it, the platform can't auto-add the owner on Opportunity insert,
+    // and the standard owner-split fails with INVALID_CROSS_REFERENCE_KEY — an org-wide
+    // test-context issue, not a defect in this feature.
+    @isTest(SeeAllData=true)
     static void addTeamAndContactRole_insertsRoleAndTeam() {
-        Contact c = [SELECT Id, AccountId FROM Contact LIMIT 1];
-        Opportunity opp = createOpportunity(c.AccountId, 'Acme Test - New Lead');
+        String uniq = String.valueOf(System.now().getTime());
+        Account a = new Account(Name = 'CLFC ' + uniq);
+        insert a;
+        Contact c = new Contact(FirstName = 'Pat', LastName = 'Tester' + uniq, AccountId = a.Id);
+        insert c;
+        Opportunity opp = new Opportunity(
+            Name = 'CLFC Opp ' + uniq,
+            AccountId = a.Id,
+            StageName = 'Prospecting',
+            CloseDate = Date.today().addDays(30)
+        );
+        insert opp;
 
         User teamUser = [
             SELECT Id FROM User
             WHERE IsActive = true AND UserType = 'Standard' AND Id != :UserInfo.getUserId()
             LIMIT 1
         ];
-
         CreateLeadFromContactController.TeamMemberInput tm = new CreateLeadFromContactController.TeamMemberInput();
         tm.userId = teamUser.Id;
         tm.accessLevel = 'Read';
@@ -56,17 +93,24 @@ private class CreateLeadFromContactControllerTest {
         System.assertEquals(1, [SELECT COUNT() FROM OpportunityTeamMember WHERE OpportunityId = :opp.Id AND UserId = :teamUser.Id]);
     }
 
-    @isTest
+    @isTest(SeeAllData=true)
     static void addTeamAndContactRole_skipsDuplicateUsers() {
-        Contact c = [SELECT Id, AccountId FROM Contact LIMIT 1];
-        Opportunity opp = createOpportunity(c.AccountId, 'Dup Test');
+        String uniq = String.valueOf(System.now().getTime()) + 'd';
+        Account a = new Account(Name = 'CLFC ' + uniq);
+        insert a;
+        Opportunity opp = new Opportunity(
+            Name = 'CLFC Dup ' + uniq,
+            AccountId = a.Id,
+            StageName = 'Prospecting',
+            CloseDate = Date.today().addDays(30)
+        );
+        insert opp;
 
         User teamUser = [
             SELECT Id FROM User
             WHERE IsActive = true AND UserType = 'Standard' AND Id != :UserInfo.getUserId()
             LIMIT 1
         ];
-
         CreateLeadFromContactController.TeamMemberInput tm1 = new CreateLeadFromContactController.TeamMemberInput();
         tm1.userId = teamUser.Id;
         CreateLeadFromContactController.TeamMemberInput tm2 = new CreateLeadFromContactController.TeamMemberInput();
@@ -78,43 +122,9 @@ private class CreateLeadFromContactControllerTest {
         );
         Test.stopTest();
 
-        // Only one row for the selected user, regardless of any owner the org auto-adds to the team.
         System.assertEquals(
             1,
             [SELECT COUNT() FROM OpportunityTeamMember WHERE OpportunityId = :opp.Id AND UserId = :teamUser.Id]
         );
-    }
-
-    private static Opportunity createOpportunity(Id accountId, String name) {
-        User owner = createTestOwner();
-        Opportunity opp;
-        System.runAs(owner) {
-            opp = new Opportunity(
-                Name = name,
-                AccountId = accountId,
-                StageName = 'Prospecting',
-                CloseDate = Date.today().addDays(30)
-            );
-            insert opp;
-        }
-        return opp;
-    }
-
-    private static User createTestOwner() {
-        Profile p = [SELECT Id FROM Profile WHERE Name = 'Standard User' LIMIT 1];
-        String uniqueName = String.valueOf(System.now().getTime());
-        User u = new User(
-            Alias = 'clfcown',
-            Email = 'clfc.owner.' + uniqueName + '@example.com',
-            EmailEncodingKey = 'UTF-8',
-            LastName = 'CLFC Owner',
-            LanguageLocaleKey = 'en_US',
-            LocaleSidKey = 'en_US',
-            ProfileId = p.Id,
-            TimeZoneSidKey = 'America/New_York',
-            Username = 'clfc.owner.' + uniqueName + '@example.com'
-        );
-        insert u;
-        return u;
     }
 }

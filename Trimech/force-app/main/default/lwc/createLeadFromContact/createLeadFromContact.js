@@ -10,13 +10,15 @@ import getDefaultTeamMembers from '@salesforce/apex/CreateLeadFromContactControl
 let rowKey = 0;
 
 export default class CreateLeadFromContact extends NavigationMixin(LightningElement) {
-    @api recordId; // Contact Id (provided by quick action / record page)
+    @api recordId; // Contact Id or Account Id (provided by quick action / record page)
 
     @track teamRows = [];
     accountId;
     defaultOppName;
     leadRecordTypeId;
     hasAccount = false;
+    isAccount = false;
+    selectedContactId;
     errorMessage;
     roleOptions = [];
     isSaving = false;
@@ -30,13 +32,14 @@ export default class CreateLeadFromContact extends NavigationMixin(LightningElem
     defaultTeamMembers = [];
     loadingDefaultTeam = false;
 
-    @wire(getInitData, { contactId: '$recordId' })
+    @wire(getInitData, { recordId: '$recordId' })
     wiredInit({ data, error }) {
         if (data) {
             this.accountId = data.accountId;
             this.defaultOppName = data.defaultOppName;
             this.leadRecordTypeId = data.leadRecordTypeId;
             this.hasAccount = data.hasAccount;
+            this.isAccount = data.isAccount;
             if (!data.hasAccount) {
                 this.errorMessage =
                     'There is no Account associated with this Contact. Please set the Account before creating the lead.';
@@ -86,8 +89,23 @@ export default class CreateLeadFromContact extends NavigationMixin(LightningElem
         };
     }
 
+    // When launched from an Account, the primary-contact picker is limited to that account.
+    get contactFilter() {
+        return {
+            criteria: [{ fieldPath: 'AccountId', operator: 'eq', value: this.accountId }],
+            filterLogic: '1'
+        };
+    }
+
     get disableSave() {
         return this.isSaving || !this.hasAccount;
+    }
+
+    handlePrimaryContactChange(event) {
+        this.selectedContactId = event.detail ? event.detail.recordId : null;
+        if (event.target && event.target.reportValidity) {
+            event.target.reportValidity();
+        }
     }
 
     addTeamRow() {
@@ -223,10 +241,13 @@ export default class CreateLeadFromContact extends NavigationMixin(LightningElem
 
     async handleSuccess(event) {
         const opportunityId = event.detail.id;
+        // From a Contact the record itself is the primary contact; from an Account
+        // the rep picks the primary contact in the form.
+        const contactId = this.isAccount ? this.selectedContactId : this.recordId;
         try {
             await addTeamAndContactRole({
                 opportunityId,
-                contactId: this.recordId,
+                contactId,
                 teamMembers: this.pendingTeamMembers
             });
             this.toast('Success', 'Lead created with opportunity team.', 'success');

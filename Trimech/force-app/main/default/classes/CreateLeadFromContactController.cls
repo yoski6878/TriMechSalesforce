@@ -10,6 +10,7 @@ public with sharing class CreateLeadFromContactController {
         @AuraEnabled public Id leadRecordTypeId;
         @AuraEnabled public String defaultOppName;
         @AuraEnabled public Boolean hasAccount;
+        @AuraEnabled public Boolean isAccount; // launched from an Account (vs a Contact)
     }
 
     /** One row of the Opportunity Team section selected in the LWC. */
@@ -48,27 +49,41 @@ public with sharing class CreateLeadFromContactController {
     }
 
     @AuraEnabled(cacheable=true)
-    public static InitData getInitData(Id contactId) {
+    public static InitData getInitData(Id recordId) {
         try {
-            Contact c = [
-                SELECT Id, Name, AccountId, Account.Name
-                FROM Contact
-                WHERE Id = :contactId
-                LIMIT 1
-            ];
             InitData data = new InitData();
-            data.contactName = c.Name;
-            data.accountId = c.AccountId;
-            data.accountName = c.Account != null ? c.Account.Name : null;
-            data.hasAccount = c.AccountId != null;
-            data.defaultOppName = data.hasAccount ? c.Account.Name + ' - New Lead' : null;
             data.leadRecordTypeId = Schema.SObjectType.Opportunity
                 .getRecordTypeInfosByDeveloperName()
                 .get('Lead')
                 .getRecordTypeId();
+
+            String prefix = String.valueOf(recordId).substring(0, 3);
+            if (prefix == Account.SObjectType.getDescribe().getKeyPrefix()) {
+                // Launched from an Account: account is known, contact chosen in the LWC.
+                Account a = [SELECT Id, Name FROM Account WHERE Id = :recordId LIMIT 1];
+                data.isAccount = true;
+                data.accountId = a.Id;
+                data.accountName = a.Name;
+                data.hasAccount = true;
+                data.defaultOppName = a.Name + ' - New Lead';
+            } else {
+                // Launched from a Contact: account derived from the contact.
+                Contact c = [
+                    SELECT Id, Name, AccountId, Account.Name
+                    FROM Contact
+                    WHERE Id = :recordId
+                    LIMIT 1
+                ];
+                data.isAccount = false;
+                data.contactName = c.Name;
+                data.accountId = c.AccountId;
+                data.accountName = c.Account != null ? c.Account.Name : null;
+                data.hasAccount = c.AccountId != null;
+                data.defaultOppName = data.hasAccount ? c.Account.Name + ' - New Lead' : null;
+            }
             return data;
         } catch (Exception e) {
-            throw new AuraHandledException('Unable to load contact: ' + e.getMessage());
+            throw new AuraHandledException('Unable to load record: ' + e.getMessage());
         }
     }
 
