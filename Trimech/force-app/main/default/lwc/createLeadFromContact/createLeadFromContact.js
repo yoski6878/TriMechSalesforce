@@ -246,9 +246,44 @@ export default class CreateLeadFromContact extends NavigationMixin(LightningElem
         return !this.loadingDefaultTeam && this.defaultTeamMembers.length === 0;
     }
 
+    // lightning-input-field's `required` only shows the asterisk; it doesn't block submit
+    // unless the field is required in the schema. The flow enforces these at the screen
+    // level, so enforce them here to match.
+    get requiredOppFieldLabels() {
+        return {
+            Name: 'Name',
+            Product_Group__c: 'Product Group',
+            LeadSource: 'Lead Source',
+            End_User_Department__c: 'End User Department',
+            Type: 'Type',
+            Opportunity_Type__c: 'Opportunity Type',
+            CloseDate: 'Expected Close Date',
+            StageName: 'Stage'
+        };
+    }
+
+    checkRequiredOppFields() {
+        const labels = this.requiredOppFieldLabels;
+        const missing = [];
+        this.template.querySelectorAll('lightning-input-field').forEach((f) => {
+            if (labels[f.fieldName] && (f.value === null || f.value === undefined || f.value === '')) {
+                missing.push(labels[f.fieldName]);
+            }
+        });
+        if (missing.length) {
+            this.toast('Required fields missing', 'Please complete: ' + missing.join(', '), 'error');
+            return false;
+        }
+        return true;
+    }
+
     handleCreateClick() {
-        // Validate the team rows (user + role are both required) before creating anything.
+        // Validate the team rows (user + role) and the Account contact/new-contact inputs.
         if (!this.validateTeamRows()) {
+            return;
+        }
+        // Enforce the flow's required opportunity fields (Type, Opportunity Type, etc.).
+        if (!this.checkRequiredOppFields()) {
             return;
         }
         // Capture the team selections now, while the row components are still on screen.
