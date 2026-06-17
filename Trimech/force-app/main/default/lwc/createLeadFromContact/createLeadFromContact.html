@@ -22,44 +22,49 @@
                     <!-- Pre-filled from the originating Contact's / Account's Account -->
                     <lightning-input-field field-name="AccountId" value={accountId} class="slds-hide"></lightning-input-field>
 
+                    <!-- Field set mirrors the Create_Lead / Create_Lead_from_Contact flows.
+                         Both flows are identical except the Account flow adds the Primary
+                         Contact selector (the Contact record is already known on a Contact). -->
                     <div class="slds-grid slds-wrap slds-gutters">
                         <div class="slds-col slds-size_1-of-2">
-                            <!-- Launched from an Account: rep chooses the primary contact on that account.
-                                 Horizontal form element so the label sits left of the lookup, matching the
-                                 compact lightning-input-field layout (record-picker ignores variant). -->
-                            <template if:true={isAccount}>
-                                <div class="slds-form-element slds-form-element_horizontal slds-m-bottom_x-small">
-                                    <label class="slds-form-element__label">
-                                        <abbr class="slds-required" title="required">* </abbr>Primary Contact
-                                    </label>
-                                    <div class="slds-form-element__control">
-                                        <lightning-record-picker
-                                            label="Primary Contact"
-                                            variant="label-hidden"
-                                            placeholder="Search contacts..."
-                                            object-api-name="Contact"
-                                            filter={contactFilter}
-                                            required
-                                            onchange={handlePrimaryContactChange}
-                                        ></lightning-record-picker>
-                                    </div>
-                                </div>
-                            </template>
                             <lightning-input-field field-name="Name" value={defaultOppName} required></lightning-input-field>
                             <lightning-input-field field-name="Product_Group__c" value={softwareProductGroupId} required></lightning-input-field>
                             <lightning-input-field field-name="LeadSource" value="Business Development" required></lightning-input-field>
-                            <lightning-input-field field-name="Type" required></lightning-input-field>
-                            <lightning-input-field field-name="Opportunity_Type__c" required></lightning-input-field>
                             <lightning-input-field field-name="End_User_Department__c" required></lightning-input-field>
                             <lightning-input-field field-name="Referral__c"></lightning-input-field>
                         </div>
                         <div class="slds-col slds-size_1-of-2">
                             <lightning-input-field field-name="CloseDate" value={today} required></lightning-input-field>
                             <lightning-input-field field-name="StageName" value="New" required></lightning-input-field>
+                            <lightning-input-field field-name="Type" required></lightning-input-field>
+                            <lightning-input-field field-name="Opportunity_Type__c" required></lightning-input-field>
                             <lightning-input-field field-name="Lyme_Quote__c"></lightning-input-field>
                             <lightning-input-field field-name="Value_Upgrade__c"></lightning-input-field>
                         </div>
                     </div>
+
+                    <!-- Account-only: choose the primary contact on that account (full width, like the flow) -->
+                    <template if:true={isAccount}>
+                        <div class="slds-form-element slds-form-element_horizontal slds-m-top_x-small">
+                            <label class="slds-form-element__label">
+                                <abbr class="slds-required" title="required">* </abbr>Primary Contact
+                            </label>
+                            <div class="slds-form-element__control">
+                                <lightning-record-picker
+                                    label="Primary Contact"
+                                    variant="label-hidden"
+                                    placeholder="Search contacts..."
+                                    object-api-name="Contact"
+                                    filter={contactFilter}
+                                    required
+                                    onchange={handlePrimaryContactChange}
+                                ></lightning-record-picker>
+                            </div>
+                        </div>
+                    </template>
+
+                    <!-- Primary Campaign Source (both flows) -->
+                    <lightning-input-field field-name="CampaignId"></lightning-input-field>
 
                     <!-- Opportunity Team section -->
                     <div class="slds-m-top_large slds-border_top slds-p-top_medium">
