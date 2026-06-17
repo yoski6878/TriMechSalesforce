@@ -21,6 +21,39 @@ public with sharing class CreateLeadFromContactController {
         @AuraEnabled public String accessLevel { get; set; }
     }
 
+    /** New primary contact fields, when the Account user chose "Create New Contact". */
+    public class NewContactInput {
+        @AuraEnabled public String firstName { get; set; }
+        @AuraEnabled public String lastName { get; set; }
+        @AuraEnabled public String email { get; set; }
+        @AuraEnabled public String phone { get; set; }
+    }
+
+    @AuraEnabled(cacheable=true)
+    public static List<Map<String, String>> getAccountContacts(Id accountId) {
+        List<Map<String, String>> options = new List<Map<String, String>>();
+        if (accountId == null) {
+            return options;
+        }
+        for (Contact c : [SELECT Id, Name FROM Contact WHERE AccountId = :accountId ORDER BY Name]) {
+            options.add(new Map<String, String>{ 'label' => c.Name, 'value' => c.Id });
+        }
+        return options;
+    }
+
+    @AuraEnabled(cacheable=true)
+    public static List<Map<String, String>> getActiveCampaigns() {
+        List<Map<String, String>> options = new List<Map<String, String>>();
+        for (Campaign c : [
+            SELECT Id, Name FROM Campaign
+            WHERE IsActive = true AND Status = 'In Progress' AND EndDate >= :Date.today()
+            ORDER BY Name
+        ]) {
+            options.add(new Map<String, String>{ 'label' => c.Name, 'value' => c.Id });
+        }
+        return options;
+    }
+
     @AuraEnabled(cacheable=true)
     public static List<Map<String, String>> getTeamRoleOptions() {
         List<Map<String, String>> options = new List<Map<String, String>>();
@@ -102,7 +135,12 @@ public with sharing class CreateLeadFromContactController {
      * Team members go in first so a secondary Contact Role failure can't undo them.
      */
     @AuraEnabled
-    public static void addTeamAndContactRole(Id opportunityId, Id contactId, List<TeamMemberInput> teamMembers) {
+    public static void addTeamAndContactRole(
+        Id opportunityId,
+        Id contactId,
+        NewContactInput newContact,
+        List<TeamMemberInput> teamMembers
+    ) {
         if (teamMembers != null && !teamMembers.isEmpty()) {
             Set<Id> seenUsers = new Set<Id>();
             List<OpportunityTeamMember> toInsert = new List<OpportunityTeamMember>();
@@ -127,9 +165,29 @@ public with sharing class CreateLeadFromContactController {
             }
         }
 
+        // Resolve the primary contact: an existing one, or create a new one (mirrors the
+        // Account flow's "Create New Contact" path).
+        Id effectiveContactId = contactId;
+        if (effectiveContactId == null && newContact != null && String.isNotBlank(newContact.lastName)) {
+            try {
+                Id acctId = [SELECT AccountId FROM Opportunity WHERE Id = :opportunityId LIMIT 1].AccountId;
+                Contact c = new Contact(
+                    AccountId = acctId,
+                    FirstName = newContact.firstName,
+                    LastName = newContact.lastName,
+                    Email = newContact.email,
+                    Phone = newContact.phone
+                );
+                insert c;
+                effectiveContactId = c.Id;
+            } catch (Exception e) {
+                throw new AuraHandledException('Unable to create the new contact: ' + e.getMessage());
+            }
+        }
+
         // Primary Contact Role is best-effort: the Opportunity + team are already saved,
         // and the org may have created a primary role already, so never fail the call here.
-        if (contactId != null) {
+        if (effectiveContactId != null) {
             Boolean hasPrimary = [
                 SELECT COUNT()
                 FROM OpportunityContactRole
@@ -139,7 +197,7 @@ public with sharing class CreateLeadFromContactController {
                 try {
                     insert new OpportunityContactRole(
                         OpportunityId = opportunityId,
-                        ContactId = contactId,
+                        ContactId = effectiveContactId,
                         IsPrimary = true,
                         Role = 'Decision Maker'
                     );

@@ -6,6 +6,10 @@ import getInitData from '@salesforce/apex/CreateLeadFromContactController.getIni
 import getTeamRoleOptions from '@salesforce/apex/CreateLeadFromContactController.getTeamRoleOptions';
 import addTeamAndContactRole from '@salesforce/apex/CreateLeadFromContactController.addTeamAndContactRole';
 import getDefaultTeamMembers from '@salesforce/apex/CreateLeadFromContactController.getDefaultTeamMembers';
+import getAccountContacts from '@salesforce/apex/CreateLeadFromContactController.getAccountContacts';
+import getActiveCampaigns from '@salesforce/apex/CreateLeadFromContactController.getActiveCampaigns';
+
+const NEW_CONTACT = 'NEW';
 
 let rowKey = 0;
 
@@ -18,12 +22,18 @@ export default class CreateLeadFromContact extends NavigationMixin(LightningElem
     leadRecordTypeId;
     hasAccount = false;
     isAccount = false;
-    selectedContactId;
     softwareProductGroupId;
     errorMessage;
     roleOptions = [];
     isSaving = false;
     pendingTeamMembers = [];
+    // Primary Contact selector (Account) + new-contact path + campaign dropdown.
+    contactOptions = [];
+    campaignOptions = [];
+    selectedPrimaryContact;
+    showNewContact = false;
+    newContactData = {};
+    selectedCampaignId;
     // Plain (non-reactive) maps keyed by row key. The picker/combobox change events are
     // the reliable source of the selection — lightning-record-picker.value does NOT
     // reflect the user's pick when read back from the DOM.
@@ -96,12 +106,25 @@ export default class CreateLeadFromContact extends NavigationMixin(LightningElem
         };
     }
 
-    // When launched from an Account, the primary-contact picker is limited to that account.
-    get contactFilter() {
-        return {
-            criteria: [{ fieldPath: 'AccountId', operator: 'eq', value: this.accountId }],
-            filterLogic: '1'
-        };
+    // Contacts on this account for the Select Primary Contact dropdown.
+    @wire(getAccountContacts, { accountId: '$accountId' })
+    wiredContacts({ data }) {
+        if (data) {
+            this.contactOptions = data;
+        }
+    }
+
+    // Active, in-progress campaigns for Primary Campaign Source (mirrors the flow filter).
+    @wire(getActiveCampaigns)
+    wiredCampaigns({ data }) {
+        if (data) {
+            this.campaignOptions = data;
+        }
+    }
+
+    // "Create New Contact" first, then the account's existing contacts (matches the flow).
+    get primaryContactOptions() {
+        return [{ label: 'Create New Contact', value: NEW_CONTACT }, ...this.contactOptions];
     }
 
     get disableSave() {
@@ -109,10 +132,20 @@ export default class CreateLeadFromContact extends NavigationMixin(LightningElem
     }
 
     handlePrimaryContactChange(event) {
-        this.selectedContactId = event.detail ? event.detail.recordId : null;
+        this.selectedPrimaryContact = event.detail.value;
+        this.showNewContact = this.selectedPrimaryContact === NEW_CONTACT;
         if (event.target && event.target.reportValidity) {
             event.target.reportValidity();
         }
+    }
+
+    handleNewContactChange(event) {
+        const field = event.target.dataset.field;
+        this.newContactData = { ...this.newContactData, [field]: event.target.value };
+    }
+
+    handleCampaignChange(event) {
+        this.selectedCampaignId = event.detail.value;
     }
 
     addTeamRow() {
@@ -228,15 +261,12 @@ export default class CreateLeadFromContact extends NavigationMixin(LightningElem
 
     validateTeamRows() {
         let valid = true;
-        this.template.querySelectorAll('lightning-record-picker').forEach((el) => {
-            if (!el.reportValidity()) {
-                valid = false;
-            }
-        });
-        this.template.querySelectorAll('lightning-combobox').forEach((el) => {
-            if (!el.reportValidity()) {
-                valid = false;
-            }
+        ['lightning-record-picker', 'lightning-combobox', 'lightning-input'].forEach((tag) => {
+            this.template.querySelectorAll(tag).forEach((el) => {
+                if (el.reportValidity && !el.reportValidity()) {
+                    valid = false;
+                }
+            });
         });
         return valid;
     }
@@ -248,13 +278,26 @@ export default class CreateLeadFromContact extends NavigationMixin(LightningElem
 
     async handleSuccess(event) {
         const opportunityId = event.detail.id;
-        // From a Contact the record itself is the primary contact; from an Account
-        // the rep picks the primary contact in the form.
-        const contactId = this.isAccount ? this.selectedContactId : this.recordId;
+        // Resolve the primary contact:
+        //  - Contact context: the record itself.
+        //  - Account, existing contact: the selected contact Id.
+        //  - Account, "Create New Contact": pass the new-contact fields for Apex to create.
+        let contactId = null;
+        let newContact = null;
+        if (this.isAccount) {
+            if (this.selectedPrimaryContact === NEW_CONTACT) {
+                newContact = { ...this.newContactData };
+            } else {
+                contactId = this.selectedPrimaryContact;
+            }
+        } else {
+            contactId = this.recordId;
+        }
         try {
             await addTeamAndContactRole({
                 opportunityId,
                 contactId,
+                newContact,
                 teamMembers: this.pendingTeamMembers
             });
             this.toast('Success', 'Lead created with opportunity team.', 'success');

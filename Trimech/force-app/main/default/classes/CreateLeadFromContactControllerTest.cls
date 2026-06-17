@@ -85,7 +85,7 @@ private class CreateLeadFromContactControllerTest {
 
         Test.startTest();
         CreateLeadFromContactController.addTeamAndContactRole(
-            opp.Id, c.Id, new List<CreateLeadFromContactController.TeamMemberInput>{ tm }
+            opp.Id, c.Id, null, new List<CreateLeadFromContactController.TeamMemberInput>{ tm }
         );
         Test.stopTest();
 
@@ -118,13 +118,70 @@ private class CreateLeadFromContactControllerTest {
 
         Test.startTest();
         CreateLeadFromContactController.addTeamAndContactRole(
-            opp.Id, null, new List<CreateLeadFromContactController.TeamMemberInput>{ tm1, tm2 }
+            opp.Id, null, null, new List<CreateLeadFromContactController.TeamMemberInput>{ tm1, tm2 }
         );
         Test.stopTest();
 
         System.assertEquals(
             1,
             [SELECT COUNT() FROM OpportunityTeamMember WHERE OpportunityId = :opp.Id AND UserId = :teamUser.Id]
+        );
+    }
+
+    @isTest
+    static void getAccountContacts_returnsContactsOnAccount() {
+        Account a = new Account(Name = 'Contacts Co');
+        insert a;
+        insert new Contact(FirstName = 'Ann', LastName = 'Example', AccountId = a.Id);
+
+        Test.startTest();
+        List<Map<String, String>> opts = CreateLeadFromContactController.getAccountContacts(a.Id);
+        Test.stopTest();
+
+        System.assertEquals(1, opts.size(), 'Should return the account contact');
+        System.assert(opts[0].containsKey('label') && opts[0].containsKey('value'), 'Needs label/value');
+        System.assertEquals(0, CreateLeadFromContactController.getAccountContacts(null).size(), 'Null account -> empty');
+    }
+
+    @isTest
+    static void getActiveCampaigns_returnsActiveInProgress() {
+        insert new Campaign(Name = 'Active C', IsActive = true, Status = 'In Progress', EndDate = Date.today().addDays(10));
+
+        Test.startTest();
+        List<Map<String, String>> opts = CreateLeadFromContactController.getActiveCampaigns();
+        Test.stopTest();
+
+        System.assert(opts.size() >= 1, 'Should return the active in-progress campaign');
+    }
+
+    @isTest(SeeAllData=true)
+    static void addTeamAndContactRole_createsNewContact() {
+        String uniq = String.valueOf(System.now().getTime()) + 'n';
+        Account a = new Account(Name = 'CLFC ' + uniq);
+        insert a;
+        Opportunity opp = new Opportunity(
+            Name = 'CLFC New ' + uniq,
+            AccountId = a.Id,
+            StageName = 'Prospecting',
+            CloseDate = Date.today().addDays(30)
+        );
+        insert opp;
+
+        CreateLeadFromContactController.NewContactInput nc = new CreateLeadFromContactController.NewContactInput();
+        nc.firstName = 'Fresh';
+        nc.lastName = 'Lead' + uniq;
+        nc.email = 'fresh' + uniq + '@example.com';
+        nc.phone = '555-0100';
+
+        Test.startTest();
+        CreateLeadFromContactController.addTeamAndContactRole(opp.Id, null, nc, null);
+        Test.stopTest();
+
+        Contact created = [SELECT Id, AccountId FROM Contact WHERE LastName = :nc.lastName LIMIT 1];
+        System.assertEquals(a.Id, created.AccountId, 'New contact should be on the account');
+        System.assertEquals(
+            1,
+            [SELECT COUNT() FROM OpportunityContactRole WHERE OpportunityId = :opp.Id AND ContactId = :created.Id AND IsPrimary = true]
         );
     }
 }
