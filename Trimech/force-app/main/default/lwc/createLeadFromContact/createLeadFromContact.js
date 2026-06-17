@@ -8,6 +8,7 @@ import addTeamAndContactRole from '@salesforce/apex/CreateLeadFromContactControl
 import getDefaultTeamMembers from '@salesforce/apex/CreateLeadFromContactController.getDefaultTeamMembers';
 import getAccountContacts from '@salesforce/apex/CreateLeadFromContactController.getAccountContacts';
 import getActiveCampaigns from '@salesforce/apex/CreateLeadFromContactController.getActiveCampaigns';
+import getOpportunityPicklist from '@salesforce/apex/CreateLeadFromContactController.getOpportunityPicklist';
 
 const NEW_CONTACT = 'NEW';
 
@@ -34,6 +35,13 @@ export default class CreateLeadFromContact extends NavigationMixin(LightningElem
     showNewContact = false;
     newContactData = {};
     selectedCampaignId;
+    // Required picklists rendered as comboboxes so they show native inline errors.
+    typeOptions = [];
+    oppTypeOptions = [];
+    endUserDeptOptions = [];
+    selectedType;
+    selectedOppType;
+    selectedEndUserDept;
     // Plain (non-reactive) maps keyed by row key. The picker/combobox change events are
     // the reliable source of the selection — lightning-record-picker.value does NOT
     // reflect the user's pick when read back from the DOM.
@@ -120,6 +128,42 @@ export default class CreateLeadFromContact extends NavigationMixin(LightningElem
         if (data) {
             this.campaignOptions = data;
         }
+    }
+
+    @wire(getOpportunityPicklist, { fieldApiName: 'Type' })
+    wiredType({ data }) {
+        if (data) {
+            this.typeOptions = data;
+        }
+    }
+
+    @wire(getOpportunityPicklist, { fieldApiName: 'Opportunity_Type__c' })
+    wiredOppType({ data }) {
+        if (data) {
+            this.oppTypeOptions = data;
+        }
+    }
+
+    @wire(getOpportunityPicklist, { fieldApiName: 'End_User_Department__c' })
+    wiredEndUserDept({ data }) {
+        if (data) {
+            this.endUserDeptOptions = data;
+        }
+    }
+
+    handleTypeChange(event) {
+        this.selectedType = event.detail.value;
+        if (event.target.reportValidity) event.target.reportValidity();
+    }
+
+    handleOppTypeChange(event) {
+        this.selectedOppType = event.detail.value;
+        if (event.target.reportValidity) event.target.reportValidity();
+    }
+
+    handleEndUserDeptChange(event) {
+        this.selectedEndUserDept = event.detail.value;
+        if (event.target.reportValidity) event.target.reportValidity();
     }
 
     // "Create New Contact" first, then the account's existing contacts (matches the flow).
@@ -249,14 +293,13 @@ export default class CreateLeadFromContact extends NavigationMixin(LightningElem
     // lightning-input-field's `required` only shows the asterisk; it doesn't block submit
     // unless the field is required in the schema. The flow enforces these at the screen
     // level, so enforce them here to match.
+    // Type, Opportunity Type and End User Department are now required comboboxes that show
+    // inline errors via validateTeamRows(); these remaining defaulted fields keep a safety net.
     get requiredOppFieldLabels() {
         return {
             Name: 'Name',
             Product_Group__c: 'Product Group',
             LeadSource: 'Lead Source',
-            End_User_Department__c: 'End User Department',
-            Type: 'Type',
-            Opportunity_Type__c: 'Opportunity Type',
             CloseDate: 'Expected Close Date',
             StageName: 'Stage'
         };

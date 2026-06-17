@@ -30,14 +30,23 @@
                             <lightning-input-field field-name="Name" value={defaultOppName} required></lightning-input-field>
                             <lightning-input-field field-name="Product_Group__c" value={softwareProductGroupId} required></lightning-input-field>
                             <lightning-input-field field-name="LeadSource" value="Business Development" required></lightning-input-field>
-                            <lightning-input-field field-name="End_User_Department__c" required></lightning-input-field>
+                            <lightning-combobox label="End User Department" placeholder="Select an option"
+                                options={endUserDeptOptions} value={selectedEndUserDept} required
+                                onchange={handleEndUserDeptChange}></lightning-combobox>
+                            <lightning-input-field field-name="End_User_Department__c" value={selectedEndUserDept} class="slds-hide"></lightning-input-field>
                             <lightning-input-field field-name="Referral__c"></lightning-input-field>
                         </div>
                         <div class="slds-col slds-size_1-of-2">
                             <lightning-input-field field-name="CloseDate" value={today} required></lightning-input-field>
                             <lightning-input-field field-name="StageName" value="New" required></lightning-input-field>
-                            <lightning-input-field field-name="Type" required></lightning-input-field>
-                            <lightning-input-field field-name="Opportunity_Type__c" required></lightning-input-field>
+                            <lightning-combobox label="Type" placeholder="Select an option"
+                                options={typeOptions} value={selectedType} required
+                                onchange={handleTypeChange}></lightning-combobox>
+                            <lightning-input-field field-name="Type" value={selectedType} class="slds-hide"></lightning-input-field>
+                            <lightning-combobox label="Opportunity Type" placeholder="Select an option"
+                                options={oppTypeOptions} value={selectedOppType} required
+                                onchange={handleOppTypeChange}></lightning-combobox>
+                            <lightning-input-field field-name="Opportunity_Type__c" value={selectedOppType} class="slds-hide"></lightning-input-field>
                             <lightning-input-field field-name="Lyme_Quote__c"></lightning-input-field>
                             <lightning-input-field field-name="Value_Upgrade__c"></lightning-input-field>
                         </div>

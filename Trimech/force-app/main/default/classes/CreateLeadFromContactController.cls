@@ -30,6 +30,21 @@ public with sharing class CreateLeadFromContactController {
     }
 
     @AuraEnabled(cacheable=true)
+    public static List<Map<String, String>> getOpportunityPicklist(String fieldApiName) {
+        List<Map<String, String>> options = new List<Map<String, String>>();
+        Schema.SObjectField fld = Schema.SObjectType.Opportunity.fields.getMap().get(fieldApiName);
+        if (fld == null) {
+            return options;
+        }
+        for (Schema.PicklistEntry e : fld.getDescribe().getPicklistValues()) {
+            if (e.isActive()) {
+                options.add(new Map<String, String>{ 'label' => e.getLabel(), 'value' => e.getValue() });
+            }
+        }
+        return options;
+    }
+
+    @AuraEnabled(cacheable=true)
     public static List<Map<String, String>> getAccountContacts(Id accountId) {
         List<Map<String, String>> options = new List<Map<String, String>>();
         if (accountId == null) {

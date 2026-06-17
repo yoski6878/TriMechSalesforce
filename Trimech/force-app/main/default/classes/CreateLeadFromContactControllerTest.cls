@@ -144,6 +144,17 @@ private class CreateLeadFromContactControllerTest {
     }
 
     @isTest
+    static void getOpportunityPicklist_returnsValues() {
+        Test.startTest();
+        List<Map<String, String>> typeOpts = CreateLeadFromContactController.getOpportunityPicklist('Type');
+        List<Map<String, String>> bogus = CreateLeadFromContactController.getOpportunityPicklist('Not_A_Field__c');
+        Test.stopTest();
+
+        System.assertNotEquals(null, typeOpts, 'Should return Type picklist options');
+        System.assertEquals(0, bogus.size(), 'Unknown field returns empty list');
+    }
+
+    @isTest
     static void getActiveCampaigns_returnsActiveInProgress() {
         insert new Campaign(Name = 'Active C', IsActive = true, Status = 'In Progress', EndDate = Date.today().addDays(10));
 
