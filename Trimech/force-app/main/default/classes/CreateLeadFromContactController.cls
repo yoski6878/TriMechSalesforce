@@ -11,6 +11,7 @@ public with sharing class CreateLeadFromContactController {
         @AuraEnabled public String defaultOppName;
         @AuraEnabled public Boolean hasAccount;
         @AuraEnabled public Boolean isAccount; // launched from an Account (vs a Contact)
+        @AuraEnabled public Id softwareProductGroupId; // default Product Group (mirrors the flow)
     }
 
     /** One row of the Opportunity Team section selected in the LWC. */
@@ -56,6 +57,14 @@ public with sharing class CreateLeadFromContactController {
                 .getRecordTypeInfosByDeveloperName()
                 .get('Lead')
                 .getRecordTypeId();
+
+            // Default Product Group = Software (mirrors the flow's default choice).
+            List<Product_Group__c> software = [
+                SELECT Id FROM Product_Group__c
+                WHERE Name = 'Software' AND Do_Not_Use__c = false
+                LIMIT 1
+            ];
+            data.softwareProductGroupId = software.isEmpty() ? null : software[0].Id;
 
             String prefix = String.valueOf(recordId).substring(0, 3);
             if (prefix == Account.SObjectType.getDescribe().getKeyPrefix()) {

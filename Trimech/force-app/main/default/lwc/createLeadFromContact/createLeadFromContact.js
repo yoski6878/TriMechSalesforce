@@ -19,6 +19,7 @@ export default class CreateLeadFromContact extends NavigationMixin(LightningElem
     hasAccount = false;
     isAccount = false;
     selectedContactId;
+    softwareProductGroupId;
     errorMessage;
     roleOptions = [];
     isSaving = false;
@@ -40,6 +41,7 @@ export default class CreateLeadFromContact extends NavigationMixin(LightningElem
             this.leadRecordTypeId = data.leadRecordTypeId;
             this.hasAccount = data.hasAccount;
             this.isAccount = data.isAccount;
+            this.softwareProductGroupId = data.softwareProductGroupId;
             if (!data.hasAccount) {
                 this.errorMessage =
                     'There is no Account associated with this Contact. Please set the Account before creating the lead.';
@@ -75,6 +77,11 @@ export default class CreateLeadFromContact extends NavigationMixin(LightningElem
 
     get hasTeamRows() {
         return this.teamRows.length > 0;
+    }
+
+    // Default Expected Close Date to today, mirroring the flow ($Flow.CurrentDate).
+    get today() {
+        return new Date().toISOString().slice(0, 10);
     }
 
     // Restrict the user picker to active internal (Standard) users; portal/integration
