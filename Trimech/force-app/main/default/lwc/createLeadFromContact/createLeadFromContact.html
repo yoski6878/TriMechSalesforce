@@ -52,33 +52,51 @@
                         </div>
                     </div>
 
-                    <!-- Account-only: Select Primary Contact (existing or create new), full width like the flow -->
+                    <!-- Account-only: pick an existing contact (typeahead) or create a new one -->
                     <template if:true={isAccount}>
                         <div class="slds-m-top_small">
-                            <lightning-combobox
-                                label="Select Primary Contact"
-                                placeholder="Select a contact"
-                                options={primaryContactOptions}
-                                value={selectedPrimaryContact}
-                                required
-                                onchange={handlePrimaryContactChange}
-                            ></lightning-combobox>
-                        </div>
-                        <template if:true={showNewContact}>
-                            <div class="slds-box slds-box_x-small slds-m-top_x-small">
-                                <p class="slds-text-title_caps slds-m-bottom_x-small">Create New Contact</p>
-                                <div class="slds-grid slds-wrap slds-gutters">
-                                    <div class="slds-col slds-size_1-of-2">
-                                        <lightning-input label="First Name" data-field="firstName" onchange={handleNewContactChange}></lightning-input>
-                                        <lightning-input label="Email" type="email" data-field="email" required onchange={handleNewContactChange}></lightning-input>
-                                    </div>
-                                    <div class="slds-col slds-size_1-of-2">
-                                        <lightning-input label="Last Name" data-field="lastName" required onchange={handleNewContactChange}></lightning-input>
-                                        <lightning-input label="Phone" type="tel" data-field="phone" onchange={handleNewContactChange}></lightning-input>
+                            <span class="slds-form-element__label">
+                                <abbr class="slds-required" title="required">* </abbr>Primary Contact
+                            </span>
+                            <lightning-radio-group
+                                name="contactMode"
+                                variant="label-hidden"
+                                type="button"
+                                options={contactModeOptions}
+                                value={contactMode}
+                                onchange={handleContactModeChange}
+                            ></lightning-radio-group>
+
+                            <template if:false={showNewContact}>
+                                <div class="slds-m-top_x-small">
+                                    <lightning-record-picker
+                                        label="Primary Contact"
+                                        variant="label-hidden"
+                                        placeholder="Search this account's contacts..."
+                                        object-api-name="Contact"
+                                        filter={contactFilter}
+                                        required
+                                        onchange={handleExistingContactChange}
+                                    ></lightning-record-picker>
+                                </div>
+                            </template>
+
+                            <template if:true={showNewContact}>
+                                <div class="slds-box slds-box_x-small slds-m-top_x-small slds-theme_shade">
+                                    <p class="slds-text-title_caps slds-m-bottom_x-small">New Contact</p>
+                                    <div class="slds-grid slds-wrap slds-gutters">
+                                        <div class="slds-col slds-size_1-of-2">
+                                            <lightning-input label="First Name" data-field="firstName" onchange={handleNewContactChange}></lightning-input>
+                                            <lightning-input label="Email" type="email" data-field="email" required onchange={handleNewContactChange}></lightning-input>
+                                        </div>
+                                        <div class="slds-col slds-size_1-of-2">
+                                            <lightning-input label="Last Name" data-field="lastName" required onchange={handleNewContactChange}></lightning-input>
+                                            <lightning-input label="Phone" type="tel" data-field="phone" onchange={handleNewContactChange}></lightning-input>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </template>
+                            </template>
+                        </div>
                     </template>
 
                     <!-- Primary Campaign Source (both flows): active in-progress campaigns -->

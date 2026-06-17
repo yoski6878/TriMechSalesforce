@@ -6,11 +6,8 @@ import getInitData from '@salesforce/apex/CreateLeadFromContactController.getIni
 import getTeamRoleOptions from '@salesforce/apex/CreateLeadFromContactController.getTeamRoleOptions';
 import addTeamAndContactRole from '@salesforce/apex/CreateLeadFromContactController.addTeamAndContactRole';
 import getDefaultTeamMembers from '@salesforce/apex/CreateLeadFromContactController.getDefaultTeamMembers';
-import getAccountContacts from '@salesforce/apex/CreateLeadFromContactController.getAccountContacts';
 import getActiveCampaigns from '@salesforce/apex/CreateLeadFromContactController.getActiveCampaigns';
 import getOpportunityPicklist from '@salesforce/apex/CreateLeadFromContactController.getOpportunityPicklist';
-
-const NEW_CONTACT = 'NEW';
 
 let rowKey = 0;
 
@@ -28,11 +25,11 @@ export default class CreateLeadFromContact extends NavigationMixin(LightningElem
     roleOptions = [];
     isSaving = false;
     pendingTeamMembers = [];
-    // Primary Contact selector (Account) + new-contact path + campaign dropdown.
-    contactOptions = [];
+    // Primary Contact selector (Account): a toggle between searching an existing contact
+    // and creating a new one, instead of a flat dropdown.
+    contactMode = 'existing';
     campaignOptions = [];
     selectedPrimaryContact;
-    showNewContact = false;
     newContactData = {};
     selectedCampaignId;
     // Required picklists rendered as comboboxes so they show native inline errors.
@@ -114,14 +111,6 @@ export default class CreateLeadFromContact extends NavigationMixin(LightningElem
         };
     }
 
-    // Contacts on this account for the Select Primary Contact dropdown.
-    @wire(getAccountContacts, { accountId: '$accountId' })
-    wiredContacts({ data }) {
-        if (data) {
-            this.contactOptions = data;
-        }
-    }
-
     // Active, in-progress campaigns for Primary Campaign Source (mirrors the flow filter).
     @wire(getActiveCampaigns)
     wiredCampaigns({ data }) {
@@ -166,18 +155,42 @@ export default class CreateLeadFromContact extends NavigationMixin(LightningElem
         if (event.target.reportValidity) event.target.reportValidity();
     }
 
-    // "Create New Contact" first, then the account's existing contacts (matches the flow).
-    get primaryContactOptions() {
-        return [{ label: 'Create New Contact', value: NEW_CONTACT }, ...this.contactOptions];
+    // Segmented toggle: search an existing contact vs. create a new one.
+    get contactModeOptions() {
+        return [
+            { label: 'Existing Contact', value: 'existing' },
+            { label: 'Create New Contact', value: 'new' }
+        ];
+    }
+
+    get showNewContact() {
+        return this.contactMode === 'new';
+    }
+
+    // Limit the existing-contact search to this account.
+    get contactFilter() {
+        return {
+            criteria: [{ fieldPath: 'AccountId', operator: 'eq', value: this.accountId }],
+            filterLogic: '1'
+        };
     }
 
     get disableSave() {
         return this.isSaving || !this.hasAccount;
     }
 
-    handlePrimaryContactChange(event) {
-        this.selectedPrimaryContact = event.detail.value;
-        this.showNewContact = this.selectedPrimaryContact === NEW_CONTACT;
+    handleContactModeChange(event) {
+        this.contactMode = event.detail.value;
+        // Clear the path not in use so we don't submit stale data.
+        if (this.contactMode === 'new') {
+            this.selectedPrimaryContact = null;
+        } else {
+            this.newContactData = {};
+        }
+    }
+
+    handleExistingContactChange(event) {
+        this.selectedPrimaryContact = event.detail ? event.detail.recordId : null;
         if (event.target && event.target.reportValidity) {
             event.target.reportValidity();
         }
@@ -363,7 +376,7 @@ export default class CreateLeadFromContact extends NavigationMixin(LightningElem
         let contactId = null;
         let newContact = null;
         if (this.isAccount) {
-            if (this.selectedPrimaryContact === NEW_CONTACT) {
+            if (this.contactMode === 'new') {
                 newContact = { ...this.newContactData };
             } else {
                 contactId = this.selectedPrimaryContact;
