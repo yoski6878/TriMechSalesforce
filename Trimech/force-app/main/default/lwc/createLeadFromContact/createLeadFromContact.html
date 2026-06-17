@@ -22,22 +22,19 @@
                     <!-- Pre-filled from the originating Contact's / Account's Account -->
                     <lightning-input-field field-name="AccountId" value={accountId} class="slds-hide"></lightning-input-field>
 
-                    <!-- Launched from an Account: rep chooses the primary contact on that account -->
-                    <template if:true={isAccount}>
-                        <div class="slds-m-bottom_small slds-size_1-of-2">
-                            <lightning-record-picker
-                                label="Primary Contact"
-                                placeholder="Search contacts..."
-                                object-api-name="Contact"
-                                filter={contactFilter}
-                                required
-                                onchange={handlePrimaryContactChange}
-                            ></lightning-record-picker>
-                        </div>
-                    </template>
-
                     <div class="slds-grid slds-wrap slds-gutters">
                         <div class="slds-col slds-size_1-of-2">
+                            <!-- Launched from an Account: rep chooses the primary contact on that account -->
+                            <template if:true={isAccount}>
+                                <lightning-record-picker
+                                    label="Primary Contact"
+                                    placeholder="Search contacts..."
+                                    object-api-name="Contact"
+                                    filter={contactFilter}
+                                    required
+                                    onchange={handlePrimaryContactChange}
+                                ></lightning-record-picker>
+                            </template>
                             <lightning-input-field field-name="Name" value={defaultOppName} required></lightning-input-field>
                             <lightning-input-field field-name="Product_Group__c" required></lightning-input-field>
                             <lightning-input-field field-name="LeadSource" value="Business Development" required></lightning-input-field>
