@@ -1,0 +1,39 @@
+.mapping-dropdowns {
+  min-width: 260px;
+}
+:host {
+  display: block;
+}
+
+/* Section shell for strong visual separation on Lightning pages */
+.section {
+  background: var(--lwc-colorBackgroundAlt, #ffffff);
+  border: 1px solid var(--lwc-colorBorder, #e5e5e5);
+  border-radius: var(--lwc-borderRadiusMedium, 0.25rem);
+  padding: var(--lwc-spacingMedium, 1rem);
+  margin-bottom: var(--lwc-spacingMedium, 1rem);
+}
+
+/* Section header with subtle divider */
+.section__header {
+  display: flex;
+  align-items: center;
+  gap: var(--lwc-spacingXSmall, 0.25rem);
+  margin-bottom: var(--lwc-spacingSmall, 0.5rem);
+  padding-bottom: var(--lwc-spacingXSmall, 0.25rem);
+  border-bottom: 1px solid var(--lwc-colorBorder, #e5e5e5);
+}
+
+/* Inline progress indicator shown while tasks are being created */
+.creating-indicator {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* Small positioned box so the (absolutely-positioned) spinner centers next to the label */
+.creating-indicator__spinner {
+  position: relative;
+  width: 1.25rem;
+  height: 1.25rem;
+}

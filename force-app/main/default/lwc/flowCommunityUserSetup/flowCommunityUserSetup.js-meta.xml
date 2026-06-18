@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>65.0</apiVersion>
+    <isExposed>true</isExposed>
+    <targets>
+        <target>lightning__FlowScreen</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__FlowScreen">
+            <property name="contactId" type="String" label="Contact Id" />
+            <property name="userId" type="String" label="Existing User Id " />
+            <property name="profileId" type="String" label="Profile Id" required="true" />
+            <property name="profileName" type="String" label="Profile Name" />
+            <property name="selectProfileName" type="String" label="Select Profile Name" />
+            <property name="createdUserId" type="String" role="outputOnly"
+                label="Created/Updated User Id" />
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

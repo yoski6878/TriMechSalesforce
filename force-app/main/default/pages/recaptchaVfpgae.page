@@ -1,0 +1,44 @@
+<apex:page showHeader="false">  
+    <html>  
+        <head>  
+            <title>reCAPTCHA demo: Explicit render after an onload callback</title>  
+            <script type="text/javascript">  
+            var verifyCallback = function(response) {  
+                parent.postMessage("Unlock",  
+                               location.origin);  
+            };  
+            var expireCallback = function(response) {  
+                parent.postMessage("Expired",  
+                               location.origin);  
+            };  
+            var errorCallback = function(response) {  
+                parent.postMessage("Error",  
+                               location.origin);  
+            };  
+            //URL where the Lightning Component is present  
+            
+            //Change the site key which you will get after registering on the Google for reCaptcha  
+            var onloadCallback = function() {  
+                grecaptcha.render('html_element', {  
+                    'sitekey': '6LeUYpIqAAAAAEnfLa8vEPgj_LTLo8NpLgzIPp1v', //Site-key that you got when configured reCAPTCHA on google site  
+                    'callback': verifyCallback,  
+                    'expired-callback': expireCallback,
+                    'error-callback': errorCallback
+ 
+                   });  
+            };  
+           	
+            </script>  
+        </head>  
+        <body>  
+            <form action="?" method="POST">  
+                <div id="html_element"></div>  
+                <br/>  
+                <input type="submit" value="Submit" style="display:none"/>  
+            </form>  
+            <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async=""  
+            defer="">  
+                </script>  
+        </body>  
+    </html>  
+</apex:page>

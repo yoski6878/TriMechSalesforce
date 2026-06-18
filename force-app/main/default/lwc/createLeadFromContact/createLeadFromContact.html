@@ -1,0 +1,225 @@
+<template>
+    <lightning-card title="Create Lead" icon-name="standard:opportunity">
+        <div class="slds-p-horizontal_medium slds-p-bottom_medium slds-is-relative">
+            <template if:true={isSaving}>
+                <lightning-spinner alternative-text="Creating lead..." size="medium"></lightning-spinner>
+            </template>
+            <template if:true={errorMessage}>
+                <div class="slds-text-color_error slds-p-vertical_x-small" role="alert">
+                    {errorMessage}
+                </div>
+            </template>
+
+            <template if:true={hasAccount}>
+                <lightning-record-edit-form
+                    object-api-name="Opportunity"
+                    record-type-id={leadRecordTypeId}
+                    onsuccess={handleSuccess}
+                    onerror={handleSubmitError}
+                >
+                    <lightning-messages></lightning-messages>
+
+                    <!-- Pre-filled from the originating Contact's / Account's Account -->
+                    <lightning-input-field field-name="AccountId" value={accountId} class="slds-hide"></lightning-input-field>
+
+                    <!-- Field set mirrors the Create_Lead / Create_Lead_from_Contact flows.
+                         Both flows are identical except the Account flow adds the Primary
+                         Contact selector (the Contact record is already known on a Contact). -->
+                    <div class="slds-grid slds-wrap slds-gutters">
+                        <div class="slds-col slds-size_1-of-2">
+                            <lightning-input-field field-name="Name" value={defaultOppName} required></lightning-input-field>
+                            <lightning-input-field field-name="Product_Group__c" value={softwareProductGroupId} required></lightning-input-field>
+                            <lightning-input-field field-name="LeadSource" value="Business Development" required></lightning-input-field>
+                            <lightning-combobox label="End User Department" placeholder="Select an option"
+                                variant="label-inline"
+                                options={endUserDeptOptions} value={selectedEndUserDept} required
+                                onchange={handleEndUserDeptChange}></lightning-combobox>
+                            <lightning-input-field field-name="End_User_Department__c" value={selectedEndUserDept} class="slds-hide"></lightning-input-field>
+                            <lightning-input-field field-name="Referral__c"></lightning-input-field>
+                        </div>
+                        <div class="slds-col slds-size_1-of-2">
+                            <lightning-input-field field-name="CloseDate" value={today} required></lightning-input-field>
+                            <lightning-input-field field-name="StageName" value="New" required></lightning-input-field>
+                            <lightning-combobox label="Type" placeholder="Select an option"
+                                variant="label-inline"
+                                options={typeOptions} value={selectedType} required
+                                onchange={handleTypeChange}></lightning-combobox>
+                            <lightning-input-field field-name="Type" value={selectedType} class="slds-hide"></lightning-input-field>
+                            <lightning-combobox label="Opportunity Type" placeholder="Select an option"
+                                variant="label-inline"
+                                options={oppTypeOptions} value={selectedOppType} required
+                                onchange={handleOppTypeChange}></lightning-combobox>
+                            <lightning-input-field field-name="Opportunity_Type__c" value={selectedOppType} class="slds-hide"></lightning-input-field>
+                            <lightning-input-field field-name="Lyme_Quote__c"></lightning-input-field>
+                            <lightning-input-field field-name="Value_Upgrade__c"></lightning-input-field>
+                        </div>
+                    </div>
+
+                    <!-- Account-only: pick an existing contact (typeahead) or create a new one -->
+                    <template if:true={isAccount}>
+                        <div class="slds-m-top_small">
+                            <span class="slds-form-element__label">
+                                <abbr class="slds-required" title="required">* </abbr>Primary Contact
+                            </span>
+                            <lightning-radio-group
+                                name="contactMode"
+                                variant="label-hidden"
+                                type="button"
+                                options={contactModeOptions}
+                                value={contactMode}
+                                onchange={handleContactModeChange}
+                            ></lightning-radio-group>
+
+                            <template if:false={showNewContact}>
+                                <div class="slds-m-top_x-small">
+                                    <lightning-record-picker
+                                        label="Primary Contact"
+                                        variant="label-hidden"
+                                        placeholder="Search this account's contacts..."
+                                        object-api-name="Contact"
+                                        filter={contactFilter}
+                                        required
+                                        onchange={handleExistingContactChange}
+                                    ></lightning-record-picker>
+                                </div>
+                            </template>
+
+                            <template if:true={showNewContact}>
+                                <div class="slds-box slds-box_x-small slds-m-top_x-small slds-theme_shade">
+                                    <p class="slds-text-title_caps slds-m-bottom_x-small">New Contact</p>
+                                    <div class="slds-grid slds-wrap slds-gutters">
+                                        <div class="slds-col slds-size_1-of-2">
+                                            <lightning-input label="First Name" data-field="firstName" onchange={handleNewContactChange}></lightning-input>
+                                            <lightning-input label="Email" type="email" data-field="email" required onchange={handleNewContactChange}></lightning-input>
+                                        </div>
+                                        <div class="slds-col slds-size_1-of-2">
+                                            <lightning-input label="Last Name" data-field="lastName" required onchange={handleNewContactChange}></lightning-input>
+                                            <lightning-input label="Phone" type="tel" data-field="phone" onchange={handleNewContactChange}></lightning-input>
+                                        </div>
+                                    </div>
+                                </div>
+                            </template>
+                        </div>
+                    </template>
+
+                    <!-- Primary Campaign Source (both flows): active in-progress campaigns -->
+                    <div class="slds-m-top_small">
+                        <lightning-combobox
+                            label="Primary Campaign Source"
+                            placeholder="Select a campaign"
+                            options={campaignOptions}
+                            value={selectedCampaignId}
+                            onchange={handleCampaignChange}
+                        ></lightning-combobox>
+                    </div>
+                    <!-- Hidden field so the chosen campaign saves natively on the Opportunity -->
+                    <lightning-input-field field-name="CampaignId" value={selectedCampaignId} class="slds-hide"></lightning-input-field>
+
+                    <!-- Opportunity Team section -->
+                    <div class="slds-m-top_large slds-border_top slds-p-top_medium">
+                        <div class="slds-grid slds-grid_align-spread slds-grid_vertical-align-center slds-m-bottom_xx-small">
+                            <h3 class="slds-text-heading_small slds-text-title_caps">Opportunity Team</h3>
+                            <lightning-button
+                                label="Add team member"
+                                icon-name="utility:add"
+                                onclick={addTeamRow}
+                                variant="brand-outline"
+                            ></lightning-button>
+                        </div>
+                        <p class="slds-text-body_small slds-text-color_weak slds-m-bottom_x-small">
+                            Add the Application Engineers assisting on this opportunity, with their team role.
+                        </p>
+
+                        <div class="slds-m-bottom_small">
+                            <lightning-button
+                                label={defaultTeamButtonLabel}
+                                variant="base"
+                                icon-name="utility:groups"
+                                onclick={toggleDefaultTeam}
+                            ></lightning-button>
+                            <template if:true={showDefaultTeam}>
+                                <div class="default-team-panel slds-m-top_x-small slds-text-body_small">
+                                    <template if:true={loadingDefaultTeam}>
+                                        <p class="slds-text-color_weak slds-p-around_x-small">Loading…</p>
+                                    </template>
+                                    <template if:true={noDefaultTeam}>
+                                        <p class="slds-text-color_weak slds-p-around_x-small">
+                                            You have no default opportunity team configured.
+                                        </p>
+                                    </template>
+                                    <div class="default-team-list">
+                                        <template for:each={defaultTeamMembers} for:item="dm">
+                                            <div key={dm.key} class="default-team-row">
+                                                <lightning-icon
+                                                    icon-name="standard:user"
+                                                    size="x-small"
+                                                    alternative-text=""
+                                                    class="default-team-icon"
+                                                ></lightning-icon>
+                                                <span class="default-team-name">{dm.name}</span>
+                                                <span class="default-team-role">{dm.role}</span>
+                                            </div>
+                                        </template>
+                                    </div>
+                                </div>
+                            </template>
+                        </div>
+
+                        <template if:false={hasTeamRows}>
+                            <p class="slds-text-color_weak slds-text-body_small slds-p-vertical_x-small">
+                                No team members added yet.
+                            </p>
+                        </template>
+
+                        <template for:each={teamRows} for:item="row">
+                            <div key={row.key} class="slds-grid slds-gutters slds-grid_vertical-align-start slds-m-bottom_small">
+                                <div class="slds-col slds-size_5-of-12">
+                                    <lightning-record-picker
+                                        label="Team Member"
+                                        placeholder="Search users..."
+                                        object-api-name="User"
+                                        filter={userFilter}
+                                        required
+                                        data-key={row.key}
+                                        onchange={handleUserChange}
+                                    ></lightning-record-picker>
+                                </div>
+                                <div class="slds-col slds-size_5-of-12">
+                                    <lightning-combobox
+                                        label="Team Role"
+                                        placeholder="Select role"
+                                        options={roleOptions}
+                                        value={row.role}
+                                        required
+                                        data-key={row.key}
+                                        onchange={handleRoleChange}
+                                    ></lightning-combobox>
+                                </div>
+                                <div class="slds-col slds-size_2-of-12 team-delete">
+                                    <lightning-button-icon
+                                        icon-name="utility:delete"
+                                        variant="border-filled"
+                                        alternative-text="Remove"
+                                        title="Remove team member"
+                                        data-key={row.key}
+                                        onclick={removeTeamRow}
+                                    ></lightning-button-icon>
+                                </div>
+                            </div>
+                        </template>
+                    </div>
+                </lightning-record-edit-form>
+            </template>
+        </div>
+
+        <div slot="footer" class="slds-grid slds-grid_align-end">
+            <lightning-button label="Cancel" onclick={handleCancel} class="slds-m-right_x-small"></lightning-button>
+            <lightning-button
+                label="Create Lead"
+                variant="brand"
+                onclick={handleCreateClick}
+                disabled={disableSave}
+            ></lightning-button>
+        </div>
+    </lightning-card>
+</template>

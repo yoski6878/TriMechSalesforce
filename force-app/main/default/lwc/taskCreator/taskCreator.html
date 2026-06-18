@@ -1,0 +1,217 @@
+<template>
+    <lightning-card title="Task Creator" icon-name="standard:task">
+        <div class="slds-p-around_medium">
+
+            <!-- Persistent success confirmation (survives the form reset after a run) -->
+            <template if:true={showSuccessMessage}>
+                <div class="slds-box slds-box_x-small slds-theme_success slds-m-bottom_medium slds-grid slds-grid_vertical-align-center" role="status">
+                    <lightning-icon icon-name="utility:success" size="small" variant="inverse" class="slds-m-right_small"></lightning-icon>
+                    <span>{successMessage}</span>
+                </div>
+            </template>
+
+            <!-- Step 1 — Input Source -->
+            <div class="section">
+                <div class="section__header">
+                    <lightning-icon icon-name="utility:number_input" size="x-small" class="slds-m-right_x-small"></lightning-icon>
+                    <h3 class="slds-text-heading_small">Step 1 — Input Source</h3>
+                </div>
+                <div class="slds-grid slds-gutters">
+                    <div class="slds-col">
+                        <lightning-radio-group
+                            name="inputSource"
+                            label="Select Input Source"
+                            options={inputSourceOptions}
+                            value={inputSource}
+                            onchange={handleInputSourceChange}
+                            variant="vertical">
+                        </lightning-radio-group>
+                    </div>
+                    <div class="slds-col">
+                        <template if:true={isReportSelected}>
+                            <lightning-input 
+                                type="search" 
+                                label="Search Reports" 
+                                value={searchReportTerm}
+                                onchange={handleReportSearch}
+                                onclear={handleClearSearch}
+                                placeholder="Search for reports..."
+                                class="slds-m-bottom_x-small">
+                            </lightning-input>
+                            <lightning-combobox
+                                name="reportLookup"
+                                label="Select Salesforce Report"
+                                options={filteredReportOptions}
+                                value={selectedReportId}
+                                onchange={handleReportLookupChange}
+                                variant="label-hidden">
+                            </lightning-combobox>
+                        </template>
+                        <template if:true={isFileSelected}>
+                            <lightning-input type="file" label="Upload CSV/Excel File" onchange={handleFileUpload} variant="label-hidden" accept=".csv,.xls,.xlsx"></lightning-input>
+                        </template>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 1a — Column Mapping -->
+            <template if:true={showColumnMapping}>
+                <div class="section">
+                    <div class="mapping-dropdowns">
+                        <div class="section__header">
+                            <lightning-icon icon-name="utility:picklist_type" size="x-small" class="slds-m-right_x-small"></lightning-icon>
+                            <h3 class="slds-text-heading_small">Step 1a — Map File Columns</h3>
+                        </div>
+                        <lightning-combobox
+                            name="whoIdMapping"
+                            label="Contact/Lead (WhoId) Column (Optional)"
+                            options={whoIdColumnOptions}
+                            value={whoIdMapping}
+                            onchange={handleWhoIdMappingChange}>
+                        </lightning-combobox>
+                        <lightning-combobox
+                            name="whatIdMapping"
+                            label="Account/Opportunity/Other (WhatId) Column (Optional)"
+                            options={whatIdColumnOptions}
+                            value={whatIdMapping}
+                            onchange={handleWhatIdMappingChange}>
+                        </lightning-combobox>
+                        <lightning-combobox
+                            name="ownerIdMapping"
+                            label="Task Owner Column (Optional)"
+                            options={ownerIdColumnOptions}
+                            value={ownerIdMapping}
+                            onchange={handleOwnerIdMappingChange}>
+                        </lightning-combobox>
+                        <lightning-combobox
+                            name="subjectMapping"
+                            label="Subject Column (Optional)"
+                            options={subjectColumnOptions}
+                            value={subjectMapping}
+                            onchange={handleSubjectMappingChange}>
+                        </lightning-combobox>
+                        <lightning-combobox
+                            name="dueDateMapping"
+                            label="Due Date Column (Optional)"
+                            options={dueDateColumnOptions}
+                            value={dueDateMapping}
+                            onchange={handleDueDateMappingChange}>
+                        </lightning-combobox>
+                    </div>
+                </div>
+            </template>
+
+            <!-- Error message (visible whether or not the mapping window is shown) -->
+            <template if:true={mappingError}>
+                <div class="slds-text-color_error slds-m-bottom_small" role="alert">{mappingError}</div>
+            </template>
+
+            <!-- Records Loaded badge (only once something is actually loaded) -->
+            <template if:true={validRecordCount}>
+                <div class="slds-m-bottom_medium slds-grid slds-gutters">
+                    <div class="slds-col slds-size_1-of-2">
+                        <span class="slds-badge slds-theme_success">Records Loaded: <lightning-formatted-number value={validRecordCount}></lightning-formatted-number></span>
+                    </div>
+                </div>
+            </template>
+
+            <!-- Step 2 — Assign Tasks To -->
+            <div class="section">
+                <div class="section__header">
+                    <lightning-icon icon-name="utility:user" size="x-small" class="slds-m-right_x-small"></lightning-icon>
+                    <h3 class="slds-text-heading_small">Step 2 — Assign Tasks To</h3>
+                </div>
+                <lightning-input 
+                    type="search" 
+                    label="Search Users" 
+                    value={searchUserTerm}
+                    onchange={handleUserSearch}
+                    onclear={handleClearUserSearch}
+                    placeholder="Search for users..."
+                    class="slds-m-bottom_x-small">
+                </lightning-input>
+                <lightning-dual-listbox
+                    name="taskOwners"
+                    label="Assign Tasks to:"
+                    source-label="Available Users"
+                    selected-label="Selected Users"
+                    options={filteredOwnerOptionsWithSelected}
+                    value={selectedOwners}
+                    onchange={handleOwnerChange}
+                    variant="label-hidden"
+                    disabled={isOwnerMappingActive}>
+                </lightning-dual-listbox>
+            </div>
+
+            <!-- Step 3 — Task Details -->
+            <div class="section">
+                <div class="section__header">
+                    <lightning-icon icon-name="utility:task" size="x-small" class="slds-m-right_x-small"></lightning-icon>
+                    <h3 class="slds-text-heading_small">Step 3 — Task Details</h3>
+                </div>
+                <div class="slds-grid slds-gutters slds-wrap">
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+                        <lightning-input type="text" label="Task Subject" value={taskSubject} onchange={handleSubjectChange} disabled={isSubjectMappingActive}></lightning-input>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+                        <lightning-input type="date" label="Due Date" value={dueDate} onchange={handleDueDateChange} disabled={isDueDateMappingActive}></lightning-input>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1">
+                        <lightning-radio-group
+                            name="taskType"
+                            label="Task Type"
+                            options={taskTypeOptions}
+                            value={taskType}
+                            onchange={handleTaskTypeChange}
+                            variant="label-hidden">
+                        </lightning-radio-group>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 4 — Create -->
+            <div class="section">
+                <div class="section__header">
+                    <lightning-icon icon-name="utility:add" size="x-small" class="slds-m-right_x-small"></lightning-icon>
+                    <h3 class="slds-text-heading_small">Step 4 — Create</h3>
+                </div>
+                <lightning-button
+                    variant="brand"
+                    label="Create Tasks"
+                    onclick={handleCreateTasks}
+                    disabled={isCreateTasksButtonDisabled}
+                    class="slds-m-top_medium">
+                </lightning-button>
+
+                <!-- Progress indicator while the create call is in flight -->
+                <template if:true={isCreatingTasks}>
+                    <div class="creating-indicator slds-m-top_small">
+                        <div class="creating-indicator__spinner">
+                            <lightning-spinner alternative-text="Creating tasks" size="small" variant="brand"></lightning-spinner>
+                        </div>
+                        <span class="slds-text-body_small slds-text-color_weak">Creating tasks…</span>
+                    </div>
+                </template>
+
+                <template if:true={showSetupHints}>
+                    <div class="slds-text-color_weak slds-text-body_small slds-m-top_x-small slds-grid slds-gutters">
+                        <div class="slds-col">
+                            <template if:false={loadedRecords.length}>
+                                <span>Load records to begin.</span>
+                            </template>
+                        </div>
+                        <div class="slds-col">
+                            <template if:false={selectedOwners.length}>
+                                <template if:false={ownerIdMapping}>
+                                    <span>Select at least one user to assign tasks to.</span>
+                                </template>
+                            </template>
+                        </div>
+                    </div>
+                </template>
+            </div>
+
+
+        </div>
+    </lightning-card>
+</template>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata" fqn="contactLookupFlow">
+    <apiVersion>66.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>Contact Lookup (Flow)</masterLabel>
+    <description>Reusable Contact lookup for Flow: select a Contact related to an Account (scoped by Opportunity).</description>
+    <targets>
+        <target>lightning__FlowScreen</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__FlowScreen">
+            <property name="recordId" type="String" label="Opportunity Id (required)"/>
+            <property name="value" type="String" label="Contact Id (single-select — bind to a Contact field)"/>
+            <property name="values" type="String[]" label="Contact Ids (multi-select — bind to a Text Collection)"/>
+            <property name="allowMultiselect" type="Boolean" label="Allow Multi-Select" default="false"/>
+            <property name="fieldLabel" type="String" label="Field Label" default="Contact"/>
+            <property name="required" type="Boolean" label="Required" default="false"/>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>
