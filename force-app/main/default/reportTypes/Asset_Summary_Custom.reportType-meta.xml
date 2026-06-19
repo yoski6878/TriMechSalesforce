@@ -61,6 +61,36 @@
             <field>Upsert_Key__c</field>
             <table>Asset_Summary__c</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Asset_Class__c</field>
+            <table>Asset_Summary__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Asset_Type__c</field>
+            <table>Asset_Summary__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Asset_Technology__c</field>
+            <table>Asset_Summary__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Group__c</field>
+            <table>Asset_Summary__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Is_Expired__c</field>
+            <table>Asset_Summary__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Record_Type__c</field>
+            <table>Asset_Summary__c</table>
+        </columns>
         <masterLabel>Asset Summaries</masterLabel>
     </sections>
 </ReportType>

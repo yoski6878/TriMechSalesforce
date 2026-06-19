@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EntitlementProcess xmlns="http://soap.sforce.com/2006/04/metadata">
+    <SObjectType>Case</SObjectType>
+    <active>true</active>
+    <businessHours>USA EST</businessHours>
+    <entitlementRules>
+        <criteriaBooleanFilter>1 OR 2</criteriaBooleanFilter>
+        <criteriaFilterItems>
+            <field>Account.ShippingCountry</field>
+            <operation>startsWith</operation>
+            <value>US</value>
+        </criteriaFilterItems>
+        <criteriaFilterItems>
+            <field>Account.ShippingCountry</field>
+            <operation>equals</operation>
+            <value>United States</value>
+        </criteriaFilterItems>
+        <entitlementName>APPLICATIONS: Standard Service - USA</entitlementName>
+        <order>2</order>
+    </entitlementRules>
+    <entryStartDateField>Case.CreatedDate</entryStartDateField>
+    <exitCriteriaBooleanFilter>1 AND 2</exitCriteriaBooleanFilter>
+    <exitCriteriaFilterItems>
+        <field>Case.IsClosed</field>
+        <operation>equals</operation>
+        <value>true</value>
+    </exitCriteriaFilterItems>
+    <exitCriteriaFilterItems>
+        <field>Case.Priority</field>
+        <operation>notEqual</operation>
+        <value>Urgent</value>
+    </exitCriteriaFilterItems>
+    <isVersionDefault>false</isVersionDefault>
+    <milestones>
+        <businessHours>USA EST</businessHours>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Priority</field>
+            <operation>equals</operation>
+            <value>Urgent</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneName>Initial Response</milestoneName>
+        <minutesToComplete>120</minutesToComplete>
+        <successActions>
+            <name>Set_Status_To_Waiting_for_client</name>
+            <type>FieldUpdate</type>
+        </successActions>
+        <successActions>
+            <name>Set_Violated_False</name>
+            <type>FieldUpdate</type>
+        </successActions>
+        <timeTriggers>
+            <actions>
+                <name>Set_Case_Violated</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <actions>
+                <name>Update_Violation_Count</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <actions>
+                <name>Application_Case_Violation_Email_Alert</name>
+                <type>FlowAutomation</type>
+            </actions>
+            <timeLength>1</timeLength>
+            <workflowTimeTriggerUnit>Minutes</workflowTimeTriggerUnit>
+        </timeTriggers>
+        <useCriteriaStartTime>false</useCriteriaStartTime>
+    </milestones>
+    <milestones>
+        <businessHours>USA EST</businessHours>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Priority</field>
+            <operation>equals</operation>
+            <value>Urgent</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Status</field>
+            <operation>equals</operation>
+            <value>In Progress</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneName>Updates</milestoneName>
+        <minutesToComplete>960</minutesToComplete>
+        <successActions>
+            <name>Set_Status_To_Waiting_for_client</name>
+            <type>FieldUpdate</type>
+        </successActions>
+        <successActions>
+            <name>Set_Violated_False</name>
+            <type>FieldUpdate</type>
+        </successActions>
+        <timeTriggers>
+            <actions>
+                <name>Set_Case_Violated</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <actions>
+                <name>Update_Violation_Count</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <actions>
+                <name>Application_Case_Violation_Email_Alert</name>
+                <type>FlowAutomation</type>
+            </actions>
+            <timeLength>1</timeLength>
+            <workflowTimeTriggerUnit>Minutes</workflowTimeTriggerUnit>
+        </timeTriggers>
+        <useCriteriaStartTime>true</useCriteriaStartTime>
+    </milestones>
+    <name>APPLICATIONS: Standard Service - USA</name>
+    <versionMaster>552Ot00000QiNYD</versionMaster>
+    <versionNumber>4</versionNumber>
+</EntitlementProcess>

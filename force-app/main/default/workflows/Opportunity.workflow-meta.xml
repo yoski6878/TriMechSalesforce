@@ -10,6 +10,24 @@
         <senderType>CurrentUser</senderType>
         <template>unfiled$public/Assignment_Notification</template>
     </alerts>
+    <alerts>
+        <fullName>Notify_Contacts_from_Hardware_Orders</fullName>
+        <ccEmails>hardware.orders@trimech.com</ccEmails>
+        <description>Notify Contacts from Hardware Orders</description>
+        <protected>false</protected>
+        <senderAddress>noreply@trimech.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/Lead_Opportunity_Account_Contacts_for_Netsuite_Order_Hardware</template>
+    </alerts>
+    <alerts>
+        <fullName>Notify_Contacts_from_SW_TRN_SRV_Orders</fullName>
+        <ccEmails>orders@trimech.com</ccEmails>
+        <description>Notify Contacts from SW/TRN/SRV Orders</description>
+        <protected>false</protected>
+        <senderAddress>noreply@trimech.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/Lead_Opportunity_Account_Contacts_for_Netsuite_Order_Software</template>
+    </alerts>
     <fieldUpdates>
         <fullName>Record_Type_Locked</fullName>
         <description>The Opportunity Page will switch to Read Only when the Stage is Submit to Order Management.</description>
@@ -20,6 +38,7 @@
         <notifyAssignee>false</notifyAssignee>
         <operation>LookupValue</operation>
         <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
     </fieldUpdates>
     <fieldUpdates>
         <fullName>Record_Type_Unlock</fullName>
@@ -31,6 +50,69 @@
         <notifyAssignee>false</notifyAssignee>
         <operation>LookupValue</operation>
         <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Set_Lead_Opp_Disqualified</fullName>
+        <field>StageName</field>
+        <literalValue>Disqualified</literalValue>
+        <name>Set Lead/Opp Disqualified</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Set_Lead_Score_2</fullName>
+        <field>TD_Lead_Score__c</field>
+        <formula>&quot;A&quot;</formula>
+        <name>Set Lead Score 2</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Set_NDA_Status_To_Approved</fullName>
+        <field>NDA_Approval_Process_Status__c</field>
+        <literalValue>Approved</literalValue>
+        <name>Set NDA Status To Approved</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Set_NDA_Status_To_Rejected</fullName>
+        <field>NDA_Approval_Process_Status__c</field>
+        <literalValue>Rejected</literalValue>
+        <name>Set NDA Status To Rejected</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Set_Owner_to_Sabrina</fullName>
+        <field>OwnerId</field>
+        <lookupValue>sabrina.tassone@trimech.com</lookupValue>
+        <lookupValueType>User</lookupValueType>
+        <name>Set Owner to Sabrina</name>
+        <notifyAssignee>true</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Set_Ownner_To_Ryan</fullName>
+        <field>OwnerId</field>
+        <lookupValue>ryan.davidson@trimech.com</lookupValue>
+        <lookupValueType>User</lookupValueType>
+        <name>Set Ownner To Ryan</name>
+        <notifyAssignee>true</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
     </fieldUpdates>
     <rules>
         <fullName>Assignment Notification - Lead%2FSQL</fullName>

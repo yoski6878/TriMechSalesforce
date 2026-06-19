@@ -7,13 +7,17 @@
         <locationY>782</locationY>
         <actionName>c:Redirect</actionName>
         <actionType>component</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
         <inputParameters>
             <name>recordId</name>
             <value>
                 <elementReference>recordId</elementReference>
             </value>
         </inputParameters>
+        <nameSegment>c:Redirect</nameSegment>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
     </actionCalls>
+    <apiVersion>50.0</apiVersion>
     <assignments>
         <name>Reset_Shipping_Zip</name>
         <label>Reset Shipping Zip</label>
@@ -53,6 +57,7 @@
             <targetReference>Update_Account</targetReference>
         </connector>
     </assignments>
+    <environments>Default</environments>
     <interviewLabel>Recalculate Account Territories {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Recalculate Account Territories</label>
     <processMetadataValues>
@@ -83,6 +88,7 @@
         <connector>
             <targetReference>Set_Shipping_Zip_to_Empty_String</targetReference>
         </connector>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
             <operator>EqualTo</operator>
@@ -90,7 +96,9 @@
                 <elementReference>recordId</elementReference>
             </value>
         </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
         <object>Account</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordUpdates>
         <name>Update_Account</name>
@@ -131,7 +139,13 @@
         <showFooter>true</showFooter>
         <showHeader>true</showHeader>
     </screens>
-    <startElementReference>Get_Account</startElementReference>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Account</targetReference>
+        </connector>
+    </start>
     <status>Active</status>
     <variables>
         <name>colAccountIds</name>

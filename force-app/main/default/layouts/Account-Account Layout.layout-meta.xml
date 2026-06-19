@@ -30,7 +30,7 @@
                 <field>ParentId</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Required</behavior>
+                <behavior>Edit</behavior>
                 <field>Subsidiary__c</field>
             </layoutItems>
             <layoutItems>
@@ -40,10 +40,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Type</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Required</behavior>
-                <field>Client_End_Market__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -68,6 +64,18 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Notes__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Security_Clearance_Required__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Aras_Client__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>ESS_Client__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -100,6 +108,10 @@
                 <field>Description</field>
             </layoutItems>
             <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Additional_Notes__c</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Client_Engagement_Score_this_month__c</field>
             </layoutItems>
@@ -114,6 +126,18 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Last_Connected_Date__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Cloud_Hosted__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Global_Support__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>STAMClient__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
@@ -160,7 +184,11 @@
                 <field>celigo_sfnsio__Credit_Limit__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
+                <field>NDA__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
                 <field>MSA_on_File__c</field>
             </layoutItems>
             <layoutItems>
@@ -183,6 +211,10 @@
                 <behavior>Readonly</behavior>
                 <field>celigo_sfnsio__NetSuite_Id__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Subscription_Level__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -194,7 +226,7 @@
                 <field>Credit_Hold_Status__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>MSA_Expiry_Date__c</field>
             </layoutItems>
             <layoutItems>
@@ -263,17 +295,25 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Dedicated_Sales_Rep_Hardware__c</field>
+                <field>Dedicated_Enterprise_Rep__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Client_Engagement_Rep__c</field>
+                <field>Dedicated_Sales_Rep_Hardware__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Client_Engagement_Rep__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Sales_Rep_Software__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Sales_Rep_Enterprise__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -443,6 +483,24 @@
         </quickActionListItems>
     </quickActionList>
     <relatedLists>
+        <fields>TERRITORY.NAME</fields>
+        <fields>MODEL.NAME</fields>
+        <fields>MODEL.STATE</fields>
+        <fields>ASSIGNMENT_DATE</fields>
+        <fields>ASSOCIATION_CAUSE</fields>
+        <relatedList>AccountAssignedTerritory2sRelatedList</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <relatedList>Account_Territory__c.Account__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>FULL_NAME</fields>
+        <fields>ROLE_IN_TERRITORY</fields>
+        <fields>CORE.USERS.EMAIL</fields>
+        <relatedList>AccountUserTerritory2RelatedList</relatedList>
+    </relatedLists>
+    <relatedLists>
         <excludeButtons>MassAddToCampaign</excludeButtons>
         <excludeButtons>MassAddToList</excludeButtons>
         <excludeButtons>MassAddToNurtureList</excludeButtons>
@@ -483,12 +541,12 @@
     </relatedLists>
     <relatedLists>
         <fields>ASSET.NAME</fields>
+        <fields>Asset_Group__c</fields>
         <fields>License_Type__c</fields>
         <fields>Status_Flag__c</fields>
         <fields>ASSET.USAGE_END_DATE</fields>
         <fields>Seat_Id__c</fields>
         <fields>ASSET.QUANTITY</fields>
-        <fields>Asset_Group__c</fields>
         <fields>ASSET.SERIAL_NUMBER</fields>
         <fields>ASSET.INSTALL_DATE</fields>
         <fields>ASSET.RECORDTYPE</fields>
@@ -523,6 +581,7 @@
         <fields>CASES.CASE_NUMBER</fields>
         <fields>NAME</fields>
         <fields>CASES.SUBJECT</fields>
+        <fields>Issue__c</fields>
         <fields>CASES.PRIORITY</fields>
         <fields>CASES.CREATED_DATE_DATE_ONLY</fields>
         <fields>CASES.STATUS</fields>

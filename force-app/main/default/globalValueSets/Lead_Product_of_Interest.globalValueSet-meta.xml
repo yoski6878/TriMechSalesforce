@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
     <customValue>
-        <fullName>3D Design</fullName>
-        <default>false</default>
-        <label>3D Design</label>
-    </customValue>
-    <customValue>
         <fullName>3DEXPERIENCE</fullName>
         <default>false</default>
         <label>3DEXPERIENCE</label>
@@ -146,6 +141,11 @@
         <label>3D Printer Makerbot</label>
     </customValue>
     <customValue>
+        <fullName>3D Printer - One Click Metal</fullName>
+        <default>false</default>
+        <label>3D Printer - One Click Metal</label>
+    </customValue>
+    <customValue>
         <fullName>3D Printer Stratasys - Big Box</fullName>
         <default>false</default>
         <label>3D Printer Stratasys - Big Box</label>
@@ -181,14 +181,14 @@
         <label>3D Scanner GOM</label>
     </customValue>
     <customValue>
-        <fullName>3D Scanning</fullName>
+        <fullName>3D Scan Services</fullName>
         <default>false</default>
-        <label>3D Scanning</label>
+        <label>3D Scan Services</label>
     </customValue>
     <customValue>
-        <fullName>3D Scanning Service</fullName>
+        <fullName>3D Visualization</fullName>
         <default>false</default>
-        <label>3D Scanning Service</label>
+        <label>3D Visualization</label>
     </customValue>
     <customValue>
         <fullName>Administering SOLIDWORKS Manage</fullName>
@@ -266,9 +266,34 @@
         <label>Artec Studio</label>
     </customValue>
     <customValue>
+        <fullName>CAD Services</fullName>
+        <default>false</default>
+        <label>CAD Services</label>
+    </customValue>
+    <customValue>
         <fullName>CATIA</fullName>
         <default>false</default>
         <label>CATIA</label>
+    </customValue>
+    <customValue>
+        <fullName>CATIA 3DEXPERIENCE</fullName>
+        <default>false</default>
+        <label>CATIA 3DEXPERIENCE</label>
+    </customValue>
+    <customValue>
+        <fullName>CATIA Generative Design</fullName>
+        <default>false</default>
+        <label>CATIA Generative Design</label>
+    </customValue>
+    <customValue>
+        <fullName>CATIA Training</fullName>
+        <default>false</default>
+        <label>CATIA Training</label>
+    </customValue>
+    <customValue>
+        <fullName>CATIA V5</fullName>
+        <default>false</default>
+        <label>CATIA V5</label>
     </customValue>
     <customValue>
         <fullName>Cloud Hosting</fullName>
@@ -329,11 +354,6 @@
         <fullName>DELMIAWorks</fullName>
         <default>false</default>
         <label>DELMIAWorks</label>
-    </customValue>
-    <customValue>
-        <fullName>Design Analysis</fullName>
-        <default>false</default>
-        <label>Design Analysis</label>
     </customValue>
     <customValue>
         <fullName>Design Automation</fullName>
@@ -446,9 +466,19 @@
         <label>EMS Electromagnetic Simulation for SOLIDWORKS</label>
     </customValue>
     <customValue>
+        <fullName>Engineering Services</fullName>
+        <default>false</default>
+        <label>Engineering Services</label>
+    </customValue>
+    <customValue>
         <fullName>ENOVIA</fullName>
         <default>false</default>
         <label>ENOVIA</label>
+    </customValue>
+    <customValue>
+        <fullName>Enterprise</fullName>
+        <default>false</default>
+        <label>Enterprise</label>
     </customValue>
     <customValue>
         <fullName>ExactFlat</fullName>
@@ -511,6 +541,11 @@
         <label>HFWorks High Frequency Simulation for SOLIDWORKS</label>
     </customValue>
     <customValue>
+        <fullName>Industrial Design</fullName>
+        <default>false</default>
+        <label>Industrial Design</label>
+    </customValue>
+    <customValue>
         <fullName>Introduction to SOLIDWORKS Simulation</fullName>
         <default>false</default>
         <label>Introduction to SOLIDWORKS Simulation</label>
@@ -549,6 +584,26 @@
         <fullName>Mastercam</fullName>
         <default>false</default>
         <label>Mastercam</label>
+    </customValue>
+    <customValue>
+        <fullName>MBSE</fullName>
+        <default>false</default>
+        <label>MBSE</label>
+    </customValue>
+    <customValue>
+        <fullName>MODSIM</fullName>
+        <default>false</default>
+        <label>MODSIM</label>
+    </customValue>
+    <customValue>
+        <fullName>MPRINT</fullName>
+        <default>false</default>
+        <label>MPRINT</label>
+    </customValue>
+    <customValue>
+        <fullName>MPUREPro</fullName>
+        <default>false</default>
+        <label>MPUREPro</label>
     </customValue>
     <customValue>
         <fullName>MySolidWorks</fullName>
@@ -596,6 +651,11 @@
         <label>Objet30 Pro</label>
     </customValue>
     <customValue>
+        <fullName>Patent Referral</fullName>
+        <default>false</default>
+        <label>Patent Referral</label>
+    </customValue>
+    <customValue>
         <fullName>PlantWorks</fullName>
         <default>false</default>
         <label>PlantWorks</label>
@@ -616,6 +676,31 @@
         <label>Post Processing Service</label>
     </customValue>
     <customValue>
+        <fullName>PowerFLOW</fullName>
+        <default>false</default>
+        <label>PowerFLOW</label>
+    </customValue>
+    <customValue>
+        <fullName>Product Design</fullName>
+        <default>false</default>
+        <label>Product Design</label>
+    </customValue>
+    <customValue>
+        <fullName>Product Development</fullName>
+        <default>false</default>
+        <label>Product Development</label>
+    </customValue>
+    <customValue>
+        <fullName>Product Manufacturing</fullName>
+        <default>false</default>
+        <label>Product Manufacturing</label>
+    </customValue>
+    <customValue>
+        <fullName>Product Prototyping</fullName>
+        <default>false</default>
+        <label>Product Prototyping</label>
+    </customValue>
+    <customValue>
         <fullName>Professional Services</fullName>
         <default>false</default>
         <label>Professional Services</label>
@@ -624,11 +709,6 @@
         <fullName>Programming</fullName>
         <default>false</default>
         <label>Programming</label>
-    </customValue>
-    <customValue>
-        <fullName>Project Engineering Group</fullName>
-        <default>false</default>
-        <label>Project Engineering Group</label>
     </customValue>
     <customValue>
         <fullName>Project Management</fullName>
@@ -641,19 +721,34 @@
         <label>Project Planner</label>
     </customValue>
     <customValue>
-        <fullName>Rapid Prototyping</fullName>
+        <fullName>Robotics</fullName>
         <default>false</default>
-        <label>Rapid Prototyping</label>
+        <label>Robotics</label>
     </customValue>
     <customValue>
-        <fullName>Simulation</fullName>
+        <fullName>Simpack</fullName>
         <default>false</default>
-        <label>Simulation</label>
+        <label>Simpack</label>
+    </customValue>
+    <customValue>
+        <fullName>Simulation Services</fullName>
+        <default>false</default>
+        <label>Simulation Services</label>
     </customValue>
     <customValue>
         <fullName>SIMULIA</fullName>
         <default>false</default>
         <label>SIMULIA</label>
+    </customValue>
+    <customValue>
+        <fullName>SIMULIA 3DEXPERIENCE</fullName>
+        <default>false</default>
+        <label>SIMULIA 3DEXPERIENCE</label>
+    </customValue>
+    <customValue>
+        <fullName>SIMULIA CST</fullName>
+        <default>false</default>
+        <label>SIMULIA CST</label>
     </customValue>
     <customValue>
         <fullName>SIMULIA Simulation Foundation</fullName>
@@ -1121,6 +1216,11 @@
         <label>Staffing</label>
     </customValue>
     <customValue>
+        <fullName>Startup Business Support</fullName>
+        <default>false</default>
+        <label>Startup Business Support</label>
+    </customValue>
+    <customValue>
         <fullName>Stratasys F123</fullName>
         <default>false</default>
         <label>Stratasys F123</label>
@@ -1256,6 +1356,11 @@
         <label>SWOOD</label>
     </customValue>
     <customValue>
+        <fullName>Tosca</fullName>
+        <default>false</default>
+        <label>Tosca</label>
+    </customValue>
+    <customValue>
         <fullName>Training Course</fullName>
         <default>false</default>
         <label>Training Course</label>
@@ -1284,6 +1389,47 @@
         <fullName>Wazer Waterjet Cutter</fullName>
         <default>false</default>
         <label>Wazer Waterjet Cutter</label>
+    </customValue>
+    <customValue>
+        <fullName>Xflow</fullName>
+        <default>false</default>
+        <label>Xflow</label>
+    </customValue>
+    <customValue>
+        <fullName>Simulation</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Simulation</label>
+    </customValue>
+    <customValue>
+        <fullName>3D Design</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>3D Design</label>
+    </customValue>
+    <customValue>
+        <fullName>3D Scanning Service</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>3D Scanning Service</label>
+    </customValue>
+    <customValue>
+        <fullName>Design Analysis</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Design Analysis</label>
+    </customValue>
+    <customValue>
+        <fullName>3D Scanning</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>3D Scanning</label>
+    </customValue>
+    <customValue>
+        <fullName>Rapid Prototyping</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Rapid Prototyping</label>
     </customValue>
     <description>Used for mapping Lead Product of Interest values from Pardot</description>
     <masterLabel>Lead Product of Interest</masterLabel>

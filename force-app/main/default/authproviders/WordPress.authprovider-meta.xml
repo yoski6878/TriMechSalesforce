@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AuthProvider xmlns="http://soap.sforce.com/2006/04/metadata">
+    <authorizeUrl>https://staging2.macdac.com/wp-json/moserver/authorize</authorizeUrl>
+    <consumerKey>WLEEjaftazaZhRnVlcPBvplzCJbxZEPT</consumerKey>
+    <consumerSecret>Placeholder_Value</consumerSecret>
+    <friendlyName>WordPress</friendlyName>
+    <includeOrgIdInIdentifier>false</includeOrgIdInIdentifier>
+    <isPkceEnabled>true</isPkceEnabled>
+    <providerType>OpenIdConnect</providerType>
+    <requireMfa>false</requireMfa>
+    <sendAccessTokenInHeader>true</sendAccessTokenInHeader>
+    <sendClientCredentialsInHeader>false</sendClientCredentialsInHeader>
+    <sendSecretInApis>true</sendSecretInApis>
+    <tokenUrl>https://staging2.macdac.com/wp-json/moserver/token</tokenUrl>
+    <userInfoUrl>https://staging2.macdac.com/wp-json/moserver/resource</userInfoUrl>
+</AuthProvider>

@@ -56,6 +56,14 @@
                 <behavior>Readonly</behavior>
                 <field>Commissionable_GP_Currency__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Paperless_Opportunity_ID__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Neglected_test__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -137,6 +145,10 @@
                 <behavior>Readonly</behavior>
                 <field>Primary_Contact_Phone__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Primary_Contact_Title__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
@@ -154,8 +166,41 @@
                 <behavior>Readonly</behavior>
                 <field>Description</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>OEM_Lead_Id__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>OEM_Opp_Registered_Id__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>OEM_Deal_Registered__c</field>
+            </layoutItems>
         </layoutColumns>
-        <layoutColumns/>
+        <layoutColumns>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Lyme_Quote__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Value_Upgrade__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Record_ID_18__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Key_Opp__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Offer_Name__c</field>
+            </layoutItems>
+        </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
     <layoutSections>
@@ -203,30 +248,15 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Readonly</behavior>
+                <field>Employee_Referral_Name__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Referral_Source__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
                 <field>Primary_Campaign_Lead_Status__c</field>
-            </layoutItems>
-        </layoutColumns>
-        <style>TwoColumnsLeftToRight</style>
-    </layoutSections>
-    <layoutSections>
-        <customLabel>true</customLabel>
-        <detailHeading>true</detailHeading>
-        <editHeading>true</editHeading>
-        <label>Training Information</label>
-        <layoutColumns>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Training_Course_Name__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Training_Course_Location__c</field>
-            </layoutItems>
-        </layoutColumns>
-        <layoutColumns>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Training_Course_Date__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -262,6 +292,29 @@
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
         <editHeading>true</editHeading>
+        <label>Training Information</label>
+        <layoutColumns>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Training_Course_Name__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Training_Course_Location__c</field>
+            </layoutItems>
+        </layoutColumns>
+        <layoutColumns>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Training_Course_Date__c</field>
+            </layoutItems>
+        </layoutColumns>
+        <style>TwoColumnsLeftToRight</style>
+    </layoutSections>
+    <layoutSections>
+        <customLabel>true</customLabel>
+        <detailHeading>true</detailHeading>
+        <editHeading>true</editHeading>
         <label>Pardot Information 1</label>
         <layoutColumns>
             <layoutItems>
@@ -279,6 +332,18 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Pardot_Campaign__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Google_Analytics_Source__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Google_Analytics_Medium__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>TD_Lead_Score__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -298,6 +363,18 @@
                 <behavior>Readonly</behavior>
                 <field>Touch_Count__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Google_Analytics_Referrer__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Google_Analytics_Campaign__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>NDA__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>
@@ -308,12 +385,20 @@
         <label>Pardot Information 2</label>
         <layoutColumns>
             <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Form_Product__c</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Lead_Product_Category_on_Opp__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Lead_Product_of_Interest_on_Opp__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>TD_Lead_Notes__c</field>
             </layoutItems>
         </layoutColumns>
         <style>OneColumn</style>
@@ -444,6 +529,22 @@
         </platformActionListItems>
     </platformActionList>
     <relatedLists>
+        <fields>CreatedDate</fields>
+        <fields>StepStatus</fields>
+        <fields>OriginalActor</fields>
+        <fields>Actor</fields>
+        <fields>Comments</fields>
+        <relatedList>RelatedProcessHistoryList</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <fields>echosign_dev1__DateSentDate__c</fields>
+        <fields>echosign_dev1__Recipient__c</fields>
+        <fields>echosign_dev1__Status__c</fields>
+        <fields>echosign_dev1__Document__c</fields>
+        <relatedList>echosign_dev1__SIGN_Agreement__c.echosign_dev1__Opportunity__c</relatedList>
+    </relatedLists>
+    <relatedLists>
         <excludeButtons>AddContactRole</excludeButtons>
         <excludeButtons>OppContactRoleMultiAdd</excludeButtons>
         <excludeButtons>OppContactRoleMultiEdit</excludeButtons>
@@ -460,7 +561,7 @@
     <relatedLists>
         <excludeButtons>NewQuote</excludeButtons>
         <fields>QUOTE.QUOTENUMBER</fields>
-        <fields>Is_Primary__c</fields>
+        <fields>QUOTE.ISSYNCING</fields>
         <fields>QUOTE.NAME</fields>
         <fields>QUOTE.STATUS</fields>
         <fields>QUOTE.EXPIRATIONDATE</fields>
@@ -478,6 +579,7 @@
         <excludeButtons>Sort</excludeButtons>
         <excludeButtons>SortLineItem</excludeButtons>
         <fields>Product2</fields>
+        <fields>ProductCode</fields>
         <fields>Active__c</fields>
         <fields>ListPrice</fields>
         <fields>UnitPrice</fields>
@@ -528,24 +630,32 @@
         <excludeButtons>NewEvent</excludeButtons>
         <fields>TASK.SUBJECT</fields>
         <fields>TASK.WHO_NAME</fields>
-        <fields>ACTIVITY.TASK</fields>
         <fields>TASK.DUE_DATE</fields>
-        <fields>TASK.STATUS</fields>
         <fields>CORE.USERS.FULL_NAME</fields>
+        <fields>TASK.STATUS</fields>
         <fields>EVENT.LOCATION</fields>
+        <fields>ACTIVITY.TASK</fields>
+        <fields>Notes__c</fields>
         <relatedList>RelatedActivityList</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>TASK.SUBJECT</fields>
         <fields>TASK.WHO_NAME</fields>
-        <fields>ACTIVITY.TASK</fields>
-        <fields>TASK.DUE_DATE</fields>
-        <fields>EVENT.LOCATION</fields>
         <fields>CORE.USERS.FULL_NAME</fields>
+        <fields>TASK.DUE_DATE</fields>
+        <fields>TASK.CREATED_DATE</fields>
+        <fields>TASK.TYPE</fields>
+        <fields>EVENT.LOCATION</fields>
+        <fields>ACTIVITY.TASK</fields>
+        <fields>Notes__c</fields>
         <relatedList>RelatedHistoryList</relatedList>
     </relatedLists>
     <relatedLists>
         <relatedList>RelatedEntityHistoryList</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <relatedList>Panda_Docs_Document__c.Lead_Opportunity__c</relatedList>
     </relatedLists>
     <relatedObjects>AccountId</relatedObjects>
     <showEmailCheckbox>false</showEmailCheckbox>

@@ -8,16 +8,5 @@
         <plural>true</plural>
         <value>Question Templates</value>
     </caseValues>
-    <layouts>
-        <layout>Question Template Layout</layout>
-        <sections>
-            <label><!-- Custom Links --></label>
-            <section>Custom Links</section>
-        </sections>
-    </layouts>
-    <quickActions>
-        <label><!-- Controlling Question --></label>
-        <name>Controlling_Question</name>
-    </quickActions>
     <startsWith>Consonant</startsWith>
 </CustomObjectTranslation>

@@ -8,31 +8,5 @@
         <plural>true</plural>
         <value>Sales Orders</value>
     </caseValues>
-    <layouts>
-        <layout>Order Layout</layout>
-        <sections>
-            <label><!-- Hardware Inside Sales --></label>
-            <section>Hardware Inside Sales</section>
-        </sections>
-        <sections>
-            <label><!-- NetSuite --></label>
-            <section>NetSuite</section>
-        </sections>
-    </layouts>
-    <layouts>
-        <layout>Order Layout - Admin</layout>
-        <sections>
-            <label><!-- Exchange Rate Calculations (Admin Only) --></label>
-            <section>Exchange Rate Calculations (Admin Only)</section>
-        </sections>
-        <sections>
-            <label><!-- Hardware Inside Sales --></label>
-            <section>Hardware Inside Sales</section>
-        </sections>
-        <sections>
-            <label><!-- NetSuite --></label>
-            <section>NetSuite</section>
-        </sections>
-    </layouts>
     <startsWith>Consonant</startsWith>
 </CustomObjectTranslation>

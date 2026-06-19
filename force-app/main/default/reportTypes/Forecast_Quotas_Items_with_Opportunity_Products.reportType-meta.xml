@@ -226,11 +226,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Account_NetSuite_Id_IO__c</field>
-            <table>ForecastingQuota.ForecastingQuotaItems.ForecastingFactOpps</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Account_Phone__c</field>
             <table>ForecastingQuota.ForecastingQuotaItems.ForecastingFactOpps</table>
         </columns>
@@ -356,22 +351,12 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Credit_Hold_Status__c</field>
-            <table>ForecastingQuota.ForecastingQuotaItems.ForecastingFactOpps</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Date_Qualified__c</field>
             <table>ForecastingQuota.ForecastingQuotaItems.ForecastingFactOpps</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Days_Since_Last_Activity__c</field>
-            <table>ForecastingQuota.ForecastingQuotaItems.ForecastingFactOpps</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Dedicated_Account__c</field>
             <table>ForecastingQuota.ForecastingQuotaItems.ForecastingFactOpps</table>
         </columns>
         <columns>
@@ -547,11 +532,6 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Legacy_Internal_Id__c</field>
-            <table>ForecastingQuota.ForecastingQuotaItems.ForecastingFactOpps</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Link_to_Primary_Contact__c</field>
             <table>ForecastingQuota.ForecastingQuotaItems.ForecastingFactOpps</table>
         </columns>
         <columns>
@@ -736,11 +716,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Primary_Contact_NetSuite_Id__c</field>
-            <table>ForecastingQuota.ForecastingQuotaItems.ForecastingFactOpps</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Primary_Contact_NetSuite_Id_IO__c</field>
             <table>ForecastingQuota.ForecastingQuotaItems.ForecastingFactOpps</table>
         </columns>
@@ -807,11 +782,6 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Record_ID_18__c</field>
-            <table>ForecastingQuota.ForecastingQuotaItems.ForecastingFactOpps</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Record_ID_18_2__c</field>
             <table>ForecastingQuota.ForecastingQuotaItems.ForecastingFactOpps</table>
         </columns>
         <columns>
@@ -1288,6 +1258,21 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Pricebook_Name__c</field>
+            <table>ForecastingQuota.ForecastingQuotaItems.ForecastingFactOpps.OpportunityLineItems</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Purchase_Price_Override__c</field>
+            <table>ForecastingQuota.ForecastingQuotaItems.ForecastingFactOpps.OpportunityLineItems</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Business_Unit__c</field>
+            <table>ForecastingQuota.ForecastingQuotaItems.ForecastingFactOpps.OpportunityLineItems</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Paperless_Opportunity_Product_ID__c</field>
             <table>ForecastingQuota.ForecastingQuotaItems.ForecastingFactOpps.OpportunityLineItems</table>
         </columns>
         <masterLabel>Opportunity Product</masterLabel>

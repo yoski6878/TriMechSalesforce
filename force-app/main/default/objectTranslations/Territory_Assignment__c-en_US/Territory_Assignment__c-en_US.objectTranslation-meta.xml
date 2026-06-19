@@ -8,16 +8,5 @@
         <plural>true</plural>
         <value>Territory Assignments</value>
     </caseValues>
-    <layouts>
-        <layout>Territory Assignment Layout</layout>
-        <sections>
-            <label><!-- Custom Links --></label>
-            <section>Custom Links</section>
-        </sections>
-    </layouts>
     <startsWith>Consonant</startsWith>
-    <validationRules>
-        <errorMessage><!-- Either &quot;Account Field To Assign&quot; OR &quot;Specialty Group&quot; must be selected --></errorMessage>
-        <name>Account_Field_To_Assign_OR_Specialty_Grp</name>
-    </validationRules>
 </CustomObjectTranslation>

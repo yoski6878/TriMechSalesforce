@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Computer</fullName>
+        <default>false</default>
+        <label>Computer</label>
+    </customValue>
+    <customValue>
+        <fullName>Hardware</fullName>
+        <default>false</default>
+        <label>Hardware</label>
+    </customValue>
+    <customValue>
+        <fullName>Printer</fullName>
+        <default>false</default>
+        <label>Printer</label>
+    </customValue>
+    <customValue>
+        <fullName>Scanner</fullName>
+        <default>false</default>
+        <label>Scanner</label>
+    </customValue>
+    <customValue>
+        <fullName>Software</fullName>
+        <default>false</default>
+        <label>Software</label>
+    </customValue>
+    <customValue>
+        <fullName>Universal Laser</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Universal Laser</label>
+    </customValue>
+    <customValue>
+        <fullName>Software License</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Software License</label>
+    </customValue>
+    <customValue>
+        <fullName>Renewal</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Renewal</label>
+    </customValue>
+    <masterLabel>Asset Type</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

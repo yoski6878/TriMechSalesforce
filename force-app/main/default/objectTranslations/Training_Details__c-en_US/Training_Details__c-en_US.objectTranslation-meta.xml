@@ -8,20 +8,5 @@
         <plural>true</plural>
         <value>Training Details</value>
     </caseValues>
-    <layouts>
-        <layout>Training Detail Layout</layout>
-        <sections>
-            <label><!-- Custom Links --></label>
-            <section>Custom Links</section>
-        </sections>
-        <sections>
-            <label><!-- Event Detail --></label>
-            <section>Event Detail</section>
-        </sections>
-        <sections>
-            <label><!-- NetSuite Information --></label>
-            <section>NetSuite Information</section>
-        </sections>
-    </layouts>
     <startsWith>Consonant</startsWith>
 </CustomObjectTranslation>

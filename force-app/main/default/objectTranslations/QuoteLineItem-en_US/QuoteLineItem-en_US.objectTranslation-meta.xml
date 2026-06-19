@@ -9,8 +9,4 @@
         <value>Proposal Line Items</value>
     </caseValues>
     <startsWith>Consonant</startsWith>
-    <validationRules>
-        <errorMessage><!-- Quote Line Items cannot be created or edited because the Opportunity is Closed. --></errorMessage>
-        <name>Cannot_modify_Quotes_on_Closed_Opp</name>
-    </validationRules>
 </CustomObjectTranslation>

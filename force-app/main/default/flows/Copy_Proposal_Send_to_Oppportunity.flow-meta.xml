@@ -7,13 +7,17 @@
         <locationY>2126</locationY>
         <actionName>c:Redirect</actionName>
         <actionType>component</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
         <inputParameters>
             <name>recordId</name>
             <value>
                 <elementReference>varNewProposalId</elementReference>
             </value>
         </inputParameters>
+        <nameSegment>c:Redirect</nameSegment>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
     </actionCalls>
+    <apiVersion>51.0</apiVersion>
     <assignments>
         <name>Assign_New_Values</name>
         <label>Assign New Values</label>
@@ -344,6 +348,7 @@
         <connector>
             <targetReference>New_Proposal_Inputs</targetReference>
         </connector>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
             <operator>EqualTo</operator>
@@ -402,6 +407,7 @@
         <connector>
             <targetReference>Get_Account_Record</targetReference>
         </connector>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
             <operator>EqualTo</operator>
@@ -409,7 +415,9 @@
                 <elementReference>opportunityId</elementReference>
             </value>
         </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
         <object>Opportunity</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordLookups>
         <name>Get_Proposal_Line_Items</name>
@@ -420,6 +428,7 @@
         <connector>
             <targetReference>Opportunity_Selection</targetReference>
         </connector>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>QuoteId</field>
             <operator>EqualTo</operator>
@@ -427,7 +436,9 @@
                 <elementReference>recordId</elementReference>
             </value>
         </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
         <object>QuoteLineItem</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordLookups>
         <name>Get_Proposal_Record</name>
@@ -438,6 +449,7 @@
         <connector>
             <targetReference>Get_Proposal_Line_Items</targetReference>
         </connector>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
             <operator>EqualTo</operator>
@@ -445,7 +457,9 @@
                 <elementReference>recordId</elementReference>
             </value>
         </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
         <object>Quote</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <screens>
         <name>New_Proposal_Inputs</name>
@@ -542,6 +556,7 @@
                     <elementReference>varAccountTerms</elementReference>
                 </value>
             </inputParameters>
+            <inputsOnNextNavToAssocScrn>ResetValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
             <outputParameters>
                 <assignToReference>varSelectedTerm</assignToReference>
@@ -581,6 +596,7 @@
                     <stringValue>No</stringValue>
                 </value>
             </inputParameters>
+            <inputsOnNextNavToAssocScrn>ResetValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
             <outputParameters>
                 <assignToReference>primary</assignToReference>
@@ -653,6 +669,7 @@
                     <booleanValue>true</booleanValue>
                 </value>
             </inputParameters>
+            <inputsOnNextNavToAssocScrn>ResetValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
             <outputParameters>
                 <assignToReference>opportunityId</assignToReference>
@@ -662,7 +679,13 @@
         <showFooter>true</showFooter>
         <showHeader>true</showHeader>
     </screens>
-    <startElementReference>Get_Proposal_Record</startElementReference>
+    <start>
+        <locationX>188</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Proposal_Record</targetReference>
+        </connector>
+    </start>
     <status>Active</status>
     <subflows>
         <name>Set_Primary</name>

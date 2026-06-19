@@ -19,6 +19,14 @@
                 <field>CallStartDateTime</field>
             </layoutItems>
             <layoutItems>
+                <behavior>Edit</behavior>
+                <field>CallQueuedDateTime</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>CallAcceptDateTime</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>CallEndDateTime</field>
             </layoutItems>
@@ -50,6 +58,14 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>PreviousCallId</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>NextCallId</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>CallDurationInSeconds</field>
             </layoutItems>
         </layoutColumns>
@@ -60,8 +76,18 @@
         <detailHeading>true</detailHeading>
         <editHeading>true</editHeading>
         <label>Call Notes</label>
-        <layoutColumns/>
-        <layoutColumns/>
+        <layoutColumns>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>CallResolution</field>
+            </layoutItems>
+        </layoutColumns>
+        <layoutColumns>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Description</field>
+            </layoutItems>
+        </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
     <layoutSections>

@@ -8,12 +8,5 @@
         <plural>true</plural>
         <value>Product Groups</value>
     </caseValues>
-    <layouts>
-        <layout>Product Group Layout</layout>
-        <sections>
-            <label><!-- Custom Links --></label>
-            <section>Custom Links</section>
-        </sections>
-    </layouts>
     <startsWith>Consonant</startsWith>
 </CustomObjectTranslation>

@@ -3,6 +3,8 @@
     <defaultLandingTab>standard-AppLauncher</defaultLandingTab>
     <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
     <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <isNavTabPersistenceDisabled>false</isNavTabPersistenceDisabled>
+    <isOmniPinnedViewEnabled>false</isOmniPinnedViewEnabled>
     <tabs>standard-AppLauncher</tabs>
     <tabs>Territory_Assignment__c</tabs>
     <tabs>Pardot_Lead_Assignment__c</tabs>

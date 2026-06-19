@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>57.0</apiVersion>
     <assignments>
         <name>Set_Inactive_OLI_Counter</name>
         <label>Set Inactive OLI Counter</label>
@@ -142,6 +143,7 @@
         </rules>
     </decisions>
     <description>Checks for Inactive Opp Line Item; Opp Owner and Opp Split Owner before letting the Opportunity Stage be set to &quot;Send to Order Management&quot; or &quot;Closed Won&quot;</description>
+    <environments>Default</environments>
     <interviewLabel>Opportunity Checks {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Opportunity Checks before Closing</label>
     <loops>
@@ -186,6 +188,7 @@
         <connector>
             <targetReference>Get_Opportunity_Line_Items</targetReference>
         </connector>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
             <operator>EqualTo</operator>
@@ -193,7 +196,9 @@
                 <elementReference>$Record.Id</elementReference>
             </value>
         </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
         <object>Opportunity</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordLookups>
         <name>Get_Opportunity_Line_Items</name>
@@ -204,6 +209,7 @@
         <connector>
             <targetReference>Loop_OLIs_to_check_for_Inactive_Products</targetReference>
         </connector>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>OpportunityId</field>
             <operator>EqualTo</operator>
@@ -269,7 +275,31 @@
         </inputAssignments>
         <inputReference>$Record</inputReference>
     </recordUpdates>
-    <startElementReference>Get_Opp_Record</startElementReference>
+    <start>
+        <locationX>254</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Opp_Record</targetReference>
+        </connector>
+        <filterLogic>or</filterLogic>
+        <filters>
+            <field>StageName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Send to Order Management</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>StageName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Closed Won</stringValue>
+            </value>
+        </filters>
+        <object>Opportunity</object>
+        <recordTriggerType>Update</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
     <status>Active</status>
     <variables>
         <name>varInactiveOLICounter</name>

@@ -8,97 +8,130 @@
     <sections>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Parent</field>
+            <field>Asset</field>
             <table>AssetHistory</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Asset History ID</displayNameOverride>
             <field>Id</field>
             <table>AssetHistory</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Changed Field</displayNameOverride>
             <field>Field</field>
             <table>AssetHistory</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Created By</displayNameOverride>
             <field>CreatedBy</field>
             <table>AssetHistory</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Created Date</displayNameOverride>
             <field>CreatedDate</field>
             <table>AssetHistory</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Datatype</displayNameOverride>
             <field>DataType</field>
             <table>AssetHistory</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>New Date</displayNameOverride>
             <field>NewvalDate</field>
             <table>AssetHistory</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>New First Name</displayNameOverride>
             <field>NewvalFirstName</field>
             <table>AssetHistory</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>New Last Name</displayNameOverride>
             <field>NewvalLastName</field>
             <table>AssetHistory</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>New Number Val</displayNameOverride>
             <field>NewvalNumber</field>
             <table>AssetHistory</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>New String Val</displayNameOverride>
             <field>NewvalString</field>
             <table>AssetHistory</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Old Date</displayNameOverride>
             <field>OldvalDate</field>
             <table>AssetHistory</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Old First Name</displayNameOverride>
             <field>OldvalFirstName</field>
             <table>AssetHistory</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Old Last Name</displayNameOverride>
             <field>OldvalLastName</field>
             <table>AssetHistory</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Old Number Val</displayNameOverride>
             <field>OldvalNumber</field>
             <table>AssetHistory</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Old String Val</displayNameOverride>
             <field>OldvalString</field>
             <table>AssetHistory</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Asset History : Created By : Manager</displayNameOverride>
             <field>CreatedBy.Manager</field>
             <table>AssetHistory</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Asset History : Created By : Profile</displayNameOverride>
             <field>CreatedBy.Profile</field>
             <table>AssetHistory</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Asset History : Created By : Role</displayNameOverride>
             <field>CreatedBy.UserRole</field>
+            <table>AssetHistory</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Asset.Account</field>
+            <table>AssetHistory</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Asset.RecordType</field>
+            <table>AssetHistory</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Asset.Notes_for_Hardware_OM__c</field>
             <table>AssetHistory</table>
         </columns>
         <masterLabel>Asset History</masterLabel>

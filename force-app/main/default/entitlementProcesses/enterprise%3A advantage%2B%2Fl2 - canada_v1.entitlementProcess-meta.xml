@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EntitlementProcess xmlns="http://soap.sforce.com/2006/04/metadata">
+    <SObjectType>Case</SObjectType>
+    <active>false</active>
+    <businessHours>Canada EST</businessHours>
+    <entryStartDateField>Case.CreatedDate</entryStartDateField>
+    <exitCriteriaBooleanFilter>1 AND 2 AND (3 OR 4)</exitCriteriaBooleanFilter>
+    <exitCriteriaFilterItems>
+        <field>Case.Priority</field>
+        <operation>notEqual</operation>
+        <value>Urgent</value>
+    </exitCriteriaFilterItems>
+    <exitCriteriaFilterItems>
+        <field>Case.IsClosed</field>
+        <operation>equals</operation>
+        <value>true</value>
+    </exitCriteriaFilterItems>
+    <exitCriteriaFilterItems>
+        <field>Account.ShippingCountry</field>
+        <operation>equals</operation>
+        <value>CA</value>
+    </exitCriteriaFilterItems>
+    <exitCriteriaFilterItems>
+        <field>Account.ShippingCountry</field>
+        <operation>equals</operation>
+        <value>Canada</value>
+    </exitCriteriaFilterItems>
+    <isVersionDefault>false</isVersionDefault>
+    <milestones>
+        <businessHours>Canada EST</businessHours>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Priority</field>
+            <operation>equals</operation>
+            <value>Urgent</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneName>Initial Response</milestoneName>
+        <minutesToComplete>60</minutesToComplete>
+        <useCriteriaStartTime>false</useCriteriaStartTime>
+    </milestones>
+    <milestones>
+        <businessHours>Canada EST</businessHours>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Status</field>
+            <operation>equals</operation>
+            <value>In Progress</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneCriteriaFilterItems>
+            <field>Case.Priority</field>
+            <operation>equals</operation>
+            <value>Urgent</value>
+        </milestoneCriteriaFilterItems>
+        <milestoneName>Updates</milestoneName>
+        <minutesToComplete>480</minutesToComplete>
+        <useCriteriaStartTime>true</useCriteriaStartTime>
+    </milestones>
+    <name>ENTERPRISE: Advantage+/L2 - Canada</name>
+    <versionMaster>552O400000PHiRF</versionMaster>
+    <versionNumber>1</versionNumber>
+</EntitlementProcess>

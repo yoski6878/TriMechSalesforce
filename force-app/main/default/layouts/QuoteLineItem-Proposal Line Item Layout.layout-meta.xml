@@ -29,11 +29,7 @@
                 <field>ListPrice</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Product_Purchase_Price__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Product_Category__c</field>
             </layoutItems>
             <layoutItems>
@@ -41,12 +37,8 @@
                 <field>Commission__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Vendor_Discount_Percent__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Opportunity_Line_Item__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -84,7 +76,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>Gross_Profit__c</field>
+                <field>Opportunity_Line_Item__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
@@ -124,7 +116,6 @@
     <multilineLayoutFields>Quantity</multilineLayoutFields>
     <multilineLayoutFields>Subtotal</multilineLayoutFields>
     <multilineLayoutFields>TotalPrice</multilineLayoutFields>
-    <multilineLayoutFields>Product_Purchase_Price__c</multilineLayoutFields>
     <multilineLayoutFields>QuoteId</multilineLayoutFields>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>

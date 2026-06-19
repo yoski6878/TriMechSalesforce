@@ -14,7 +14,7 @@
     <pathAssistantSteps>
         <fieldNames>CloseDate</fieldNames>
         <fieldNames>Amount</fieldNames>
-        <info>&lt;img alt=&quot;User-added image&quot; src=&quot;https://trimech12345.file.force.com/servlet/rtaImage?eid=1CF6g000000d5Zj&amp;amp;feoid=Info&amp;amp;refid=0EM6g000000l7Rh&quot; style=&quot;height: 118px; width: 500px;&quot;&gt;&lt;/img&gt;</info>
+        <info>&lt;img alt=&quot;User-added image&quot; src=&quot;https://trimech12345--uat.sandbox.file.force.com/servlet/rtaImage?eid=1CF6g000000d5Zj&amp;amp;feoid=Info&amp;amp;refid=0EM6g000000l7Rh&quot; style=&quot;height: 118px; width: 500px;&quot;&gt;&lt;/img&gt;</info>
         <picklistValueName>Closed Won</picklistValueName>
     </pathAssistantSteps>
     <recordTypeName>__MASTER__</recordTypeName>

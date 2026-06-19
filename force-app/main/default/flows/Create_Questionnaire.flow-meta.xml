@@ -10,6 +10,8 @@
         <connector>
             <targetReference>Loop_Question_Templates</targetReference>
         </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <nameSegment>c:commitTransaction</nameSegment>
     </actionCalls>
     <actionCalls>
         <name>Redirect</name>
@@ -18,13 +20,17 @@
         <locationY>734</locationY>
         <actionName>c:Redirect</actionName>
         <actionType>component</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
         <inputParameters>
             <name>recordId</name>
             <value>
                 <elementReference>recordId</elementReference>
             </value>
         </inputParameters>
+        <nameSegment>c:Redirect</nameSegment>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
     </actionCalls>
+    <apiVersion>51.0</apiVersion>
     <interviewLabel>Create Questionnaire {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Create Questionnaire</label>
     <loops>
@@ -87,6 +93,7 @@
             </value>
         </inputAssignments>
         <object>Client_Profile_Question__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordCreates>
     <recordLookups>
         <name>Get_All_Question_Templates</name>
@@ -97,6 +104,7 @@
         <connector>
             <targetReference>Loop_Question_Templates</targetReference>
         </connector>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>Active__c</field>
             <operator>EqualTo</operator>
@@ -104,9 +112,17 @@
                 <booleanValue>true</booleanValue>
             </value>
         </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
         <object>Question_Template__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
-    <startElementReference>Get_All_Question_Templates</startElementReference>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_All_Question_Templates</targetReference>
+        </connector>
+    </start>
     <status>Active</status>
     <variables>
         <name>recordId</name>

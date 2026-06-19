@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ManagedTopics xmlns="http://soap.sforce.com/2006/04/metadata">
+    <managedTopic>
+        <fullName>TriMech Support Portal.Featured:CAD</fullName>
+        <managedTopicType>Featured</managedTopicType>
+        <name>CAD</name>
+        <parentName></parentName>
+        <position>0</position>
+        <topicDescription> </topicDescription>
+    </managedTopic>
+    <managedTopic>
+        <fullName>TriMech Support Portal.Featured:Licensing And Infrastructure</fullName>
+        <managedTopicType>Featured</managedTopicType>
+        <name>Licensing And Infrastructure</name>
+        <parentName></parentName>
+        <position>1</position>
+        <topicDescription> </topicDescription>
+    </managedTopic>
+    <managedTopic>
+        <fullName>TriMech Support Portal.Featured:Manufacturing</fullName>
+        <managedTopicType>Featured</managedTopicType>
+        <name>Manufacturing</name>
+        <parentName></parentName>
+        <position>5</position>
+        <topicDescription> </topicDescription>
+    </managedTopic>
+    <managedTopic>
+        <fullName>TriMech Support Portal.Featured:PLM</fullName>
+        <managedTopicType>Featured</managedTopicType>
+        <name>PLM</name>
+        <parentName></parentName>
+        <position>2</position>
+        <topicDescription> </topicDescription>
+    </managedTopic>
+    <managedTopic>
+        <fullName>TriMech Support Portal.Featured:Simulation</fullName>
+        <managedTopicType>Featured</managedTopicType>
+        <name>Simulation</name>
+        <parentName></parentName>
+        <position>3</position>
+        <topicDescription> </topicDescription>
+    </managedTopic>
+    <managedTopic>
+        <fullName>TriMech Support Portal.Featured:Training</fullName>
+        <managedTopicType>Featured</managedTopicType>
+        <name>Training</name>
+        <parentName></parentName>
+        <position>4</position>
+        <topicDescription> </topicDescription>
+    </managedTopic>
+    <managedTopic>
+        <fullName>TriMech Support Portal.Navigational:3DExperience</fullName>
+        <managedTopicType>Navigational</managedTopicType>
+        <name>3DExperience</name>
+        <parentName>PLM</parentName>
+        <position>0</position>
+        <topicDescription> </topicDescription>
+    </managedTopic>
+    <managedTopic>
+        <fullName>TriMech Support Portal.Navigational:ANSA Pre/Post Software</fullName>
+        <managedTopicType>Navigational</managedTopicType>
+        <name>ANSA Pre/Post Software</name>
+        <parentName>Simulation</parentName>
+        <position>6</position>
+        <topicDescription> </topicDescription>
+    </managedTopic>
+    <managedTopic>
+        <fullName>TriMech Support Portal.Navigational:Agents Only</fullName>
+        <managedTopicType>Navigational</managedTopicType>
+        <name>Agents Only</name>
+        <parentName>Licensing And Infrastructure</parentName>
+        <position>1</position>
+        <topicDescription> </topicDescription>
+    </managedTopic>
+    <managedTopic>
+        <fullName>TriMech Support Portal.Navigational:CAD</fullName>
+        <managedTopicType>Navigational</managedTopicType>
+        <name>CAD</name>
+        <parentName></parentName>
+        <position>0</position>
+        <topicDescription> </topicDescription>
+    </managedTopic>
+    <managedTopic>
+        <fullName>TriMech Support Portal.Navigational:CETOL Tips &amp; Tricks</fullName>
+        <managedTopicType>Navigational</managedTopicType>
+        <name>CETOL Tips &amp; Tricks</name>
+        <parentName>Simulation</parentName>
+        <position>0</position>
+        <topicDescription> </topicDescription>
+    </managedTopic>
+    <managedTopic>
+        <fullName>TriMech Support Portal.Navigational:DS 3DExperience</fullName>
+        <managedTopicType>Navigational</managedTopicType>
+        <name>DS 3DExperience</name>
+        <parentName>Simulation</parentName>
+        <position>7</position>
+        <topicDescription> </topicDescription>
+    </managedTopic>
+    <managedTopic>
+        <fullName>TriMech Support Portal.Navigational:DS 3DExperience Cloud</fullName>
+        <managedTopicType>Navigational</managedTopicType>
+        <name>DS 3DExperience Cloud</name>
+        <parentName>PLM</parentName>
+        <position>1</position>
+        <topicDescription> </topicDescription>
+    </managedTopic>
+    <managedTopic>
+        <fullName>TriMech Support Portal.Navigational:DS CATIA</fullName>
+        <managedTopicType>Navigational</managedTopicType>
+        <name>DS CATIA</name>
+        <parentName>CAD</parentName>
+        <position>0</position>
+        <topicDescription> </topicDescription>
+    </managedTopic>
+    <managedTopic>
+        <fullName>TriMech Support Portal.Navigational:DS DELMIA V5</fullName>
+        <managedTopicType>Navigational</managedTopicType>
+        <name>DS DELMIA V5</name>
+        <parentName>Manufacturing</parentName>
+        <position>0</position>
+        <topicDescription> </topicDescription>
+    </managedTopic>
+    <managedTopic>
+        <fullName>TriMech Support Portal.Navigational:DS DYMOLA</fullName>
+        <managedTopicType>Navigational</managedTopicType>
+        <name>DS DYMOLA</name>
+        <parentName>CAD</parentName>
+        <position>2</position>
+        <topicDescription> </topicDescription>
+    </managedTopic>
+    <managedTopic>
+        <fullName>TriMech Support Portal.Navigational:DS Learner | Companion</fullName>
+        <managedTopicType>Navigational</managedTopicType>
+        <name>DS Learner | Companion</name>
+        <parentName>Training</parentName>
+        <position>0</position>
+        <topicDescription> </topicDescription>
+    </managedTopic>
+    <managedTopic>
+        <fullName>TriMech Support Portal.Navigational:DS NO MAGIC | MAGIC</fullName>
+        <managedTopicType>Navigational</managedTopicType>
+        <name>DS NO MAGIC | MAGIC</name>
+        <parentName>CAD</parentName>
+        <position>3</position>
+        <topicDescription> </topicDescription>
+    </managedTopic>
+    <managedTopic>
+        <fullName>TriMech Support Portal.Navigational:DS SIMULIA - Abaqus</fullName>
+        <managedTopicType>Navigational</managedTopicType>
+        <name>DS SIMULIA - Abaqus</name>
+        <parentName>Simulation</parentName>
+        <position>8</position>
+        <topicDescription> </topicDescription>
+    </managedTopic>
+    <managedTopic>
+        <fullName>TriMech Support Portal.Navigational:DS SIMULIA - CST</fullName>
+        <managedTopicType>Navigational</managedTopicType>
+        <name>DS SIMULIA - CST</name>
+        <parentName>Simulation</parentName>
+        <position>11</position>
+        <topicDescription> </topicDescription>
+    </managedTopic>
+    <managedTopic>
+        <fullName>TriMech Support Portal.Navigational:DS SIMULIA - Fe-safe</fullName>
+        <managedTopicType>Navigational</managedTopicType>
+        <name>DS SIMULIA - Fe-safe</name>
+        <parentName>Simulation</parentName>
+        <position>9</position>
+        <topicDescription> </topicDescription>
+    </managedTopic>
+    <managedTopic>
+        <fullName>TriMech Support Portal.Navigational:DS SIMULIA - Isight</fullName>
+        <managedTopicType>Navigational</managedTopicType>
+        <name>DS SIMULIA - Isight</name>
+        <parentName>Simulation</parentName>
+        <position>10</position>
+        <topicDescription> </topicDescription>
+    </managedTopic>
+    <managedTopic>
+        <fullName>TriMech Support Portal.Navigational:Enterprise General Information</fullName>
+        <managedTopicType>Navigational</managedTopicType>
+        <name>Enterprise General Information</name>
+        <parentName>Licensing And Infrastructure</parentName>
+        <position>4</position>
+        <topicDescription> </topicDescription>
+    </managedTopic>
+    <managedTopic>
+        <fullName>TriMech Support Portal.Navigational:Licensing And Infrastructure</fullName>
+        <managedTopicType>Navigational</managedTopicType>
+        <name>Licensing And Infrastructure</name>
+        <parentName></parentName>
+        <position>2</position>
+        <topicDescription> </topicDescription>
+    </managedTopic>
+    <managedTopic>
+        <fullName>TriMech Support Portal.Navigational:MSC ADAMS</fullName>
+        <managedTopicType>Navigational</managedTopicType>
+        <name>MSC ADAMS</name>
+        <parentName>Simulation</parentName>
+        <position>2</position>
+        <topicDescription> </topicDescription>
+    </managedTopic>
+    <managedTopic>
+        <fullName>TriMech Support Portal.Navigational:MSC Nastran</fullName>
+        <managedTopicType>Navigational</managedTopicType>
+        <name>MSC Nastran</name>
+        <parentName>Simulation</parentName>
+        <position>1</position>
+        <topicDescription> </topicDescription>
+    </managedTopic>
+    <managedTopic>
+        <fullName>TriMech Support Portal.Navigational:Manufacturing</fullName>
+        <managedTopicType>Navigational</managedTopicType>
+        <name>Manufacturing</name>
+        <parentName></parentName>
+        <position>4</position>
+        <topicDescription> </topicDescription>
+    </managedTopic>
+    <managedTopic>
+        <fullName>TriMech Support Portal.Navigational:PLM</fullName>
+        <managedTopicType>Navigational</managedTopicType>
+        <name>PLM</name>
+        <parentName></parentName>
+        <position>3</position>
+        <topicDescription> </topicDescription>
+    </managedTopic>
+    <managedTopic>
+        <fullName>TriMech Support Portal.Navigational:Papers And Presentations</fullName>
+        <managedTopicType>Navigational</managedTopicType>
+        <name>Papers And Presentations</name>
+        <parentName>Simulation</parentName>
+        <position>5</position>
+        <topicDescription> </topicDescription>
+    </managedTopic>
+    <managedTopic>
+        <fullName>TriMech Support Portal.Navigational:Reference Material</fullName>
+        <managedTopicType>Navigational</managedTopicType>
+        <name>Reference Material</name>
+        <parentName>Papers And Presentations</parentName>
+        <position>0</position>
+        <topicDescription> </topicDescription>
+    </managedTopic>
+    <managedTopic>
+        <fullName>TriMech Support Portal.Navigational:Simulation</fullName>
+        <managedTopicType>Navigational</managedTopicType>
+        <name>Simulation</name>
+        <parentName></parentName>
+        <position>1</position>
+        <topicDescription> </topicDescription>
+    </managedTopic>
+    <managedTopic>
+        <fullName>TriMech Support Portal.Navigational:Software &quot;Media&quot; Downloads</fullName>
+        <managedTopicType>Navigational</managedTopicType>
+        <name>Software &quot;Media&quot; Downloads</name>
+        <parentName>Licensing And Infrastructure</parentName>
+        <position>3</position>
+        <topicDescription> </topicDescription>
+    </managedTopic>
+    <managedTopic>
+        <fullName>TriMech Support Portal.Navigational:Software Licensing</fullName>
+        <managedTopicType>Navigational</managedTopicType>
+        <name>Software Licensing</name>
+        <parentName>Licensing And Infrastructure</parentName>
+        <position>2</position>
+        <topicDescription> </topicDescription>
+    </managedTopic>
+    <managedTopic>
+        <fullName>TriMech Support Portal.Navigational:SolidWorks</fullName>
+        <managedTopicType>Navigational</managedTopicType>
+        <name>SolidWorks</name>
+        <parentName>CAD</parentName>
+        <position>1</position>
+        <topicDescription> </topicDescription>
+    </managedTopic>
+    <managedTopic>
+        <fullName>TriMech Support Portal.Navigational:Tips &amp; Tricks</fullName>
+        <managedTopicType>Navigational</managedTopicType>
+        <name>Tips &amp; Tricks</name>
+        <parentName>Licensing And Infrastructure</parentName>
+        <position>0</position>
+        <topicDescription> </topicDescription>
+    </managedTopic>
+    <managedTopic>
+        <fullName>TriMech Support Portal.Navigational:Training</fullName>
+        <managedTopicType>Navigational</managedTopicType>
+        <name>Training</name>
+        <parentName></parentName>
+        <position>5</position>
+        <topicDescription> </topicDescription>
+    </managedTopic>
+</ManagedTopics>

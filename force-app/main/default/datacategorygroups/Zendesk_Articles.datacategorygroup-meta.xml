@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataCategoryGroup xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <dataCategory>
+        <dataCategory>
+            <dataCategory>
+                <label>DS CATIA</label>
+                <name>X202987523</name>
+            </dataCategory>
+            <dataCategory>
+                <label>DS DYMOLA</label>
+                <name>DS_DYMOLA</name>
+            </dataCategory>
+            <dataCategory>
+                <label>DS NO MAGIC | MAGIC</label>
+                <name>DS_NO_MAGIC_MAGIC</name>
+            </dataCategory>
+            <dataCategory>
+                <label>SolidWorks</label>
+                <name>X202988143</name>
+            </dataCategory>
+            <label>CAD</label>
+            <name>X201807366</name>
+        </dataCategory>
+        <dataCategory>
+            <dataCategory>
+                <label>Agents Only</label>
+                <name>X202981803</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Enterprise General Information</label>
+                <name>X360003284254</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Software &quot;Media&quot; Downloads</label>
+                <name>X360002018033</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Software Licensing</label>
+                <name>X202987543</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Tips &amp; Tricks</label>
+                <name>X202981763</name>
+            </dataCategory>
+            <label>Licensing and Infrastructure</label>
+            <name>X201830723</name>
+        </dataCategory>
+        <dataCategory>
+            <dataCategory>
+                <label>DS 3DExperience</label>
+                <name>DS_3DExperience</name>
+            </dataCategory>
+            <dataCategory>
+                <label>DS DELMIA V5</label>
+                <name>DS_DELMIA_V5</name>
+            </dataCategory>
+            <label>Manufacturing</label>
+            <name>Manufacturing</name>
+        </dataCategory>
+        <dataCategory>
+            <dataCategory>
+                <label>DS 3DExperience Cloud</label>
+                <name>DS_3DExperience_Cloud</name>
+            </dataCategory>
+            <dataCategory>
+                <label>3DExperience</label>
+                <name>X202976026</name>
+            </dataCategory>
+            <label>PLM</label>
+            <name>X201834243</name>
+        </dataCategory>
+        <dataCategory>
+            <dataCategory>
+                <label>ANSA Pre/Post Software</label>
+                <name>X115000621314</name>
+            </dataCategory>
+            <dataCategory>
+                <label>CETOL Tips &amp; Tricks</label>
+                <name>X202981543</name>
+            </dataCategory>
+            <dataCategory>
+                <label>DS 3DEXPERIENCE</label>
+                <name>X115000936803</name>
+            </dataCategory>
+            <dataCategory>
+                <label>DS SIMULIA - Abaqus</label>
+                <name>X202981703</name>
+            </dataCategory>
+            <dataCategory>
+                <label>DS SIMULIA - CST</label>
+                <name>X360005820274</name>
+            </dataCategory>
+            <dataCategory>
+                <label>DS SIMULIA - fe-safe</label>
+                <name>X202981683</name>
+            </dataCategory>
+            <dataCategory>
+                <label>DS SIMULIA - Isight</label>
+                <name>X202981723</name>
+            </dataCategory>
+            <dataCategory>
+                <label>MSC ADAMS</label>
+                <name>X202981603</name>
+            </dataCategory>
+            <dataCategory>
+                <label>MSC Nastran</label>
+                <name>X202981583</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Papers and Presentations</label>
+                <name>X202987583</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Reference Material</label>
+                <name>X202981783</name>
+            </dataCategory>
+            <label>Simulation</label>
+            <name>X201807386</name>
+        </dataCategory>
+        <dataCategory>
+            <dataCategory>
+                <label>DS Learner | Companion</label>
+                <name>DS_Learner_Companion</name>
+            </dataCategory>
+            <label>Training</label>
+            <name>Training</name>
+        </dataCategory>
+        <label>All</label>
+        <name>All</name>
+    </dataCategory>
+    <label>Zendesk Articles</label>
+    <objectUsage>
+        <object>KnowledgeArticleVersion</object>
+        <object>SvcCatalogItemDef</object>
+    </objectUsage>
+</DataCategoryGroup>

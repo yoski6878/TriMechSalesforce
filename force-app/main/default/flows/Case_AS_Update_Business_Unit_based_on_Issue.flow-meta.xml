@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>62.0</apiVersion>
+    <decisions>
+        <name>Case_Is_New_or_Product_is_Changed</name>
+        <label>Case Is New or Product is Changed?</label>
+        <locationX>314</locationX>
+        <locationY>323</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Product_Change</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Issue__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Product_Mapping</targetReference>
+            </connector>
+            <label>Product Change</label>
+        </rules>
+        <rules>
+            <name>Is_New_Email2Case</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>IsNew</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Origin</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Email</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Product_Mapping2</targetReference>
+            </connector>
+            <label>Is New &amp; Email2Case</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <formulas>
+        <name>BusinessUnitVar</name>
+        <dataType>String</dataType>
+        <expression>IF(
+        TEXT({!Get_Product_Mapping.Product_Line_User_Group__r.Type__c}) = &quot;Applications&quot;,
+        &quot;Applications&quot;,
+        IF(
+            TEXT({!Get_Product_Mapping.Product_Line_User_Group__r.Type__c}) = &quot;Hardware&quot;,
+            &quot;Hardware&quot;,
+            IF(
+                TEXT({!Get_Product_Mapping.Product_Line_User_Group__r.Type__c}) = &quot;Enterprise&quot;,
+                &quot;Enterprise&quot;,
+                &quot;&quot;
+            )
+        )
+    )</expression>
+    </formulas>
+    <formulas>
+        <name>BusinessUnitVar2</name>
+        <dataType>String</dataType>
+        <expression>IF(
+        TEXT({!Get_Product_Mapping2.Product_Line_User_Group__r.Type__c}) = &quot;Applications&quot;,
+        &quot;Applications&quot;,
+        IF(
+            TEXT({!Get_Product_Mapping2.Product_Line_User_Group__r.Type__c}) = &quot;Hardware&quot;,
+            &quot;Hardware&quot;,
+            IF(
+                TEXT({!Get_Product_Mapping2.Product_Line_User_Group__r.Type__c}) = &quot;Enterprise&quot;,
+                &quot;Enterprise&quot;,
+                &quot;&quot;
+            )
+        )
+    )</expression>
+    </formulas>
+    <formulas>
+        <name>IsNew</name>
+        <dataType>Boolean</dataType>
+        <expression>ISNEW()</expression>
+    </formulas>
+    <interviewLabel>Case [AS] - Update Business Unit based on Issue {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Case [AS] - Update Business Unit based on Issue</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Get_Product_Mapping</name>
+        <label>Get Product Mapping</label>
+        <locationX>50</locationX>
+        <locationY>431</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Update_Business_Unit</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Product_Name__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Issue__c</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Product_Mapping__mdt</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Product_Mapping2</name>
+        <label>Get Product Mapping</label>
+        <locationX>314</locationX>
+        <locationY>431</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Update_Business_Unit2</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Product_Name__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Issue__c</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Product_Mapping__mdt</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>Update_Business_Unit</name>
+        <label>Update Business Unit</label>
+        <locationX>50</locationX>
+        <locationY>539</locationY>
+        <inputAssignments>
+            <field>Business_Unit__c</field>
+            <value>
+                <elementReference>BusinessUnitVar</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Business_Unit2</name>
+        <label>Update Business Unit</label>
+        <locationX>314</locationX>
+        <locationY>539</locationY>
+        <inputAssignments>
+            <field>Business_Unit__c</field>
+            <value>
+                <elementReference>BusinessUnitVar2</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>188</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Case_Is_New_or_Product_is_Changed</targetReference>
+        </connector>
+        <object>Case</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <triggerOrder>1100</triggerOrder>
+</Flow>

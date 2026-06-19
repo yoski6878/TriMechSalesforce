@@ -151,11 +151,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Opportunity__c.Account_NetSuite_Id_IO__c</field>
-            <table>Lead_Assignment_Process__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Opportunity__c.Account_Phone__c</field>
             <table>Lead_Assignment_Process__c</table>
         </columns>
@@ -406,11 +401,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Opportunity__c.Link_to_Primary_Contact__c</field>
-            <table>Lead_Assignment_Process__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Opportunity__c.Link_To_Record__c</field>
             <table>Lead_Assignment_Process__c</table>
         </columns>
@@ -571,11 +561,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Opportunity__c.Primary_Contact_NetSuite_Id__c</field>
-            <table>Lead_Assignment_Process__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Opportunity__c.Primary_Contact_NetSuite_Id_IO__c</field>
             <table>Lead_Assignment_Process__c</table>
         </columns>
@@ -637,11 +622,6 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Opportunity__c.Record_ID_18__c</field>
-            <table>Lead_Assignment_Process__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Opportunity__c.Record_ID_18_2__c</field>
             <table>Lead_Assignment_Process__c</table>
         </columns>
         <columns>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>AM Hardware</fullName>
+        <default>false</default>
+        <label>AM Hardware</label>
+    </customValue>
+    <customValue>
+        <fullName>AM Services</fullName>
+        <default>false</default>
+        <label>AM Services</label>
+    </customValue>
+    <customValue>
+        <fullName>Application Solutions</fullName>
+        <default>false</default>
+        <label>Application Solutions</label>
+    </customValue>
+    <customValue>
+        <fullName>Enterprise Solutions</fullName>
+        <default>false</default>
+        <label>Enterprise Solutions</label>
+    </customValue>
+    <customValue>
+        <fullName>Product Development</fullName>
+        <default>false</default>
+        <label>Product Development</label>
+    </customValue>
+    <customValue>
+        <fullName>Staff Augmentation</fullName>
+        <default>false</default>
+        <label>Staff Augmentation</label>
+    </customValue>
+    <masterLabel>Business Unit List</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

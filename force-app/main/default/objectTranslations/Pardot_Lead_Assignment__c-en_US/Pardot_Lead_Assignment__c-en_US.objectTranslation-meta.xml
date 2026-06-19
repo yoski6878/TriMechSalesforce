@@ -8,16 +8,5 @@
         <plural>true</plural>
         <value>Pardot Lead Assignments</value>
     </caseValues>
-    <layouts>
-        <layout>Pardot Lead Assignment Layout</layout>
-        <sections>
-            <label><!-- Custom Links --></label>
-            <section>Custom Links</section>
-        </sections>
-    </layouts>
     <startsWith>Consonant</startsWith>
-    <validationRules>
-        <errorMessage><!-- When Solution Type is set to Specialty, you must select a value for PLA Specialty Group. --></errorMessage>
-        <name>PLA_Specialty_Group_is_blank</name>
-    </validationRules>
 </CustomObjectTranslation>

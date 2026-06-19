@@ -1,30 +1,220 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Flow xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <actionCalls>
-        <name>Commit_Create_Line_Item</name>
-        <label>Commit Create Line Item</label>
-        <locationX>818</locationX>
-        <locationY>502</locationY>
+        <name>Commit_Create_Proposal_Line_Items</name>
+        <label>Commit Create Proposal Line Items</label>
+        <locationX>50</locationX>
+        <locationY>1682</locationY>
         <actionName>c:commitTransaction</actionName>
         <actionType>component</actionType>
         <connector>
-            <targetReference>Loop_Through_Line_Items</targetReference>
+            <targetReference>Update_Proposal</targetReference>
         </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <nameSegment>c:commitTransaction</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <actionCalls>
+        <name>Commit_Update_Proposal</name>
+        <label>Commit Update Proposal</label>
+        <locationX>50</locationX>
+        <locationY>1898</locationY>
+        <actionName>c:commitTransaction</actionName>
+        <actionType>component</actionType>
+        <connector>
+            <targetReference>Redirect_to_New_Proposal</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <nameSegment>c:commitTransaction</nameSegment>
+        <offset>0</offset>
     </actionCalls>
     <actionCalls>
         <name>Redirect_to_New_Proposal</name>
         <label>Redirect to New Proposal</label>
-        <locationX>599</locationX>
-        <locationY>700</locationY>
+        <locationX>50</locationX>
+        <locationY>2006</locationY>
         <actionName>c:Redirect</actionName>
         <actionType>component</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
         <inputParameters>
             <name>recordId</name>
             <value>
                 <elementReference>varNewProposalId</elementReference>
             </value>
         </inputParameters>
+        <nameSegment>c:Redirect</nameSegment>
+        <offset>0</offset>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
     </actionCalls>
+    <apiVersion>50.0</apiVersion>
+    <assignments>
+        <name>Add_Proposal_Line_Item_into_Record_Collection</name>
+        <label>Add Proposal Line Item into Record Collection</label>
+        <locationX>138</locationX>
+        <locationY>1382</locationY>
+        <assignmentItems>
+            <assignToReference>varRecColProposalLineItems</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>varRecSingleProposalLineItem</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Loop_Proposal_Line_Items</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Assign values from Current Proposal Line Item to new Proposal Line Item</description>
+        <name>Assign_values_from_Current_Prop_Line_Item_to_new_Prop_Line_Item</name>
+        <label>Assign values from Current Prop Line Item to new Prop Line Item</label>
+        <locationX>138</locationX>
+        <locationY>1274</locationY>
+        <assignmentItems>
+            <assignToReference>varRecSingleProposalLineItem.QuoteId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>varNewProposalId</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varRecSingleProposalLineItem.Line_Item_Description__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Loop_Proposal_Line_Items.Line_Item_Description__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varRecSingleProposalLineItem.Opportunity_Line_Item_Id__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Loop_Proposal_Line_Items.Opportunity_Line_Item_Id__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varRecSingleProposalLineItem.PricebookEntryId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Loop_Proposal_Line_Items.PricebookEntryId</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varRecSingleProposalLineItem.Product2Id</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Loop_Proposal_Line_Items.Product2Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varRecSingleProposalLineItem.Product_Purchase_Price__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Loop_Proposal_Line_Items.Product_Purchase_Price__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varRecSingleProposalLineItem.Quantity</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Loop_Proposal_Line_Items.Quantity</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varRecSingleProposalLineItem.UnitPrice</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Loop_Proposal_Line_Items.UnitPrice</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varRecSingleProposalLineItem.OpportunityLineItemId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Loop_Proposal_Line_Items.OpportunityLineItemId</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varRecSingleProposalLineItem.aies__CustomSortOrder__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Loop_Proposal_Line_Items.aies__CustomSortOrder__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varRecSingleProposalLineItem.SortOrder</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Loop_Proposal_Line_Items.SortOrder</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varRecSingleProposalLineItem.Is_Created_By_Flow__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varRecSingleProposalLineItem.Business_Unit__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Loop_Proposal_Line_Items.Business_Unit__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varRecSingleProposalLineItem.Category_Product__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Loop_Proposal_Line_Items.Category_Product__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varRecSingleProposalLineItem.Commission__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Loop_Proposal_Line_Items.Commission__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varRecSingleProposalLineItem.Product_Category__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Loop_Proposal_Line_Items.Product_Category__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varRecSingleProposalLineItem.Sort_Order__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Loop_Proposal_Line_Items.Sort_Order__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varRecSingleProposalLineItem.Vendor_Discount_Percent__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Loop_Proposal_Line_Items.Vendor_Discount_Percent__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Add_Proposal_Line_Item_into_Record_Collection</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Set_ActiveChecker_to_True_for_Inactive_Products</name>
+        <label>Set ActiveChecker to True for Inactive Products</label>
+        <locationX>446</locationX>
+        <locationY>782</locationY>
+        <assignmentItems>
+            <assignToReference>varActiveChecker</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Loop_PLI_to_check_for_Inactive_Products</targetReference>
+        </connector>
+    </assignments>
     <choices>
         <name>choice_Draft</name>
         <choiceText>Draft</choiceText>
@@ -41,14 +231,57 @@
             <stringValue>In Review</stringValue>
         </value>
     </choices>
-    <dynamicChoiceSets>
-        <name>choice_status</name>
-        <dataType>Picklist</dataType>
-        <displayField xsi:nil="true"/>
-        <object xsi:nil="true"/>
-        <picklistField>Status</picklistField>
-        <picklistObject>Quote</picklistObject>
-    </dynamicChoiceSets>
+    <decisions>
+        <name>Check_if_Current_Item_is_Active</name>
+        <label>Check if Current Item is Active</label>
+        <locationX>358</locationX>
+        <locationY>674</locationY>
+        <defaultConnector>
+            <targetReference>Set_ActiveChecker_to_True_for_Inactive_Products</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Current Item is Inactive</defaultConnectorLabel>
+        <rules>
+            <name>Current_Item_is_Active</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Loop_PLI_to_check_for_Inactive_Products.Active_Product__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Loop_PLI_to_check_for_Inactive_Products</targetReference>
+            </connector>
+            <label>Current Item is Active</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>If_All_Products_are_Active</name>
+        <label>If All Products are Active</label>
+        <locationX>182</locationX>
+        <locationY>1058</locationY>
+        <defaultConnector>
+            <targetReference>Inactive_Products</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>One or more Products are Inactive</defaultConnectorLabel>
+        <rules>
+            <name>All_Products_are_Active</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>varActiveChecker</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Loop_Proposal_Line_Items</targetReference>
+            </connector>
+            <label>All Products are Active</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
     <formulas>
         <name>formula_EOM</name>
         <dataType>Date</dataType>
@@ -66,17 +299,31 @@ ISNULL ( {!varNewOpportunityId} ),
     <interviewLabel>Clone Proposal {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Clone Proposal and Line Items</label>
     <loops>
-        <name>Loop_Through_Line_Items</name>
-        <label>Loop Through Line Items</label>
-        <locationX>606</locationX>
-        <locationY>324</locationY>
+        <name>Loop_PLI_to_check_for_Inactive_Products</name>
+        <label>Loop PLI to check for Inactive Products</label>
+        <locationX>182</locationX>
+        <locationY>566</locationY>
         <collectionReference>Get_Proposal_Line_Items</collectionReference>
         <iterationOrder>Asc</iterationOrder>
         <nextValueConnector>
-            <targetReference>Create_Line_Item_Record</targetReference>
+            <targetReference>Check_if_Current_Item_is_Active</targetReference>
         </nextValueConnector>
         <noMoreValuesConnector>
-            <targetReference>Update_Proposal</targetReference>
+            <targetReference>If_All_Products_are_Active</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <loops>
+        <name>Loop_Proposal_Line_Items</name>
+        <label>Loop Proposal Line Items</label>
+        <locationX>50</locationX>
+        <locationY>1166</locationY>
+        <collectionReference>Get_Proposal_Line_Items</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Assign_values_from_Current_Prop_Line_Item_to_new_Prop_Line_Item</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Create_Proposal_Line_Items</targetReference>
         </noMoreValuesConnector>
     </loops>
     <processMetadataValues>
@@ -88,7 +335,7 @@ ISNULL ( {!varNewOpportunityId} ),
     <processMetadataValues>
         <name>CanvasMode</name>
         <value>
-            <stringValue>FREE_FORM_CANVAS</stringValue>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
         </value>
     </processMetadataValues>
     <processMetadataValues>
@@ -99,74 +346,20 @@ ISNULL ( {!varNewOpportunityId} ),
     </processMetadataValues>
     <processType>Flow</processType>
     <recordCreates>
-        <name>Create_Line_Item_Record</name>
-        <label>Create Line Item Record</label>
-        <locationX>818</locationX>
-        <locationY>324</locationY>
+        <name>Create_Proposal_Line_Items</name>
+        <label>Create Proposal Line Items</label>
+        <locationX>50</locationX>
+        <locationY>1574</locationY>
         <connector>
-            <targetReference>Commit_Create_Line_Item</targetReference>
+            <targetReference>Commit_Create_Proposal_Line_Items</targetReference>
         </connector>
-        <inputAssignments>
-            <field>Discount</field>
-            <value>
-                <elementReference>Loop_Through_Line_Items.Discount</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>Line_Item_Description__c</field>
-            <value>
-                <elementReference>Loop_Through_Line_Items.Line_Item_Description__c</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>Opportunity_Line_Item__c</field>
-            <value>
-                <elementReference>Loop_Through_Line_Items.Opportunity_Line_Item__c</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>PricebookEntryId</field>
-            <value>
-                <elementReference>Loop_Through_Line_Items.PricebookEntryId</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>Product2Id</field>
-            <value>
-                <elementReference>Loop_Through_Line_Items.Product2Id</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>Product_Purchase_Price__c</field>
-            <value>
-                <elementReference>Loop_Through_Line_Items.Product_Purchase_Price__c</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>Quantity</field>
-            <value>
-                <elementReference>Loop_Through_Line_Items.Quantity</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>QuoteId</field>
-            <value>
-                <elementReference>varNewProposalId</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>UnitPrice</field>
-            <value>
-                <elementReference>Loop_Through_Line_Items.UnitPrice</elementReference>
-            </value>
-        </inputAssignments>
-        <object>QuoteLineItem</object>
+        <inputReference>varRecColProposalLineItems</inputReference>
     </recordCreates>
     <recordCreates>
         <name>Create_Proposal_Record</name>
         <label>Create Proposal Record</label>
-        <locationX>317</locationX>
-        <locationY>330</locationY>
+        <locationX>182</locationX>
+        <locationY>350</locationY>
         <assignRecordIdToReference>varNewProposalId</assignRecordIdToReference>
         <connector>
             <targetReference>Get_Proposal_Line_Items</targetReference>
@@ -238,6 +431,12 @@ ISNULL ( {!varNewOpportunityId} ),
             </value>
         </inputAssignments>
         <inputAssignments>
+            <field>Proposal_Notes__c</field>
+            <value>
+                <elementReference>Get_Proposal_Record.Proposal_Notes__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
             <field>ShippingCity</field>
             <value>
                 <elementReference>Get_Proposal_Record.ShippingCity</elementReference>
@@ -290,12 +489,13 @@ ISNULL ( {!varNewOpportunityId} ),
     <recordLookups>
         <name>Get_Proposal_Line_Items</name>
         <label>Get Proposal Line Items</label>
-        <locationX>466</locationX>
-        <locationY>330</locationY>
+        <locationX>182</locationX>
+        <locationY>458</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>Loop_Through_Line_Items</targetReference>
+            <targetReference>Loop_PLI_to_check_for_Inactive_Products</targetReference>
         </connector>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>QuoteId</field>
             <operator>EqualTo</operator>
@@ -303,17 +503,22 @@ ISNULL ( {!varNewOpportunityId} ),
                 <elementReference>recordId</elementReference>
             </value>
         </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
         <object>QuoteLineItem</object>
+        <sortField>SortOrder</sortField>
+        <sortOrder>Asc</sortOrder>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordLookups>
         <name>Get_Proposal_Record</name>
         <label>Get Proposal Record</label>
-        <locationX>235</locationX>
-        <locationY>192</locationY>
+        <locationX>182</locationX>
+        <locationY>134</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Proposal_Input_Screen</targetReference>
         </connector>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
             <operator>EqualTo</operator>
@@ -321,16 +526,21 @@ ISNULL ( {!varNewOpportunityId} ),
                 <elementReference>recordId</elementReference>
             </value>
         </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
         <object>Quote</object>
+        <sortField>Id</sortField>
+        <sortOrder>Asc</sortOrder>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordUpdates>
         <name>Update_Proposal</name>
         <label>Update Proposal</label>
-        <locationX>599</locationX>
-        <locationY>533</locationY>
+        <locationX>50</locationX>
+        <locationY>1790</locationY>
         <connector>
-            <targetReference>Redirect_to_New_Proposal</targetReference>
+            <targetReference>Commit_Update_Proposal</targetReference>
         </connector>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
             <operator>EqualTo</operator>
@@ -347,10 +557,26 @@ ISNULL ( {!varNewOpportunityId} ),
         <object>Quote</object>
     </recordUpdates>
     <screens>
+        <name>Inactive_Products</name>
+        <label>Inactive Products</label>
+        <locationX>314</locationX>
+        <locationY>1166</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <fields>
+            <name>InactiveMessage</name>
+            <fieldText>&lt;p style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); font-size: 16px; color: rgb(255, 0, 0);&quot;&gt;One or more Products are Inactive! Please remove any Inactive Product and use an alternate Active Product.&lt;/span&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
         <name>Proposal_Input_Screen</name>
         <label>Proposal Input Screen</label>
-        <locationX>70</locationX>
-        <locationY>322</locationY>
+        <locationX>182</locationX>
+        <locationY>242</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
@@ -365,6 +591,7 @@ ISNULL ( {!varNewOpportunityId} ),
             </defaultValue>
             <fieldText>Proposal Name</fieldText>
             <fieldType>InputField</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
         </fields>
         <fields>
@@ -375,6 +602,7 @@ ISNULL ( {!varNewOpportunityId} ),
             </defaultValue>
             <fieldText>Expiration Date</fieldText>
             <fieldType>InputField</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
         </fields>
         <fields>
@@ -385,6 +613,7 @@ ISNULL ( {!varNewOpportunityId} ),
             </defaultValue>
             <fieldText>Date</fieldText>
             <fieldType>InputField</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
         </fields>
         <fields>
@@ -395,19 +624,36 @@ ISNULL ( {!varNewOpportunityId} ),
             <defaultSelectedChoiceReference>choice_Draft</defaultSelectedChoiceReference>
             <fieldText>Status</fieldText>
             <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
         </fields>
         <showFooter>true</showFooter>
         <showHeader>true</showHeader>
     </screens>
-    <startElementReference>Get_Proposal_Record</startElementReference>
-    <status>Obsolete</status>
+    <start>
+        <locationX>56</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Proposal_Record</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
     <variables>
         <name>recordId</name>
         <dataType>String</dataType>
         <isCollection>false</isCollection>
         <isInput>true</isInput>
         <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>varActiveChecker</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <booleanValue>false</booleanValue>
+        </value>
     </variables>
     <variables>
         <name>varNewOpportunityId</name>
@@ -428,5 +674,21 @@ ISNULL ( {!varNewOpportunityId} ),
         <value>
             <stringValue></stringValue>
         </value>
+    </variables>
+    <variables>
+        <name>varRecColProposalLineItems</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>QuoteLineItem</objectType>
+    </variables>
+    <variables>
+        <name>varRecSingleProposalLineItem</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>QuoteLineItem</objectType>
     </variables>
 </Flow>

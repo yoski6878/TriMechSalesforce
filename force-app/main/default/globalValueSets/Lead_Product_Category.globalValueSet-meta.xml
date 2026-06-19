@@ -21,6 +21,11 @@
         <label>3D Printer Makerbot</label>
     </customValue>
     <customValue>
+        <fullName>3D Printer - One Click Metal</fullName>
+        <default>false</default>
+        <label>3D Printer - One Click Metal</label>
+    </customValue>
+    <customValue>
         <fullName>3D Printer Stratasys - Big Box</fullName>
         <default>false</default>
         <label>3D Printer Stratasys - Big Box</label>
@@ -39,6 +44,11 @@
         <fullName>3D Scanner GOM</fullName>
         <default>false</default>
         <label>3D Scanner GOM</label>
+    </customValue>
+    <customValue>
+        <fullName>3D Scan Services</fullName>
+        <default>false</default>
+        <label>3D Scan Services</label>
     </customValue>
     <customValue>
         <fullName>Advanced Manufacturing Services</fullName>
@@ -116,6 +126,11 @@
         <label>ENOVIA</label>
     </customValue>
     <customValue>
+        <fullName>Enterprise</fullName>
+        <default>false</default>
+        <label>Enterprise</label>
+    </customValue>
+    <customValue>
         <fullName>ExactFlat</fullName>
         <default>false</default>
         <label>ExactFlat</label>
@@ -139,6 +154,11 @@
         <fullName>Mastercam</fullName>
         <default>false</default>
         <label>Mastercam</label>
+    </customValue>
+    <customValue>
+        <fullName>MBSE</fullName>
+        <default>false</default>
+        <label>MBSE</label>
     </customValue>
     <customValue>
         <fullName>MySolidWorks</fullName>
@@ -176,14 +196,19 @@
         <label>PostProcess</label>
     </customValue>
     <customValue>
+        <fullName>Product Development</fullName>
+        <default>false</default>
+        <label>Product Development</label>
+    </customValue>
+    <customValue>
         <fullName>Professional Services</fullName>
         <default>false</default>
         <label>Professional Services</label>
     </customValue>
     <customValue>
-        <fullName>Project Engineering Group</fullName>
+        <fullName>Robotics</fullName>
         <default>false</default>
-        <label>Project Engineering Group</label>
+        <label>Robotics</label>
     </customValue>
     <customValue>
         <fullName>SIMULIA</fullName>

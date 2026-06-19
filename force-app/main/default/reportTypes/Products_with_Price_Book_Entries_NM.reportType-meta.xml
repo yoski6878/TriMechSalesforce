@@ -247,7 +247,7 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Vendor_Name__c</field>
+            <field>OEM__c</field>
             <table>Product2</table>
         </columns>
         <columns>
@@ -283,6 +283,36 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>NetSuite_Link__c</field>
+            <table>Product2</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Business_Unit__c</field>
+            <table>Product2</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Hardware_Listing__c</field>
+            <table>Product2</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Technology__c</field>
+            <table>Product2</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Printer_Series__c</field>
+            <table>Product2</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Product_Type__c</field>
+            <table>Product2</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Included_in_Omni_Channel__c</field>
             <table>Product2</table>
         </columns>
         <masterLabel>Products</masterLabel>
@@ -356,6 +386,11 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Purchase_Price__c</field>
+            <table>Product2.PricebookEntries</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Currency_Code_Reports__c</field>
             <table>Product2.PricebookEntries</table>
         </columns>
         <masterLabel>Price Book Entries</masterLabel>

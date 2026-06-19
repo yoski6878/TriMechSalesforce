@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Referral resulted from outbound/proactive engagement with client, or from a support case where TriMech products/services were discussed.</fullName>
+        <default>false</default>
+        <label>Referral resulted from outbound/proactive engagement with client, or from a support case where TriMech products/services were discussed.</label>
+    </customValue>
+    <customValue>
+        <fullName>Referral resulted from inbound inquiry where the client called or emailed asking for a quote or to be referred to sales rep.</fullName>
+        <default>false</default>
+        <label>Referral resulted from inbound inquiry where the client called or emailed asking for a quote or to be referred to sales rep.</label>
+    </customValue>
+    <description>Used for tracking the source for Employee Referrals</description>
+    <masterLabel>Referral Source List</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>
