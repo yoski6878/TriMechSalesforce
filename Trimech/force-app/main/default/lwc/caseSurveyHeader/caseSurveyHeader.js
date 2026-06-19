@@ -13,7 +13,8 @@ export default class CaseSurveyHeader extends LightningElement {
         ownerName : '',
         CaseNumber : '',
         subject : '',
-        surveyURL:''
+        surveyURL:'',
+        surveyCom: false
     }
 
     TMlogo = TrimechLogo;
@@ -33,6 +34,7 @@ export default class CaseSurveyHeader extends LightningElement {
         getCaseRecord({ caseId: this.caseId })
             .then(result => {
                 this.caseRecord = result;
+                console.log({result});
             }).catch(error =>{
                 console.log(error.body);
             })

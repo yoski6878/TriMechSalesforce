@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <dataspaceScopes>
+        <customizeActivationDefinitions>true</customizeActivationDefinitions>
+        <customizeAllDefinitions>false</customizeAllDefinitions>
+        <customizeCalculatedInsightDefinitions>true</customizeCalculatedInsightDefinitions>
+        <customizeDataActionDefinitions>true</customizeDataActionDefinitions>
+        <customizeDataApplicationDefinitions>true</customizeDataApplicationDefinitions>
+        <customizeDataObjSecondaryIndexDefinitions>true</customizeDataObjSecondaryIndexDefinitions>
+        <customizeDataShareDefinitions>true</customizeDataShareDefinitions>
+        <customizeFTestDataspaceScopedDefinition>false</customizeFTestDataspaceScopedDefinition>
+        <customizeIdentityResolutionDefinitions>true</customizeIdentityResolutionDefinitions>
+        <customizeMLPredictionDefinitions>true</customizeMLPredictionDefinitions>
+        <customizeSegmentationDefinitions>true</customizeSegmentationDefinitions>
+        <customizeSemanticSearchDefinitions>true</customizeSemanticSearchDefinitions>
+        <dataAccessLevel>ALL</dataAccessLevel>
+        <dataspaceScope>default</dataspaceScope>
+        <objectAccessLevel>BY_POLICY</objectAccessLevel>
+        <viewActivationDefinitions>true</viewActivationDefinitions>
+        <viewCalculatedInsightDefinitions>true</viewCalculatedInsightDefinitions>
+        <viewDataActionDefinitions>true</viewDataActionDefinitions>
+        <viewDataApplicationDefinitions>true</viewDataApplicationDefinitions>
+        <viewDataObjSecondaryIndexDefinitions>true</viewDataObjSecondaryIndexDefinitions>
+        <viewDataShareDefinitions>true</viewDataShareDefinitions>
+        <viewFTestDataspaceScopedDefinition>false</viewFTestDataspaceScopedDefinition>
+        <viewIdentityResolutionDefinitions>true</viewIdentityResolutionDefinitions>
+        <viewMLPredictionDefinitions>true</viewMLPredictionDefinitions>
+        <viewSegmentationDefinitions>true</viewSegmentationDefinitions>
+        <viewSemanticSearchDefinitions>true</viewSemanticSearchDefinitions>
+    </dataspaceScopes>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Default Data Space</label>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>AccessCdpDataExplorer</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>AccessCdpProfileExplorer</name>
+    </userPermissions>
+</PermissionSet>

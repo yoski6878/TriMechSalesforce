@@ -3,6 +3,8 @@
     <defaultLandingTab>standard-home</defaultLandingTab>
     <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
     <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <isNavTabPersistenceDisabled>false</isNavTabPersistenceDisabled>
+    <isOmniPinnedViewEnabled>false</isOmniPinnedViewEnabled>
     <tabs>standard-Contact</tabs>
     <tabs>standard-Account</tabs>
     <tabs>standard-Lead</tabs>
@@ -17,4 +19,6 @@
     <tabs>standard-WaveHome</tabs>
     <tabs>Territory_Assignment__c</tabs>
     <tabs>Pardot_Lead_Assignment__c</tabs>
+    <tabs>Parent_Child_Product_Junction__c</tabs>
+    <tabs>Panda_Docs_Document__c</tabs>
 </CustomApplication>

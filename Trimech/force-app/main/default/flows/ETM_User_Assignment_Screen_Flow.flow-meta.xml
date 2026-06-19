@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>49.0</apiVersion>
+    <description>Basic flow for assigning users to ETM territories.</description>
+    <interviewLabel>ETM User Assignment</interviewLabel>
+    <label>ETM User Assignment Screen Flow</label>
+    <processType>Flow</processType>
+    <screens>
+        <name>Screen_SelectTerritory</name>
+        <label>Select Territory</label>
+        <locationX>100</locationX>
+        <locationY>100</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <fields>
+            <name>TerritoryIdField</name>
+            <dataType>String</dataType>
+            <fieldText>Territory2 Id</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>true</isRequired>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <startElementReference>Screen_SelectTerritory</startElementReference>
+    <status>Active</status>
+    <variables>
+        <name>SelectedTerritoryId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

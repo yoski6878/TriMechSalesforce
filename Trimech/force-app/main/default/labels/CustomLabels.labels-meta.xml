@@ -20,7 +20,7 @@
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Duplicate Merge Email Address</shortDescription>
-        <value>yoseph.kinfu@trimech.com</value>
+        <value>ITrequest@trimech.com</value>
     </labels>
     <labels>
         <fullName>Enterprise_Subsidiary</fullName>
@@ -35,7 +35,7 @@
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>ExchangeRateCADtoUSD</shortDescription>
-        <value>0.69</value>
+        <value>0.72</value>
     </labels>
     <labels>
         <fullName>ExchangeRateUSDtoCAD</fullName>
@@ -43,7 +43,7 @@
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>ExchangeRateUSDtoCAD</shortDescription>
-        <value>1.45</value>
+        <value>1.40</value>
     </labels>
     <labels>
         <fullName>Exchange_Rate_CAD_to_USD_for_GP_Calculations</fullName>
@@ -51,38 +51,39 @@
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Exchange_Rate_CAD_to_USD_for_GP_Calculations</shortDescription>
-        <value>0.69321687</value>
+        <value>0.71801941</value>
     </labels>
     <labels>
         <fullName>Login_Message_for_Flow</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Login Message for Flow</shortDescription>
-        <value>Please take a few minutes to review the video for the new functionality of managing multiple proposals and syncing line items from the Proposal back to the Opportunity. A link to this video will be emailed out on Friday 11/1/24, so please check your email. It will be live on Monday, November 4th.
+        <value>Enterprise Accounts and Contacts have been added to TriMech Salesforce. Please avoid moving, merging, or deleting Contacts between Adaptive Subsidiary Accounts, and TriMech/Javelin Subsidiary Accounts. If in doubt, please reach out to your Sales Ops team at ITRequest@trimech.com
 
 
-(Check the below checkbox and click Next to not see this message on next login. Else just click Next to continue to Home Page.)</value>
+(Check the box below and click &apos;Next&apos; to avoid seeing this message the next time you log in. Otherwise, just click &apos;Next&apos; to continue to the Home Page.)</value>
     </labels>
     <labels>
         <fullName>NDA_Approver_Owner_Alias</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>NDA Approver Owner Alias</shortDescription>
-        <value>ykinf</value>
+        <value>005PZ000004sy1hYAA</value>
     </labels>
     <labels>
         <fullName>NDA_High_Lead_Score</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>NDA High Lead Score</shortDescription>
-        <value>ykinf</value>
+        <value>005PZ000002G7dtYAC</value>
     </labels>
     <labels>
         <fullName>NewCaseCreationCustomMessage</fullName>
         <language>en_US</language>
         <protected>false</protected>
-        <shortDescription>New Case Creation Custom Message</shortDescription>
-        <value>.</value>
+        <shortDescription>NewCaseCreationCustomMessage</shortDescription>
+        <value>Regards,
+The TriMech Team</value>
     </labels>
     <labels>
         <fullName>NotSupportedMessage</fullName>
@@ -609,5 +610,96 @@
         <protected>true</protected>
         <shortDescription>Value Label</shortDescription>
         <value>Value</value>
+    </labels>
+    <labels>
+        <fullName>BridgeIT_Webhook_Account_Logic_App_Url</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Webhook Url for the BridgeIT Account publisher logic app</shortDescription>
+        <value>https://prod-70.eastus.logic.azure.com:443/workflows/9689e8b642674ec9a5b87e4b0f9d77c1/triggers/manual/paths/invoke?api-version=2016-10-01&amp;sp=%2Ftriggers%2Fmanual%2Frun&amp;sv=1.0&amp;sig=uKOLiSG5Dy9b8niR-ChhE4Gue68zCwBDnKrPisvUEx0</value>
+    </labels>
+    <labels>
+        <fullName>BridgeIT_Webhook_Contact_Logic_App_Url</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Webhook Url for the BridgeIT Contact publisher logic app</shortDescription>
+        <value>https://prod-62.eastus.logic.azure.com:443/workflows/57f5cfa2a3304224834cc274d5ddef94/triggers/manual/paths/invoke?api-version=2016-10-01&amp;sp=%2Ftriggers%2Fmanual%2Frun&amp;sv=1.0&amp;sig=t7OX4_6xFjdmNtjwNRfc3YnX90iXc9SwJ2eWnVtaED4</value>
+    </labels>
+    <labels>
+        <fullName>BridgeIT_Webhook_Opportunity_Logic_App_Url</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Webhook Url for the BridgeIT Opportunity publisher logic app</shortDescription>
+        <value>https://prod-16.eastus.logic.azure.com:443/workflows/2ccefd9a26fe4d99ab02b364376e7615/triggers/manual/paths/invoke?api-version=2016-10-01&amp;sp=%2Ftriggers%2Fmanual%2Frun&amp;sv=1.0&amp;sig=ArvbCJwmKKjAL8eJodmALURxTUlj4t1uvQILnflUi-c</value>
+    </labels>
+    <labels>
+        <fullName>BridgeIT_Webhook_Order_Logic_App_Url</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Webhook Url for the BridgeIT Order publisher logic app</shortDescription>
+        <value>https://prod-62.eastus.logic.azure.com:443/workflows/57f5cfa2a3304224834cc274d5ddef94/triggers/manual/paths/invoke?api-version=2016-10-01&amp;sp=%2Ftriggers%2Fmanual%2Frun&amp;sv=1.0&amp;sig=t7OX4_6xFjdmNtjwNRfc3YnX90iXc9SwJ2eWnVtaED4</value>
+    </labels>
+    <labels>
+        <fullName>Flow_Mange_User_PSA</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Flow Mange User PSA</shortDescription>
+        <value>Portal_Manage_User_Permission</value>
+    </labels>
+    <labels>
+        <fullName>LPC_Product_Development</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LPC_Product_Development</shortDescription>
+        <value>Product Development</value>
+    </labels>
+    <labels>
+        <fullName>Lead_Conversion_Batch_Size</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Lead Conversion Batch Size</shortDescription>
+        <value>10</value>
+    </labels>
+    <labels>
+        <fullName>NeglectedLeadExceptionAlias</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>NeglectedLeadExceptionAlias</shortDescription>
+        <value>ykinfu</value>
+    </labels>
+    <labels>
+        <fullName>NeglectedLeadHardwareIncludeAlias</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>NeglectedLeadHardwareIncludeAlias</shortDescription>
+        <value>__EMPTY__</value>
+    </labels>
+    <labels>
+        <fullName>NeglectedLeadSoftwareExceptionAlias</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>NeglectedLeadSoftwareExceptionAlias</shortDescription>
+        <value>ykinfu</value>
+    </labels>
+    <labels>
+        <fullName>NeglectedLeadSoftwareIncludeAlias</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>NeglectedLeadSoftwareIncludeAlias</shortDescription>
+        <value>__EMPTY__</value>
+    </labels>
+    <labels>
+        <fullName>PandaDoc_Template_Id</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PandaDoc Template Id</shortDescription>
+        <value>WFGQJZqjhiovq23LNbX4LT</value>
+    </labels>
+    <labels>
+        <fullName>fsc_Manual_Reference_Allowed</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ComboBox Placeholder Txxt</shortDescription>
+        <value>Manual reference allowed</value>
     </labels>
 </CustomLabels>

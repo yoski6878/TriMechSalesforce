@@ -113,14 +113,6 @@
         <type>CustomApplication</type>
     </appMenuItems>
     <appMenuItems>
-        <name>HubSpot_Inc__HubSpot_Sync</name>
-        <type>CustomApplication</type>
-    </appMenuItems>
-    <appMenuItems>
-        <name>HubSpot</name>
-        <type>ConnectedApp</type>
-    </appMenuItems>
-    <appMenuItems>
         <name>Marketing_lightning</name>
         <type>CustomApplication</type>
     </appMenuItems>
@@ -293,18 +285,6 @@
         <type>CustomApplication</type>
     </appMenuItems>
     <appMenuItems>
-        <name>Pardot_to_SF_Integration_Secure_Connected_App</name>
-        <type>ConnectedApp</type>
-    </appMenuItems>
-    <appMenuItems>
-        <name>b2bma_canvas</name>
-        <type>ConnectedApp</type>
-    </appMenuItems>
-    <appMenuItems>
-        <name>BridgeIT</name>
-        <type>ExternalClientApplication</type>
-    </appMenuItems>
-    <appMenuItems>
         <name>echosign_dev1__EchoSign</name>
         <type>CustomApplication</type>
     </appMenuItems>
@@ -313,15 +293,79 @@
         <type>CustomApplication</type>
     </appMenuItems>
     <appMenuItems>
+        <name>standard__CommerceStarter</name>
+        <type>CustomApplication</type>
+    </appMenuItems>
+    <appMenuItems>
+        <name>standard__Personalization</name>
+        <type>CustomApplication</type>
+    </appMenuItems>
+    <appMenuItems>
         <name>BridgeIT</name>
         <type>ConnectedApp</type>
     </appMenuItems>
     <appMenuItems>
-        <name>CodeBuilder__CodeBuilder</name>
+        <name>standard__DigitalWallet</name>
         <type>CustomApplication</type>
     </appMenuItems>
     <appMenuItems>
-        <name>PandaDoc_to_SF_OAuth2</name>
+        <name>LEXMAGICMOVER__Attachments_and_Notes_migrator</name>
+        <type>CustomApplication</type>
+    </appMenuItems>
+    <appMenuItems>
+        <name>ZoomInfo</name>
         <type>ConnectedApp</type>
+    </appMenuItems>
+    <appMenuItems>
+        <name>Pardot_to_SF_Integration_Secure_Connected_App</name>
+        <type>ConnectedApp</type>
+    </appMenuItems>
+    <appMenuItems>
+        <name>b2bma_canvas</name>
+        <type>ConnectedApp</type>
+    </appMenuItems>
+    <appMenuItems>
+        <name>standard__AgentforceStudio</name>
+        <type>CustomApplication</type>
+    </appMenuItems>
+    <appMenuItems>
+        <name>standard__AIWorkbench</name>
+        <type>CustomApplication</type>
+    </appMenuItems>
+    <appMenuItems>
+        <name>TaskCreator_Analytics_API_Integration</name>
+        <type>ExternalClientApplication</type>
+    </appMenuItems>
+    <appMenuItems>
+        <name>M365CopilotSalesExternalClientApp</name>
+        <type>ExternalClientApplication</type>
+    </appMenuItems>
+    <appMenuItems>
+        <name>portwoodglobal__DocGen</name>
+        <type>CustomApplication</type>
+    </appMenuItems>
+    <appMenuItems>
+        <name>DataFoundry</name>
+        <type>ExternalClientApplication</type>
+    </appMenuItems>
+    <appMenuItems>
+        <name>standard__EasyAutomation</name>
+        <type>CustomApplication</type>
+    </appMenuItems>
+    <appMenuItems>
+        <name>standard__IndustriesEpc</name>
+        <type>CustomApplication</type>
+    </appMenuItems>
+    <appMenuItems>
+        <name>standard__IndustriesEcm</name>
+        <type>CustomApplication</type>
+    </appMenuItems>
+    <appMenuItems>
+        <name>standard__TrustedServicesArchiveConsole</name>
+        <type>CustomApplication</type>
+    </appMenuItems>
+    <appMenuItems>
+        <name>Geocode_Zips_Desktop</name>
+        <type>ExternalClientApplication</type>
     </appMenuItems>
 </AppMenu>

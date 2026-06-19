@@ -7,6 +7,7 @@
         <locationY>539</locationY>
         <actionName>emailSimple</actionName>
         <actionType>emailSimple</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
         <inputParameters>
             <name>emailBody</name>
             <value>
@@ -31,7 +32,9 @@
                 <stringValue>Lead Source was changed</stringValue>
             </value>
         </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
     </actionCalls>
+    <apiVersion>56.0</apiVersion>
     <assignments>
         <name>Assign_Previous_Value</name>
         <label>Assign Previous Value</label>
@@ -86,6 +89,7 @@
             <label>Integration User</label>
         </rules>
     </decisions>
+    <environments>Default</environments>
     <interviewLabel>Lead Source Change Alert {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Lead Source Change Alert</label>
     <processMetadataValues>
@@ -107,10 +111,49 @@
         </value>
     </processMetadataValues>
     <processType>AutoLaunchedFlow</processType>
-    <startElementReference>Check_the_User_triggering_the_flow</startElementReference>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Check_the_User_triggering_the_flow</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>StageName</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>Send to Order Management</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>StageName</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>Closed Won</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>StageName</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>Closed Lost</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>LeadSource</field>
+            <operator>IsChanged</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <object>Opportunity</object>
+        <recordTriggerType>Update</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
     <status>Active</status>
     <textTemplates>
         <name>textTempEmailBody</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
         <text>&lt;p&gt;The Lead Source was changed from &lt;strong&gt;{!$Record__Prior.LeadSource}&lt;/strong&gt; to &lt;strong&gt;{!$Record.LeadSource}&lt;/strong&gt; for &lt;a href=&quot;https://trimech12345.lightning.force.com/lightning/r/{!$Record.Id}/view&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;{!$Record.Name}&lt;/a&gt;&lt;/p&gt;</text>
     </textTemplates>
     <variables>

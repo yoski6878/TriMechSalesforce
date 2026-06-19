@@ -61,6 +61,16 @@
         </lightning-layout>
     </div>
 
+    <template if:true={caseRecord.surveyCom}>
+        <div class="thankYouWrapper">
+            <div class="thankYouTitle">Thank you for your valuable response!</div>
+            <div class="thankYouSubtext">
+                We appreciate your feedback. Your input helps us improve our service.
+            </div>
+        </div>
+    </template>
 
-    <iframe src={caseRecord.surveyURL} class="iframeCSS"></iframe>
+    <template if:false={caseRecord.surveyCom}>
+         <iframe src={caseRecord.surveyURL} class="iframeCSS"></iframe>
+    </template>
 </template>

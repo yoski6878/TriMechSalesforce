@@ -8,12 +8,5 @@
         <plural>true</plural>
         <value>Section Templates</value>
     </caseValues>
-    <layouts>
-        <layout>Section Template Layout</layout>
-        <sections>
-            <label><!-- Custom Links --></label>
-            <section>Custom Links</section>
-        </sections>
-    </layouts>
     <startsWith>Consonant</startsWith>
 </CustomObjectTranslation>

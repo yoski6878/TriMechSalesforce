@@ -7,7 +7,24 @@
         <callbackUrl>https://trimech12345.my.salesforce.com/srvices/oauth2/callback
 https://www.getpostman.com/oauth2/callback
 https://oauth.pstmn.io/v1/callback</callbackUrl>
-        <consumerKey>3MVG9LBJLApeX_PBTxUJuGoSZLT9UZLCUUBbkzFsXdZqUV5EnTjSoLK7A_1IY3PCHNNiph24qUMo7dpQVYEXp</consumerKey>
+        <consumerKey>3MVG9ZqlCComSMtR8KZ68lSURsCAmKjAHg.3R0xhzlykcM4EZSRl5uCusWEfqtDHhQaPh5iiEyP4gTGK90m.y</consumerKey>
+        <isAdminApproved>false</isAdminApproved>
+        <isClientCredentialEnabled>false</isClientCredentialEnabled>
+        <isCodeCredentialEnabled>false</isCodeCredentialEnabled>
+        <isCodeCredentialPostOnly>false</isCodeCredentialPostOnly>
+        <isConsumerSecretOptional>false</isConsumerSecretOptional>
+        <isIntrospectAllTokens>false</isIntrospectAllTokens>
+        <isNamedUserJwtEnabled>false</isNamedUserJwtEnabled>
+        <isPkceRequired>false</isPkceRequired>
+        <isRefreshTokenRotationEnabled>false</isRefreshTokenRotationEnabled>
+        <isSecretRequiredForRefreshToken>false</isSecretRequiredForRefreshToken>
+        <isSecretRequiredForTokenExchange>false</isSecretRequiredForTokenExchange>
+        <isTokenExchangeEnabled>false</isTokenExchangeEnabled>
         <scopes>Full</scopes>
     </oauthConfig>
+    <oauthPolicy>
+        <ipRelaxation>ENFORCE</ipRelaxation>
+        <isTokenExchangeFlowEnabled>false</isTokenExchangeFlowEnabled>
+        <refreshTokenPolicy>infinite</refreshTokenPolicy>
+    </oauthPolicy>
 </ConnectedApp>

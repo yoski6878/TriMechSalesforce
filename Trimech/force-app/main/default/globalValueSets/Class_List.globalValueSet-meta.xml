@@ -1,0 +1,690 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Billable Internal Item</fullName>
+        <default>false</default>
+        <label>Billable Internal Item</label>
+    </customValue>
+    <customValue>
+        <fullName>CAD</fullName>
+        <default>false</default>
+        <label>CAD</label>
+    </customValue>
+    <customValue>
+        <fullName>CAM</fullName>
+        <default>false</default>
+        <label>CAM</label>
+    </customValue>
+    <customValue>
+        <fullName>Commercial</fullName>
+        <default>false</default>
+        <label>Commercial</label>
+    </customValue>
+    <customValue>
+        <fullName>Computer</fullName>
+        <default>false</default>
+        <label>Computer</label>
+    </customValue>
+    <customValue>
+        <fullName>Design</fullName>
+        <default>false</default>
+        <label>Design</label>
+    </customValue>
+    <customValue>
+        <fullName>Design Automation</fullName>
+        <default>false</default>
+        <label>Design Automation</label>
+    </customValue>
+    <customValue>
+        <fullName>Discount</fullName>
+        <default>false</default>
+        <label>Discount</label>
+    </customValue>
+    <customValue>
+        <fullName>Electrical</fullName>
+        <default>false</default>
+        <label>Electrical</label>
+    </customValue>
+    <customValue>
+        <fullName>Enhanced</fullName>
+        <default>false</default>
+        <label>Enhanced</label>
+    </customValue>
+    <customValue>
+        <fullName>Excellerant</fullName>
+        <default>false</default>
+        <label>Excellerant</label>
+    </customValue>
+    <customValue>
+        <fullName>Governance</fullName>
+        <default>false</default>
+        <label>Governance</label>
+    </customValue>
+    <customValue>
+        <fullName>Government</fullName>
+        <default>false</default>
+        <label>Government</label>
+    </customValue>
+    <customValue>
+        <fullName>Laser</fullName>
+        <default>false</default>
+        <label>Laser</label>
+    </customValue>
+    <customValue>
+        <fullName>Manufacturing</fullName>
+        <default>false</default>
+        <label>Manufacturing</label>
+    </customValue>
+    <customValue>
+        <fullName>Manufacturing Support</fullName>
+        <default>false</default>
+        <label>Manufacturing Support</label>
+    </customValue>
+    <customValue>
+        <fullName>PLM</fullName>
+        <default>false</default>
+        <label>PLM</label>
+    </customValue>
+    <customValue>
+        <fullName>Printer-Desktop</fullName>
+        <default>false</default>
+        <label>Printer-Desktop</label>
+    </customValue>
+    <customValue>
+        <fullName>Printer-Production</fullName>
+        <default>false</default>
+        <label>Printer-Production</label>
+    </customValue>
+    <customValue>
+        <fullName>Prototyping - Bench</fullName>
+        <default>false</default>
+        <label>Prototyping - Bench</label>
+    </customValue>
+    <customValue>
+        <fullName>Prototyping - Mechanical</fullName>
+        <default>false</default>
+        <label>Prototyping - Mechanical</label>
+    </customValue>
+    <customValue>
+        <fullName>Prototyping - Mock</fullName>
+        <default>false</default>
+        <label>Prototyping - Mock</label>
+    </customValue>
+    <customValue>
+        <fullName>Prototyping - Pre-Production</fullName>
+        <default>false</default>
+        <label>Prototyping - Pre-Production</label>
+    </customValue>
+    <customValue>
+        <fullName>Research</fullName>
+        <default>false</default>
+        <label>Research</label>
+    </customValue>
+    <customValue>
+        <fullName>Scanners</fullName>
+        <default>false</default>
+        <label>Scanners</label>
+    </customValue>
+    <customValue>
+        <fullName>Simulation</fullName>
+        <default>false</default>
+        <label>Simulation</label>
+    </customValue>
+    <customValue>
+        <fullName>Software</fullName>
+        <default>false</default>
+        <label>Software</label>
+    </customValue>
+    <customValue>
+        <fullName>TriMech</fullName>
+        <default>false</default>
+        <label>TriMech</label>
+    </customValue>
+    <customValue>
+        <fullName>1 Solidworks</fullName>
+        <default>false</default>
+        <label>1 Solidworks</label>
+    </customValue>
+    <customValue>
+        <fullName>Other</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Other</label>
+    </customValue>
+    <customValue>
+        <fullName>Additive Manufacturing : Desktop</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Additive Manufacturing : Desktop</label>
+    </customValue>
+    <customValue>
+        <fullName>1 Solidworks : 7 Emerging : Inspection</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>1 Solidworks : 7 Emerging : Inspection</label>
+    </customValue>
+    <customValue>
+        <fullName>1 Solidworks : 5 Composer</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>1 Solidworks : 5 Composer</label>
+    </customValue>
+    <customValue>
+        <fullName>1 Solidworks : 7 Emerging : MBD</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>1 Solidworks : 7 Emerging : MBD</label>
+    </customValue>
+    <customValue>
+        <fullName>1 Solidworks : 7 Emerging : Visualize</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>1 Solidworks : 7 Emerging : Visualize</label>
+    </customValue>
+    <customValue>
+        <fullName>1 Solidworks : 1 SW STD</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>1 Solidworks : 1 SW STD</label>
+    </customValue>
+    <customValue>
+        <fullName>1 Solidworks : 1 SW PREM</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>1 Solidworks : 1 SW PREM</label>
+    </customValue>
+    <customValue>
+        <fullName>1 Solidworks : 1 SW PRO</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>1 Solidworks : 1 SW PRO</label>
+    </customValue>
+    <customValue>
+        <fullName>Additive Manufacturing : Scanners</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Additive Manufacturing : Scanners</label>
+    </customValue>
+    <customValue>
+        <fullName>1 Solidworks : 6 PCB</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>1 Solidworks : 6 PCB</label>
+    </customValue>
+    <customValue>
+        <fullName>Additive Manufacturing : Metal</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Additive Manufacturing : Metal</label>
+    </customValue>
+    <customValue>
+        <fullName>1 Solidworks : 7 Emerging : CAM</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>1 Solidworks : 7 Emerging : CAM</label>
+    </customValue>
+    <customValue>
+        <fullName>Additive Manufacturing</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Additive Manufacturing</label>
+    </customValue>
+    <customValue>
+        <fullName>Enterprise Solutions : PLM : PLM DesignRule</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Enterprise Solutions : PLM : PLM DesignRule</label>
+    </customValue>
+    <customValue>
+        <fullName>Enterprise Solutions : PLM</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Enterprise Solutions : PLM</label>
+    </customValue>
+    <customValue>
+        <fullName>LGCY Enterprise Solutions : PLM</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>LGCY Enterprise Solutions : PLM</label>
+    </customValue>
+    <customValue>
+        <fullName>LGCY SaaS</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>LGCY SaaS</label>
+    </customValue>
+    <customValue>
+        <fullName>LGCY 1 Solidworks : LGCY 1 SW PRO</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>LGCY 1 Solidworks : LGCY 1 SW PRO</label>
+    </customValue>
+    <customValue>
+        <fullName>LGCY Enterprise Solutions : PLM : LGCY PLM Dassault</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>LGCY Enterprise Solutions : PLM : LGCY PLM Dassault</label>
+    </customValue>
+    <customValue>
+        <fullName>LGCY PLM</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>LGCY PLM</label>
+    </customValue>
+    <customValue>
+        <fullName>LGCY Enterprise Solutions : LGCY CAD : LGCY CAD Dassault</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>LGCY Enterprise Solutions : LGCY CAD : LGCY CAD Dassault</label>
+    </customValue>
+    <customValue>
+        <fullName>LGCY Additive Manufacturing</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>LGCY Additive Manufacturing</label>
+    </customValue>
+    <customValue>
+        <fullName>LGCY 1 Solidworks : LGCY 2 SIM</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>LGCY 1 Solidworks : LGCY 2 SIM</label>
+    </customValue>
+    <customValue>
+        <fullName>LGCY 1 Solidworks : LGCY 1 SW</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>LGCY 1 Solidworks : LGCY 1 SW</label>
+    </customValue>
+    <customValue>
+        <fullName>LGCY 1 Solidworks : LGCY SW Other</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>LGCY 1 Solidworks : LGCY SW Other</label>
+    </customValue>
+    <customValue>
+        <fullName>LGCY Other</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>LGCY Other</label>
+    </customValue>
+    <customValue>
+        <fullName>LGCY Additive Manufacturing : LGCY Desktop</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>LGCY Additive Manufacturing : LGCY Desktop</label>
+    </customValue>
+    <customValue>
+        <fullName>LGCY 1 Solidworks : LGCY 3 PDM</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>LGCY 1 Solidworks : LGCY 3 PDM</label>
+    </customValue>
+    <customValue>
+        <fullName>LGCY 1 Solidworks</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>LGCY 1 Solidworks</label>
+    </customValue>
+    <customValue>
+        <fullName>LGCY 1 Solidworks : LGCY 1 SW STD</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>LGCY 1 Solidworks : LGCY 1 SW STD</label>
+    </customValue>
+    <customValue>
+        <fullName>LGCY 1 Solidworks : LGCY 7 Emerging : LGCY Inspection</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>LGCY 1 Solidworks : LGCY 7 Emerging : LGCY Inspection</label>
+    </customValue>
+    <customValue>
+        <fullName>LGCY 1 Solidworks : LGCY 4 Electrical</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>LGCY 1 Solidworks : LGCY 4 Electrical</label>
+    </customValue>
+    <customValue>
+        <fullName>LGCY Additive Manufacturing : LGCY Production</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>LGCY Additive Manufacturing : LGCY Production</label>
+    </customValue>
+    <customValue>
+        <fullName>LGCY Additive Manufacturing : LGCY RPS</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>LGCY Additive Manufacturing : LGCY RPS</label>
+    </customValue>
+    <customValue>
+        <fullName>LGCY 1 Solidworks : LGCY 5 Composer</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>LGCY 1 Solidworks : LGCY 5 Composer</label>
+    </customValue>
+    <customValue>
+        <fullName>LGCY 1 Solidworks : LGCY 1 SW PREM</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>LGCY 1 Solidworks : LGCY 1 SW PREM</label>
+    </customValue>
+    <customValue>
+        <fullName>LGCY PEG</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>LGCY PEG</label>
+    </customValue>
+    <customValue>
+        <fullName>LGCY 1 Solidworks : LGCY 7 Emerging</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>LGCY 1 Solidworks : LGCY 7 Emerging</label>
+    </customValue>
+    <customValue>
+        <fullName>LGCY 1 Solidworks : LGCY 7 Emerging : LGCY MBD</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>LGCY 1 Solidworks : LGCY 7 Emerging : LGCY MBD</label>
+    </customValue>
+    <customValue>
+        <fullName>LGCY 1 Solidworks : LGCY 7 Emerging : LGCY Visualize</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>LGCY 1 Solidworks : LGCY 7 Emerging : LGCY Visualize</label>
+    </customValue>
+    <customValue>
+        <fullName>LGCY 1 Solidworks : LGCY 6 PCB</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>LGCY 1 Solidworks : LGCY 6 PCB</label>
+    </customValue>
+    <customValue>
+        <fullName>LGCY 1 Solidworks : LGCY 7 Emerging : LGCY CAM</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>LGCY 1 Solidworks : LGCY 7 Emerging : LGCY CAM</label>
+    </customValue>
+    <customValue>
+        <fullName>LGCY Additive Manufacturing : LGCY Scanners</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>LGCY Additive Manufacturing : LGCY Scanners</label>
+    </customValue>
+    <customValue>
+        <fullName>PEG</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>PEG</label>
+    </customValue>
+    <customValue>
+        <fullName>LGCY ERP</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>LGCY ERP</label>
+    </customValue>
+    <customValue>
+        <fullName>LGCY MasterCAM</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>LGCY MasterCAM</label>
+    </customValue>
+    <customValue>
+        <fullName>PLM : LGCY PLM Dassault</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>PLM : LGCY PLM Dassault</label>
+    </customValue>
+    <customValue>
+        <fullName>LGCY Enterprise Solutions : LGCY SIM : LGCY SIM Dassault</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>LGCY Enterprise Solutions : LGCY SIM : LGCY SIM Dassault</label>
+    </customValue>
+    <customValue>
+        <fullName>LGCY Enterprise Solutions : LGCY SIM</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>LGCY Enterprise Solutions : LGCY SIM</label>
+    </customValue>
+    <customValue>
+        <fullName>LGCY Enterprise Solutions : LGCY CAD : LGCY CAD Gravotech</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>LGCY Enterprise Solutions : LGCY CAD : LGCY CAD Gravotech</label>
+    </customValue>
+    <customValue>
+        <fullName>LGCY Enterprise Solutions : LGCY SIM : LGCY SIM Services</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>LGCY Enterprise Solutions : LGCY SIM : LGCY SIM Services</label>
+    </customValue>
+    <customValue>
+        <fullName>LGCY SolidProfessor</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>LGCY SolidProfessor</label>
+    </customValue>
+    <customValue>
+        <fullName>LGCY Enterprise Solutions : LGCY MFG : LGCY MFG Services</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>LGCY Enterprise Solutions : LGCY MFG : LGCY MFG Services</label>
+    </customValue>
+    <customValue>
+        <fullName>LGCY Enterprise Solutions : LGCY CAD : LGCY CAD Services</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>LGCY Enterprise Solutions : LGCY CAD : LGCY CAD Services</label>
+    </customValue>
+    <customValue>
+        <fullName>PLM : LGCY PLM Services</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>PLM : LGCY PLM Services</label>
+    </customValue>
+    <customValue>
+        <fullName>LGCY Enterprise Solutions : LGCY CAD</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>LGCY Enterprise Solutions : LGCY CAD</label>
+    </customValue>
+    <customValue>
+        <fullName>LGCY Enterprise Solutions : LGCY MFG : LGCY MFG Dassault</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>LGCY Enterprise Solutions : LGCY MFG : LGCY MFG Dassault</label>
+    </customValue>
+    <customValue>
+        <fullName>LGCY Enterprise Solutions : LGCY SIM : LGCY SIM True-Load</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>LGCY Enterprise Solutions : LGCY SIM : LGCY SIM True-Load</label>
+    </customValue>
+    <customValue>
+        <fullName>LGCY Enterprise Solutions : LGCY MFG : LGCY MFG Flexsim</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>LGCY Enterprise Solutions : LGCY MFG : LGCY MFG Flexsim</label>
+    </customValue>
+    <customValue>
+        <fullName>PLM : LGCY PLM DesignRule</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>PLM : LGCY PLM DesignRule</label>
+    </customValue>
+    <customValue>
+        <fullName>LGCY Additive Manufacturing : LGCY Metal</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>LGCY Additive Manufacturing : LGCY Metal</label>
+    </customValue>
+    <customValue>
+        <fullName>SaaS</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>SaaS</label>
+    </customValue>
+    <customValue>
+        <fullName>Additive Manufacturing : RPS</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Additive Manufacturing : RPS</label>
+    </customValue>
+    <customValue>
+        <fullName>ERP</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>ERP</label>
+    </customValue>
+    <customValue>
+        <fullName>Mastercam</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Mastercam</label>
+    </customValue>
+    <customValue>
+        <fullName>Enterprise Solutions : PLM : PLM Dassault</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Enterprise Solutions : PLM : PLM Dassault</label>
+    </customValue>
+    <customValue>
+        <fullName>Enterprise Solutions : CAD : CAD Dassault</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Enterprise Solutions : CAD : CAD Dassault</label>
+    </customValue>
+    <customValue>
+        <fullName>Enterprise Solutions : Manufacturing : Dassault</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Enterprise Solutions : Manufacturing : Dassault</label>
+    </customValue>
+    <customValue>
+        <fullName>Enterprise Solutions : Simulation : Simulation Dassault</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Enterprise Solutions : Simulation : Simulation Dassault</label>
+    </customValue>
+    <customValue>
+        <fullName>SolidProfessor</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>SolidProfessor</label>
+    </customValue>
+    <customValue>
+        <fullName>Enterprise Solutions : CAD</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Enterprise Solutions : CAD</label>
+    </customValue>
+    <customValue>
+        <fullName>Enterprise Solutions : Simulation : Simulation Services</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Enterprise Solutions : Simulation : Simulation Services</label>
+    </customValue>
+    <customValue>
+        <fullName>Enterprise Solutions : SIM</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Enterprise Solutions : SIM</label>
+    </customValue>
+    <customValue>
+        <fullName>Enterprise Solutions : SIM : Simulation Dassault</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Enterprise Solutions : SIM : Simulation Dassault</label>
+    </customValue>
+    <customValue>
+        <fullName>Enterprise Solutions : SIM : Simulation Services</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Enterprise Solutions : SIM : Simulation Services</label>
+    </customValue>
+    <customValue>
+        <fullName>Enterprise Solutions : SIM : SIM Services</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Enterprise Solutions : SIM : SIM Services</label>
+    </customValue>
+    <customValue>
+        <fullName>Enterprise Solutions : SIM : SIM Dassault</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Enterprise Solutions : SIM : SIM Dassault</label>
+    </customValue>
+    <customValue>
+        <fullName>Enterprise Solutions : MFG : MFG Dassault</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Enterprise Solutions : MFG : MFG Dassault</label>
+    </customValue>
+    <customValue>
+        <fullName>Enterprise Solutions : SIM : SIM True-Load</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Enterprise Solutions : SIM : SIM True-Load</label>
+    </customValue>
+    <customValue>
+        <fullName>Enterprise Solutions : MFG : MFG Services</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Enterprise Solutions : MFG : MFG Services</label>
+    </customValue>
+    <customValue>
+        <fullName>Enterprise Solutions : CAD : CAD Services</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Enterprise Solutions : CAD : CAD Services</label>
+    </customValue>
+    <customValue>
+        <fullName>Enterprise Solutions : PLM : PLM Services</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Enterprise Solutions : PLM : PLM Services</label>
+    </customValue>
+    <customValue>
+        <fullName>1 Solidworks : 4 Electrical</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>1 Solidworks : 4 Electrical</label>
+    </customValue>
+    <customValue>
+        <fullName>1 Solidworks : 3 PDM</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>1 Solidworks : 3 PDM</label>
+    </customValue>
+    <customValue>
+        <fullName>1 Solidworks : 2 SIM</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>1 Solidworks : 2 SIM</label>
+    </customValue>
+    <customValue>
+        <fullName>1 Solidworks : 7 Emerging</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>1 Solidworks : 7 Emerging</label>
+    </customValue>
+    <customValue>
+        <fullName>1 Solidworks : 1 SW</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>1 Solidworks : 1 SW</label>
+    </customValue>
+    <customValue>
+        <fullName>1 Solidworks : SW Other</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>1 Solidworks : SW Other</label>
+    </customValue>
+    <customValue>
+        <fullName>Additive Manufacturing : Production</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Additive Manufacturing : Production</label>
+    </customValue>
+    <masterLabel>Class List</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

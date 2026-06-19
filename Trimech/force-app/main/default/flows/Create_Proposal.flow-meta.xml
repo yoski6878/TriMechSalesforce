@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <actionCalls>
-        <name>Commit_Create_Proposal_Line_Item</name>
-        <label>Commit Create Proposal Line Item</label>
+        <name>Commit_Create_Proposal_Line_Items</name>
+        <label>Commit Create Proposal Line Items</label>
         <locationX>50</locationX>
         <locationY>1898</locationY>
         <actionName>c:commitTransaction</actionName>
@@ -10,6 +10,9 @@
         <connector>
             <targetReference>Update_Proposal</targetReference>
         </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <nameSegment>c:commitTransaction</nameSegment>
+        <offset>0</offset>
     </actionCalls>
     <actionCalls>
         <name>Commit_Update_Proposal</name>
@@ -21,6 +24,9 @@
         <connector>
             <targetReference>Redirect</targetReference>
         </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <nameSegment>c:commitTransaction</nameSegment>
+        <offset>0</offset>
     </actionCalls>
     <actionCalls>
         <name>Redirect</name>
@@ -29,13 +35,18 @@
         <locationY>2222</locationY>
         <actionName>c:Redirect</actionName>
         <actionType>component</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
         <inputParameters>
             <name>recordId</name>
             <value>
                 <elementReference>varProposalId</elementReference>
             </value>
         </inputParameters>
+        <nameSegment>c:Redirect</nameSegment>
+        <offset>0</offset>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
     </actionCalls>
+    <apiVersion>50.0</apiVersion>
     <assignments>
         <name>Add_Proposal_Line_Item_into_Record_Collection</name>
         <label>Add Proposal Line Item into Record Collection</label>
@@ -135,6 +146,20 @@
                 <elementReference>Loop_Opportunity_Line_Items.SortOrder</elementReference>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varRecSingleProposalLineItem.Is_Created_By_Flow__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varRecSingleProposalLineItem.Business_Unit__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Loop_Opportunity_Line_Items.Business_Unit__c</elementReference>
+            </value>
+        </assignmentItems>
         <connector>
             <targetReference>Add_Proposal_Line_Item_into_Record_Collection</targetReference>
         </connector>
@@ -171,6 +196,23 @@
             <stringValue>In Review</stringValue>
         </value>
     </choices>
+    <collectionProcessors>
+        <name>Sort_the_Opp_Line_Items_by_SortOrder_field</name>
+        <elementSubtype>SortCollectionProcessor</elementSubtype>
+        <label>Sort the Opp Line Items by SortOrder field</label>
+        <locationX>50</locationX>
+        <locationY>1166</locationY>
+        <collectionProcessorType>SortCollectionProcessor</collectionProcessorType>
+        <collectionReference>colOppLineItems</collectionReference>
+        <connector>
+            <targetReference>Create_Proposal</targetReference>
+        </connector>
+        <sortOptions>
+            <doesPutEmptyStringAndNullFirst>true</doesPutEmptyStringAndNullFirst>
+            <sortField>SortOrder</sortField>
+            <sortOrder>Asc</sortOrder>
+        </sortOptions>
+    </collectionProcessors>
     <decisions>
         <name>Check_if_Current_Item_is_Active</name>
         <label>Check if Current Item is Active</label>
@@ -179,7 +221,7 @@
         <defaultConnector>
             <targetReference>Set_ActiveChecker_to_True_for_Inactive_Products</targetReference>
         </defaultConnector>
-        <defaultConnectorLabel>Current Item is Inctive</defaultConnectorLabel>
+        <defaultConnectorLabel>Current Item is Inactive</defaultConnectorLabel>
         <rules>
             <name>Current_Item_is_Active</name>
             <conditionLogic>and</conditionLogic>
@@ -245,6 +287,7 @@
         <picklistField>Terms__c</picklistField>
         <picklistObject>Quote</picklistObject>
     </dynamicChoiceSets>
+    <environments>Default</environments>
     <formulas>
         <name>formula_EOM</name>
         <dataType>Date</dataType>
@@ -282,7 +325,7 @@
             <targetReference>Assign_values_from_Current_Opp_Line_Item_to_new_Prop_Line_Item</targetReference>
         </nextValueConnector>
         <noMoreValuesConnector>
-            <targetReference>Create_Proposal_Line_Item</targetReference>
+            <targetReference>Create_Proposal_Line_Items</targetReference>
         </noMoreValuesConnector>
     </loops>
     <processMetadataValues>
@@ -356,12 +399,6 @@
             </value>
         </inputAssignments>
         <inputAssignments>
-            <field>Email</field>
-            <value>
-                <elementReference>Get_Opportunity_Record.Primary_Contact_Email__c</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
             <field>ExpirationDate</field>
             <value>
                 <elementReference>Expiration_Date</elementReference>
@@ -377,12 +414,6 @@
             <field>OpportunityId</field>
             <value>
                 <elementReference>recordId</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>Phone</field>
-            <value>
-                <elementReference>Get_Opportunity_Record.Primary_Contact_Phone__c</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -430,12 +461,12 @@
         <object>Quote</object>
     </recordCreates>
     <recordCreates>
-        <name>Create_Proposal_Line_Item</name>
-        <label>Create Proposal Line Item</label>
+        <name>Create_Proposal_Line_Items</name>
+        <label>Create Proposal Line Items</label>
         <locationX>50</locationX>
         <locationY>1790</locationY>
         <connector>
-            <targetReference>Commit_Create_Proposal_Line_Item</targetReference>
+            <targetReference>Commit_Create_Proposal_Line_Items</targetReference>
         </connector>
         <inputReference>varRecColProposalLineItems</inputReference>
     </recordCreates>
@@ -448,6 +479,7 @@
         <connector>
             <targetReference>Loop_OLI_to_check_for_Inactive_Products</targetReference>
         </connector>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
             <operator>EqualTo</operator>
@@ -502,6 +534,7 @@
         <connector>
             <targetReference>Get_Account</targetReference>
         </connector>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>OpportunityId</field>
             <operator>EqualTo</operator>
@@ -522,6 +555,8 @@
         <queriedFields>Line_Item_Id_18__c</queriedFields>
         <queriedFields>Active__c</queriedFields>
         <queriedFields>SortOrder</queriedFields>
+        <queriedFields>Sort_Order__c</queriedFields>
+        <queriedFields>Business_Unit__c</queriedFields>
         <sortField>SortOrder</sortField>
         <sortOrder>Asc</sortOrder>
     </recordLookups>
@@ -534,6 +569,7 @@
         <connector>
             <targetReference>Get_Opportunity_Line_Items</targetReference>
         </connector>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
             <operator>EqualTo</operator>
@@ -541,7 +577,9 @@
                 <elementReference>recordId</elementReference>
             </value>
         </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
         <object>Opportunity</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordUpdates>
         <name>Update_Proposal</name>
@@ -551,6 +589,7 @@
         <connector>
             <targetReference>Commit_Update_Proposal</targetReference>
         </connector>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
             <operator>EqualTo</operator>
@@ -571,12 +610,12 @@
         <label>Inactive Products</label>
         <locationX>314</locationX>
         <locationY>1058</locationY>
-        <allowBack>true</allowBack>
+        <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
-        <allowPause>true</allowPause>
+        <allowPause>false</allowPause>
         <fields>
             <name>InactiveMessage</name>
-            <fieldText>&lt;p style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;font-size: 16px; color: rgb(255, 0, 0);&quot;&gt;One or more Products are Inactive! Please remove any Inactive Product and &lt;/span&gt;&lt;span style=&quot;font-size: 16px; color: rgb(255, 0, 0); background-color: rgb(255, 255, 255);&quot;&gt;use an alternate Active Product.&lt;/span&gt;&lt;/p&gt;</fieldText>
+            <fieldText>&lt;p style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;color: rgb(255, 0, 0); font-size: 16px;&quot;&gt;One or more Products are Inactive! Please remove any Inactive Product and &lt;/span&gt;&lt;span style=&quot;color: rgb(255, 0, 0); font-size: 16px; background-color: rgb(255, 255, 255);&quot;&gt;use an alternate Active Product.&lt;/span&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
         <showFooter>true</showFooter>
@@ -601,6 +640,7 @@
             </defaultValue>
             <fieldText>Proposal Name</fieldText>
             <fieldType>InputField</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
         </fields>
         <fields>
@@ -611,6 +651,7 @@
             </defaultValue>
             <fieldText>Expiration Date</fieldText>
             <fieldType>InputField</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
         </fields>
         <fields>
@@ -621,6 +662,7 @@
             </defaultValue>
             <fieldText>Date</fieldText>
             <fieldType>InputField</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
         </fields>
         <fields>
@@ -631,6 +673,7 @@
             <defaultSelectedChoiceReference>choice_Draft</defaultSelectedChoiceReference>
             <fieldText>Status</fieldText>
             <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
         </fields>
         <fields>
@@ -679,6 +722,7 @@
                     <elementReference>varAccountTerms</elementReference>
                 </value>
             </inputParameters>
+            <inputsOnNextNavToAssocScrn>ResetValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
             <outputParameters>
                 <assignToReference>varSelectedTerms</assignToReference>
@@ -688,7 +732,13 @@
         <showFooter>true</showFooter>
         <showHeader>true</showHeader>
     </screens>
-    <startElementReference>Get_Opportunity_Record</startElementReference>
+    <start>
+        <locationX>56</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Opportunity_Record</targetReference>
+        </connector>
+    </start>
     <status>Active</status>
     <variables>
         <name>colOppLineItems</name>

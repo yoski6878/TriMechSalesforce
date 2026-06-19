@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Adaptive</fullName>
+        <default>false</default>
+        <label>Adaptive</label>
+    </customValue>
+    <customValue>
+        <fullName>Adaptive TOS</fullName>
+        <default>false</default>
+        <label>Adaptive TOS</label>
+    </customValue>
+    <customValue>
+        <fullName>ANX eBusiness</fullName>
+        <default>false</default>
+        <label>ANX eBusiness</label>
+    </customValue>
+    <customValue>
+        <fullName>Aventec</fullName>
+        <default>false</default>
+        <label>Aventec</label>
+    </customValue>
+    <customValue>
+        <fullName>CADimensions</fullName>
+        <default>false</default>
+        <label>CADimensions</label>
+    </customValue>
+    <customValue>
+        <fullName>CAELynx</fullName>
+        <default>false</default>
+        <label>CAELynx</label>
+    </customValue>
+    <customValue>
+        <fullName>CATI/In-Flow</fullName>
+        <default>false</default>
+        <label>CATI/In-Flow</label>
+    </customValue>
+    <customValue>
+        <fullName>Dassault Direct Account</fullName>
+        <default>false</default>
+        <label>Dassault Direct Account</label>
+    </customValue>
+    <customValue>
+        <fullName>Device Analytics</fullName>
+        <default>false</default>
+        <label>Device Analytics</label>
+    </customValue>
+    <customValue>
+        <fullName>FEA Services LLC</fullName>
+        <default>false</default>
+        <label>FEA Services LLC</label>
+    </customValue>
+    <customValue>
+        <fullName>Front End Analytics</fullName>
+        <default>false</default>
+        <label>Front End Analytics</label>
+    </customValue>
+    <customValue>
+        <fullName>Global Visions - GVT</fullName>
+        <default>false</default>
+        <label>Global Visions - GVT</label>
+    </customValue>
+    <customValue>
+        <fullName>GoE/CATI/In-Flow</fullName>
+        <default>false</default>
+        <label>GoE/CATI/In-Flow</label>
+    </customValue>
+    <customValue>
+        <fullName>GVT</fullName>
+        <default>false</default>
+        <label>GVT</label>
+    </customValue>
+    <customValue>
+        <fullName>Hawkridge</fullName>
+        <default>false</default>
+        <label>Hawkridge</label>
+    </customValue>
+    <customValue>
+        <fullName>Inceptra</fullName>
+        <default>false</default>
+        <label>Inceptra</label>
+    </customValue>
+    <customValue>
+        <fullName>Mecanica Solutions</fullName>
+        <default>false</default>
+        <label>Mecanica Solutions</label>
+    </customValue>
+    <customValue>
+        <fullName>Novastar</fullName>
+        <default>false</default>
+        <label>Novastar</label>
+    </customValue>
+    <customValue>
+        <fullName>OpenText Corp</fullName>
+        <default>false</default>
+        <label>OpenText Corp</label>
+    </customValue>
+    <customValue>
+        <fullName>Optimec</fullName>
+        <default>false</default>
+        <label>Optimec</label>
+    </customValue>
+    <customValue>
+        <fullName>Rand 3D</fullName>
+        <default>false</default>
+        <label>Rand 3D</label>
+    </customValue>
+    <customValue>
+        <fullName>SSG/Design Rule/Desktop Eng</fullName>
+        <default>false</default>
+        <label>SSG/Design Rule/Desktop Eng</label>
+    </customValue>
+    <customValue>
+        <fullName>Tata</fullName>
+        <default>false</default>
+        <label>Tata</label>
+    </customValue>
+    <customValue>
+        <fullName>Technia</fullName>
+        <default>false</default>
+        <label>Technia</label>
+    </customValue>
+    <customValue>
+        <fullName>TriMech</fullName>
+        <default>false</default>
+        <label>TriMech</label>
+    </customValue>
+    <customValue>
+        <fullName>Vias</fullName>
+        <default>false</default>
+        <label>Vias</label>
+    </customValue>
+    <customValue>
+        <fullName>XDI</fullName>
+        <default>false</default>
+        <label>XDI</label>
+    </customValue>
+    <customValue>
+        <fullName>xLM Solutions</fullName>
+        <default>false</default>
+        <label>xLM Solutions</label>
+    </customValue>
+    <masterLabel>OEM Business Partners</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

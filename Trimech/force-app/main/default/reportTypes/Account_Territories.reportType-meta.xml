@@ -81,9 +81,57 @@
             <field>Territory_Id__c</field>
             <table>Account_Territory__c</table>
         </columns>
+        <masterLabel>Account-Territories</masterLabel>
+    </sections>
+    <sections>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Account__c.celigo_sfnsio__NetSuite_Id__c</field>
+            <table>Account_Territory__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Account__c.Inactive__c</field>
+            <table>Account_Territory__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Account__c.Primary_Territory__c</field>
+            <table>Account_Territory__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Account__c.Territory__c</field>
+            <table>Account_Territory__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Account__c.SolidCAM_Sales_Person__c</field>
+            <table>Account_Territory__c</table>
+        </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Account__c.Sales_Rep_Hardware_Inside__c</field>
+            <table>Account_Territory__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Account__c.Sales_Rep_Hardware_Inside__c.Id</field>
+            <table>Account_Territory__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Account__c.Hardware_Sales_Person__c</field>
+            <table>Account_Territory__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Account__c.Dedicated_Sales_Rep_Hardware__c</field>
+            <table>Account_Territory__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Account__c.Dedicated_Sales_Rep_Hardware__c.Id</field>
             <table>Account_Territory__c</table>
         </columns>
         <columns>
@@ -93,7 +141,22 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Account__c.Sales_Rep_Software_Inside__c</field>
+            <field>Account__c.Sales_Rep_Hardware_Outside__c.Id</field>
+            <table>Account_Territory__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Account__c.Software_Sales_Person__c</field>
+            <table>Account_Territory__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Account__c.Dedicated_Sales_Rep_Software__c</field>
+            <table>Account_Territory__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Account__c.Dedicated_Sales_Rep_Software__c.Id</field>
             <table>Account_Territory__c</table>
         </columns>
         <columns>
@@ -108,54 +171,24 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Account__c.Sales_Rep_Software_Inside__c.Id</field>
+            <field>Account__c.Dedicated_SolidCAM_Rep__c</field>
             <table>Account_Territory__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Account__c.Sales_Rep_Hardware_Outside__c.Id</field>
+            <field>Account__c.Dedicated_SolidCAM_Rep__c.Id</field>
             <table>Account_Territory__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Account__c.Sales_Rep_Hardware_Inside__c.Id</field>
+            <field>Account__c.Sales_Rep_SolidCAM__c</field>
             <table>Account_Territory__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Account__c.Inside_Sales_Dedicated_Account__c</field>
+            <field>Account__c.Sales_Rep_SolidCAM__c.Id</field>
             <table>Account_Territory__c</table>
         </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Account__c.Dedicated_Hardware__c</field>
-            <table>Account_Territory__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Account__c.Dedicated_Account__c</field>
-            <table>Account_Territory__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Account__c.Territory__c</field>
-            <table>Account_Territory__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Account__c.Primary_Territory__c</field>
-            <table>Account_Territory__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Account__c.Inactive__c</field>
-            <table>Account_Territory__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Account__c.celigo_sfnsio__NetSuite_Id__c</field>
-            <table>Account_Territory__c</table>
-        </columns>
-        <masterLabel>Account-Territories</masterLabel>
+        <masterLabel>Accounts</masterLabel>
     </sections>
 </ReportType>

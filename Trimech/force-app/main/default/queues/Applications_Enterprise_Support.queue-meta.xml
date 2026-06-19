@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesIncludeBosses>true</doesIncludeBosses>
+    <doesSendEmailToMembers>false</doesSendEmailToMembers>
+    <email>dummy@test.com</email>
+    <name>Queue - Applications/Enterprise Support</name>
+    <queueMembers>
+        <roleAndSubordinatesInternal>
+            <roleAndSubordinateInternal>Applications_Support_Business_Unit_Director</roleAndSubordinateInternal>
+            <roleAndSubordinateInternal>Enterprise_Support_Business_Unit_Director</roleAndSubordinateInternal>
+        </roleAndSubordinatesInternal>
+        <users>
+            <user>jennifer.moffett@trimech.com</user>
+            <user>sfdc+trimech@venturetechgroup.com</user>
+            <user>susan.rockafellow@trimech.com</user>
+            <user>tiffanie.ballard@trimech.com</user>
+        </users>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>Case</sobjectType>
+    </queueSobject>
+</Queue>

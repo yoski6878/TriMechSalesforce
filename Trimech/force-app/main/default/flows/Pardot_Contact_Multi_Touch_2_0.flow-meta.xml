@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>54.0</apiVersion>
     <assignments>
         <name>Add_Contact_Picklist_Values_to_Combined_Picklist</name>
         <label>Add Contact Picklist Values to Combined Picklist</label>
         <locationX>270</locationX>
-        <locationY>1979</locationY>
+        <locationY>2303</locationY>
         <assignmentItems>
             <assignToReference>ProductOfInterestCombined</assignToReference>
             <operator>AddItem</operator>
@@ -20,7 +21,7 @@
         <name>Add_Opp_Picklist_Values_to_Combined_Picklist</name>
         <label>Add Opp Picklist Values to Combined Picklist</label>
         <locationX>270</locationX>
-        <locationY>2279</locationY>
+        <locationY>2603</locationY>
         <assignmentItems>
             <assignToReference>ProductOfInterestCombined</assignToReference>
             <operator>AddItem</operator>
@@ -33,10 +34,74 @@
         </connector>
     </assignments>
     <assignments>
+        <name>Assign_Campaign_Id</name>
+        <label>Assign Campaign Id</label>
+        <locationX>677</locationX>
+        <locationY>863</locationY>
+        <assignmentItems>
+            <assignToReference>varCampaignId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.CampaignId</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Matching_Opp_Found</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Contact has a Form_Product__c but it has no mdt mapping. Set category/interest to &quot;Not Specified&quot; so the opp is still created without carrying a stale contact value. (Blank Form_Product__c does NOT reach here -- it falls through the decision default and keeps the contact value.)</description>
+        <name>Assign_Category_Not_Specified</name>
+        <label>Assign Category Not Specified</label>
+        <locationX>314</locationX>
+        <locationY>647</locationY>
+        <assignmentItems>
+            <assignToReference>Get_Contact.Lead_Product_Category__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Not Specified</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Get_Contact.Lead_Product_of_Interest__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Not Specified</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Contact_Product_Fields</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Override the (possibly stale) contact category/interest with the value mapped from the contact&apos;s Form_Product__c via Pardot_Product_Mapping__mdt, so the opp name, fields, PLA lookup and opp matching all use the product that was actually submitted. In-memory only -- the contact record is not updated.</description>
+        <name>Assign_Mapped_Product_Category</name>
+        <label>Assign Mapped Product Category</label>
+        <locationX>50</locationX>
+        <locationY>647</locationY>
+        <assignmentItems>
+            <assignToReference>Get_Contact.Lead_Product_Category__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Product_Category_Mapping.Lead_Product_Category__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Get_Contact.Lead_Product_of_Interest__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Product_Category_Mapping.Lead_Product_of_Interest__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Contact_Product_Fields</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
         <name>Assign_Opp_to_Collection_0_0</name>
         <label>Assign Opp to Collection</label>
         <locationX>842</locationX>
-        <locationY>1079</locationY>
+        <locationY>1403</locationY>
         <assignmentItems>
             <assignToReference>oppCollectionText</assignToReference>
             <operator>Add</operator>
@@ -52,12 +117,12 @@
         <name>Assign_Opp_to_Collection_for_Assignment</name>
         <label>Assign Opp to Collection for Assignment</label>
         <locationX>50</locationX>
-        <locationY>2987</locationY>
+        <locationY>3311</locationY>
         <assignmentItems>
             <assignToReference>oppCollectionText</assignToReference>
             <operator>Add</operator>
             <value>
-                <elementReference>Get_Opportunity.Id</elementReference>
+                <elementReference>Get_Lead_Opportunity.Id</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -68,12 +133,12 @@
         <name>Assign_Opp_to_Matching_Contact_Variable</name>
         <label>Assign Opp to Matching Contact Variable</label>
         <locationX>468</locationX>
-        <locationY>1379</locationY>
+        <locationY>1703</locationY>
         <assignmentItems>
             <assignToReference>MatchingContactOpp</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>Get_Opportunity</elementReference>
+                <elementReference>Get_Lead_Opportunity</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -84,12 +149,12 @@
         <name>Assign_Opp_to_NoAssign_Variable</name>
         <label>Assign Opp to NoAssign Variable</label>
         <locationX>248</locationX>
-        <locationY>863</locationY>
+        <locationY>1187</locationY>
         <assignmentItems>
             <assignToReference>SQLToMQLOpp_NoAssign</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>Get_Opportunity</elementReference>
+                <elementReference>Get_Lead_Opportunity</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -100,12 +165,12 @@
         <name>Set_Product_of_Interest_Variables</name>
         <label>Set Product of Interest Variables</label>
         <locationX>182</locationX>
-        <locationY>1763</locationY>
+        <locationY>2087</locationY>
         <assignmentItems>
             <assignToReference>ContactProductOfInterest</assignToReference>
             <operator>Add</operator>
             <value>
-                <elementReference>$Record.Lead_Product_of_Interest__c</elementReference>
+                <elementReference>Get_Contact.Lead_Product_of_Interest__c</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
@@ -123,7 +188,7 @@
         <name>Campaign_Type</name>
         <label>Campaign Type?</label>
         <locationX>264</locationX>
-        <locationY>323</locationY>
+        <locationY>539</locationY>
         <defaultConnector>
             <targetReference>Get_Pardot_Lead_Assignment</targetReference>
         </defaultConnector>
@@ -132,7 +197,7 @@
             <name>UQL</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
-                <leftValueReference>$Record.Campaign_Type__c</leftValueReference>
+                <leftValueReference>Get_Contact.Campaign_Type__c</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
                     <stringValue>UQL</stringValue>
@@ -148,7 +213,7 @@
         <name>Campaign_Type_going_from_SQL_to_MQL</name>
         <label>Campaign Type going from SQL to MQL?</label>
         <locationX>380</locationX>
-        <locationY>755</locationY>
+        <locationY>1079</locationY>
         <defaultConnector>
             <targetReference>Get_Existing_Contact_Roles</targetReference>
         </defaultConnector>
@@ -157,14 +222,14 @@
             <name>Yes4</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
-                <leftValueReference>$Record.Campaign_Type__c</leftValueReference>
+                <leftValueReference>Get_Contact.Campaign_Type__c</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
                     <stringValue>MQL</stringValue>
                 </rightValue>
             </conditions>
             <conditions>
-                <leftValueReference>Get_Opportunity.Lead_Campaign_Type__c</leftValueReference>
+                <leftValueReference>Get_Lead_Opportunity.Lead_Campaign_Type__c</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
                     <stringValue>SQL</stringValue>
@@ -177,10 +242,53 @@
         </rules>
     </decisions>
     <decisions>
+        <name>Contact_Qualifies</name>
+        <label>Contact Qualifies?</label>
+        <locationX>817</locationX>
+        <locationY>431</locationY>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Qualifies</name>
+            <conditionLogic>((1 AND 4) OR 3) AND 2</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Contact.Lead_Product_Category__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_Contact.Campaign_Type__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_Contact.Form_Product__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_Contact.Lead_Product_Category__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Not Specified</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Product_Category_Mapping</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
         <name>Create_Contact_Role</name>
         <label>Create Contact Role?</label>
         <locationX>182</locationX>
-        <locationY>2579</locationY>
+        <locationY>2903</locationY>
         <defaultConnector>
             <targetReference>Should_this_Opp_be_reassigned</targetReference>
         </defaultConnector>
@@ -205,7 +313,7 @@
         <name>Does_Opp_Have_Matching_Contact_Role</name>
         <label>Does Opp Have Matching Contact Role?</label>
         <locationX>600</locationX>
-        <locationY>1271</locationY>
+        <locationY>1595</locationY>
         <defaultConnector>
             <targetReference>Loop_Through_Contact_Roles_on_Opp</targetReference>
         </defaultConnector>
@@ -217,7 +325,7 @@
                 <leftValueReference>Loop_Through_Contact_Roles_on_Opp.ContactId</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
-                    <elementReference>$Record.Id</elementReference>
+                    <elementReference>Get_Contact.Id</elementReference>
                 </rightValue>
             </conditions>
             <connector>
@@ -230,7 +338,7 @@
         <name>Is_There_a_Matching_Pardot_Lead_Assignment</name>
         <label>Is There a Matching Pardot Lead Assignment?</label>
         <locationX>380</locationX>
-        <locationY>1655</locationY>
+        <locationY>1979</locationY>
         <defaultConnectorLabel>No</defaultConnectorLabel>
         <rules>
             <name>Yes_0</name>
@@ -252,13 +360,13 @@
         <name>Is_There_a_Matching_Pardot_Lead_Assignment_0</name>
         <label>Is There a Matching Pardot Lead Assignment?</label>
         <locationX>974</locationX>
-        <locationY>755</locationY>
+        <locationY>1079</locationY>
         <defaultConnectorLabel>No</defaultConnectorLabel>
         <rules>
             <name>Yes_0_0</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
-                <leftValueReference>$Record.Lead_Product_Category__c</leftValueReference>
+                <leftValueReference>Get_Contact.Lead_Product_Category__c</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
                     <elementReference>Get_Pardot_Lead_Assignment.Name</elementReference>
@@ -274,7 +382,7 @@
         <name>Matching_Opp_Found</name>
         <label>Matching Opp Found?</label>
         <locationX>677</locationX>
-        <locationY>647</locationY>
+        <locationY>971</locationY>
         <defaultConnector>
             <targetReference>Is_There_a_Matching_Pardot_Lead_Assignment_0</targetReference>
         </defaultConnector>
@@ -283,7 +391,7 @@
             <name>Yes_Update_Exising_Opp</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
-                <leftValueReference>Get_Opportunity</leftValueReference>
+                <leftValueReference>Get_Lead_Opportunity</leftValueReference>
                 <operator>IsNull</operator>
                 <rightValue>
                     <booleanValue>false</booleanValue>
@@ -299,7 +407,7 @@
         <name>Should_this_Opp_be_reassigned</name>
         <label>Should this Opp be reassigned?</label>
         <locationX>182</locationX>
-        <locationY>2879</locationY>
+        <locationY>3203</locationY>
         <defaultConnectorLabel>No</defaultConnectorLabel>
         <rules>
             <name>Yes5</name>
@@ -317,29 +425,150 @@
             <label>Yes</label>
         </rules>
     </decisions>
+    <decisions>
+        <description>Decides whether to remap the contact category from Pardot_Product_Mapping__mdt. Guarded so an explicitly-submitted category survives — the remap (or fallback to &quot;Not Specified&quot;) only fires when the contact has no real category yet (null or &quot;Not Specified&quot;). This prevents a stale Form_Product on the contact from overriding a freshly submitted category.</description>
+        <name>Was_Product_Mapping_Found</name>
+        <label>Was Product Mapping Found?</label>
+        <locationX>182</locationX>
+        <locationY>539</locationY>
+        <defaultConnector>
+            <targetReference>Campaign_Type</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No product OR explicit category, keep contact value</defaultConnectorLabel>
+        <rules>
+            <name>Mapping_Found</name>
+            <conditionLogic>1 AND 2 AND (3 OR 4)</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Product_Category_Mapping</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_Product_Category_Mapping.Lead_Product_Category__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_Contact.Lead_Product_Category__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_Contact.Lead_Product_Category__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Not Specified</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Mapped_Product_Category</targetReference>
+            </connector>
+            <label>Mapping Found</label>
+        </rules>
+        <rules>
+            <name>Unmapped_Product_Present</name>
+            <conditionLogic>1 AND (2 OR 3)</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Contact.Form_Product__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_Contact.Lead_Product_Category__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_Contact.Lead_Product_Category__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Not Specified</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Category_Not_Specified</targetReference>
+            </connector>
+            <label>Unmapped Product Present</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
     <formulas>
         <description>Append existing opp Description with Contact&apos;s Pardot Comments</description>
-        <name>AppendedDescription</name>
+        <name>formAppendedDescription</name>
         <dataType>String</dataType>
         <expression>IF(
-     NOT(ISBLANK({!$Record.pi__comments__c})), 
-     IF (
-           NOT(ISBLANK({!Get_Opportunity.Description})), 
-           {!Get_Opportunity.Description} + &apos;   &apos; + {!$Record.pi__comments__c}, 
-           {!$Record.pi__comments__c}
-    ),
-   {!Get_Opportunity.Description}
+ NOT(ISBLANK({!Get_Contact.pi__comments__c})),
+ IF (
+       NOT(ISBLANK({!Get_Lead_Opportunity.Description})),
+       {!Get_Lead_Opportunity.Description} + &apos;   &apos; + {!Get_Contact.pi__comments__c},
+       {!Get_Contact.pi__comments__c}
+),
+{!Get_Lead_Opportunity.Description}
 )</expression>
     </formulas>
     <formulas>
-        <name>ExistingOppLeadSource</name>
+        <name>formAppendedTDNotes</name>
         <dataType>String</dataType>
-        <expression>IF(NOT(ISPICKVAL({!Get_Opportunity.LeadSource, &quot;&quot;})), TEXT({!Get_Opportunity.LeadSource}), TEXT({!$Record.LeadSource}))</expression>
+        <expression>IF(
+ NOT(ISBLANK({!formTDNotes})),
+ IF (
+       NOT(ISBLANK({!Get_Lead_Opportunity.TD_Lead_Notes__c})),
+       {!Get_Lead_Opportunity.TD_Lead_Notes__c} + &apos; || &apos; + {!formTDNotes},
+       {!formTDNotes}
+),
+{!Get_Lead_Opportunity.TD_Lead_Notes__c}
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formEmployeeReferralName</name>
+        <dataType>String</dataType>
+        <expression>IF( {!Yes_Update_Exising_Opp},
+	IF( NOT(ISBLANK({!Get_Lead_Opportunity.Employee_Referral_Name__c})),
+		{!Get_Lead_Opportunity.Employee_Referral_Name__c},
+		IF(ISPICKVAL({!Get_Contact.LeadSource}, &quot;Employee Referral&quot;), {!Get_Contact.Employee_Referral_Name__c}, &quot;&quot;)
+	),
+	IF(ISPICKVAL({!Get_Contact.LeadSource}, &quot;Employee Referral&quot;), {!Get_Contact.Employee_Referral_Name__c}, &quot;&quot;)
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formExistingOppLeadSource</name>
+        <dataType>String</dataType>
+        <expression>IF( AND( NOT(ISPICKVAL({!Get_Lead_Opportunity.LeadSource}, &quot;&quot;)), NOT(ISPICKVAL({!Get_Contact.LeadSource}, &quot;Employee Referral&quot;)) ), TEXT({!Get_Lead_Opportunity.LeadSource}), TEXT({!Get_Contact.LeadSource}) )</expression>
+    </formulas>
+    <formulas>
+        <name>formIncrementedTouchCount</name>
+        <dataType>Number</dataType>
+        <expression>IF(ISNULL({!Get_Lead_Opportunity.Touch_Count__c}), 1, {!Get_Lead_Opportunity.Touch_Count__c} + 1)</expression>
+        <scale>0</scale>
+    </formulas>
+    <formulas>
+        <name>formLSCCampaignValue</name>
+        <dataType>String</dataType>
+        <expression>IF(
+ NOT(ISBLANK({!Get_Contact.LSC_Campaign__c})),
+ LEFT({!Get_Contact.LSC_Campaign__c}, 255),
+ {!Get_Lead_Opportunity.LSC_Campaign__c}
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formOppCloseDate</name>
+        <dataType>Date</dataType>
+        <expression>TODAY() + 30</expression>
     </formulas>
     <formulas>
         <name>formOppName</name>
         <dataType>String</dataType>
-        <expression>&apos;Lead - &apos; + {!$Record.Account.Name} + &apos; - &apos; + TEXT({!$Record.Lead_Product_Category__c}) + &apos; - &apos; + TEXT(DAY({!Today})) + &apos; &apos; + CASE(MONTH({!Today}) ,
+        <expression>&apos;Lead - &apos; + {!Get_Contact.Account.Name} + &apos; - &apos; + TEXT({!Get_Contact.Lead_Product_Category__c}) + &apos; - &apos; + TEXT(DAY({!formToday})) + &apos; &apos; + CASE(MONTH({!formToday}) ,
 1, &quot;Jan&quot;,
 2, &quot;Feb&quot;,
 3, &quot;Mar&quot;,
@@ -352,7 +581,51 @@
 10, &quot;Oct&quot;,
 11, &quot;Nov&quot;,
 12, &quot;Dec&quot;,
-&quot;None&quot;) + &apos;, &apos; + TEXT(YEAR({!Today}))</expression>
+&quot;None&quot;) + &apos;, &apos; + TEXT(YEAR({!formToday}))</expression>
+    </formulas>
+    <formulas>
+        <name>formPardotCampaignValue</name>
+        <dataType>String</dataType>
+        <expression>IF(
+ NOT(ISBLANK({!Get_Contact.pi__campaign__c})),
+ LEFT({!Get_Contact.pi__campaign__c}, 255),
+ {!Get_Lead_Opportunity.Pardot_Campaign__c}
+)</expression>
+    </formulas>
+    <formulas>
+        <description>Used for Employee Referrals</description>
+        <name>formReferralSource</name>
+        <dataType>String</dataType>
+        <expression>IF(ISPICKVAL({!Get_Contact.LeadSource}, &quot;Employee Referral&quot;), TEXT({!Get_Contact.Referral_Source__c}), &quot;&quot;)</expression>
+    </formulas>
+    <formulas>
+        <name>formTDNotes</name>
+        <dataType>String</dataType>
+        <expression>IF(
+	TEXT({!Get_Contact.Lead_Product_Category__c}) == {!$Label.LPC_Product_Development},
+	(&apos;Lead Funding: &apos; + {!Get_Contact.TD_Lead_Funding__c} + &apos; | Lead Inquiry: &apos; + {!Get_Contact.TD_Lead_Inquiry__c} + &apos; | Lead Persona: &apos; + {!Get_Contact.TD_Lead_Persona__c} + &apos; | Lead Product Description: &apos; + {!Get_Contact.TD_Lead_Product_Description__c} + &apos; | Lead Product Stage: &apos; + {!Get_Contact.TD_Lead_Product_Stage__c}),
+	&apos;&apos;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formToday</name>
+        <dataType>Date</dataType>
+        <expression>TODAY()</expression>
+    </formulas>
+    <formulas>
+        <name>formTrainingCourseDate</name>
+        <dataType>String</dataType>
+        <expression>IF(ISPICKVAL({!Get_Contact.Lead_Product_Category__c}, &quot;Training Course&quot;), {!Get_Contact.Training_Course_Date__c}, &quot;&quot;)</expression>
+    </formulas>
+    <formulas>
+        <name>formTrainingCourseLocation</name>
+        <dataType>String</dataType>
+        <expression>IF(ISPICKVAL({!Get_Contact.Lead_Product_Category__c}, &quot;Training Course&quot;), {!Get_Contact.Training_Course_Location__c}, &quot;&quot;)</expression>
+    </formulas>
+    <formulas>
+        <name>formTrainingCourseName</name>
+        <dataType>String</dataType>
+        <expression>IF(ISPICKVAL({!Get_Contact.Lead_Product_Category__c}, &quot;Training Course&quot;), {!Get_Contact.Training_Course_Name__c}, &quot;&quot;)</expression>
     </formulas>
     <formulas>
         <description>Opportunity Name limited to 120 characters</description>
@@ -360,41 +633,13 @@
         <dataType>String</dataType>
         <expression>IF(LEN({!formOppName}) &gt; 120, LEFT({!formOppName}, 120), {!formOppName})</expression>
     </formulas>
-    <formulas>
-        <name>LSCCampaignValue</name>
-        <dataType>String</dataType>
-        <expression>IF(
-     NOT(ISBLANK({!$Record.LSC_Campaign__c})), 
-     LEFT({!$Record.LSC_Campaign__c}, 255),
-     {!Get_Opportunity.LSC_Campaign__c}
-)</expression>
-    </formulas>
-    <formulas>
-        <name>OppCloseDateFormula</name>
-        <dataType>Date</dataType>
-        <expression>TODAY() + 30</expression>
-    </formulas>
-    <formulas>
-        <name>PardotCampaignValue</name>
-        <dataType>String</dataType>
-        <expression>IF(
-     NOT(ISBLANK({!$Record.pi__campaign__c})), 
-     LEFT({!$Record.pi__campaign__c}, 255),
-     {!Get_Opportunity.Pardot_Campaign__c}
-)</expression>
-    </formulas>
-    <formulas>
-        <name>Today</name>
-        <dataType>Date</dataType>
-        <expression>TODAY()</expression>
-    </formulas>
     <interviewLabel>Pardot Contact Multi Touch 2.0 {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Pardot Contact Multi Touch 2.0</label>
     <loops>
         <name>Loop_Through_Contact_Product_of_Interest</name>
         <label>Loop Through Contact Product of Interest</label>
         <locationX>182</locationX>
-        <locationY>1871</locationY>
+        <locationY>2195</locationY>
         <collectionReference>ContactProductOfInterest</collectionReference>
         <iterationOrder>Asc</iterationOrder>
         <nextValueConnector>
@@ -408,7 +653,7 @@
         <name>Loop_Through_Contact_Roles_on_Opp</name>
         <label>Loop Through Contact Roles on Opp</label>
         <locationX>380</locationX>
-        <locationY>1163</locationY>
+        <locationY>1487</locationY>
         <collectionReference>Get_Existing_Contact_Roles</collectionReference>
         <iterationOrder>Asc</iterationOrder>
         <nextValueConnector>
@@ -422,7 +667,7 @@
         <name>Loop_Through_Opp_Product_of_Interest</name>
         <label>Loop Through Opp Product of Interest</label>
         <locationX>182</locationX>
-        <locationY>2171</locationY>
+        <locationY>2495</locationY>
         <collectionReference>OppProductOfInterest</collectionReference>
         <iterationOrder>Asc</iterationOrder>
         <nextValueConnector>
@@ -455,36 +700,37 @@
         <name>Create_Contact_Role2</name>
         <label>Create Contact Role</label>
         <locationX>50</locationX>
-        <locationY>2687</locationY>
+        <locationY>3011</locationY>
         <connector>
             <targetReference>Should_this_Opp_be_reassigned</targetReference>
         </connector>
         <inputAssignments>
             <field>ContactId</field>
             <value>
-                <elementReference>$Record.Id</elementReference>
+                <elementReference>Get_Contact.Id</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
             <field>OpportunityId</field>
             <value>
-                <elementReference>Get_Opportunity.Id</elementReference>
+                <elementReference>Get_Lead_Opportunity.Id</elementReference>
             </value>
         </inputAssignments>
         <object>OpportunityContactRole</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordCreates>
     <recordCreates>
         <name>Create_Contact_Role_0_0</name>
         <label>Create Contact Role</label>
         <locationX>842</locationX>
-        <locationY>971</locationY>
+        <locationY>1295</locationY>
         <connector>
             <targetReference>Assign_Opp_to_Collection_0_0</targetReference>
         </connector>
         <inputAssignments>
             <field>ContactId</field>
             <value>
-                <elementReference>$Record.Id</elementReference>
+                <elementReference>Get_Contact.Id</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -500,85 +746,140 @@
             </value>
         </inputAssignments>
         <object>OpportunityContactRole</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordCreates>
     <recordCreates>
         <name>Create_New_Opp_with_Pardot_Fields</name>
         <label>Create New Opp with Pardot Fields</label>
         <locationX>842</locationX>
-        <locationY>863</locationY>
+        <locationY>1187</locationY>
         <connector>
             <targetReference>Create_Contact_Role_0_0</targetReference>
         </connector>
         <inputAssignments>
             <field>AccountId</field>
             <value>
-                <elementReference>$Record.AccountId</elementReference>
+                <elementReference>Get_Contact.AccountId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>CampaignId</field>
+            <value>
+                <elementReference>varCampaignId</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
             <field>CloseDate</field>
             <value>
-                <elementReference>OppCloseDateFormula</elementReference>
+                <elementReference>formOppCloseDate</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
             <field>Description</field>
             <value>
-                <elementReference>$Record.pi__comments__c</elementReference>
+                <elementReference>Get_Contact.pi__comments__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Employee_Referral_Name__c</field>
+            <value>
+                <elementReference>formEmployeeReferralName</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Form_Product__c</field>
+            <value>
+                <elementReference>Get_Contact.Form_Product__c</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
             <field>GCLID_Google_Click_Identification__c</field>
             <value>
-                <elementReference>$Record.GCLID_Google_Click_Identification__c</elementReference>
+                <elementReference>Get_Contact.GCLID_Google_Click_Identification__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Google_Analytics_Campaign__c</field>
+            <value>
+                <elementReference>Get_Contact.pi__utm_campaign__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Google_Analytics_Medium__c</field>
+            <value>
+                <elementReference>Get_Contact.pi__utm_medium__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Google_Analytics_Referrer__c</field>
+            <value>
+                <elementReference>Get_Contact.Google_Analytics_Referrer__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Google_Analytics_Source__c</field>
+            <value>
+                <elementReference>Get_Contact.pi__utm_source__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Google_Analytics_Term__c</field>
+            <value>
+                <elementReference>Get_Contact.pi__utm_term__c</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
             <field>LSC_Campaign__c</field>
             <value>
-                <elementReference>$Record.LSC_Campaign__c</elementReference>
+                <elementReference>Get_Contact.LSC_Campaign__c</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
             <field>Last_Attended_Trade_Show__c</field>
             <value>
-                <elementReference>$Record.Last_Attended_Trade_Show__c</elementReference>
+                <elementReference>Get_Contact.Last_Attended_Trade_Show__c</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
             <field>Last_Registered_Event__c</field>
             <value>
-                <elementReference>$Record.Last_Registered_Event__c</elementReference>
+                <elementReference>Get_Contact.Last_Registered_Event__c</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
             <field>LeadSource</field>
             <value>
-                <elementReference>$Record.LeadSource</elementReference>
+                <elementReference>Get_Contact.LeadSource</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
             <field>Lead_Campaign_Type__c</field>
             <value>
-                <elementReference>$Record.Campaign_Type__c</elementReference>
+                <elementReference>Get_Contact.Campaign_Type__c</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
             <field>Lead_Product_Category_on_Opp__c</field>
             <value>
-                <elementReference>$Record.Lead_Product_Category__c</elementReference>
+                <elementReference>Get_Contact.Lead_Product_Category__c</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
             <field>Lead_Product_of_Interest_on_Opp__c</field>
             <value>
-                <elementReference>$Record.Lead_Product_of_Interest__c</elementReference>
+                <elementReference>Get_Contact.Lead_Product_of_Interest__c</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
             <field>Lead_Sales_Rep_to_Assign__c</field>
             <value>
                 <elementReference>Get_Pardot_Lead_Assignment.Sales_Rep_to_Assign__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>NDA__c</field>
+            <value>
+                <elementReference>Get_Contact.Send_NDA__c</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -590,13 +891,13 @@
         <inputAssignments>
             <field>Pardot_Campaign__c</field>
             <value>
-                <elementReference>$Record.pi__campaign__c</elementReference>
+                <elementReference>Get_Contact.pi__campaign__c</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
             <field>Primary_Contact__c</field>
             <value>
-                <elementReference>$Record.Id</elementReference>
+                <elementReference>Get_Contact.Id</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -612,6 +913,12 @@
             </value>
         </inputAssignments>
         <inputAssignments>
+            <field>Referral_Source__c</field>
+            <value>
+                <elementReference>formReferralSource</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
             <field>Specialty_Group_on_Opp__c</field>
             <value>
                 <elementReference>Get_Pardot_Lead_Assignment.PLA_Specialty_Group__c</elementReference>
@@ -624,64 +931,108 @@
             </value>
         </inputAssignments>
         <inputAssignments>
+            <field>TD_Lead_Notes__c</field>
+            <value>
+                <elementReference>formTDNotes</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>TD_Lead_Score__c</field>
+            <value>
+                <elementReference>Get_Contact.TD_Lead_Score__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Touch_Count__c</field>
+            <value>
+                <numberValue>1.0</numberValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
             <field>Training_Course_Date__c</field>
             <value>
-                <elementReference>$Record.Training_Course_Date__c</elementReference>
+                <elementReference>formTrainingCourseDate</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
             <field>Training_Course_Location__c</field>
             <value>
-                <elementReference>$Record.Training_Course_Location__c</elementReference>
+                <elementReference>formTrainingCourseLocation</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
             <field>Training_Course_Name__c</field>
             <value>
-                <elementReference>$Record.Training_Course_Name__c</elementReference>
+                <elementReference>formTrainingCourseName</elementReference>
             </value>
         </inputAssignments>
         <object>Opportunity</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordCreates>
+    <recordLookups>
+        <name>Get_Contact</name>
+        <label>Get Contact</label>
+        <locationX>817</locationX>
+        <locationY>323</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Contact_Qualifies</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.ContactId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Contact</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
     <recordLookups>
         <name>Get_Existing_Contact_Roles</name>
         <label>Get Existing Contact Roles</label>
         <locationX>380</locationX>
-        <locationY>1055</locationY>
+        <locationY>1379</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Loop_Through_Contact_Roles_on_Opp</targetReference>
         </connector>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>OpportunityId</field>
             <operator>EqualTo</operator>
             <value>
-                <elementReference>Get_Opportunity.Id</elementReference>
+                <elementReference>Get_Lead_Opportunity.Id</elementReference>
             </value>
         </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
         <object>OpportunityContactRole</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordLookups>
-        <name>Get_Opportunity</name>
-        <label>Get Opportunity</label>
+        <name>Get_Lead_Opportunity</name>
+        <label>Get Lead/Opportunity</label>
         <locationX>677</locationX>
-        <locationY>539</locationY>
+        <locationY>755</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>Matching_Opp_Found</targetReference>
+            <targetReference>Assign_Campaign_Id</targetReference>
         </connector>
+        <filterLogic>1 AND 2 AND 6 AND 7 AND (3 OR 4 OR 5)</filterLogic>
         <filters>
-            <field>AccountId</field>
+            <field>Primary_Contact__c</field>
             <operator>EqualTo</operator>
             <value>
-                <elementReference>$Record.AccountId</elementReference>
+                <elementReference>Get_Contact.Id</elementReference>
             </value>
         </filters>
         <filters>
             <field>Lead_Product_Category_on_Opp__c</field>
             <operator>EqualTo</operator>
             <value>
-                <elementReference>$Record.Lead_Product_Category__c</elementReference>
+                <elementReference>Get_Contact.Lead_Product_Category__c</elementReference>
             </value>
         </filters>
         <filters>
@@ -702,13 +1053,6 @@
             <field>StageName</field>
             <operator>EqualTo</operator>
             <value>
-                <stringValue>In Progress</stringValue>
-            </value>
-        </filters>
-        <filters>
-            <field>StageName</field>
-            <operator>EqualTo</operator>
-            <value>
                 <stringValue>Dormant</stringValue>
             </value>
         </filters>
@@ -719,96 +1063,218 @@
                 <stringValue>Training Course</stringValue>
             </value>
         </filters>
+        <filters>
+            <field>RecordTypeId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>0126g000000X4XUAA0</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
         <object>Opportunity</object>
         <sortField>LastModifiedDate</sortField>
         <sortOrder>Desc</sortOrder>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordLookups>
         <name>Get_Pardot_Lead_Assignment</name>
         <label>Get Pardot Lead Assignment</label>
         <locationX>677</locationX>
-        <locationY>431</locationY>
+        <locationY>647</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>Get_Opportunity</targetReference>
+            <targetReference>Get_Lead_Opportunity</targetReference>
         </connector>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>Name</field>
             <operator>EqualTo</operator>
             <value>
-                <elementReference>$Record.Lead_Product_Category__c</elementReference>
+                <elementReference>Get_Contact.Lead_Product_Category__c</elementReference>
             </value>
         </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
         <object>Pardot_Lead_Assignment__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <description>Translate the contact&apos;s Form_Product__c (the product actually submitted) into the standard category/interest via Pardot_Product_Mapping__mdt -- same mapping LeadConvert.applyProductMapping uses. No match leaves the contact values untouched.</description>
+        <name>Get_Product_Category_Mapping</name>
+        <label>Get Product Category Mapping</label>
+        <locationX>182</locationX>
+        <locationY>431</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Was_Product_Mapping_Found</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Form_Product_Value__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_Contact.Form_Product__c</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Pardot_Product_Mapping__mdt</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordUpdates>
         <name>Update_Contact_Pardot_Data_Import_to_False_0_0</name>
         <label>Update Contact Pardot Data Import to False</label>
         <locationX>264</locationX>
-        <locationY>3539</locationY>
+        <locationY>3863</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_Contact.Id</elementReference>
+            </value>
+        </filters>
         <inputAssignments>
             <field>Pardot_Data_Import__c</field>
             <value>
                 <stringValue>FALSE</stringValue>
             </value>
         </inputAssignments>
-        <inputReference>$Record</inputReference>
+        <object>Contact</object>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Persist the mdt-derived category/interest (or &quot;Not Specified&quot; for an unmapped product) back onto the Contact, so the stored value stops being stale and the correct value syncs to Account Engagement. Only reached from the two remap branches; the &quot;no product, keep contact value&quot; default path does not write.</description>
+        <name>Update_Contact_Product_Fields</name>
+        <label>Update Contact Product Fields</label>
+        <locationX>182</locationX>
+        <locationY>755</locationY>
+        <connector>
+            <targetReference>Campaign_Type</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_Contact.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Lead_Product_Category__c</field>
+            <value>
+                <elementReference>Get_Contact.Lead_Product_Category__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Lead_Product_of_Interest__c</field>
+            <value>
+                <elementReference>Get_Contact.Lead_Product_of_Interest__c</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Contact</object>
     </recordUpdates>
     <recordUpdates>
         <name>Update_Existing_Opp_with_PLA_Fields</name>
         <label>Update Existing Opp with PLA Fields</label>
         <locationX>182</locationX>
-        <locationY>2471</locationY>
+        <locationY>2795</locationY>
         <connector>
             <targetReference>Create_Contact_Role</targetReference>
         </connector>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
             <operator>EqualTo</operator>
             <value>
-                <elementReference>Get_Opportunity.Id</elementReference>
+                <elementReference>Get_Lead_Opportunity.Id</elementReference>
             </value>
         </filters>
         <inputAssignments>
+            <field>CampaignId</field>
+            <value>
+                <elementReference>varCampaignId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
             <field>Description</field>
             <value>
-                <elementReference>AppendedDescription</elementReference>
+                <elementReference>formAppendedDescription</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Employee_Referral_Name__c</field>
+            <value>
+                <elementReference>formEmployeeReferralName</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Form_Product__c</field>
+            <value>
+                <elementReference>Get_Contact.Form_Product__c</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
             <field>GCLID_Google_Click_Identification__c</field>
             <value>
-                <elementReference>$Record.GCLID_Google_Click_Identification__c</elementReference>
+                <elementReference>Get_Contact.GCLID_Google_Click_Identification__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Google_Analytics_Campaign__c</field>
+            <value>
+                <elementReference>Get_Contact.pi__utm_campaign__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Google_Analytics_Medium__c</field>
+            <value>
+                <elementReference>Get_Contact.pi__utm_medium__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Google_Analytics_Referrer__c</field>
+            <value>
+                <elementReference>Get_Contact.Google_Analytics_Referrer__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Google_Analytics_Source__c</field>
+            <value>
+                <elementReference>Get_Contact.pi__utm_source__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Google_Analytics_Term__c</field>
+            <value>
+                <elementReference>Get_Contact.pi__utm_term__c</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
             <field>LSC_Campaign__c</field>
             <value>
-                <elementReference>LSCCampaignValue</elementReference>
+                <elementReference>formLSCCampaignValue</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
             <field>Last_Attended_Trade_Show__c</field>
             <value>
-                <elementReference>$Record.Last_Attended_Trade_Show__c</elementReference>
+                <elementReference>Get_Contact.Last_Attended_Trade_Show__c</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
             <field>Last_Registered_Event__c</field>
             <value>
-                <elementReference>$Record.Last_Registered_Event__c</elementReference>
+                <elementReference>Get_Contact.Last_Registered_Event__c</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
             <field>LeadSource</field>
             <value>
-                <elementReference>ExistingOppLeadSource</elementReference>
+                <elementReference>formExistingOppLeadSource</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
             <field>Lead_Campaign_Type__c</field>
             <value>
-                <elementReference>$Record.Campaign_Type__c</elementReference>
+                <elementReference>Get_Contact.Campaign_Type__c</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -824,15 +1290,27 @@
             </value>
         </inputAssignments>
         <inputAssignments>
+            <field>NDA__c</field>
+            <value>
+                <elementReference>Get_Contact.Send_NDA__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
             <field>Pardot_Campaign__c</field>
             <value>
-                <elementReference>PardotCampaignValue</elementReference>
+                <elementReference>formPardotCampaignValue</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
             <field>Product_Group__c</field>
             <value>
                 <elementReference>Get_Pardot_Lead_Assignment.PLA_Product_Group__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Referral_Source__c</field>
+            <value>
+                <elementReference>formReferralSource</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -848,32 +1326,67 @@
             </value>
         </inputAssignments>
         <inputAssignments>
+            <field>TD_Lead_Notes__c</field>
+            <value>
+                <elementReference>formAppendedTDNotes</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>TD_Lead_Score__c</field>
+            <value>
+                <elementReference>Get_Contact.TD_Lead_Score__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Touch_Count__c</field>
+            <value>
+                <elementReference>formIncrementedTouchCount</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
             <field>Training_Course_Date__c</field>
             <value>
-                <elementReference>$Record.Training_Course_Date__c</elementReference>
+                <elementReference>formTrainingCourseDate</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
             <field>Training_Course_Location__c</field>
             <value>
-                <elementReference>$Record.Training_Course_Location__c</elementReference>
+                <elementReference>formTrainingCourseLocation</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
             <field>Training_Course_Name__c</field>
             <value>
-                <elementReference>$Record.Training_Course_Name__c</elementReference>
+                <elementReference>formTrainingCourseName</elementReference>
             </value>
         </inputAssignments>
         <object>Opportunity</object>
     </recordUpdates>
-    <startElementReference>Campaign_Type</startElementReference>
+    <start>
+        <locationX>691</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Contact</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>ContactId</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <object>CampaignMember</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
     <status>Active</status>
     <subflows>
         <name>Opportunity_Assignment_Flow_2_0</name>
         <label>Opportunity Assignment Flow 2.0</label>
         <locationX>677</locationX>
-        <locationY>3347</locationY>
+        <locationY>3671</locationY>
         <connector>
             <targetReference>Update_Contact_Pardot_Data_Import_to_False_0_0</targetReference>
         </connector>
@@ -959,5 +1472,12 @@
         <isInput>false</isInput>
         <isOutput>false</isOutput>
         <objectType>Opportunity</objectType>
+    </variables>
+    <variables>
+        <name>varCampaignId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
     </variables>
 </Flow>

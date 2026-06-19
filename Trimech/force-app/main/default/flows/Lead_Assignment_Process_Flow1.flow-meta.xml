@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>49.0</apiVersion>
     <decisions>
         <name>Existing_Opportunity</name>
         <label>Existing Opportunity?</label>
@@ -126,6 +127,7 @@
             </value>
         </inputAssignments>
         <object>OpportunityContactRole</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordCreates>
     <recordCreates>
         <name>Create_Opportunty</name>
@@ -213,6 +215,7 @@
         <connector>
             <targetReference>Existing_Opportunity</targetReference>
         </connector>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>ContactId</field>
             <operator>EqualTo</operator>
@@ -251,6 +254,7 @@
         <connector>
             <targetReference>Create_Opportunty</targetReference>
         </connector>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
             <operator>EqualTo</operator>
@@ -277,6 +281,7 @@
         <connector>
             <targetReference>Has_No_Account</targetReference>
         </connector>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
             <operator>EqualTo</operator>
@@ -307,6 +312,7 @@
         <connector>
             <targetReference>Get_Account_from_Contact</targetReference>
         </connector>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
             <operator>EqualTo</operator>
@@ -314,7 +320,9 @@
                 <elementReference>Get_Lead_Assignment.Contact__c</elementReference>
             </value>
         </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
         <object>Contact</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordLookups>
         <name>Get_Lead_Assignment</name>
@@ -325,6 +333,7 @@
         <connector>
             <targetReference>Get_Contact</targetReference>
         </connector>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
             <operator>EqualTo</operator>
@@ -332,7 +341,9 @@
                 <elementReference>RecordId</elementReference>
             </value>
         </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
         <object>Lead_Assignment_Process__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordLookups>
         <name>Get_Opportunity_Record</name>
@@ -343,6 +354,7 @@
         <connector>
             <targetReference>Update_Opportunity_Lead_Assignment</targetReference>
         </connector>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
             <operator>EqualTo</operator>
@@ -350,7 +362,9 @@
                 <elementReference>ExistingOppId</elementReference>
             </value>
         </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
         <object>Opportunity</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordUpdates>
         <name>Update_Lead_Assignment</name>
@@ -360,6 +374,7 @@
         <connector>
             <targetReference>Get_Opportunity_Record</targetReference>
         </connector>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
             <operator>EqualTo</operator>
@@ -389,6 +404,7 @@
         <connector>
             <targetReference>Update_Task</targetReference>
         </connector>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
             <operator>EqualTo</operator>
@@ -424,6 +440,7 @@
         <connector>
             <targetReference>Get_Account</targetReference>
         </connector>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
             <operator>EqualTo</operator>
@@ -447,6 +464,7 @@
         <connector>
             <targetReference>Update_Opportunity_Stage</targetReference>
         </connector>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
             <operator>EqualTo</operator>
@@ -470,6 +488,7 @@
         <connector>
             <targetReference>Update_Task</targetReference>
         </connector>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
             <operator>EqualTo</operator>
@@ -490,6 +509,7 @@
         <label>Update Task</label>
         <locationX>1208</locationX>
         <locationY>635</locationY>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
             <operator>EqualTo</operator>
@@ -505,7 +525,13 @@
         </inputAssignments>
         <object>Task</object>
     </recordUpdates>
-    <startElementReference>Get_Lead_Assignment</startElementReference>
+    <start>
+        <locationX>50</locationX>
+        <locationY>50</locationY>
+        <connector>
+            <targetReference>Get_Lead_Assignment</targetReference>
+        </connector>
+    </start>
     <status>Active</status>
     <subflows>
         <name>Assign_Opportunity</name>

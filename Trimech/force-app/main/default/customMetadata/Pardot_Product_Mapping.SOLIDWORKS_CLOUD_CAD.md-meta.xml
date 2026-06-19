@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>SOLIDWORKS CLOUD CAD</label>
+    <protected>false</protected>
+    <values>
+        <field>Form_Product_Value__c</field>
+        <value xsi:type="xsd:string">SOLIDWORKS CLOUD CAD</value>
+    </values>
+    <values>
+        <field>Lead_Product_Category__c</field>
+        <value xsi:type="xsd:string">SOLIDWORKS 3D CAD</value>
+    </values>
+    <values>
+        <field>Lead_Product_of_Interest__c</field>
+        <value xsi:type="xsd:string">SOLIDWORKS 3D CAD</value>
+    </values>
+</CustomMetadata>

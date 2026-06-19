@@ -545,11 +545,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Opportunity.Account_NetSuite_Id_IO__c</field>
-            <table>Quote</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Opportunity.Account_Phone__c</field>
             <table>Quote</table>
         </columns>
@@ -790,11 +785,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Opportunity.Link_to_Primary_Contact__c</field>
-            <table>Quote</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Opportunity.Link_To_Record__c</field>
             <table>Quote</table>
         </columns>
@@ -955,11 +945,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Opportunity.Primary_Contact_NetSuite_Id__c</field>
-            <table>Quote</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Opportunity.Primary_Contact_NetSuite_Id_IO__c</field>
             <table>Quote</table>
         </columns>
@@ -1021,11 +1006,6 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Opportunity.Record_ID_18__c</field>
-            <table>Quote</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Opportunity.Record_ID_18_2__c</field>
             <table>Quote</table>
         </columns>
         <columns>
@@ -1372,6 +1352,16 @@
             <field>Account_Subsidiary__c</field>
             <table>Quote</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Case__c</field>
+            <table>Quote</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>AgreementName__c</field>
+            <table>Quote</table>
+        </columns>
         <masterLabel>Proposals</masterLabel>
     </sections>
     <sections>
@@ -1383,6 +1373,26 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Case_Safe_Id__c</field>
+            <table>Quote.QuoteLineItems</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Discount__c</field>
+            <table>Quote.QuoteLineItems</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>List_Total__c</field>
+            <table>Quote.QuoteLineItems</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Purchase_Price_Override__c</field>
+            <table>Quote.QuoteLineItems</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Business_Unit__c</field>
             <table>Quote.QuoteLineItems</table>
         </columns>
         <masterLabel>Proposal Line Items</masterLabel>

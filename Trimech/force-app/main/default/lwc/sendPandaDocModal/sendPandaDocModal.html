@@ -1,0 +1,41 @@
+<template>
+    <lightning-quick-action-panel header="Send PandaDoc Document">
+
+        <div class="slds-p-around_medium">
+
+            <div class="slds-m-top_medium" style="max-height: 200px; overflow-y: auto;">
+                <lightning-datatable
+                    key-field="value"
+                    data={templates}
+                    columns={columns}
+                    max-row-selection="1"
+                    onrowselection={handleTemplateSelection}>
+                </lightning-datatable>
+            </div>
+
+            <template if:true={isLoading}>
+                <div class="slds-m-top_medium slds-align_absolute-center">
+                    <lightning-spinner size="medium"></lightning-spinner>
+                </div>
+            </template>
+
+        </div>
+
+        <div slot="footer">
+            <lightning-button
+                label="Cancel"
+                onclick={handleCancel}
+                disabled={isLoading}>
+            </lightning-button>
+
+            <lightning-button
+                variant="brand"
+                label="Send"
+                onclick={handleSend}
+                disabled={disableSend}
+                class="slds-m-left_small">
+            </lightning-button>
+        </div>
+
+    </lightning-quick-action-panel>
+</template>

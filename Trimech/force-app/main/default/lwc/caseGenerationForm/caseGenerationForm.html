@@ -51,7 +51,7 @@
             </lightning-layout>
             <div class="slds-text-heading_large input-wrapper boldCSS"> Describe your problem</div>
             <lightning-layout multiple-rows="true">
-                <lightning-layout-item  size="12" large-device-size="4" medium-device-size="4" small-device-size="12">
+                <lightning-layout-item  size="12" large-device-size="3" medium-device-size="3" small-device-size="12">
                     <div class="input-wrapper">
                         <div class="input-field-container floating-label-container">
                             <label class="floating-label">Product <span class="red-text">*</span>&nbsp;</label>
@@ -68,8 +68,25 @@
                         </div>
                     </div>
                 </lightning-layout-item>
+                
+                <lightning-layout-item  size="12" large-device-size="3" medium-device-size="3" small-device-size="12">
+                    <div class="input-wrapper">
+                        <div class="input-field-container floating-label-container">
+                            <label class="floating-label">Type</label>
+                            <lightning-combobox
+                                name="typeValue" 
+                                variant="label-hidden" 
+                                class="custom-input"
+                                value={caseObj.typeValue}
+                                placeholder="Select an option"
+                                options={typeOptions}
+                                onchange={handleChange}>
+                            </lightning-combobox>
+                        </div>
+                    </div>
+                </lightning-layout-item>
 
-                <lightning-layout-item  size="12" large-device-size="4" medium-device-size="4" small-device-size="12">
+                <lightning-layout-item  size="12" large-device-size="3" medium-device-size="3" small-device-size="12">
                     <div class="input-field-container floating-label-container">
                     <div class="input-wrapper">
                             <label class="floating-label">Software Version</label>
@@ -86,7 +103,7 @@
                     </div>
                 </lightning-layout-item>
 
-                <lightning-layout-item  size="12" large-device-size="4" medium-device-size="4" small-device-size="12">
+                <lightning-layout-item  size="12" large-device-size="3" medium-device-size="3" small-device-size="12">
                     <div class="input-wrapper">
                         <div class="input-field-container floating-label-container">
                             <label class="floating-label">Serial Number</label>
@@ -94,6 +111,7 @@
                         </div>
                     </div>
                 </lightning-layout-item>
+
 
                 <lightning-layout-item  size="12" large-device-size="6" medium-device-size="6" small-device-size="12">
                     <div class="input-wrapper">
@@ -121,6 +139,8 @@
                         </div>
                     </div>
                 </lightning-layout-item>
+
+                
 
                 <lightning-layout-item size="12">
                     <div class="input-wrapper textCSS">
@@ -175,6 +195,28 @@
         </div> 
         </div>
     </template>
+
+    <template if:true={showUrgentModal}>
+        <section role="dialog" tabindex="-1" aria-modal="true" class="custom-modal custom-fade-in-open">
+            <div class="custom-modal-container">
+                <header class="custom-modal-header">
+                    Urgent Priority Confirmation
+                </header>
+                <div class="custom-modal-content">
+                    <ul>
+                        <li><span class="custom-boldCSS">URGENT:</span> The software or printer is NOT operational. NO workaround exists and/or the business is severely impacted.</li>
+                    </ul>
+                    <p class="fontSizePopUp">Are you sure you want to submit this case as Urgent?</p>
+                </div>
+                <footer class="custom-modal-footer">
+                    <button class="custom-button custom-button-neutral" onclick={cancelUrgentSubmit}>Cancel</button>
+                    <button class="custom-button custom-button-brand" onclick={confirmUrgentSubmit}>Confirm</button>
+                </footer>
+            </div>
+        </section>
+        <div class="custom-backdrop custom-backdrop-open"></div>
+    </template>
+
 
     <template if:true={isSubmitted}>
         <div class="thankYouContainer">

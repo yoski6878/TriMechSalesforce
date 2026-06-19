@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>66.0</apiVersion>
+    <isExposed>true</isExposed>
+    <targets>
+        <target>lightning__RecordPage</target>
+        <target>lightning__AppPage</target>
+        <target>lightning__HomePage</target>
+        <target>lightning__FlowScreen</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__RecordPage,lightning__AppPage,lightning__HomePage,lightning__FlowScreen">
+            <property name="maxFileSize" type="Integer" label="Max File Size (bytes)" default="10485760"/>
+            <property name="accept" type="String" label="Accepted File Types"/>
+            <property name="recordId" type="String" label="Related Record Id"/>
+            <property name="multiple" type="Boolean" label="Allow Multiple Files" default="false"/>
+            <property name="disabled" type="Boolean" label="Disabled" default="false"/>
+            <property name="label" type="String" label="Label" default="Upload Files"/>
+            <property name="title" type="String" label="Hover Text (Title)"/>
+            <property name="contentDocumentIds" type="String" label="Content Document IDs (comma-separated)"/>
+            <property name="contentVersionIds" type="String" label="Content Version IDs (comma-separated)"/>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

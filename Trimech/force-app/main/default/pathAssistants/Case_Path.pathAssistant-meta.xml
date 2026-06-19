@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PathAssistant xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <entityName>Case</entityName>
+    <fieldName>Status</fieldName>
+    <masterLabel>Case Path</masterLabel>
+    <pathAssistantSteps>
+        <picklistValueName>Closed</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;&lt;strong style=&quot;font-size: 13px;&quot;&gt;Escalate the Case&lt;/strong&gt;: Click the &lt;strong style=&quot;font-size: 13px;&quot;&gt;Escalate&lt;/strong&gt; button, then select &lt;strong style=&quot;font-size: 13px;&quot;&gt;Mark as Current Status&lt;/strong&gt; to escalate the case.&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-size: 13px;&quot;&gt;Reassign Ownership&lt;/strong&gt;: Ensure the case is reassigned to the appropriate higher-level team or individual.&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-size: 13px;&quot;&gt;Set Priority&lt;/strong&gt;: Adjust the case priority to &lt;strong style=&quot;font-size: 13px;&quot;&gt;High&lt;/strong&gt; or &lt;strong style=&quot;font-size: 13px;&quot;&gt;Critical&lt;/strong&gt; as necessary. &lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-size: 13px;&quot;&gt;Add Notes&lt;/strong&gt;&lt;span style=&quot;font-size: 13px;&quot;&gt;: Provide additional context in the &lt;/span&gt;&lt;strong style=&quot;font-size: 13px;&quot;&gt;Comments&lt;/strong&gt;&lt;span style=&quot;font-size: 13px;&quot;&gt; or &lt;/span&gt;&lt;strong style=&quot;font-size: 13px;&quot;&gt;Description&lt;/strong&gt;&lt;span style=&quot;font-size: 13px;&quot;&gt; fields to explain why the case is being escalated.&lt;/span&gt;&lt;/p&gt;</info>
+        <picklistValueName>Escalated</picklistValueName>
+    </pathAssistantSteps>
+    <recordTypeName>__MASTER__</recordTypeName>
+</PathAssistant>

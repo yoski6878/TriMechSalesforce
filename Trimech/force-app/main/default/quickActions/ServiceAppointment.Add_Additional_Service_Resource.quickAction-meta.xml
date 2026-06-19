@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QuickAction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <flowDefinition>Service_Appointment_SCRN_Add_Additional_Service_Resource_to_SA_Clone_SA</flowDefinition>
+    <label>Add Additional Service Resource</label>
+    <optionsCreateFeedItem>false</optionsCreateFeedItem>
+    <type>Flow</type>
+</QuickAction>

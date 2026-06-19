@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>49.0</apiVersion>
     <decisions>
         <name>Hardware_Assignment_Rules</name>
         <label>Hardware Assignment Rules</label>
@@ -245,6 +246,7 @@
         <connector>
             <targetReference>Product_Group</targetReference>
         </connector>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
             <operator>EqualTo</operator>
@@ -252,7 +254,9 @@
                 <elementReference>Get_Opportunity.AccountId</elementReference>
             </value>
         </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
         <object>Account</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordLookups>
         <name>Get_Opportunity</name>
@@ -263,6 +267,7 @@
         <connector>
             <targetReference>Get_Account</targetReference>
         </connector>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
             <operator>EqualTo</operator>
@@ -270,13 +275,16 @@
                 <elementReference>RecordId</elementReference>
             </value>
         </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
         <object>Opportunity</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordUpdates>
         <name>Set_Opp_Owner_Account_Owner</name>
         <label>Set Opp Owner - Account Owner</label>
         <locationX>517</locationX>
         <locationY>756</locationY>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
             <operator>EqualTo</operator>
@@ -303,6 +311,7 @@
         <label>Set Opp Owner - Hardware Inside</label>
         <locationX>50</locationX>
         <locationY>1070</locationY>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
             <operator>EqualTo</operator>
@@ -329,6 +338,7 @@
         <label>Set Opp Owner - Hardware Outside</label>
         <locationX>394</locationX>
         <locationY>1067</locationY>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
             <operator>EqualTo</operator>
@@ -355,6 +365,7 @@
         <label>Set Opp Owner - Software Inside</label>
         <locationX>645</locationX>
         <locationY>1076</locationY>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
             <operator>EqualTo</operator>
@@ -381,6 +392,7 @@
         <label>Set Opp Owner - Software Outside</label>
         <locationX>1057</locationX>
         <locationY>1070</locationY>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
             <operator>EqualTo</operator>
@@ -402,7 +414,13 @@
         </inputAssignments>
         <object>Opportunity</object>
     </recordUpdates>
-    <startElementReference>Get_Opportunity</startElementReference>
+    <start>
+        <locationX>117</locationX>
+        <locationY>238</locationY>
+        <connector>
+            <targetReference>Get_Opportunity</targetReference>
+        </connector>
+    </start>
     <status>Active</status>
     <variables>
         <name>RecordId</name>

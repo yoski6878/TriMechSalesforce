@@ -7,13 +7,18 @@
         <locationY>2174</locationY>
         <actionName>c:Redirect</actionName>
         <actionType>component</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
         <inputParameters>
             <name>recordId</name>
             <value>
                 <elementReference>varNewOpportunityId</elementReference>
             </value>
         </inputParameters>
+        <nameSegment>c:Redirect</nameSegment>
+        <offset>0</offset>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
     </actionCalls>
+    <apiVersion>58.0</apiVersion>
     <assignments>
         <name>Add_Each_Active_OLI_to_Record_Collection</name>
         <label>Add Each Active OLI to Record Collection</label>
@@ -248,6 +253,7 @@
         <name>recChoiceSetContacts</name>
         <dataType>String</dataType>
         <displayField>Name</displayField>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>AccountId</field>
             <operator>EqualTo</operator>
@@ -260,6 +266,7 @@
         <sortOrder>Asc</sortOrder>
         <valueField>Id</valueField>
     </dynamicChoiceSets>
+    <environments>Default</environments>
     <formulas>
         <name>formDisplayInactiveProducts</name>
         <dataType>String</dataType>
@@ -387,7 +394,7 @@
         <inputAssignments>
             <field>LeadSource</field>
             <value>
-                <elementReference>Get_Opportunity_Record.LeadSource</elementReference>
+                <stringValue>Business Development</stringValue>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -483,6 +490,7 @@
             </value>
         </inputAssignments>
         <object>OpportunityContactRole</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordCreates>
     <recordLookups>
         <name>Get_Opportunity_Line_Items</name>
@@ -493,6 +501,7 @@
         <connector>
             <targetReference>Loop_OLI_to_check_for_Inactive_Products</targetReference>
         </connector>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>OpportunityId</field>
             <operator>EqualTo</operator>
@@ -500,6 +509,7 @@
                 <elementReference>Get_Opportunity_Record.Id</elementReference>
             </value>
         </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
         <object>OpportunityLineItem</object>
         <queriedFields>Id</queriedFields>
         <queriedFields>Active__c</queriedFields>
@@ -525,6 +535,7 @@
         <queriedFields>Vendor_Discount_Percent__c</queriedFields>
         <sortField>SortOrder</sortField>
         <sortOrder>Asc</sortOrder>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordLookups>
         <name>Get_Opportunity_Record</name>
@@ -535,6 +546,7 @@
         <connector>
             <targetReference>New_Opportunity_Details</targetReference>
         </connector>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
             <operator>EqualTo</operator>
@@ -542,7 +554,9 @@
                 <elementReference>recordId</elementReference>
             </value>
         </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
         <object>Opportunity</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <screens>
         <name>Inactive_Opportunity_Line_Items</name>
@@ -565,6 +579,7 @@
             <fieldText>&lt;p&gt;{!formDisplayInactiveProducts}&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
+        <nextOrFinishButtonLabel>Finish</nextOrFinishButtonLabel>
         <showFooter>true</showFooter>
         <showHeader>true</showHeader>
     </screens>
@@ -587,6 +602,7 @@
             </defaultValue>
             <fieldText>Opportunity Name</fieldText>
             <fieldType>InputField</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
             <validationRule>
                 <errorMessage>&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); color: rgb(255, 0, 0);&quot;&gt;Name cannot be longer than 120 characters&lt;/span&gt;&lt;/p&gt;</errorMessage>
@@ -601,6 +617,7 @@
             </defaultValue>
             <fieldText>Expected Close Date</fieldText>
             <fieldType>InputField</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
             <validationRule>
                 <errorMessage>&lt;p&gt;&lt;span style=&quot;color: rgb(255, 0, 0);&quot;&gt;Close Date cannot be in the past.&lt;/span&gt;&lt;/p&gt;</errorMessage>
@@ -614,6 +631,7 @@
             <dataType>String</dataType>
             <fieldText>Select Primary Contact</fieldText>
             <fieldType>DropdownBox</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
         </fields>
         <fields>
@@ -621,14 +639,36 @@
             <dataType>String</dataType>
             <fieldText>First Name</fieldText>
             <fieldType>InputField</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>false</isRequired>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>Select_Primary_Contact</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <elementReference>choiceNewContact</elementReference>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
         </fields>
         <fields>
             <name>Last_Name</name>
             <dataType>String</dataType>
             <fieldText>Last Name</fieldText>
             <fieldType>InputField</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>Select_Primary_Contact</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <elementReference>choiceNewContact</elementReference>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
         </fields>
         <fields>
             <name>Email</name>
@@ -636,11 +676,22 @@
             <fieldText>Email</fieldText>
             <fieldType>InputField</fieldType>
             <helpText>&lt;p&gt;Enter the email in proper format like you@example.com&lt;/p&gt;</helpText>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
             <validationRule>
                 <errorMessage>&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); color: rgb(255, 0, 0);&quot;&gt;Enter email address in proper format&lt;/span&gt;&lt;/p&gt;</errorMessage>
                 <formulaExpression>REGEX({!Email},&quot;[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}&quot;)</formulaExpression>
             </validationRule>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>Select_Primary_Contact</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <elementReference>choiceNewContact</elementReference>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
         </fields>
         <fields>
             <name>Copy_Opportunity_Line_Items_with_Existing_Line_Descriptions</name>
@@ -651,12 +702,19 @@
             <fieldText>Copy Opportunity Line Items with Existing Line Descriptions</fieldText>
             <fieldType>InputField</fieldType>
             <helpText>&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); color: rgb(68, 68, 68);&quot;&gt;Check&lt;/span&gt; this box only if you changed the Line Description on the previous Opportunity Line Items&lt;/p&gt;</helpText>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
         </fields>
         <showFooter>true</showFooter>
         <showHeader>true</showHeader>
     </screens>
-    <startElementReference>Get_Opportunity_Record</startElementReference>
+    <start>
+        <locationX>56</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Opportunity_Record</targetReference>
+        </connector>
+    </start>
     <status>Active</status>
     <variables>
         <name>recordId</name>

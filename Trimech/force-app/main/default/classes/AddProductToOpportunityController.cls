@@ -1,6 +1,21 @@
 public without sharing class AddProductToOpportunityController {
 
     @AuraEnabled
+    public static Map<String, Object> getBusinessUnitDefaults() {
+        String profileName = [SELECT Profile.Name FROM User WHERE Id = :UserInfo.getUserId()].Profile.Name;
+        List<String> businessUnits = new List<String>();
+        if (profileName == 'Hardware Inside' || profileName == 'Hardware Outside') {
+            businessUnits.add('AM Hardware');
+            businessUnits.add('AM Services');
+        } else if (profileName == 'Software Client Engagement Rep' || profileName == 'Software Client Rep' || profileName == 'Software New Logo Rep') {
+            businessUnits.add('Application Solutions');
+        }
+        return new Map<String, Object>{
+            'profileName' => profileName,
+            'defaultBusinessUnits' => businessUnits
+        };
+    }
+    @AuraEnabled
     public static List<dataWrapper> getProductData(Id opportunityId, String lastPricebookEntryId, Boolean isInitialLoad, filterWrapper appliedFilters) {
         
         Opportunity opp = [SELECT Id, Name, Pricebook2Id, currencyISOCode FROM Opportunity WHERE Id =: opportunityId];

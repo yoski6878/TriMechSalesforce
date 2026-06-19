@@ -161,6 +161,7 @@ public  without sharing class CaseGenerationFormController {
             caseObj.Issue__c = caseRecordWrapper.productName;
             caseObj.Subject = caseRecordWrapper.subject;
             caseObj.Priority = caseRecordWrapper.priority;
+            caseObj.Type = caseRecordWrapper.typeValue;
             caseObj.Description = caseRecordWrapper.description;
             caseObj.Software_Version__c = caseRecordWrapper.softwareVersion;
             caseObj.Serial_Number__c = caseRecordWrapper.serialNumber;
@@ -222,8 +223,9 @@ public  without sharing class CaseGenerationFormController {
         @AuraEnabled public String productName {get;set;}
         @AuraEnabled public String softwareVersion {get;set;}
         @AuraEnabled public String serialNumber {get;set;}
-        @AuraEnabled public string subject {get;set;}
+        @AuraEnabled public String subject {get;set;}
         @AuraEnabled public String priority {get;set;}
+        @AuraEnabled public String typeValue {get;set;}
         @AuraEnabled public String description {get;set;}
         @AuraEnabled public String contentDocumentId {get;set;}
         @AuraEnabled public String contentVersionId {get;set;}

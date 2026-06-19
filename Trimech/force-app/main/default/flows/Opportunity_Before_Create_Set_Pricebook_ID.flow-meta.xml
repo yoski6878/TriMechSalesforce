@@ -1,41 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>60.0</apiVersion>
+    <assignments>
+        <name>Update_the_Pricebook_Id_Variable</name>
+        <label>Update the Pricebook Id Variable</label>
+        <locationX>50</locationX>
+        <locationY>395</locationY>
+        <assignmentItems>
+            <assignToReference>varPricebookIdForOpportunity</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>constJavelinPricebookId</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Check_Opportunity_Site_Id</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Update_the_Site_Id_Variable</name>
+        <label>Update the Site Id Variable</label>
+        <locationX>50</locationX>
+        <locationY>695</locationY>
+        <assignmentItems>
+            <assignToReference>varSiteIdForOpportunity</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Account.Dsx_Site_ID__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Opportunity_Fields</targetReference>
+        </connector>
+    </assignments>
     <constants>
-        <name>constJavelinPricebookID</name>
+        <name>constJavelinPricebookId</name>
         <dataType>String</dataType>
         <value>
             <stringValue>01sPZ00000057aLYAQ</stringValue>
         </value>
     </constants>
-    <constants>
-        <description>This is the ID of the standard pricebook</description>
-        <name>constTrimechPricebookID</name>
-        <dataType>String</dataType>
-        <value>
-            <stringValue>01s6g000007DKs1AAG</stringValue>
-        </value>
-    </constants>
     <decisions>
-        <name>Subsidiary</name>
-        <label>Subsidiary?</label>
-        <locationX>314</locationX>
+        <name>Check_Account_Subsidiary</name>
+        <label>Check Account Subsidiary</label>
+        <locationX>182</locationX>
         <locationY>287</locationY>
-        <defaultConnectorLabel>Other</defaultConnectorLabel>
-        <rules>
-            <name>Trimech</name>
-            <conditionLogic>and</conditionLogic>
-            <conditions>
-                <leftValueReference>$Record.Account.Subsidiary__c</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <stringValue>TriMech Solutions LLC</stringValue>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>Set_Pricebook_ID_Trimech</targetReference>
-            </connector>
-            <label>Trimech</label>
-        </rules>
+        <defaultConnector>
+            <targetReference>Check_Opportunity_Site_Id</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>Javelin</name>
             <conditionLogic>and</conditionLogic>
@@ -47,14 +60,40 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Set_Pricebook_ID_Javelin</targetReference>
+                <targetReference>Update_the_Pricebook_Id_Variable</targetReference>
             </connector>
             <label>Javelin</label>
         </rules>
     </decisions>
-    <description>Set Opportunity Pricebook ID based on Subsidiary value.</description>
+    <decisions>
+        <name>Check_Opportunity_Site_Id</name>
+        <label>Check Opportunity Site Id</label>
+        <locationX>182</locationX>
+        <locationY>587</locationY>
+        <defaultConnector>
+            <targetReference>Update_Opportunity_Fields</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Site_Id_is_Null</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Site_ID__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_the_Site_Id_Variable</targetReference>
+            </connector>
+            <label>Site Id is Null</label>
+        </rules>
+    </decisions>
+    <description>Set Opportunity Pricebook ID based on Account Subsidiary value and Site ID based on Account Dsx Site Id.</description>
+    <environments>Default</environments>
     <interviewLabel>Opportunity | Before Create | Set Pricebook ID {!$Flow.CurrentDateTime}</interviewLabel>
-    <label>Opportunity | Before Create | Set Pricebook ID</label>
+    <label>Set Pricebook Id and Site Id at Opp Creation</label>
     <processMetadataValues>
         <name>BuilderType</name>
         <value>
@@ -75,31 +114,54 @@
     </processMetadataValues>
     <processType>AutoLaunchedFlow</processType>
     <recordUpdates>
-        <name>Set_Pricebook_ID_Javelin</name>
-        <label>Set Pricebook ID Javelin</label>
-        <locationX>314</locationX>
-        <locationY>395</locationY>
+        <name>Update_Opportunity_Fields</name>
+        <label>Update Opportunity Fields</label>
+        <locationX>182</locationX>
+        <locationY>887</locationY>
         <inputAssignments>
             <field>Pricebook2Id</field>
             <value>
-                <elementReference>constJavelinPricebookID</elementReference>
+                <elementReference>varPricebookIdForOpportunity</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Site_ID__c</field>
+            <value>
+                <elementReference>varSiteIdForOpportunity</elementReference>
             </value>
         </inputAssignments>
         <inputReference>$Record</inputReference>
     </recordUpdates>
-    <recordUpdates>
-        <name>Set_Pricebook_ID_Trimech</name>
-        <label>Set Pricebook ID Trimech</label>
-        <locationX>50</locationX>
-        <locationY>395</locationY>
-        <inputAssignments>
-            <field>Pricebook2Id</field>
-            <value>
-                <elementReference>constTrimechPricebookID</elementReference>
-            </value>
-        </inputAssignments>
-        <inputReference>$Record</inputReference>
-    </recordUpdates>
-    <startElementReference>Subsidiary</startElementReference>
+    <start>
+        <locationX>56</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Check_Account_Subsidiary</targetReference>
+        </connector>
+        <object>Opportunity</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
     <status>Active</status>
+    <variables>
+        <description>The Default value is the ID of the Standard Pricebook</description>
+        <name>varPricebookIdForOpportunity</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <stringValue>01s6g000007DKs1AAG</stringValue>
+        </value>
+    </variables>
+    <variables>
+        <name>varSiteIdForOpportunity</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <elementReference>$Record.Site_ID__c</elementReference>
+        </value>
+    </variables>
 </Flow>

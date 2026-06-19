@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>63.0</apiVersion>
+    <environments>Default</environments>
+    <formulas>
+        <name>GanttLabelUpdate</name>
+        <dataType>String</dataType>
+        <expression>{!$Record.AppointmentNumber} &amp;&quot; - &quot;&amp; {!$Record.Account.Name}  &amp;&quot; - &quot;&amp; {!$Record.Asset__r.Name} &amp;&quot; - &quot;&amp; {!$Record.Asset__r.SerialNumber} &amp;&quot; - &quot;&amp; {!$Record.FSSK__FSK_Work_Order__r.Subject}</expression>
+    </formulas>
+    <interviewLabel>(RTF) - SA - Update Gantt Label {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>(RTF) - SA - Update Gantt Label</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Update_Gantt_Label</name>
+        <label>Update Gantt Label</label>
+        <locationX>176</locationX>
+        <locationY>323</locationY>
+        <inputAssignments>
+            <field>FSL__GanttLabel__c</field>
+            <value>
+                <elementReference>GanttLabelUpdate</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Update_Gantt_Label</targetReference>
+        </connector>
+        <object>ServiceAppointment</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

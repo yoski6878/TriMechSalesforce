@@ -31,6 +31,10 @@
                 <field>Purchase_Price__c</field>
             </layoutItems>
             <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Purchase_Price_Override__c</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Pricebook_Purchase_Price__c</field>
             </layoutItems>
@@ -61,14 +65,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Product_Item_Type__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Upside_Total__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Commit_Total__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -120,6 +116,14 @@
                 <behavior>Readonly</behavior>
                 <field>Commissionable_GP__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Upside_Total__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Commit_Total__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>
@@ -132,6 +136,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Line_Description__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Paperless_Opportunity_Product_ID__c</field>
             </layoutItems>
         </layoutColumns>
         <style>OneColumn</style>

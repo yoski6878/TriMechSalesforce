@@ -1,0 +1,24 @@
+<template>
+    <lightning-card title="File Upload">
+        <div class="slds-p-around_medium">
+            <lightning-file-upload
+                label={label}
+                name="fileUploader"
+                record-id={recordId}
+                accept={accept}
+                multiple={multiple}
+                disabled={disabled}
+                title={title}
+                onuploadfinished={handleUploadFinished}
+                onfilechange={handleFileChange}
+                class="file-input"
+            ></lightning-file-upload>
+            <template if:true={errorMessage}>
+                <div class="slds-text-color_error slds-m-top_small">{errorMessage}</div>
+            </template>
+            <template if:true={uploadedFileNames}>
+                <div class="slds-m-top_small">Uploaded: {uploadedFileNames}</div>
+            </template>
+        </div>
+    </lightning-card>
+</template>

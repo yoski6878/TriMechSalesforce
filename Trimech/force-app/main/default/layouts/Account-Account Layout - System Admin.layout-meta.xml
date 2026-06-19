@@ -43,10 +43,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Client_End_Market__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Terms__c</field>
             </layoutItems>
             <layoutItems>
@@ -62,16 +58,36 @@
                 <field>Date_First_Qualified__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Hardware_Sales_Person__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
+                <behavior>Edit</behavior>
                 <field>isSubmitted__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Notes__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Security_Clearance_Required__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Aras_Client__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>ESS_Client__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>OEM_Business_Partner__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>OEM_Site_Name__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>DUNS__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -104,6 +120,10 @@
                 <field>Description</field>
             </layoutItems>
             <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Additional_Notes__c</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Client_Engagement_Score_this_month__c</field>
             </layoutItems>
@@ -118,6 +138,22 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Last_Connected_Date__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Cloud_Hosted__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Global_Support__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>STAMClient__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Subscription_Level__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
@@ -145,14 +181,30 @@
                 <field>Software_Sales_Person__c</field>
             </layoutItems>
             <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Software_Sales_Person_Manager__c</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>DOZISF__ZoomInfo_Id__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>ZoomInfo_Technology__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Engineering_Technical_Employees__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>AnnualRevenue</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Annual_Revenue_Range__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -163,8 +215,20 @@
                 <field>Active_Asset_Count__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Software_Sales_Person_Manager__c</field>
+                <behavior>Edit</behavior>
+                <field>NAICS_Code__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>NAICS_Industry__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>NAICS3_Industry__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>NAICS5_Industry__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -209,6 +273,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>celigo_sfnsio__Credit_Limit__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>NDA__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -322,17 +390,25 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Dedicated_Sales_Rep_Hardware__c</field>
+                <field>Dedicated_Enterprise_Rep__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Client_Engagement_Rep__c</field>
+                <field>Dedicated_Sales_Rep_Hardware__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Client_Engagement_Rep__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Sales_Rep_Software__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Sales_Rep_Enterprise__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -476,15 +552,18 @@
         </platformActionListItems>
     </platformActionList>
     <relatedLists>
-        <excludeButtons>MassChangeOwner</excludeButtons>
-        <excludeButtons>New</excludeButtons>
-        <fields>NAME</fields>
-        <fields>Territory__c.NAME</fields>
-        <fields>Territory__c.Region__c</fields>
-        <fields>Territory__c.Product_Group__c</fields>
-        <fields>CREATED_DATE</fields>
-        <fields>LAST_UPDATE</fields>
-        <relatedList>Account_Territory__c.Account__c</relatedList>
+        <fields>TERRITORY.NAME</fields>
+        <fields>MODEL.NAME</fields>
+        <fields>MODEL.STATE</fields>
+        <fields>ASSIGNMENT_DATE</fields>
+        <fields>ASSOCIATION_CAUSE</fields>
+        <relatedList>AccountAssignedTerritory2sRelatedList</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>FULL_NAME</fields>
+        <fields>ROLE_IN_TERRITORY</fields>
+        <fields>CORE.USERS.EMAIL</fields>
+        <relatedList>AccountUserTerritory2RelatedList</relatedList>
     </relatedLists>
     <relatedLists>
         <excludeButtons>AddRelation</excludeButtons>
@@ -555,12 +634,12 @@
     </relatedLists>
     <relatedLists>
         <fields>ASSET.NAME</fields>
+        <fields>Asset_Group__c</fields>
         <fields>License_Type__c</fields>
         <fields>Status_Flag__c</fields>
         <fields>ASSET.USAGE_END_DATE</fields>
         <fields>Seat_Id__c</fields>
         <fields>ASSET.QUANTITY</fields>
-        <fields>Asset_Group__c</fields>
         <fields>ASSET.SERIAL_NUMBER</fields>
         <fields>ASSET.INSTALL_DATE</fields>
         <fields>ASSET.RECORDTYPE</fields>
@@ -595,12 +674,12 @@
         <fields>CASES.CASE_NUMBER</fields>
         <fields>NAME</fields>
         <fields>CASES.SUBJECT</fields>
+        <fields>Issue__c</fields>
         <fields>CASES.PRIORITY</fields>
         <fields>CASES.CREATED_DATE_DATE_ONLY</fields>
         <fields>CASES.STATUS</fields>
         <fields>OWNER_NAME</fields>
         <fields>Serial_Number__c</fields>
-        <fields>ASSET.NAME</fields>
         <relatedList>RelatedCaseList</relatedList>
     </relatedLists>
     <relatedLists>
@@ -622,6 +701,9 @@
         <relatedList>RelatedFileList</relatedList>
     </relatedLists>
     <relatedLists>
+        <relatedList>RelatedNoteList</relatedList>
+    </relatedLists>
+    <relatedLists>
         <relatedList>RelatedEntityHistoryList</relatedList>
     </relatedLists>
     <relatedLists>
@@ -636,21 +718,6 @@
     <relatedLists>
         <fields>NAME</fields>
         <relatedList>Training_Event__c.Account__c</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>NAME</fields>
-        <fields>Question__c</fields>
-        <fields>Answer__c</fields>
-        <fields>Question_Sort_Order__c</fields>
-        <fields>Question_Template__c</fields>
-        <fields>Section_Label__c</fields>
-        <fields>CREATED_DATE</fields>
-        <fields>CREATEDBY_USER</fields>
-        <fields>LAST_UPDATE</fields>
-        <fields>UPDATEDBY_USER</fields>
-        <relatedList>Client_Profile_Question__c.Account__c</relatedList>
-        <sortField>Question_Sort_Order__c</sortField>
-        <sortOrder>Asc</sortOrder>
     </relatedLists>
     <relatedObjects>ParentId</relatedObjects>
     <showEmailCheckbox>false</showEmailCheckbox>

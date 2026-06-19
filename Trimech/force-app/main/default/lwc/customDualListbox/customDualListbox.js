@@ -4,10 +4,10 @@ export default class CustomDualListbox extends LightningElement {
     @api label;
     @api options = [];
     @api name;
-    @api selectedValues = [];
 
     @track isModalOpen = false;
     @track tempSelectedValues = [];
+    @track rerenderKey = 0; // Used to force UI refresh
 
     // Compute options with "checked" property
     get processedOptions() {
@@ -28,11 +28,12 @@ export default class CustomDualListbox extends LightningElement {
     }
 
     get firstFiveOptions() {
-        return this.processedOptions.slice(0, 5);
+        // Use rerenderKey as key to force re-render
+        return this.processedOptions.slice(0, 5).map(option => ({ ...option, key: this.rerenderKey + option.value }));
     }
 
     get remainingOptions() {
-        return this.processedOptions;
+        return this.processedOptions.map(option => ({ ...option, key: this.rerenderKey + option.value }));
     }
 
     handleCheckboxChange(event) {
@@ -50,7 +51,8 @@ export default class CustomDualListbox extends LightningElement {
     }
 
     clearSelection(){
-        this.selectedValues = []; 
+        this.selectedValues = [];
+        this.rerenderKey++;
         this.dispatchSelectionChange(this.name, this.selectedValues);
     }
 
@@ -69,6 +71,7 @@ export default class CustomDualListbox extends LightningElement {
 
     applySelection() {
         this.selectedValues = [...this.tempSelectedValues];
+        this.rerenderKey++;
         this.dispatchSelectionChange(this.name, this.selectedValues);
         this.closeModal();
     }
@@ -77,5 +80,14 @@ export default class CustomDualListbox extends LightningElement {
         this.dispatchEvent(new CustomEvent('childselectionchange', {
             detail: { filterName, filterValue }
         }));
+    }
+
+    // Robust reactivity for selectedValues
+    @api
+    set selectedValues(values) {
+        this._selectedValues = Array.isArray(values) ? values : [];
+    }
+    get selectedValues() {
+        return this._selectedValues || [];
     }
 }

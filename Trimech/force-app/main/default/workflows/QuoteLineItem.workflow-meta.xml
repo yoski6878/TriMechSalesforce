@@ -8,6 +8,7 @@
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
         <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
     </fieldUpdates>
     <rules>
         <fullName>Set Product Purchase Price</fullName>
@@ -15,7 +16,7 @@
             <name>Set_Product_Purchase_Price</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <formula>ISBLANK ( Product_Purchase_Price__c  )</formula>
         <triggerType>onCreateOnly</triggerType>
     </rules>

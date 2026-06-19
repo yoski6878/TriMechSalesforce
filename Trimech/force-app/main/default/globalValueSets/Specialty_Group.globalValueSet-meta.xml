@@ -6,14 +6,9 @@
         <label>AMS</label>
     </customValue>
     <customValue>
-        <fullName>DELMIA</fullName>
+        <fullName>DELMIAWorks</fullName>
         <default>false</default>
-        <label>DELMIA</label>
-    </customValue>
-    <customValue>
-        <fullName>DriveWorks</fullName>
-        <default>false</default>
-        <label>DriveWorks</label>
+        <label>DELMIAWorks</label>
     </customValue>
     <customValue>
         <fullName>Education</fullName>
@@ -21,29 +16,9 @@
         <label>Education</label>
     </customValue>
     <customValue>
-        <fullName>Excellerant</fullName>
+        <fullName>PEG</fullName>
         <default>false</default>
-        <label>Excellerant</label>
-    </customValue>
-    <customValue>
-        <fullName>Formlabs</fullName>
-        <default>false</default>
-        <label>Formlabs</label>
-    </customValue>
-    <customValue>
-        <fullName>Mastercam</fullName>
-        <default>false</default>
-        <label>Mastercam</label>
-    </customValue>
-    <customValue>
-        <fullName>Metal Printers</fullName>
-        <default>false</default>
-        <label>Metal Printers</label>
-    </customValue>
-    <customValue>
-        <fullName>PLM</fullName>
-        <default>false</default>
-        <label>PLM</label>
+        <label>PEG</label>
     </customValue>
     <customValue>
         <fullName>Scanners</fullName>
@@ -51,14 +26,68 @@
         <label>Scanners</label>
     </customValue>
     <customValue>
-        <fullName>SolidCAM</fullName>
+        <fullName>Scan Services</fullName>
         <default>false</default>
-        <label>SolidCAM</label>
+        <label>Scan Services</label>
     </customValue>
     <customValue>
         <fullName>Staffing</fullName>
         <default>false</default>
         <label>Staffing</label>
+    </customValue>
+    <customValue>
+        <fullName>SolidCAM</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>SolidCAM</label>
+    </customValue>
+    <customValue>
+        <fullName>DELMIA</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>DELMIA</label>
+    </customValue>
+    <customValue>
+        <fullName>Enterprise</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Enterprise</label>
+    </customValue>
+    <customValue>
+        <fullName>DriveWorks</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>DriveWorks</label>
+    </customValue>
+    <customValue>
+        <fullName>Excellerant</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Excellerant</label>
+    </customValue>
+    <customValue>
+        <fullName>Mastercam</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Mastercam</label>
+    </customValue>
+    <customValue>
+        <fullName>Metal Printers</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Metal Printers</label>
+    </customValue>
+    <customValue>
+        <fullName>PLM</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>PLM</label>
+    </customValue>
+    <customValue>
+        <fullName>Formlabs</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Formlabs</label>
     </customValue>
     <description>Used for mapping Specialty Group values for Pardot leads assignment</description>
     <masterLabel>Specialty Group</masterLabel>

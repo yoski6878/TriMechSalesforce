@@ -3,20 +3,36 @@
     <actionCalls>
         <name>Send_Assignment_Email_Notification</name>
         <label>Send Assignment Email Notification</label>
-        <locationX>440</locationX>
+        <locationX>506</locationX>
         <locationY>539</locationY>
         <actionName>emailSimple</actionName>
         <actionType>emailSimple</actionType>
-        <inputParameters>
-            <name>emailBody</name>
-            <value>
-                <elementReference>emailAssignmentToOwner</elementReference>
-            </value>
-        </inputParameters>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
         <inputParameters>
             <name>emailAddresses</name>
             <value>
                 <elementReference>$Record.Owner.Email</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderType</name>
+            <value>
+                <stringValue>DefaultWorkflowUser</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderAddress</name>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>New Lead/Opportunity assigned to you</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>emailAssignmentToOwner</elementReference>
             </value>
         </inputParameters>
         <inputParameters>
@@ -25,17 +41,14 @@
                 <booleanValue>true</booleanValue>
             </value>
         </inputParameters>
-        <inputParameters>
-            <name>emailSubject</name>
-            <value>
-                <stringValue>New Lead/Opportunity assigned to you</stringValue>
-            </value>
-        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <offset>0</offset>
     </actionCalls>
+    <apiVersion>56.0</apiVersion>
     <decisions>
         <name>Check_if_Owner_is_System_user</name>
         <label>Check if Owner is System user</label>
-        <locationX>352</locationX>
+        <locationX>374</locationX>
         <locationY>431</locationY>
         <defaultConnector>
             <targetReference>Send_Assignment_Email_Notification</targetReference>
@@ -77,6 +90,7 @@
         </rules>
     </decisions>
     <description>Email sent whenever the owner is changed for an Open Lead/Opportunity record (Stage not equal to &quot;Sent to OM&quot; / &quot;Closed-Won&quot; / &quot;Closed-Lost&quot;)</description>
+    <environments>Default</environments>
     <formulas>
         <name>FormulaLinkToRecord</name>
         <dataType>String</dataType>
@@ -103,10 +117,49 @@
         </value>
     </processMetadataValues>
     <processType>AutoLaunchedFlow</processType>
-    <startElementReference>Is_the_Owner_same_as_the_User</startElementReference>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Is_the_Owner_same_as_the_User</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>StageName</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>Send to Order Management</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>StageName</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>Closed Won</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>StageName</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>Closed Lost</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>OwnerId</field>
+            <operator>IsChanged</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <object>Opportunity</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
     <status>Active</status>
     <textTemplates>
         <name>emailAssignmentToOwner</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
         <text>&lt;p&gt;A new {!$Record.RecordType.Name} is assigned to you, please find the details below:&lt;/p&gt;&lt;p&gt;Name: &lt;strong&gt;{!$Record.Name}&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;Link to record:&amp;nbsp;{!FormulaLinkToRecord}&lt;/p&gt;</text>
     </textTemplates>
 </Flow>

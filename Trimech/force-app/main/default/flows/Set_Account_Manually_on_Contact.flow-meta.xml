@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>51.0</apiVersion>
     <interviewLabel>Set Account Manually on Contact {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Set Account Manually on Contact</label>
     <processMetadataValues>
@@ -21,7 +22,13 @@
         </value>
     </processMetadataValues>
     <processType>Flow</processType>
-    <startElementReference>Create_Account</startElementReference>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Create_Account</targetReference>
+        </connector>
+    </start>
     <status>Active</status>
     <subflows>
         <name>Create_Account</name>
@@ -35,6 +42,7 @@
                 <elementReference>recordId</elementReference>
             </value>
         </inputAssignments>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
     </subflows>
     <variables>
         <name>recordId</name>

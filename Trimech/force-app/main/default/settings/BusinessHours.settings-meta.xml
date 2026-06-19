@@ -20,4 +20,186 @@
         <wednesdayEndTime>00:00:00.000Z</wednesdayEndTime>
         <wednesdayStartTime>00:00:00.000Z</wednesdayStartTime>
     </businessHours>
+    <businessHours>
+        <active>true</active>
+        <default>false</default>
+        <fridayEndTime>17:00:00.000Z</fridayEndTime>
+        <fridayStartTime>08:00:00.000Z</fridayStartTime>
+        <mondayEndTime>17:00:00.000Z</mondayEndTime>
+        <mondayStartTime>08:00:00.000Z</mondayStartTime>
+        <name>Canada EST</name>
+        <thursdayEndTime>17:00:00.000Z</thursdayEndTime>
+        <thursdayStartTime>08:00:00.000Z</thursdayStartTime>
+        <timeZoneId>America/Toronto</timeZoneId>
+        <tuesdayEndTime>20:00:00.000Z</tuesdayEndTime>
+        <tuesdayStartTime>08:00:00.000Z</tuesdayStartTime>
+        <wednesdayEndTime>17:00:00.000Z</wednesdayEndTime>
+        <wednesdayStartTime>08:00:00.000Z</wednesdayStartTime>
+    </businessHours>
+    <businessHours>
+        <active>true</active>
+        <default>false</default>
+        <fridayEndTime>17:00:00.000Z</fridayEndTime>
+        <fridayStartTime>08:00:00.000Z</fridayStartTime>
+        <mondayEndTime>17:00:00.000Z</mondayEndTime>
+        <mondayStartTime>08:00:00.000Z</mondayStartTime>
+        <name>USA EST</name>
+        <thursdayEndTime>17:00:00.000Z</thursdayEndTime>
+        <thursdayStartTime>08:00:00.000Z</thursdayStartTime>
+        <timeZoneId>America/New_York</timeZoneId>
+        <tuesdayEndTime>17:00:00.000Z</tuesdayEndTime>
+        <tuesdayStartTime>08:00:00.000Z</tuesdayStartTime>
+        <wednesdayEndTime>17:00:00.000Z</wednesdayEndTime>
+        <wednesdayStartTime>08:00:00.000Z</wednesdayStartTime>
+    </businessHours>
+    <holidays>
+        <businessHours>Canada EST</businessHours>
+        <isRecurring>true</isRecurring>
+        <name>Boxing Day</name>
+        <recurrenceDayOfMonth>26</recurrenceDayOfMonth>
+        <recurrenceMonthOfYear>December</recurrenceMonthOfYear>
+        <recurrenceStartDate>2025-12-26</recurrenceStartDate>
+        <recurrenceType>RecursYearly</recurrenceType>
+    </holidays>
+    <holidays>
+        <businessHours>Canada EST</businessHours>
+        <isRecurring>true</isRecurring>
+        <name>Canada Day</name>
+        <recurrenceDayOfMonth>1</recurrenceDayOfMonth>
+        <recurrenceMonthOfYear>July</recurrenceMonthOfYear>
+        <recurrenceStartDate>2025-07-01</recurrenceStartDate>
+        <recurrenceType>RecursYearly</recurrenceType>
+    </holidays>
+    <holidays>
+        <businessHours>Canada EST</businessHours>
+        <businessHours>USA EST</businessHours>
+        <isRecurring>true</isRecurring>
+        <name>Christmas Day</name>
+        <recurrenceDayOfMonth>25</recurrenceDayOfMonth>
+        <recurrenceMonthOfYear>December</recurrenceMonthOfYear>
+        <recurrenceStartDate>2025-12-25</recurrenceStartDate>
+        <recurrenceType>RecursYearly</recurrenceType>
+    </holidays>
+    <holidays>
+        <businessHours>Canada EST</businessHours>
+        <businessHours>USA EST</businessHours>
+        <endTime>23:30:00.000Z</endTime>
+        <isRecurring>true</isRecurring>
+        <name>Christmas Eve</name>
+        <recurrenceDayOfMonth>24</recurrenceDayOfMonth>
+        <recurrenceMonthOfYear>December</recurrenceMonthOfYear>
+        <recurrenceStartDate>2025-12-24</recurrenceStartDate>
+        <recurrenceType>RecursYearly</recurrenceType>
+        <startTime>12:00:00.000Z</startTime>
+    </holidays>
+    <holidays>
+        <businessHours>Canada EST</businessHours>
+        <isRecurring>true</isRecurring>
+        <name>Civic Holiday</name>
+        <recurrenceDayOfWeek>Monday</recurrenceDayOfWeek>
+        <recurrenceInstance>First</recurrenceInstance>
+        <recurrenceMonthOfYear>August</recurrenceMonthOfYear>
+        <recurrenceStartDate>2025-08-04</recurrenceStartDate>
+        <recurrenceType>RecursYearlyNth</recurrenceType>
+    </holidays>
+    <holidays>
+        <activityDate>2025-04-21</activityDate>
+        <isRecurring>false</isRecurring>
+        <name>Easter Monday</name>
+    </holidays>
+    <holidays>
+        <businessHours>Canada EST</businessHours>
+        <isRecurring>true</isRecurring>
+        <name>Family Day</name>
+        <recurrenceDayOfWeek>Monday</recurrenceDayOfWeek>
+        <recurrenceInstance>Third</recurrenceInstance>
+        <recurrenceMonthOfYear>February</recurrenceMonthOfYear>
+        <recurrenceStartDate>2025-02-17</recurrenceStartDate>
+        <recurrenceType>RecursYearlyNth</recurrenceType>
+    </holidays>
+    <holidays>
+        <activityDate>2026-04-03</activityDate>
+        <businessHours>Canada EST</businessHours>
+        <isRecurring>false</isRecurring>
+        <name>Good Friday</name>
+    </holidays>
+    <holidays>
+        <businessHours>USA EST</businessHours>
+        <isRecurring>true</isRecurring>
+        <name>Independence Day</name>
+        <recurrenceDayOfMonth>4</recurrenceDayOfMonth>
+        <recurrenceMonthOfYear>July</recurrenceMonthOfYear>
+        <recurrenceStartDate>2025-07-04</recurrenceStartDate>
+        <recurrenceType>RecursYearly</recurrenceType>
+    </holidays>
+    <holidays>
+        <activityDate>2026-09-07</activityDate>
+        <businessHours>USA EST</businessHours>
+        <isRecurring>false</isRecurring>
+        <name>Labor Day</name>
+    </holidays>
+    <holidays>
+        <activityDate>2026-05-25</activityDate>
+        <businessHours>USA EST</businessHours>
+        <isRecurring>false</isRecurring>
+        <name>Memorial Day</name>
+    </holidays>
+    <holidays>
+        <businessHours>Canada EST</businessHours>
+        <isRecurring>true</isRecurring>
+        <name>National Truth &amp; Reconciliation Day</name>
+        <recurrenceDayOfMonth>30</recurrenceDayOfMonth>
+        <recurrenceMonthOfYear>September</recurrenceMonthOfYear>
+        <recurrenceStartDate>2025-09-30</recurrenceStartDate>
+        <recurrenceType>RecursYearly</recurrenceType>
+    </holidays>
+    <holidays>
+        <businessHours>Canada EST</businessHours>
+        <businessHours>USA EST</businessHours>
+        <isRecurring>true</isRecurring>
+        <name>New Year&apos;s Day</name>
+        <recurrenceDayOfWeek>Sunday</recurrenceDayOfWeek>
+        <recurrenceDayOfWeek>Monday</recurrenceDayOfWeek>
+        <recurrenceDayOfWeek>Tuesday</recurrenceDayOfWeek>
+        <recurrenceDayOfWeek>Wednesday</recurrenceDayOfWeek>
+        <recurrenceDayOfWeek>Thursday</recurrenceDayOfWeek>
+        <recurrenceDayOfWeek>Friday</recurrenceDayOfWeek>
+        <recurrenceDayOfWeek>Saturday</recurrenceDayOfWeek>
+        <recurrenceInstance>First</recurrenceInstance>
+        <recurrenceMonthOfYear>January</recurrenceMonthOfYear>
+        <recurrenceStartDate>2025-01-01</recurrenceStartDate>
+        <recurrenceType>RecursYearlyNth</recurrenceType>
+    </holidays>
+    <holidays>
+        <activityDate>2025-11-11</activityDate>
+        <isRecurring>false</isRecurring>
+        <name>Remembrance Day - Remove</name>
+    </holidays>
+    <holidays>
+        <activityDate>2025-11-28</activityDate>
+        <businessHours>USA EST</businessHours>
+        <description>USA</description>
+        <isRecurring>false</isRecurring>
+        <name>Thanksgiving</name>
+    </holidays>
+    <holidays>
+        <activityDate>2025-11-27</activityDate>
+        <businessHours>USA EST</businessHours>
+        <description>USA</description>
+        <isRecurring>false</isRecurring>
+        <name>Thanksgiving</name>
+    </holidays>
+    <holidays>
+        <activityDate>2026-10-12</activityDate>
+        <businessHours>Canada EST</businessHours>
+        <description>Canada</description>
+        <isRecurring>false</isRecurring>
+        <name>Thanksgiving (Canada)</name>
+    </holidays>
+    <holidays>
+        <activityDate>2026-05-18</activityDate>
+        <businessHours>Canada EST</businessHours>
+        <isRecurring>false</isRecurring>
+        <name>Victoria Day</name>
+    </holidays>
 </BusinessHoursSettings>

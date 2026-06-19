@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>56.0</apiVersion>
     <decisions>
         <name>Check_if_Dismiss_Message_Checkbox_is_Unchecked</name>
         <label>Check if Dismiss Message Checkbox is Unchecked</label>
@@ -44,6 +45,7 @@
             <label>Checked</label>
         </rules>
     </decisions>
+    <environments>Default</environments>
     <interviewLabel>Display Flow on Login {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Display Flow on Login</label>
     <processMetadataValues>
@@ -70,6 +72,7 @@
         <label>Update Dismiss Message Checkbox on User Record</label>
         <locationX>50</locationX>
         <locationY>518</locationY>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
             <operator>EqualTo</operator>
@@ -114,6 +117,12 @@
         <showFooter>true</showFooter>
         <showHeader>false</showHeader>
     </screens>
-    <startElementReference>Check_if_Dismiss_Message_Checkbox_is_Unchecked</startElementReference>
+    <start>
+        <locationX>210</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Check_if_Dismiss_Message_Checkbox_is_Unchecked</targetReference>
+        </connector>
+    </start>
     <status>Active</status>
 </Flow>

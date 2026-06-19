@@ -10,6 +10,7 @@
         <connector>
             <targetReference>Finish_Screen</targetReference>
         </connector>
+        <flowTransactionModel>Automatic</flowTransactionModel>
         <inputParameters>
             <name>delayInterval</name>
             <value>
@@ -28,7 +29,9 @@
                 <elementReference>Job_Start_Date_Time</elementReference>
             </value>
         </inputParameters>
+        <nameSegment>InvocableScheduleDLRS</nameSegment>
     </actionCalls>
+    <apiVersion>57.0</apiVersion>
     <assignments>
         <name>Add_Id_to_List_of_Ids</name>
         <label>Add Id to List of Ids</label>
@@ -45,6 +48,7 @@
             <targetReference>Loop_through_Selected_Records</targetReference>
         </connector>
     </assignments>
+    <environments>Default</environments>
     <interviewLabel>Bulkified DLRS Scheduler {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Bulkified DLRS Scheduler</label>
     <loops>
@@ -89,6 +93,7 @@
         <connector>
             <targetReference>Selection_Screen</targetReference>
         </connector>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>dlrs__ParentObject__c</field>
             <operator>EqualTo</operator>
@@ -103,7 +108,9 @@
                 <booleanValue>true</booleanValue>
             </value>
         </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
         <object>dlrs__LookupRollupSummary2__mdt</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <screens>
         <name>Finish_Screen</name>
@@ -149,6 +156,10 @@
         </fields>
         <fields>
             <name>dlrsTable</name>
+            <dataTypeMappings>
+                <typeName>T</typeName>
+                <typeValue>dlrs__LookupRollupSummary2__mdt</typeValue>
+            </dataTypeMappings>
             <extensionName>flowruntime:datatable</extensionName>
             <fieldType>ComponentInstance</fieldType>
             <inputParameters>
@@ -187,16 +198,24 @@
                     <stringValue>[{&quot;apiName&quot;:&quot;Label&quot;,&quot;guid&quot;:&quot;column-19d7&quot;,&quot;editable&quot;:false,&quot;hasCustomHeaderLabel&quot;:false,&quot;customHeaderLabel&quot;:&quot;&quot;,&quot;wrapText&quot;:false,&quot;order&quot;:0,&quot;label&quot;:&quot;Label&quot;,&quot;type&quot;:&quot;text&quot;},{&quot;apiName&quot;:&quot;&quot;,&quot;guid&quot;:&quot;column-5d58&quot;,&quot;editable&quot;:false,&quot;hasCustomHeaderLabel&quot;:false,&quot;customHeaderLabel&quot;:&quot;&quot;,&quot;wrapText&quot;:true,&quot;order&quot;:0}]</stringValue>
                 </value>
             </inputParameters>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
             <outputParameters>
                 <assignToReference>SelectedRecords</assignToReference>
                 <name>selectedRows</name>
             </outputParameters>
         </fields>
+        <nextOrFinishButtonLabel>Next</nextOrFinishButtonLabel>
         <showFooter>true</showFooter>
         <showHeader>true</showHeader>
     </screens>
-    <startElementReference>Get_Account_Rollups</startElementReference>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Account_Rollups</targetReference>
+        </connector>
+    </start>
     <status>Active</status>
     <variables>
         <name>DLRS_Ids</name>

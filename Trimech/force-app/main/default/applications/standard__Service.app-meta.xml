@@ -3,6 +3,8 @@
     <defaultLandingTab>standard-Case</defaultLandingTab>
     <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
     <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <isNavTabPersistenceDisabled>false</isNavTabPersistenceDisabled>
+    <isOmniPinnedViewEnabled>false</isOmniPinnedViewEnabled>
     <tabs>standard-Case</tabs>
     <tabs>standard-Solution</tabs>
     <tabs>standard-Contact</tabs>
@@ -14,4 +16,5 @@
     <tabs>standard-WaveHome</tabs>
     <tabs>Territory_Assignment__c</tabs>
     <tabs>Pardot_Lead_Assignment__c</tabs>
+    <tabs>Knowledge__kav</tabs>
 </CustomApplication>

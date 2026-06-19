@@ -10,6 +10,8 @@
         <connector>
             <targetReference>Loop_Remaining_Question_Templates</targetReference>
         </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <nameSegment>c:commitTransaction</nameSegment>
     </actionCalls>
     <actionCalls>
         <name>Redirect_to_Account</name>
@@ -18,13 +20,17 @@
         <locationY>1310</locationY>
         <actionName>c:Redirect</actionName>
         <actionType>component</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
         <inputParameters>
             <name>recordId</name>
             <value>
                 <elementReference>recordId</elementReference>
             </value>
         </inputParameters>
+        <nameSegment>c:Redirect</nameSegment>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
     </actionCalls>
+    <apiVersion>51.0</apiVersion>
     <assignments>
         <name>Remove_Question_Template_from_Collection</name>
         <label>Remove Question Template from Collection</label>
@@ -117,6 +123,7 @@
             </value>
         </inputAssignments>
         <object>Client_Profile_Question__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordCreates>
     <recordLookups>
         <name>Get_All_Existing_Questions</name>
@@ -127,6 +134,7 @@
         <connector>
             <targetReference>Loop_Existing_Questions</targetReference>
         </connector>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>Account__c</field>
             <operator>EqualTo</operator>
@@ -134,7 +142,9 @@
                 <elementReference>recordId</elementReference>
             </value>
         </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
         <object>Client_Profile_Question__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordLookups>
         <name>Get_All_Question_Templates</name>
@@ -145,6 +155,7 @@
         <connector>
             <targetReference>Get_All_Existing_Questions</targetReference>
         </connector>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>Active__c</field>
             <operator>EqualTo</operator>
@@ -152,7 +163,9 @@
                 <booleanValue>true</booleanValue>
             </value>
         </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
         <object>Question_Template__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordLookups>
         <name>Get_Corresponding_Question_Template</name>
@@ -163,6 +176,7 @@
         <connector>
             <targetReference>Remove_Question_Template_from_Collection</targetReference>
         </connector>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
             <operator>EqualTo</operator>
@@ -170,9 +184,17 @@
                 <elementReference>Loop_Existing_Questions.Question_Template__c</elementReference>
             </value>
         </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
         <object>Question_Template__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
-    <startElementReference>Get_All_Question_Templates</startElementReference>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_All_Question_Templates</targetReference>
+        </connector>
+    </start>
     <status>Active</status>
     <variables>
         <name>recordId</name>

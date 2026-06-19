@@ -3,10 +3,6 @@ public class BatchNeglectedLead implements Database.Batchable<sObject>, Schedula
     public static void scheduleMe() {
 
         BatchNeglectedLead sch = new BatchNeglectedLead();
-        
-        /* Luigi */
-        /* Edited the cron to run from MON-FRI */
-        /* String cron = '0 0 23 * * ?'; ** Luigi */ 
         String cron = '0 0 23 ? * MON-FRI';
         String title = 'Neglected Lead Status';
         if(Test.isRunningTest()) title = 'Test Update Neglected Status Test';
@@ -28,7 +24,7 @@ public class BatchNeglectedLead implements Database.Batchable<sObject>, Schedula
     else return Database.getQueryLocator([SELECT Id, 
                                             StageName
                                     FROM Opportunity 
-                                    WHERE Days_Since_Last_Activity__c >= 1 AND StageName = 'New']);                                     
+                                    WHERE Days_Since_Last_Activity__c >= 0 AND StageName = 'New']);                                     
     }
 
     public void execute(Database.BatchableContext BC, List<Opportunity> scope) {

@@ -8,6 +8,26 @@
     <sections>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <field>Account__c</field>
+            <table>Client_Profile_Question__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Active_Question__c</field>
+            <table>Client_Profile_Question__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Answer__c</field>
+            <table>Client_Profile_Question__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Answer_Truncated__c</field>
+            <table>Client_Profile_Question__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
             <field>Id</field>
             <table>Client_Profile_Question__c</table>
         </columns>
@@ -18,7 +38,7 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>CurrencyIsoCode</field>
+            <field>CreatedBy</field>
             <table>Client_Profile_Question__c</table>
         </columns>
         <columns>
@@ -28,12 +48,7 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>CreatedBy</field>
-            <table>Client_Profile_Question__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>LastModifiedDate</field>
+            <field>CurrencyIsoCode</field>
             <table>Client_Profile_Question__c</table>
         </columns>
         <columns>
@@ -43,22 +58,12 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Account__c</field>
+            <field>LastModifiedDate</field>
             <table>Client_Profile_Question__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Answer_Truncated__c</field>
-            <table>Client_Profile_Question__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Answer__c</field>
-            <table>Client_Profile_Question__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Active_Question__c</field>
+            <field>Question__c</field>
             <table>Client_Profile_Question__c</table>
         </columns>
         <columns>
@@ -78,17 +83,27 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Question__c</field>
-            <table>Client_Profile_Question__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Section_Label__c</field>
             <table>Client_Profile_Question__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Section_Sort_Order__c</field>
+            <table>Client_Profile_Question__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Account__c.Account_Id_18__c</field>
+            <table>Client_Profile_Question__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Account__c.Account_Type__c</field>
+            <table>Client_Profile_Question__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Account__c.Inactive__c</field>
             <table>Client_Profile_Question__c</table>
         </columns>
         <masterLabel>Client Profile Questions</masterLabel>

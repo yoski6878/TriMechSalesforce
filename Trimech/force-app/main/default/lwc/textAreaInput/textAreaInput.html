@@ -1,0 +1,28 @@
+<template>
+    <div class="slds-form slds-form_stacked slds-m-around_small">
+        <div class="slds-form-element">
+            <label class="slds-form-element__label" for="text-area">
+                {label}
+                <template if:true={required}>
+                    <abbr class="slds-required" title="required">*</abbr>
+                </template>
+            </label>
+            <div class="slds-form-element__control">
+                <textarea
+                    id="text-area"
+                    class="slds-textarea full-width"
+                    rows={rows}
+                    maxlength="255"
+                    value={_value}
+                    aria-label={label}
+                    aria-required={required}
+                    required={required}
+                    oninput={handleInput}
+                >{_value}</textarea>
+            </div>
+            <div class="slds-form-element__help">
+                <span>{remainingChars} characters remaining</span>
+            </div>
+        </div>
+    </div>
+</template>

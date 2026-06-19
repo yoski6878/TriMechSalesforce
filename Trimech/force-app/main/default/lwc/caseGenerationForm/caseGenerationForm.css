@@ -1,21 +1,19 @@
-.mainDiv{
-    padding: 24px;
+/* Base styles */
+.mainDiv {
+    padding: 24px 72px;
     background-color: #1d4f90;
     color: white;
-    padding-left: 72px;
-    padding-right: 72px;
     font-family: sans-serif;
 }
 
 .input-wrapper {
-    padding:16px;
+    padding: 16px;
     position: relative;
     width: 100%;
 }
 
 .floating-label-container {
-    /* position: relative; */
-    /* margin-top: 1rem; */
+    /* Intentionally left commented out */
 }
 
 .custom-input {
@@ -23,32 +21,23 @@
     width: 100%;
     outline: none;
     color: black;
-   /* --sds-c-textarea-sizing-min-height:200px; */
 }
 
 .floating-label {
-    /* position: absolute; */
-    /* left: 16px; */
-    /* transform: translateY(-50%); */
-    /* background-color: white; */
-    /* padding: 0 4px; */
-    /* pointer-events: none; */
-    /* transition: none; No transition effect */
-    /* top: 0px; */
     font-size: 20px;
     font-weight: 700;
 }
 
-.textCSS{
+.textCSS {
     font-size: 20px;
     line-height: 1.5;
 }
 
-.boldCSS{
+.boldCSS {
     font-weight: 700;
 }
 
-.buttonCSS{
+.buttonCSS {
     border: none;
     width: 100%;
     padding-top: 16px;
@@ -57,29 +46,147 @@
     font-weight: 700;
     background-color: #0071ee;
     color: white;
-    border-radius: none;
+    border-radius: 0;
 }
 
-.red-text{
+.red-text {
     color: #ff6218;
 }
 
-.subHeadingText{
+.subHeadingText {
     font-size: 18px;
 }
 
-
+/* Responsive adjustments */
 @media only screen and (max-width: 768px) {
     .mainDiv {
-        padding: 8px; /* Reduced padding for phones */
+        padding: 8px;
     }
-
-    .input-wrapper{
+    .input-wrapper {
         padding: 8px;
     }
 }
 
-/* Make the container cover the full page */
+/* Modal backdrop styling with SLDS-like standard */
+.custom-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.55); /* Semi-transparent black */
+    z-index: 1500;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    pointer-events: none; /* Prevent interaction when hidden */
+}
+
+.custom-backdrop.custom-backdrop-open {
+    opacity: 1;
+    pointer-events: auto; /* Enable interaction when shown */
+}
+
+/* Modal styling */
+.custom-modal {
+    position: fixed;  
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2000;
+    width: 100%;
+    max-width: 600px;
+    outline: none;
+}
+
+.custom-modal-container {
+    background-color: #1d4f90;
+    color: white;
+    padding: 24px;
+    font-family: sans-serif;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    margin: 0 auto;
+    max-width: 600px;
+}
+
+.custom-modal-header {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+.custom-modal-content ul {
+    margin-bottom: 16px;
+    font-size: 20px;
+    line-height: 1.5;
+}
+
+.custom-boldCSS {
+    font-weight: 700;
+}
+
+.custom-modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 16px;
+    margin-top: 24px;
+}
+
+.fontSizePopUp{
+    font-size: 18px;
+}
+
+.custom-button {
+    font-weight: 700;
+    font-size: 18px;
+    padding: 12px 24px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.custom-button-neutral {
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+.custom-button-neutral:hover {
+    background-color: white;
+    color: #1d4f90;
+}
+
+.custom-button-brand {
+    background-color: #0071ee;
+    color: white;
+}
+
+.custom-button-brand:hover {
+    background-color: #005bb5;
+}
+
+/* Responsive modal */
+@media only screen and (max-width: 768px) {
+    .custom-modal-container {
+        padding: 16px 24px;
+        margin: 5vh 12px;
+        font-size: 16px;
+    }
+    .custom-modal-header {
+        font-size: 22px;
+    }
+    .custom-modal-content ul {
+        font-size: 16px;
+    }
+    .custom-button {
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+}
+
+/* Thank you page styles */
 .thankYouContainer {
     display: flex;
     flex-direction: column;
@@ -87,28 +194,25 @@
     justify-content: center;
     text-align: center;
     width: 100%;
-    height: 100vh; /* Full viewport height */
+    height: 100vh;
     background-color: #f4f9fe;
     color: #1d4f90;
     font-family: 'Arial, sans-serif';
     padding: 20px;
 }
 
-/* Header styling with increased size */
 .thankYouHeader {
-    font-size: 36px; /* Increased font size */
+    font-size: 36px;
     font-weight: bold;
     margin-bottom: 20px;
 }
 
-/* General message styling */
 .thankYouMessage {
-    font-size: 20px; /* Slightly larger font */
+    font-size: 20px;
     margin-bottom: 16px;
     line-height: 1.8;
 }
 
-/* Footer message styling */
 .thankYouFooter {
     font-size: 18px;
     margin-top: 24px;
@@ -121,12 +225,11 @@
     text-decoration: underline;
 }
 
-/* Responsive styling */
+/* Responsive thank you page */
 @media only screen and (max-width: 768px) {
     .thankYouHeader {
-        font-size: 28px; /* Adjusted for smaller screens */
+        font-size: 28px;
     }
-
     .thankYouMessage,
     .thankYouFooter {
         font-size: 16px;

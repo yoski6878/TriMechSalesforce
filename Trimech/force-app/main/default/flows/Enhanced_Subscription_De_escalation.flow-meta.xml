@@ -7,12 +7,15 @@
         <locationY>458</locationY>
         <actionName>c:Redirect</actionName>
         <actionType>component</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
         <inputParameters>
             <name>recordId</name>
             <value>
                 <elementReference>recordId</elementReference>
             </value>
         </inputParameters>
+        <nameSegment>c:Redirect</nameSegment>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
     </actionCalls>
     <actionCalls>
         <name>Send_Email_Alert</name>
@@ -27,6 +30,7 @@
         <faultConnector>
             <targetReference>Email_Error</targetReference>
         </faultConnector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
         <inputParameters>
             <name>emailBody</name>
             <value>
@@ -57,7 +61,9 @@
                 <elementReference>textTmpEmailSubject</elementReference>
             </value>
         </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
     </actionCalls>
+    <apiVersion>57.0</apiVersion>
     <constants>
         <name>conToEmail</name>
         <dataType>String</dataType>
@@ -65,6 +71,7 @@
             <stringValue>sondra.saulsberry@trimech.com</stringValue>
         </value>
     </constants>
+    <environments>Default</environments>
     <interviewLabel>Enhanced Subscription De-escalation {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Enhanced Subscription De-escalation</label>
     <processMetadataValues>
@@ -95,6 +102,7 @@
         <connector>
             <targetReference>Send_Email_to_Client_Success_Team</targetReference>
         </connector>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
             <operator>EqualTo</operator>
@@ -102,7 +110,9 @@
                 <elementReference>recordId</elementReference>
             </value>
         </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
         <object>Contact</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <screens>
         <name>Email_Error</name>
@@ -141,17 +151,26 @@
             <fieldType>LargeTextArea</fieldType>
             <isRequired>false</isRequired>
         </fields>
+        <nextOrFinishButtonLabel>Send Email</nextOrFinishButtonLabel>
         <showFooter>true</showFooter>
         <showHeader>true</showHeader>
     </screens>
-    <startElementReference>Get_Contact_Record</startElementReference>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Contact_Record</targetReference>
+        </connector>
+    </start>
     <status>Active</status>
     <textTemplates>
         <name>textTmpEmailBody</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
         <text>&lt;p&gt;&lt;strong&gt;Contact: &lt;/strong&gt;&lt;a href=&quot;https://trimech12345.lightning.force.com/lightning/r/Contact/{!Get_Contact_Record.Id}/view&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;{!Get_Contact_Record.Name}&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Account: &lt;/strong&gt;&lt;a href=&quot;https://trimech12345.lightning.force.com/lightning/r/Account/{!Get_Contact_Record.AccountId}/view&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;{!Get_Contact_Record.Account.Name}&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;De-escalation Notes:&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;{!AlertNotes}&lt;/p&gt;</text>
     </textTemplates>
     <textTemplates>
         <name>textTmpEmailSubject</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
         <text>De-escalation Alert for Account: {!Get_Contact_Record.Account.Name}</text>
     </textTemplates>
     <variables>

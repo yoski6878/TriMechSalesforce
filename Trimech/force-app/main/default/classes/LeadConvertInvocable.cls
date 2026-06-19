@@ -4,7 +4,7 @@ public with sharing class LeadConvertInvocable {
 
 
     @InvocableMethod(label='Batch Convert Leads' description='Converts leads in bulk using a single batch job')
-	public static List<InvocationResponse> batchConvertLeads(List<InvocationRequest> requests) {
+    public static List<InvocationResponse> batchConvertLeads(List<InvocationRequest> requests) {
     List<InvocationResponse> responses = new List<InvocationResponse>();
     Set<Id> allLeadIds = new Set<Id>();
     Map<InvocationRequest, Set<Id>> requestToLeadIdsMap = new Map<InvocationRequest, Set<Id>>();
@@ -27,12 +27,14 @@ public with sharing class LeadConvertInvocable {
     Map<Id, Lead> allLeadsMap = new Map<Id, Lead>();
     if (!allLeadIds.isEmpty()) {
         allLeadsMap = new Map<Id, Lead>([
-            SELECT Id, Company, PostalCode, Lead_Product_Category__c, Campaign_Type__c, Country,
+            SELECT Id, Email, Company, PostalCode, Lead_Product_Category__c, Campaign_Type__c, Country,
             Lead_Sales_Rep_to_Assign__c, Training_Course_Date__c, Training_Course_Location__c,
             Training_Course_Name__c, pi__campaign__c, Last_Registered_Event__c,
-            Last_Attended_Trade_Show__c, LSC_Campaign__c, LeadSource,
-            Lead_Product_of_Interest__c, pi__comments__c, GCLID_Google_Click_Identification__c,
-            Street,City,State
+            Last_Attended_Trade_Show__c, LSC_Campaign__c, LeadSource, Lead_Product_of_Interest__c,
+            pi__comments__c, GCLID_Google_Click_Identification__c, pi__utm_campaign__c, pi__utm_medium__c,
+            Google_Analytics_Referrer__c, pi__utm_source__c, pi__utm_term__c, Send_NDA__c, TD_Lead_Score__c,
+            Street, City, State, TD_Lead_Funding__c, TD_Lead_Inquiry__c, TD_Lead_Persona__c,
+            TD_Lead_Product_Description__c, TD_Lead_Product_Stage__c, Form_Product__c
             FROM Lead
             WHERE Id IN :allLeadIds
         ]);

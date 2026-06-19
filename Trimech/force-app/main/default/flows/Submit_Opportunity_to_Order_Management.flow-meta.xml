@@ -46,7 +46,9 @@
                 <booleanValue>false</booleanValue>
             </value>
         </inputParameters>
+        <nameSegment>submit</nameSegment>
     </actionCalls>
+    <apiVersion>50.0</apiVersion>
     <decisions>
         <name>isChangedDecision2_myRule_1_StageName</name>
         <label>isChangedDecision2_myRule_1_StageName</label>

@@ -8,6 +8,7 @@ import {ShowToastEvent} from 'lightning/platformShowToastEvent';
 import {CurrentPageReference} from 'lightning/navigation';
 import { getPicklistValuesByRecordType , getObjectInfo} from 'lightning/uiObjectInfoApi';
 import Product_Object from '@salesforce/schema/Product2';
+import getBusinessUnitDefaults from '@salesforce/apex/AddProductToOpportunityController.getBusinessUnitDefaults';
 
 
 const TIMEOUT_DURATION = 600;
@@ -66,7 +67,7 @@ export default class AddProductToOpportunity extends LightningElement {
             this.productClassOptions = data.picklistFieldValues.Class__c.values.map(item =>({label: item.label, value: item.value}));
             this.businessUnitOptions = data.picklistFieldValues.Business_Unit__c.values.map(item =>({label: item.label, value: item.value}));
         }else{
-            console.log('Error Fetching Date' + error);
+            // console.log('Error Fetching Date' + error);
         }
     }
 
@@ -235,9 +236,31 @@ export default class AddProductToOpportunity extends LightningElement {
 
 
     connectedCallback() { 
-
+        // Prepopulate Business Unit filter based on user profile
+        /*
+        getBusinessUnitDefaults()
+            .then(result => {
+                if (result && result.defaultBusinessUnits) {
+                    this.filterWrapper.businessUnit = result.defaultBusinessUnits;
+                    this.tempFilterWrapper.businessUnit = result.defaultBusinessUnits;
+                }
+                this.filterWrapper.productType = 'All';
+                this.isSpinner = true;
+                setTimeout(() => {
+                    this.getDataHelper();
+                }, 1000);
+            })
+            .catch(() => {
+                // fallback to original behavior if Apex fails
+                this.filterWrapper.productType = 'All';
+                this.isSpinner = true;
+                setTimeout(() => {
+                    this.getDataHelper();
+                }, 1000);
+            });
+        */
+        // TEMPORARY: Deactivated automatic business unit check by user profile
         this.filterWrapper.productType = 'All';
-
         this.isSpinner = true;
         setTimeout(() => {
             this.getDataHelper();
@@ -279,17 +302,25 @@ export default class AddProductToOpportunity extends LightningElement {
         getProductData({opportunityId: oppRecordId , lastPricebookEntryId: this.lastPricebookEntryId, isInitialLoad : this.initialLoad , appliedFilters : JSON.parse(JSON.stringify(this.filterWrapper))  })
         .then(result => {
             this.productDataList = result;
-            console.log('result');
-            console.log(result);
+            // console.log('result');
+            // console.log(result);
             let dataTableAllDataList = [];
             result.forEach(element => {
+                const productCode = element.productWrap.product.ProductCode || '';
+                let productName = element.productWrap.product.Name || '';
+                // Remove all leading non-word characters (including all Unicode spaces and punctuation)
+                productName = productName.replace(/^[^\w\d]*/u, '');
+                // Filter out products whose product code starts with DNU- or NFS-, or whose name starts with DNU, NFS, or Legacy
+                if (/^(DNU-|NFS-)/i.test(productCode.trim()) || /^(DNU|NFS|Legacy)/i.test(productName)) {
+                    return;
+                }
                 let dataTableData = {};
                 //dataTableData.isSelected = false;
-                dataTableData.pricebookEntryLink = '/'+element.productWrap.pricebookEntryRec.Id;
+                dataTableData.pricebookEntryLink = '/' + element.productWrap.pricebookEntryRec.Id;
                 dataTableData.pricebookEntryLinkId = element.productWrap.pricebookEntryRec.Id;
                 dataTableData.productId = element.productWrap.product.Id;
-                dataTableData.productName = element.productWrap.product.Name;
-                dataTableData.productCode = element.productWrap.product.ProductCode;
+                dataTableData.productName = productName;
+                dataTableData.productCode = productCode;
                 dataTableData.listPrice = element.productWrap.pricebookEntryRec.UnitPrice;
                 dataTableData.productDesc = element.productWrap.product.Description;
                 dataTableData.licenseType = element.productWrap.product.License_Type__c;
@@ -299,11 +330,9 @@ export default class AddProductToOpportunity extends LightningElement {
                 dataTableData.EliteEssential = element.productWrap.product.Elite_Essential__c;
                 this.lastPricebookEntryId = element.productWrap.pricebookEntryRec.Id;
 
-                if(this.initialLoad){
+                if (this.initialLoad) {
                     this.totalRecords = element.recordCount;
                 }
-
-
 
                 if (element.isParent) {
                     dataTableData.type = 'Parent';
@@ -316,8 +345,17 @@ export default class AddProductToOpportunity extends LightningElement {
                 dataTableData.quantity = element.productWrap.product.Minimum_Quantity__c ? element.productWrap.product.Minimum_Quantity__c : 1;
                 dataTableData.date = null;
                 dataTableData.lineDesc = null;
-                
+
                 dataTableAllDataList.push(dataTableData);
+            });
+            
+            // Sort: parent products first, then by price descending
+            dataTableAllDataList.sort((a, b) => {
+                // Parent products first
+                if (a.type === 'Parent' && b.type !== 'Parent') return -1;
+                if (a.type !== 'Parent' && b.type === 'Parent') return 1;
+                // Within group, sort by price descending
+                return (b.listPrice || 0) - (a.listPrice || 0);
             });
 
             if(!result || result.length == 0){
@@ -361,9 +399,10 @@ export default class AddProductToOpportunity extends LightningElement {
             splitStart = this.recordsToDsiaply * (this.currentPage - 1);
         }
 
+        let listToPaginate;
         if (this.filterWrapper.productType != 'All' && this.filterWrapper.productType != '' && this.filterWrapper.productType ) {
-            console.log('this.dataTableAllDataList.length');
-            console.log(this.dataTableAllDataList.length);
+            // console.log('this.dataTableAllDataList.length');
+            // console.log(this.dataTableAllDataList.length);
 
             this.dataTableFilterDataList = this.dataTableAllDataList.filter(element => {
                 if (element.type == this.filterWrapper.productType) {
@@ -372,11 +411,20 @@ export default class AddProductToOpportunity extends LightningElement {
                     return false;
                  }
             });
-            this.totalPages = Math.ceil( this.dataTableFilterDataList.length / this.recordsToDsiaply) != 0 ? Math.ceil( this.dataTableFilterDataList.length / this.recordsToDsiaply) : 1;
-            this.dataTablePaginationList = this.dataTableFilterDataList.slice(splitStart, (splitStart+this.recordsToDsiaply));
+            listToPaginate = this.dataTableFilterDataList;
+            this.totalPages = Math.ceil( listToPaginate.length / this.recordsToDsiaply) != 0 ? Math.ceil( listToPaginate.length / this.recordsToDsiaply) : 1;
         }else{
-            this.dataTablePaginationList = this.dataTableAllDataList.slice(splitStart, (splitStart+this.recordsToDsiaply));
-        }   
+            listToPaginate = this.dataTableAllDataList;
+        }
+
+        // Sort parent products first, then by price descending
+        listToPaginate.sort((a, b) => {
+            if (a.type === 'Parent' && b.type !== 'Parent') return -1;
+            if (a.type !== 'Parent' && b.type === 'Parent') return 1;
+            return (b.listPrice || 0) - (a.listPrice || 0);
+        });
+
+        this.dataTablePaginationList = listToPaginate.slice(splitStart, (splitStart+this.recordsToDsiaply));
 
         var lastRecordNumber =  this.recordsToDsiaply*this.currentPage;
         if(this.totalRecords > lastRecordNumber && lastRecordNumber > this.currentRecordListSize && this.hasMoreRecords){
@@ -413,8 +461,8 @@ export default class AddProductToOpportunity extends LightningElement {
     handleFilterChange(event){
         var filterName = event.target.name;
         var filterValue = event.target.value;
-        console.log('filterValue');
-        console.log(filterValue);
+        // console.log('filterValue');
+        // console.log(filterValue);
         this.tempFilterWrapper[filterName] = filterValue;
     }
 
@@ -487,9 +535,9 @@ export default class AddProductToOpportunity extends LightningElement {
         this.selectedRows = [...selectedItemsSet];
         // Map the selected items to the UI list.
 
-        console.log('this.selectedRows');
-        console.log(this.selectedRows);
-        console.log(JSON.stringify(this.selectedRows));
+        // console.log('this.selectedRows');
+        // console.log(this.selectedRows);
+        // console.log(JSON.stringify(this.selectedRows));
 
         // add logic to add and remove the selectedRow list into selectedProduct
 
@@ -504,7 +552,7 @@ export default class AddProductToOpportunity extends LightningElement {
 
         this.selectedProducts = [...preservedProducts, ...newSelectedProducts];
 
-        console.log('this.selectedProducts:', JSON.stringify(this.selectedProducts));
+        // console.log('this.selectedProducts:', JSON.stringify(this.selectedProducts));
 
         
     }
@@ -512,7 +560,7 @@ export default class AddProductToOpportunity extends LightningElement {
 
 
     loadMoreData(){
-        console.log('Load More Data');
+        // console.log('Load More Data');
         this.initialLoad = false;
         this.getDataHelper();
     }
@@ -552,8 +600,8 @@ export default class AddProductToOpportunity extends LightningElement {
             });
 
             let selectedProducts = JSON.parse(JSON.stringify( this.selectedProducts));
-            console.log('selectedProducts');
-            console.log(selectedProducts);
+            // console.log('selectedProducts');
+            // console.log(selectedProducts);
             let newProductListTemp = [];
             let productIds =[];
 
@@ -565,8 +613,8 @@ export default class AddProductToOpportunity extends LightningElement {
                 }
             });
 
-            console.log('productIds');
-            console.log(productIds);
+            // console.log('productIds');
+            // console.log(productIds);
 
             var oppId;
             if(this.recordId){
@@ -579,9 +627,9 @@ export default class AddProductToOpportunity extends LightningElement {
             if(productIds.length > 0){
                 getRelatedChildProductData({productIds : productIds , opportunityId: oppId})
                 .then(result => {
-                    console.log('result --> ' +result );
+                    // console.log('result --> ' +result );
                     result.forEach(ele => {
-                        console.log(ele);
+                        // console.log(ele);
                         let dataTableData = {};
                         dataTableData.isSelected = false;
                         dataTableData.pricebookEntryLink = '/'+ele.pricebookEntryRec.Id;
@@ -607,8 +655,8 @@ export default class AddProductToOpportunity extends LightningElement {
                     this.secondPage = true;
 
                 }).catch(error => {
-                    console.log('Error in getRelatedChildDate' + error);
-                    console.log(JSON.stringify(error));
+                    // console.log('Error in getRelatedChildDate' + error);
+                    // console.log(JSON.stringify(error));
                 })
             }
             else{
@@ -621,7 +669,7 @@ export default class AddProductToOpportunity extends LightningElement {
 
            
         }catch(error){
-            console.log('Error in handleNextAction' + {error});
+            // console.log('Error in handleNextAction' + {error});
         }
     }
 
@@ -631,16 +679,16 @@ export default class AddProductToOpportunity extends LightningElement {
         let valueFound = false;
 
         console.log('selectedLine');
-        console.log({selectedLine});
+        // console.log({selectedLine});
 
         newProductList.forEach(element => {
             if (element.pricebookEntryLinkId == selectedLine.pricebookEntryLinkId) {
                 valueFound = true;
                 if (selectedLine.quantity != null) {
-                    console.log('Inside quantity');
+                    // console.log('Inside quantity');
                     element.quantity = selectedLine.quantity; 
-                    console.log('element.quantity -->' + element.quantity);
-                    console.log('selectedLine.quantity -->'+selectedLine.quantity);
+                    // console.log('element.quantity -->' + element.quantity);
+                    // console.log('selectedLine.quantity -->'+selectedLine.quantity);
                 } 
                 else if (selectedLine.listPrice != null) {
                     element.listPrice = selectedLine.listPrice;
@@ -661,11 +709,11 @@ export default class AddProductToOpportunity extends LightningElement {
         let rowId = event.detail.row.pricebookEntryLinkId;
         let actionName = event.detail.action.name;
 
-        console.log('rowId --> '+ rowId);
-        console.log('this.selectedRows');
-        console.log(this.selectedRows);
-        console.log('this.collegeDetails');
-        console.log(this.collegeDetails);
+        // console.log('rowId --> '+ rowId);
+        // console.log('this.selectedRows');
+        // console.log(this.selectedRows);
+        // console.log('this.collegeDetails');
+        // console.log(this.collegeDetails);
 
         this.selectedRows = this.selectedRows.filter(record => record != rowId);
 
@@ -700,8 +748,8 @@ export default class AddProductToOpportunity extends LightningElement {
             opportunityLineItem.PricebookEntryId = element.pricebookEntryLinkId;
             opportunityLineItem.Product2Id = element.productId;
             opportunityLineItem.Quantity = element.quantity;
-            console.log('element.quantity --> ' + element.quantity);
-            console.log('opportunityLineItem.Quantity --> ' + opportunityLineItem.Quantity);
+            // console.log('element.quantity --> ' + element.quantity);
+            // console.log('opportunityLineItem.Quantity --> ' + opportunityLineItem.Quantity);
             opportunityLineItem.ProductCode = element.productCode;
             opportunityLineItem.UnitPrice = element.listPrice;
             opportunityLineItem.Description = element.lineDesc;
@@ -723,8 +771,8 @@ export default class AddProductToOpportunity extends LightningElement {
                 
                 this.dispatchEvent(new CloseActionScreenEvent());
             }).catch(error => {
-                console.log('createOpportunityLineItem Error ==> ',error);
-                console.log(JSON.stringify(error));
+                // console.log('createOpportunityLineItem Error ==> ',error);
+                // console.log(JSON.stringify(error));
                 this.handleError(error);
                 //this.displayToastMessage('Error', error.body.pageErrors.message, 'Error');
             }).finally(() => {

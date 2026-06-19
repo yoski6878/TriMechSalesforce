@@ -1,5 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>53.0</apiVersion>
+    <decisions>
+        <name>Check_if_Opp_is_edited_via_Sales_Order_Flow</name>
+        <label>Check if Opp is edited via Sales Order Flow</label>
+        <locationX>176</locationX>
+        <locationY>323</locationY>
+        <defaultConnector>
+            <targetReference>Update_Both_GP_Fields</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Yes</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Updated_via_Sales_Order__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <formulas>
+        <name>formulaCalculateWeightedGP</name>
+        <dataType>Number</dataType>
+        <expression>{!$Record.Opp_Commissionable_GP__c} * {!$Record.Probability}</expression>
+        <scale>2</scale>
+    </formulas>
     <interviewLabel>Update Opportunity GP Currency {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Update Opportunity Commissionable GP Currency</label>
     <processMetadataValues>
@@ -11,7 +41,7 @@
     <processMetadataValues>
         <name>CanvasMode</name>
         <value>
-            <stringValue>FREE_FORM_CANVAS</stringValue>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
         </value>
     </processMetadataValues>
     <processMetadataValues>
@@ -22,10 +52,31 @@
     </processMetadataValues>
     <processType>AutoLaunchedFlow</processType>
     <recordUpdates>
-        <name>Update_Commissionable_GP_Currency</name>
-        <label>Update Commissionable GP Currency</label>
-        <locationX>520</locationX>
-        <locationY>142</locationY>
+        <name>Update_Both_GP_Fields</name>
+        <label>Update Both GP Fields</label>
+        <locationX>308</locationX>
+        <locationY>431</locationY>
+        <inputAssignments>
+            <field>Commissionable_GP_Currency__c</field>
+            <value>
+                <elementReference>$Record.Opp_Commissionable_GP__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Weighted_Commissionable_GP__c</field>
+            <value>
+                <elementReference>formulaCalculateWeightedGP</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Check_if_Opp_is_edited_via_Sales_Order_Flow</targetReference>
+        </connector>
+        <filterLogic>or</filterLogic>
         <filters>
             <field>RecordTypeId</field>
             <operator>EqualTo</operator>
@@ -34,34 +85,16 @@
             </value>
         </filters>
         <filters>
-            <field>StageName</field>
-            <operator>NotEqualTo</operator>
+            <field>RecordTypeId</field>
+            <operator>EqualTo</operator>
             <value>
-                <stringValue>Send to Order Management</stringValue>
+                <stringValue>0124V0000019jmvQAA</stringValue>
             </value>
         </filters>
-        <filters>
-            <field>StageName</field>
-            <operator>NotEqualTo</operator>
-            <value>
-                <stringValue>Closed Won</stringValue>
-            </value>
-        </filters>
-        <filters>
-            <field>StageName</field>
-            <operator>NotEqualTo</operator>
-            <value>
-                <stringValue>Closed Lost</stringValue>
-            </value>
-        </filters>
-        <inputAssignments>
-            <field>Commissionable_GP_Currency__c</field>
-            <value>
-                <elementReference>$Record.Opp_Commissionable_GP__c</elementReference>
-            </value>
-        </inputAssignments>
-        <inputReference>$Record</inputReference>
-    </recordUpdates>
-    <startElementReference>Update_Commissionable_GP_Currency</startElementReference>
+        <object>Opportunity</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
     <status>Active</status>
+    <triggerOrder>1100</triggerOrder>
 </Flow>

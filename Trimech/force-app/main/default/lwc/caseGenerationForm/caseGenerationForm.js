@@ -18,6 +18,7 @@ export default class CaseGenerationForm extends LightningElement {
         softwareVersion: '',
         serialNumber: '',
         subject: '',
+        typeValue: '',
         priority: '',
         description: '',
         contentDocumentId: '',
@@ -26,8 +27,11 @@ export default class CaseGenerationForm extends LightningElement {
     }
 
     @track isSubmitted = false;
+    @track pendingSubmit = false;
 
     disableButton = true;
+
+    @track showUrgentModal = false;
 
     acceptedFormats = ['.zip', '.pdf', '.docx', '.7z', '.jpg', '.png', '.jpeg'];
 
@@ -40,8 +44,40 @@ export default class CaseGenerationForm extends LightningElement {
     productOptions = [];
 
     priorityOptions = [];
+    typeOptions = [];
+    baseTypeOptions =[];
 
     softwareVersionOptions = [];
+
+    hardwareOptions = [
+        { label: 'Printer Installation', value: 'Printer Installation' },
+        { label: 'Printer Preventative Maintenance', value: 'Printer Preventative Maintenance' },
+        { label: 'Printer Repair', value: 'Printer Repair' }
+    ];
+
+    cam = [
+        { label: 'Post Modifications - EXTERNAL', value: 'Post Modifications - EXTERNAL' },
+        { label: 'Post Modifications - INTERNAL', value: 'Post Modifications - INTERNAL' },
+        { label: 'Post Request', value: 'Post Request' },
+    ]
+
+    pmd = [
+        { label: 'PDM Health Check', value: 'PDM Health Check' }
+    ]
+
+    hiddenPicklistMap = new Map([
+        ['3D Printers', this.hardwareOptions],
+        ['Printer Installation', this.hardwareOptions],
+        ['Printer Preventative Maintenance', this.hardwareOptions],
+        ['Printer Repair', this.hardwareOptions],
+        ['SOLIDWORKS CAM', this.cam],
+        ['SolidCAM', this.cam],
+        ['SWOOD', this.cam],
+        ['3DEXPERIENCE NC Shop Floor Programmer', this.cam],
+        ['SOLIDWORKS PDM Professional', this.pmd],
+        ['SOLIDWORKS PDM Standard', this.pmd]
+    ]);
+
 
     @track file;
     @wire(getPicklistValuesByRecordType, { objectApiName: Case_Object, recordTypeId: '012000000000000AAA' })
@@ -52,11 +88,42 @@ export default class CaseGenerationForm extends LightningElement {
                 value: item.value
             }));
 
+            const allHiddenValues = Array.from((this.hiddenPicklistMap).values()).flat().map(item => item.value);
+            this.baseTypeOptions = data.picklistFieldValues.Type?.values
+            .filter(item =>
+                item.value !== 'Undefined' &&
+                item.value !== 'Handed Off to Another Team' &&
+                item.value !== 'Student' &&
+                item.value !== 'Client Self-Resolved' &&
+                !allHiddenValues.includes(item.value)
+            )
+            .map(item => ({
+                label: item.label,
+                value: item.value
+            }));
+
+            this.typeOptions = [...this.baseTypeOptions];
+
             // this.softwareVersionOptions = data.picklistFieldValues.Network_Stand_Alone__c.values.map(item =>({label: item.label, value: item.value}));
         } else {
             console.log('Error Fetching Date' + error);
         }
     }
+
+    handleProductChange() {
+        this.typeOptions = [...this.baseTypeOptions];
+        const selectedProduct = this.caseObj.productName;
+        this.caseObj.typeValue = '';
+        if (this.hiddenPicklistMap.has(selectedProduct)) {
+            const extraOptions = this.hiddenPicklistMap.get(selectedProduct);
+
+            this.typeOptions = [
+                ...extraOptions,
+                ...this.typeOptions
+            ];
+        }
+    }
+
 
     handleButtonStatus(event) {
         console.log('handleButtonStatus');
@@ -105,6 +172,11 @@ export default class CaseGenerationForm extends LightningElement {
         const name = event.target.name;
         const value = event.target.value;
         this.caseObj[name] = value;
+        if (name === 'productName' && this.hiddenPicklistMap.has(value)) {
+            this.handleProductChange();
+        }else if (name === 'productName'){
+            this.typeOptions = this.baseTypeOptions;
+        }
     }
 
     @track isInitalRender = true;
@@ -174,66 +246,79 @@ export default class CaseGenerationForm extends LightningElement {
 
     handleSubmit(event) {
         try {
-
             this.isLoading = true;
 
-            console.log('handleSubmit');
             const allValid = [...this.template.querySelectorAll('lightning-input, lightning-textarea, lightning-combobox')]
                 .reduce((validSoFar, inputCmp) => {
                     inputCmp.reportValidity();
                     return validSoFar && inputCmp.checkValidity();
                 }, true);
 
-            console.log('AllValid' + allValid);
-
-            if (allValid) {
-                // if (!this.disableButton) {
-
-
-                    generateCase({ caseRecord: JSON.stringify(this.caseObj) }).then(result => {
-                        if (result) {
-                            this.showToast('Success', 'Case created successfully', 'success');
-                            this.caseObj = {
-                                FirstName: '',
-                                LastName: '',
-                                CompanyName: '',
-                                phoneNumber: '',
-                                email: '',
-                                productName: '',
-                                softwareVersion: '',
-                                serialNumber: '',
-                                subject: '',
-                                priority: '',
-                                description: '',
-                                contentDocumentId: '',
-                                encryptionToken: '',
-                                contentVersionId: ''
-                            }
-                            this.fileUploadDisabled = false;
-                            this.file = null;
-                            this.isLoading = false;
-                            this.encryptedToken = this.generateRandomToken();
-
-                            this.isSubmitted = true;
-                        }
-                    }).catch(error => {
-                        this.isLoading = false;
-                        console.log('error', error.body.message);
-                        this.showToast('Error', 'Something Went Wrong', 'error');
-                    })
-                // } else {
-                //     this.isLoading = false;
-                //     this.showToast('Error', 'Please Validate recaptcha', 'error');
-                // }
-            } else {
+            if (!allValid) {
                 this.isLoading = false;
                 this.showToast('Error', 'Please fill all the required fields', 'error');
+                return;
             }
+
+            if (this.caseObj.priority === 'Urgent' && !this.pendingSubmit) {
+                this.isLoading = false;
+                this.showUrgentModal = true;
+                return;
+            }
+
+            this.showUrgentModal = false;
+            this.pendingSubmit = false;
+
+            generateCase({ caseRecord: JSON.stringify(this.caseObj) })
+                .then(result => {
+                    if (result) {
+                        this.showToast('Success', 'Case created successfully', 'success');
+                        this.caseObj = {
+                            FirstName: '',
+                            LastName: '',
+                            CompanyName: '',
+                            phoneNumber: '',
+                            email: '',
+                            productName: '',
+                            softwareVersion: '',
+                            serialNumber: '',
+                            subject: '',
+                            typeValue:'',
+                            priority: '',
+                            description: '',
+                            contentDocumentId: '',
+                            encryptionToken: '',
+                            contentVersionId: ''
+                        };
+                        this.fileUploadDisabled = false;
+                        this.file = null;
+                        this.isLoading = false;
+                        this.encryptedToken = this.generateRandomToken();
+                        this.isSubmitted = true;
+                    }
+                })
+                .catch(error => {
+                    this.isLoading = false;
+                    console.log('error', error.body.message);
+                    this.showToast('Error', 'Something Went Wrong', 'error');
+                });
+
         } catch (error) {
             this.isLoading = false;
             console.log('Error in HandleSubmit ---->', error.message);
         }
     }
+
+    confirmUrgentSubmit() {
+        this.pendingSubmit = true;
+        this.handleSubmit(); 
+    }
+
+    cancelUrgentSubmit() {
+        this.showUrgentModal = false;
+        this.isLoading = false;
+    }
+
 
     handleUploadedFile(event) {
         console.log('handleUploadedFile');
