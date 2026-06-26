@@ -1,6 +1,9 @@
 @isTest
 private class LatestQuotePerAccountCsvBatchTest {
 
+    // UTF-8 BOM — matches the one written by the batch class
+    private static final String UTF8_BOM = '\uFEFF';
+
     @testSetup
     static void setupData() {
         // Create 3 accounts
@@ -82,10 +85,11 @@ private class LatestQuotePerAccountCsvBatchTest {
         String csvContent = cv.VersionData.toString();
         System.assert(
             csvContent.startsWith(
+                UTF8_BOM +
                 'AccountId,AccountName,OpportunityId,OpportunityName,' +
                 'QuoteId,QuoteName,QuoteNumber,QuoteStatus,GrandTotal,QuoteCreatedDate'
             ),
-            'CSV should start with quote header'
+            'CSV should start with UTF-8 BOM + quote header'
         );
 
         // 1 header + 3 data rows (one per account)
@@ -119,8 +123,10 @@ private class LatestQuotePerAccountCsvBatchTest {
         System.assertEquals(1, files.size(), 'File should still be created with no quotes');
 
         String csvContent = files[0].VersionData.toString();
-        System.assert(csvContent.startsWith('AccountId,AccountName'),
-            'CSV should still contain header even when there are no quotes');
+        System.assert(
+            csvContent.startsWith(UTF8_BOM + 'AccountId,AccountName'),
+            'CSV should still contain UTF-8 BOM + header even when there are no quotes'
+        );
 
         System.assertEquals(1, nonEmptyLines(csvContent).size(),
             'Expected only the header row when no quotes exist');
@@ -200,10 +206,11 @@ private class LatestQuotePerAccountCsvBatchTest {
         String csvContent = cv.VersionData.toString();
         System.assert(
             csvContent.startsWith(
+                UTF8_BOM +
                 'AccountId,AccountName,OpportunityId,OpportunityName,' +
                 'StageName,Amount,CloseDate,OpportunityCreatedDate'
             ),
-            'CSV should start with opportunity header'
+            'CSV should start with UTF-8 BOM + opportunity header'
         );
 
         // 1 header + 3 data rows (one per account)
@@ -239,8 +246,10 @@ private class LatestQuotePerAccountCsvBatchTest {
         System.assertEquals(1, files.size(), 'File should still be created with no opps');
 
         String csvContent = files[0].VersionData.toString();
-        System.assert(csvContent.startsWith('AccountId,AccountName'),
-            'CSV should still contain header even when there are no opps');
+        System.assert(
+            csvContent.startsWith(UTF8_BOM + 'AccountId,AccountName'),
+            'CSV should still contain UTF-8 BOM + header even when there are no opps'
+        );
 
         System.assertEquals(1, nonEmptyLines(csvContent).size(),
             'Expected only the header row when no opps exist');
@@ -285,10 +294,6 @@ private class LatestQuotePerAccountCsvBatchTest {
 
     @isTest
     static void testBatchSplitsIntoMultipleFilesWhenThresholdExceeded() {
-        // Force a tiny threshold so our 3 test accounts split across files.
-        // With ROWS_PER_FILE = 2 and 3 unique accounts:
-        //   - Part 1: 2 rows (flush triggered)
-        //   - Part 2: 1 remaining row (flushed in finish())
         LatestQuotePerAccountCsvBatch.ROWS_PER_FILE = 2;
 
         Test.startTest();
@@ -308,7 +313,6 @@ private class LatestQuotePerAccountCsvBatchTest {
         System.assertEquals(2, files.size(),
             'Expected the batch to produce 2 part files when threshold is exceeded');
 
-        // Both files should have the header and include _part in their name
         Boolean foundPart1 = false;
         Boolean foundPart2 = false;
         Integer totalDataRows = 0;
@@ -316,8 +320,8 @@ private class LatestQuotePerAccountCsvBatchTest {
         for (ContentVersion cv : files) {
             String content = cv.VersionData.toString();
             System.assert(
-                content.startsWith('AccountId,AccountName'),
-                'Each part file should contain the CSV header. Got: ' + cv.Title
+                content.startsWith(UTF8_BOM + 'AccountId,AccountName'),
+                'Each part file should contain the UTF-8 BOM + CSV header. Got: ' + cv.Title
             );
             System.assert(
                 cv.Title.contains('_part'),
@@ -327,7 +331,6 @@ private class LatestQuotePerAccountCsvBatchTest {
             if (cv.Title.endsWith('_part1')) foundPart1 = true;
             if (cv.Title.endsWith('_part2')) foundPart2 = true;
 
-            // Count data rows (lines minus the header)
             totalDataRows += nonEmptyLines(content).size() - 1;
         }
 
@@ -339,8 +342,6 @@ private class LatestQuotePerAccountCsvBatchTest {
 
     @isTest
     static void testBatchDoesNotProduceEmptyTrailingFile() {
-        // With threshold = 3 and exactly 3 accounts, all rows fit in one part.
-        // Verifies finish() does NOT create an extra empty part2 file.
         LatestQuotePerAccountCsvBatch.ROWS_PER_FILE = 3;
 
         Test.startTest();

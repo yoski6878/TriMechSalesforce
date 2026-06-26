@@ -47,10 +47,10 @@ public without sharing class PandaDocAttachBatch implements Database.Batchable<S
         System.debug(LOG + '========== BATCH START ==========');
         System.debug(LOG + 'Running As : ' + UserInfo.getUserName() + ' (' + UserInfo.getUserId() + ')');
 
-        // Process records where:
-        // 1. Document is completed in PandaDoc
-        // 2. PDF has not been attached yet
-        // 3. Retry count has not exceeded the max
+        // Local variable required: Database.getQueryLocator() cannot bind to
+        // static class-level variables — Salesforce fails with "tmpVar1 does not exist".
+        Integer maxRetries = MAX_RETRIES;
+
         return Database.getQueryLocator([
             SELECT Id, Name, DocumentId__c, Status__c,
                    Lead_Opportunity__c,
@@ -63,7 +63,7 @@ public without sharing class PandaDocAttachBatch implements Database.Batchable<S
             FROM   Panda_Docs_Document__c
             WHERE  Status__c            = 'document.completed'
             AND    PDF_Attached__c      = false
-            AND    Fetch_Retry_Count__c < :MAX_RETRIES
+            AND    Fetch_Retry_Count__c < :maxRetries
         ]);
     }
 
@@ -190,11 +190,11 @@ public without sharing class PandaDocAttachBatch implements Database.Batchable<S
     public void finish(Database.BatchableContext bc) {
         System.debug(LOG + '========== BATCH COMPLETE ==========');
 
-        // Log summary of any still-failing records
+        Integer maxRetries = MAX_RETRIES;
         Integer failedCount = [
             SELECT COUNT() FROM Panda_Docs_Document__c
             WHERE  PDF_Attached__c      = false
-            AND    Fetch_Retry_Count__c >= :MAX_RETRIES
+            AND    Fetch_Retry_Count__c >= :maxRetries
             AND    Status__c            = 'document.completed'
         ];
 
