@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Block_Closed_Won_Without_Proposal</fullName>
+    <active>true</active>
+    <description>Project 790, Req 4: closes the &quot;Closed Won, no proposal&quot; gap. Blocks Closed Won when no related Quote exists, for flows requiring a proposal (see Proposal_Approval_Required__c). Uses the existing Number_of_Proposals__c rollup.</description>
+    <errorConditionFormula>AND(
+ISCHANGED(StageName),
+ISPICKVAL(StageName, &quot;Closed Won&quot;),
+Proposal_Approval_Required__c,
+Primary_Proposal_Status__c &lt;&gt; &quot;Approved&quot;
+)</errorConditionFormula>
+    <errorMessage>This opportunity cannot be closed won without a proposal (Quote) on file. Create and submit a proposal for approval before closing this opportunity.</errorMessage>
+</ValidationRule>

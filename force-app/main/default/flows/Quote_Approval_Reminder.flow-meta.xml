@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>63.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <description>Project 790, Requirement 7 (base skeleton): fires immediately when a Quote is created or updated while Status = In Review and Reminder_Trigger_Completed__c is false. Stamps Approval_Reminder_date__c with the next business day (skips Sat/Sun; does not account for holidays) so the scheduled reminder/escalation paths added on top of this base fire on a real business day. Weekday math: MOD(TODAY() - DATE(1900,1,7), 7) gives 0=Sun..6=Sat since 1900-01-07 was a Sunday.</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>Next_Business_Day</name>
+        <dataType>Date</dataType>
+        <expression>CASE(
+MOD( TODAY() - DATE(1900,1,7), 7 ),
+5, TODAY() + 3,
+6, TODAY() + 2,
+TODAY() + 1
+)</expression>
+    </formulas>
+    <interviewLabel>Quote Approval Reminder {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Quote Approval Reminder</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Set_Approval_Reminder_Date</name>
+        <label>Set Approval Reminder Date</label>
+        <locationX>176</locationX>
+        <locationY>200</locationY>
+        <inputAssignments>
+            <field>Approval_Reminder_date__c</field>
+            <value>
+                <elementReference>Next_Business_Day</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Set_Approval_Reminder_Date</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Status</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>In Review</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Reminder_Trigger_Completed__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <object>Quote</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Draft</status>
+</Flow>

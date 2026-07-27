@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Primary_Proposal_Status__c</fullName>
+    <description>Project 790: plain (non-formula) copy of Primary_Proposal__r.Status, kept in sync by the Quote_Update_Opportunity_Primary_Proposal_Status flow. Opportunity is already at its platform ceiling of 15 cross-object relationship traversals across formulas/validation rules, so this cannot be a formula field — it must be Flow-maintained instead. Used by Block_Send_to_OM_Without_Approval to gate Send To Order Management.</description>
+    <externalId>false</externalId>
+    <label>Primary Proposal Status</label>
+    <length>255</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

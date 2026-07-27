@@ -11,10 +11,50 @@
         <reevaluateOnChange>false</reevaluateOnChange>
     </fieldUpdates>
     <fieldUpdates>
+        <fullName>Proposal_Approval_Set_Approved</fullName>
+        <field>Status</field>
+        <literalValue>Approved</literalValue>
+        <name>Proposal Approval - Set Approved</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Proposal_Approval_Set_Approved_Date</fullName>
+        <field>Approved_Date__c</field>
+        <formula>NOW()</formula>
+        <name>Proposal Approval - Set Approved Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Proposal_Approval_Set_Draft_On_Reject</fullName>
+        <field>Approval_Status__c</field>
+        <literalValue>Draft</literalValue>
+        <name>Proposal Approval - Set Draft on Reject</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Proposal_Approval_Set_Rejected</fullName>
+        <field>Status</field>
+        <literalValue>Rejected</literalValue>
+        <name>Proposal Approval - Set Rejected</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>Update_Probability</fullName>
         <field>Probability__c</field>
-        <formula>CASE( TEXT( Forecast_Type__c ) , 
-&quot;Most Likely&quot;, 0.75, 
+        <formula>CASE( TEXT( Forecast_Type__c ) ,
+&quot;Most Likely&quot;, 0.75,
 &quot;Commit&quot;, 0.90,
 Probability__c
 )</formula>
