@@ -188,11 +188,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Date__c</field>
-            <table>Quote</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Description</field>
             <table>Quote</table>
         </columns>
@@ -634,6 +629,11 @@
             <field>Opportunity.Owner__c</field>
             <table>Quote</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Opportunity.Owner_Manager_Name__c</field>
+            <table>Quote</table>
+        </columns>
         <masterLabel>Opportunity</masterLabel>
     </sections>
     <sections>
@@ -718,6 +718,11 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>AgreementName__c</field>
+            <table>Quote</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Approval_Reminder_date__c</field>
             <table>Quote</table>
         </columns>
         <masterLabel>Proposals</masterLabel>

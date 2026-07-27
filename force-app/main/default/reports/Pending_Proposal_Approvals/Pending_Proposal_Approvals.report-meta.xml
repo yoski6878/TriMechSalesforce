@@ -13,6 +13,9 @@
         <field>Quote$Opportunity.StageName</field>
     </columns>
     <columns>
+        <field>Quote$Opportunity.Owner_Manager_Name__c</field>
+    </columns>
+    <columns>
         <field>Quote$Status</field>
     </columns>
     <columns>
@@ -28,7 +31,7 @@
         <field>Quote$CreatedDate</field>
     </columns>
     <currency>USD</currency>
-    <description>All Proposals (Quotes) currently pending manager approval (Status = In Review) under the Proposal Approval Process.</description>
+    <description>All Proposals (Quotes) currently pending manager approval (Status = In Review, Opportunity not closed) under the Proposal Approval Process.</description>
     <filter>
         <booleanFilter>1 AND 2</booleanFilter>
         <criteriaItems>
