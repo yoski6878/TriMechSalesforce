@@ -260,6 +260,12 @@
                 <elementReference>$Flow.CurrentDateTime</elementReference>
             </value>
         </inputAssignments>
+        <inputAssignments>
+            <field>Escalated__c</field>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </inputAssignments>
         <inputReference>$Record</inputReference>
     </recordUpdates>
     <start>
