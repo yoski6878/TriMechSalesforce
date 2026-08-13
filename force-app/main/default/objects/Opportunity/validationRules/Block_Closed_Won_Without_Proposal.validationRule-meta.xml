@@ -2,13 +2,16 @@
 <ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Block_Closed_Won_Without_Proposal</fullName>
     <active>true</active>
-    <description>Project 790, Req 4: closes the &quot;Closed Won, no proposal&quot; gap. Blocks Send To Order Management when no related Quote exists, for flows requiring a proposal (see Proposal_Approval_Required__c). Uses the existing Number_of_Proposals__c rollup.</description>
+    <description>Project 790, Req 4: closes the &quot;Closed Won, no proposal&quot; gap. Blocks Closed Won or Closed Lost when no approved proposal exists (see Proposal_Approval_Required__c). Companion to Block_Send_to_OM_Without_Approval, which covers Send To Order Management.</description>
     <errorConditionFormula>AND(
 ISCHANGED(StageName),
-ISPICKVAL(StageName, &quot;Send To Order Management&quot;),
+OR(
+ISPICKVAL(StageName, &quot;Closed Won&quot;),
+ISPICKVAL(StageName, &quot;Closed Lost&quot;)
+),
 Proposal_Approval_Required__c,
 NOT(Exempt_From_Proposal_Approval__c),
 Primary_Proposal_Status__c &lt;&gt; &quot;Approved&quot;
 )</errorConditionFormula>
-    <errorMessage>This opportunity cannot be closed won without a proposal (Quote) on file. Create and submit a proposal for approval before closing this opportunity.</errorMessage>
+    <errorMessage>This opportunity cannot be closed (won or lost) without an approved proposal (Quote) on file. Create and submit a proposal for approval before closing this opportunity.</errorMessage>
 </ValidationRule>
