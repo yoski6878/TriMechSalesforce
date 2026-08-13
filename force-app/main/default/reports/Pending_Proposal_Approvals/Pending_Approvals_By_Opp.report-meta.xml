@@ -1,61 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Report xmlns="http://soap.sforce.com/2006/04/metadata">
     <columns>
-        <field>Quote$Name</field>
+        <field>Opportunity$Name</field>
     </columns>
     <columns>
-        <field>Quote$Account__c</field>
+        <field>Opportunity$Owner</field>
     </columns>
     <columns>
-        <field>Quote$Opportunity</field>
+        <field>Opportunity$Owner_Manager_Name__c</field>
     </columns>
     <columns>
-        <field>Quote$Opportunity.StageName</field>
+        <field>Opportunity$StageName</field>
     </columns>
     <columns>
-        <field>Quote$Opportunity.Owner_Manager_Name__c</field>
+        <field>Opportunity$Primary_Proposal_Status__c</field>
     </columns>
     <columns>
-        <field>Quote$Status</field>
+        <field>Opportunity$Primary_Proposal__c.Approval_Reminder_date__c</field>
     </columns>
     <columns>
-        <field>Quote$Approval_Reminder_date__c</field>
+        <field>Opportunity$Primary_Proposal__c.Escalated__c</field>
     </columns>
     <columns>
-        <field>Quote$Escalated__c</field>
+        <field>Opportunity$Primary_Proposal__c.Escalated_Date__c</field>
     </columns>
     <columns>
-        <field>Quote$Escalated_Date__c</field>
+        <field>Opportunity$Primary_Proposal__c.GrandTotal</field>
     </columns>
     <columns>
-        <field>Quote$GrandTotal</field>
-    </columns>
-    <columns>
-        <field>Quote$Owner_Email__c</field>
-    </columns>
-    <columns>
-        <field>Quote$CreatedDate</field>
+        <field>Opportunity$CreatedDate</field>
     </columns>
     <currency>USD</currency>
-    <description>Pending Proposal Approvals: Status In Review, Opportunity open, Owner not exempt.</description>
+    <description>Team-filterable view of pending proposal approvals (In Review, not closed, not exempt) via Primary Proposal. Use Show Me to filter to My team&apos;s opportunities. Only covers Primary-marked proposals - see the other report for full coverage.</description>
     <filter>
         <booleanFilter>1 AND 2 AND 3</booleanFilter>
         <criteriaItems>
-            <column>Quote$Status</column>
+            <column>Opportunity$Primary_Proposal_Status__c</column>
             <columnToColumn>false</columnToColumn>
             <isUnlocked>false</isUnlocked>
             <operator>equals</operator>
             <value>In Review</value>
         </criteriaItems>
         <criteriaItems>
-            <column>Quote$Opportunity.IsClosed</column>
+            <column>Opportunity$IsClosed</column>
             <columnToColumn>false</columnToColumn>
             <isUnlocked>false</isUnlocked>
             <operator>equals</operator>
             <value>0</value>
         </criteriaItems>
         <criteriaItems>
-            <column>Quote$Opportunity.Exempt_From_Proposal_Approval__c</column>
+            <column>Opportunity$Exempt_From_Proposal_Approval__c</column>
             <columnToColumn>false</columnToColumn>
             <isUnlocked>false</isUnlocked>
             <operator>equals</operator>
@@ -63,20 +57,20 @@
         </criteriaItems>
     </filter>
     <format>Tabular</format>
-    <name>Pending Proposal Approvals</name>
+    <name>Pending Approvals By Opportunity</name>
     <params>
         <name>co</name>
         <value>1</value>
     </params>
-    <reportType>Proposals_Custom__c</reportType>
+    <reportType>Opportunities_and_Primary_Proposal__c</reportType>
     <scope>organization</scope>
     <showDetails>true</showDetails>
     <showGrandTotal>true</showGrandTotal>
     <showSubTotals>true</showSubTotals>
-    <sortColumn>Quote$Approval_Reminder_date__c</sortColumn>
+    <sortColumn>Opportunity$Primary_Proposal__c.Approval_Reminder_date__c</sortColumn>
     <sortOrder>Asc</sortOrder>
     <timeFrameFilter>
-        <dateColumn>Quote$CreatedDate</dateColumn>
+        <dateColumn>Opportunity$CreatedDate</dateColumn>
         <interval>INTERVAL_CUSTOM</interval>
     </timeFrameFilter>
 </Report>
