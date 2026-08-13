@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Proposal_Approval_Escalation_Notice</fullName>
+        <description>Project 790, Requirement 7: notifies the Proposal Approval Escalation Managers group when a pending approval is reassigned to them after sitting unactioned for 24 hours. Fired by the 24 Hours After Submission scheduled path on Quote_Submit_For_Approval.</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>Proposal_Approval_Escalation_Mgrs</recipient>
+            <type>group</type>
+        </recipients>
+        <senderType>OrgWideEmailAddress</senderType>
+        <senderAddress>noreply@trimech.com</senderAddress>
+        <template>unfiled$public/Proposal_Approval_Escalation_Notice</template>
+    </alerts>
     <fieldUpdates>
         <fullName>AVA_SFCLOUD__AvaTax_Update_Tax_Date</fullName>
         <field>AVA_SFCLOUD__Tax_Date__c</field>

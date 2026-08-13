@@ -7,6 +7,7 @@
 ISCHANGED(StageName),
 ISPICKVAL(StageName, &quot;Send To Order Management&quot;),
 Proposal_Approval_Required__c,
+NOT(Exempt_From_Proposal_Approval__c),
 Primary_Proposal_Status__c &lt;&gt; &quot;Approved&quot;
 )</errorConditionFormula>
     <errorMessage>This opportunity cannot be closed won without a proposal (Quote) on file. Create and submit a proposal for approval before closing this opportunity.</errorMessage>

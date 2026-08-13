@@ -22,6 +22,12 @@
         <field>Quote$Approval_Reminder_date__c</field>
     </columns>
     <columns>
+        <field>Quote$Escalated__c</field>
+    </columns>
+    <columns>
+        <field>Quote$Escalated_Date__c</field>
+    </columns>
+    <columns>
         <field>Quote$GrandTotal</field>
     </columns>
     <columns>
@@ -31,9 +37,9 @@
         <field>Quote$CreatedDate</field>
     </columns>
     <currency>USD</currency>
-    <description>All Proposals (Quotes) currently pending manager approval (Status = In Review, Opportunity not closed) under the Proposal Approval Process.</description>
+    <description>Pending Proposal Approvals: Status In Review, Opportunity open, Owner not exempt.</description>
     <filter>
-        <booleanFilter>1 AND 2</booleanFilter>
+        <booleanFilter>1 AND 2 AND 3</booleanFilter>
         <criteriaItems>
             <column>Quote$Status</column>
             <columnToColumn>false</columnToColumn>
@@ -43,6 +49,13 @@
         </criteriaItems>
         <criteriaItems>
             <column>Quote$Opportunity.IsClosed</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>0</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Quote$Opportunity.Exempt_From_Proposal_Approval__c</column>
             <columnToColumn>false</columnToColumn>
             <isUnlocked>false</isUnlocked>
             <operator>equals</operator>

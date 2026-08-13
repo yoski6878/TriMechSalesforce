@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Escalated__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Project 790, Requirement 7: set true when the Proposal Approval Process request sat unactioned for 24 hours and was reassigned from the Owner's Manager to the Proposal Approval Escalation Managers group. Set by the 24 Hours After Submitted scheduled path on Quote_Submit_For_Approval.</description>
+    <label>Escalated</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

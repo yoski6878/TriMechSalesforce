@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Escalated_Date__c</fullName>
+    <description>Project 790, Requirement 7: timestamp of when this proposal's approval request was reassigned to the Proposal Approval Escalation Managers group after 24 hours unactioned.</description>
+    <label>Escalated Date</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>DateTime</type>
+</CustomField>

@@ -16,9 +16,98 @@
         </inputParameters>
         <nameSegment>submit</nameSegment>
     </actionCalls>
+    <actionCalls>
+        <name>Send_Escalation_Email</name>
+        <label>Send Escalation Email</label>
+        <locationX>577</locationX>
+        <locationY>899</locationY>
+        <actionName>Quote.Proposal_Approval_Escalation_Notice</actionName>
+        <actionType>emailAlert</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>Quote.Proposal_Approval_Escalation_Notice</nameSegment>
+    </actionCalls>
     <apiVersion>63.0</apiVersion>
     <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
-    <description>Project 790, Requirement 2: when a rep changes a Quote (Proposal)&apos;s standard Status field to &quot;In Review&quot;, stamps Submitted_For_Approval_Date__c (for SLA/aging reporting) and automatically submits it to the Proposal Approval Process so reps don&apos;t have to find and click Submit for Approval manually.</description>
+    <decisions>
+        <name>Found_Work_Item</name>
+        <label>Found Pending Work Item?</label>
+        <locationX>577</locationX>
+        <locationY>647</locationY>
+        <defaultConnectorLabel>No - Nothing To Escalate</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Found</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Pending_Work_Item</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Escalation_Group</targetReference>
+            </connector>
+            <label>Yes - Work Item Found</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Is_Owner_Exempt</name>
+        <label>Is Owner Exempt?</label>
+        <locationX>176</locationX>
+        <locationY>179</locationY>
+        <defaultConnector>
+            <targetReference>Stamp_Submitted_Date</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No - Requires Approval</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Exempt</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Opportunity.Exempt_From_Proposal_Approval__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <label>Yes - Owner Is Exempt</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Still_Pending</name>
+        <label>Still Pending And Not Yet Escalated?</label>
+        <locationX>577</locationX>
+        <locationY>431</locationY>
+        <defaultConnectorLabel>No - Already Resolved</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Still_Pending</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Status</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>In Review</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Escalated__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Pending_Process_Instance</targetReference>
+            </connector>
+            <label>Yes - Still Pending</label>
+        </rules>
+    </decisions>
+    <description>Project 790, Requirement 2: when a rep changes a Quote (Proposal)&apos;s standard Status field to &quot;In Review&quot;, stamps Submitted_For_Approval_Date__c (for SLA/aging reporting) and automatically submits it to the Proposal Approval Process so reps don&apos;t have to find and click Submit for Approval manually. Skips entirely (no stamp, no submit) when the Opportunity Owner is exempt (Exempt_From_Proposal_Approval__c, e.g. AMS team) per the escape-route requirement.</description>
     <environments>Default</environments>
     <interviewLabel>Quote Submit For Approval {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Quote Submit For Approval</label>
@@ -41,6 +130,122 @@
         </value>
     </processMetadataValues>
     <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Get_Escalation_Group</name>
+        <label>Get Escalation Group</label>
+        <locationX>577</locationX>
+        <locationY>755</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Reassign_Work_Item</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>DeveloperName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Proposal_Approval_Escalation_Mgrs</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Group</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Pending_Process_Instance</name>
+        <label>Get Pending Process Instance</label>
+        <locationX>577</locationX>
+        <locationY>539</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Get_Pending_Work_Item</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>TargetObjectId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Status</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Pending</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>ProcessInstance</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Pending_Work_Item</name>
+        <label>Get Pending Work Item</label>
+        <locationX>577</locationX>
+        <locationY>593</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Found_Work_Item</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>ProcessInstanceId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_Pending_Process_Instance.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>ProcessInstanceWorkitem</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>Mark_Escalated</name>
+        <label>Mark Escalated</label>
+        <locationX>577</locationX>
+        <locationY>863</locationY>
+        <connector>
+            <targetReference>Send_Escalation_Email</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Escalated__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Escalated_Date__c</field>
+            <value>
+                <elementReference>$Flow.CurrentDateTime</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Reassign_Work_Item</name>
+        <label>Reassign Work Item To Escalation Group</label>
+        <locationX>577</locationX>
+        <locationY>809</locationY>
+        <connector>
+            <targetReference>Mark_Escalated</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_Pending_Work_Item.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>ActorId</field>
+            <value>
+                <elementReference>Get_Escalation_Group.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <object>ProcessInstanceWorkitem</object>
+    </recordUpdates>
     <recordUpdates>
         <name>Stamp_Submitted_Date</name>
         <label>Stamp Submitted Date</label>
@@ -61,11 +266,22 @@
         <locationX>50</locationX>
         <locationY>0</locationY>
         <connector>
-            <targetReference>Stamp_Submitted_Date</targetReference>
+            <targetReference>Is_Owner_Exempt</targetReference>
         </connector>
-        <filterFormula>ISCHANGED({!$Record.Status}) &amp;&amp; ISPICKVAL({!$Record.Status}, &quot;In Review&quot;)</filterFormula>
+        <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+        <filterFormula>ISPICKVAL({!$Record.Status}, &quot;In Review&quot;)</filterFormula>
         <object>Quote</object>
         <recordTriggerType>Update</recordTriggerType>
+        <scheduledPaths>
+            <name>Escalate_After_24_Hours</name>
+            <connector>
+                <targetReference>Still_Pending</targetReference>
+            </connector>
+            <label>24 Hours After Submission</label>
+            <offsetNumber>24</offsetNumber>
+            <offsetUnit>Hours</offsetUnit>
+            <timeSource>RecordTriggerEvent</timeSource>
+        </scheduledPaths>
         <triggerType>RecordAfterSave</triggerType>
     </start>
     <status>Active</status>
