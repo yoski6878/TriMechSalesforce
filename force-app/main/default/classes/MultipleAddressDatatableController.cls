@@ -25,14 +25,135 @@ public class MultipleAddressDatatableController {
 	}
 
 	@AuraEnabled(cacheable=true)
+	public static Id getAccountIdFromOpportunity(String opportunityId) {
+		Opportunity opp = [SELECT AccountId FROM Opportunity WHERE Id = :opportunityId LIMIT 1];
+		return opp.AccountId;
+	}
+
+	@AuraEnabled(cacheable=true)
 	public static List<Schema.Address> getAddresses(Id accountId) {
 		return [
 			SELECT Id, Name, CurrencyIsoCode, ParentId, LocationType, AddressType, Street, City,
 				State, PostalCode, Country, Latitude, Longitude, GeocodeAccuracy, Address, Description,
-				DrivingDirections, TimeZone, Account__c, Primary_Billing_Address__c, Primary_Shipping_Address__c
+				DrivingDirections, TimeZone, Account__c,
+				Primary_Address__c
 			FROM Address
 			WHERE Account__c = :accountId
 		];
+	}
+
+	@AuraEnabled(cacheable=true)
+	public static List<Schema.Address> getAddressesByOpportunity(Id opportunityId) {
+		return [
+			SELECT Id, Name, CurrencyIsoCode, ParentId, LocationType, AddressType, Street, City,
+				State, PostalCode, Country, Latitude, Longitude, GeocodeAccuracy, Address, Description,
+				DrivingDirections, TimeZone, Account__c,
+				Primary_Address__c
+			FROM Address
+			WHERE Lead_Opportunity__c = :opportunityId
+		];
+	}
+
+	@AuraEnabled(cacheable=true)
+	public static List<Schema.Address> getAddressesByProposal(Id quoteId) {
+		return [
+			SELECT Id, Name, CurrencyIsoCode, ParentId, LocationType, AddressType, Street, City,
+				State, PostalCode, Country, Latitude, Longitude, GeocodeAccuracy, Address, Description,
+				DrivingDirections, TimeZone, Account__c,
+				Primary_Address__c
+			FROM Address
+			WHERE Proposal__c = :quoteId
+		];
+	}
+
+	@AuraEnabled
+	public static void updateAddressDetails(Id addressId, String addressType, String street, String city, String state, String postalCode) {
+		update new Schema.Address(
+			Id = addressId,
+			AddressType = addressType,
+			Street = street,
+			City = city,
+			State = state,
+			PostalCode = postalCode
+		);
+	}
+
+	@AuraEnabled
+	public static void tagAddressWithRecord(Id addressId, Id opportunityId, Id quoteId) {
+		Schema.Address addr = new Schema.Address(Id = addressId);
+		addr.Lead_Opportunity__c = opportunityId;
+		addr.Proposal__c = quoteId;
+		update addr;
+	}
+
+	// Server-side re-check of the "can't delete the Primary address" rule, so it holds
+	// even if something other than this component's own UI ever calls this method.
+	@AuraEnabled
+	public static void deleteAddress(Id addressId) {
+		Schema.Address addr = [SELECT Id, ParentId, Primary_Address__c FROM Address WHERE Id = :addressId LIMIT 1];
+		if (addr.Primary_Address__c == true) {
+			AuraHandledException ex = new AuraHandledException('Please select another Primary address before deleting this one.');
+			ex.setMessage('Please select another Primary address before deleting this one.');
+			throw ex;
+		}
+
+		Id locationId = addr.ParentId;
+		delete addr;
+
+		if (locationId != null) {
+			List<Schema.Location> autoLocations = [
+				SELECT Id FROM Location WHERE Id = :locationId AND Name = 'Auto Generated Location'
+			];
+			if (!autoLocations.isEmpty()) {
+				delete autoLocations;
+			}
+		}
+	}
+
+	// Primary is a single, Account-wide designation: setting it here clears the flag on every
+	// address tied to this Account - not just the ones visible in whichever Opportunity/Proposal
+	// scope triggered the change - and cascades the resulting Billing Address to the Account and
+	// every Quote under it, so Account, Opportunity, and Proposal views always agree.
+	@AuraEnabled
+	public static void setPrimaryAddress(Id primaryAddressId, Id accountId) {
+		List<Schema.Address> accountAddresses = [
+			SELECT Id FROM Address WHERE Account__c = :accountId
+		];
+		List<Schema.Address> addressesToUpdate = new List<Schema.Address>();
+		for (Schema.Address addr : accountAddresses) {
+			addressesToUpdate.add(new Schema.Address(
+				Id = addr.Id,
+				Primary_Address__c = (addr.Id == primaryAddressId)
+			));
+		}
+		update addressesToUpdate;
+
+		updateAccountAddressesWithDetails(accountId, primaryAddressId);
+
+		Schema.Address primaryAddr = [
+			SELECT Street, City, State, Country, Latitude, Longitude, PostalCode
+			FROM Address
+			WHERE Id = :primaryAddressId
+			LIMIT 1
+		];
+
+		List<Quote> quotesToUpdate = new List<Quote>();
+		for (Quote qt : [SELECT Id FROM Quote WHERE AccountId = :accountId]) {
+			quotesToUpdate.add(new Quote(
+				Id = qt.Id,
+				BillingStreet = primaryAddr.Street,
+				BillingCity = primaryAddr.City,
+				BillingState = primaryAddr.State,
+				BillingPostalCode = primaryAddr.PostalCode,
+				BillingCountry = primaryAddr.Country,
+				BillingLatitude = primaryAddr.Latitude,
+				BillingLongitude = primaryAddr.Longitude,
+				AVA_SFCLOUD__Calculate_Tax__c = true
+			));
+		}
+		if (!quotesToUpdate.isEmpty()) {
+			update quotesToUpdate;
+		}
 	}
 
 	// @AuraEnabled(cacheable=true)
@@ -55,54 +176,12 @@ public class MultipleAddressDatatableController {
 	// }
 
 	@AuraEnabled
-	public static void updateQuoteAddressesWithDetails(Id quoteId, Id billingAddressId, Id shippingAddressId) {
-		Quote qt = new Quote();
-		qt.Id = quoteId;
-
-		Schema.Address billingAddr = billingAddressId != null
-			? [SELECT Street, City, state, country, longitude,latitude ,PostalCode FROM Address WHERE Id = :billingAddressId LIMIT 1]
-			: null;
-
-		Schema.Address shippingAddr = shippingAddressId != null
-			? [SELECT Street, City, state, country, longitude,latitude ,PostalCode  FROM Address WHERE Id = :shippingAddressId LIMIT 1]
-			: null;
-
-		if (billingAddr != null) {
-			qt.BillingStreet       = billingAddr.street;
-			qt.BillingCity         = billingAddr.city;
-			qt.BillingState        = billingAddr.state;
-			qt.BillingPostalCode   = billingAddr.postalCode;
-			qt.BillingCountry      = billingAddr.country;
-			qt.BillingLatitude     = billingAddr.latitude;
-			qt.BillingLongitude    = billingAddr.longitude;
-		}
-
-		if (shippingAddr != null) {
-			qt.ShippingStreet       = shippingAddr.street;
-			qt.ShippingCity         = shippingAddr.city;
-			qt.ShippingState        = shippingAddr.state;
-			qt.ShippingPostalCode   = shippingAddr.postalCode;
-			qt.ShippingCountry      = shippingAddr.country;
-			qt.ShippingLatitude     = shippingAddr.latitude;
-			qt.ShippingLongitude    = shippingAddr.longitude;
-		}
-
-		qt.AVA_SFCLOUD__Calculate_Tax__c = true;
-
-		update qt;
-	}
-
-	@AuraEnabled
-	public static void updateAccountAddressesWithDetails(Id accountId, Id billingAddressId, Id shippingAddressId) {
+	public static void updateAccountAddressesWithDetails(Id accountId, Id billingAddressId) {
 		Account acc = new Account();
 		acc.Id = accountId;
 
 		Schema.Address billingAddr = billingAddressId != null
 			? [SELECT Street, City, state, country, longitude,latitude ,PostalCode FROM Address WHERE Id = :billingAddressId LIMIT 1]
-			: null;
-
-		Schema.Address shippingAddr = shippingAddressId != null
-			? [SELECT Street, City, state, country, longitude,latitude ,PostalCode  FROM Address WHERE Id = :shippingAddressId LIMIT 1]
 			: null;
 
 		if (billingAddr != null) {
@@ -113,16 +192,6 @@ public class MultipleAddressDatatableController {
 			acc.BillingCountry      = billingAddr.country;
 			acc.BillingLatitude     = billingAddr.latitude;
 			acc.BillingLongitude    = billingAddr.longitude;
-		}
-
-		if (shippingAddr != null) {
-			acc.ShippingStreet       = shippingAddr.street;
-			acc.ShippingCity         = shippingAddr.city;
-			acc.ShippingState        = shippingAddr.state;
-			acc.ShippingPostalCode   = shippingAddr.postalCode;
-			acc.ShippingCountry      = shippingAddr.country;
-			acc.ShippingLatitude     = shippingAddr.latitude;
-			acc.ShippingLongitude    = shippingAddr.longitude;
 		}
 		update acc;
 	}
