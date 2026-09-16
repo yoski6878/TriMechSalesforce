@@ -14,23 +14,21 @@
 
         <template if:false={noAddressesFound}>
             <div slot="footer">
-                <lightning-button variant="brand" label="Save Selection" class="slds-m-top_medium" onclick={handleSave}></lightning-button>
+                <lightning-button variant="brand" label="Save" class="slds-m-top_medium" onclick={handleRefresh}></lightning-button>
             </div>
         </template>
 
+        <div style="position: relative; min-height: 3rem;">
+            <template if:true={isLoading}>
+                <lightning-spinner alternative-text="Loading addresses" size="medium"></lightning-spinner>
+            </template>
         <div class="slds-scrollable_x slds-scrollable_y" style="max-width: 100%; max-height: 400px;">
             <table class="slds-table slds-table_cell-buffer slds-table_bordered">
                 <thead>
                     <tr>
-                        <th data-field="isBilling" onclick={handleSort}>
-                            Billing
-                            <template if:true={isSortedBilling}>
-                                <span>{sortArrow}</span>
-                            </template>
-                        </th>
-                        <th data-field="isShipping" onclick={handleSort}>
-                            Shipping
-                            <template if:true={isSortedShipping}>
+                        <th data-field="isPrimary" onclick={handleSort}>
+                            Primary
+                            <template if:true={isSortedPrimary}>
                                 <span>{sortArrow}</span>
                             </template>
                         </th>
@@ -64,6 +62,7 @@
                                 <span>{sortArrow}</span>
                             </template>
                         </th>
+                        <th>Actions</th>
 
                     </tr>
                 </thead>
@@ -74,26 +73,75 @@
                             <td>
                                 <input
                                     type="checkbox"
-                                    name="billing"
-                                    checked={address.isBilling}
-                                    onchange={handleBillingChange}
+                                    name="primary"
+                                    checked={address.isPrimary}
+                                    onchange={handlePrimaryChange}
                                     data-id={address.Id}
                                 />
+                            </td>
+                            <td style="min-width: 140px;">
+                                <select
+                                    class="slds-select"
+                                    value={address.AddressType}
+                                    data-id={address.Id}
+                                    data-field="AddressType"
+                                    onchange={handleFieldChange}>
+                                    <option value="Mailing">Mailing</option>
+                                    <option value="Shipping">Shipping</option>
+                                    <option value="Billing">Billing</option>
+                                    <option value="Home">Home</option>
+                                </select>
+                            </td>
+                            <td style="min-width: 180px;">
+                                <lightning-input
+                                    variant="label-hidden"
+                                    label="Street"
+                                    value={address.Street}
+                                    data-id={address.Id}
+                                    data-field="Street"
+                                    onchange={handleFieldChange}>
+                                </lightning-input>
+                            </td>
+                            <td style="min-width: 140px;">
+                                <lightning-input
+                                    variant="label-hidden"
+                                    label="City"
+                                    value={address.City}
+                                    data-id={address.Id}
+                                    data-field="City"
+                                    onchange={handleFieldChange}>
+                                </lightning-input>
+                            </td>
+                            <td style="min-width: 100px;">
+                                <lightning-input
+                                    variant="label-hidden"
+                                    label="State"
+                                    value={address.State}
+                                    data-id={address.Id}
+                                    data-field="State"
+                                    onchange={handleFieldChange}>
+                                </lightning-input>
+                            </td>
+                            <td style="min-width: 110px;">
+                                <lightning-input
+                                    variant="label-hidden"
+                                    label="Postal Code"
+                                    value={address.PostalCode}
+                                    data-id={address.Id}
+                                    data-field="PostalCode"
+                                    onchange={handleFieldChange}>
+                                </lightning-input>
                             </td>
                             <td>
-                                <input
-                                    type="checkbox"
-                                    name="shipping"
-                                    checked={address.isShipping}
-                                    onchange={handleShippingChange}
+                                <lightning-button-icon
+                                    icon-name="utility:delete"
+                                    alternative-text="Delete"
+                                    title="Delete"
+                                    variant="border-filled"
                                     data-id={address.Id}
-                                />
+                                    onclick={handleDeleteClick}>
+                                </lightning-button-icon>
                             </td>
-                            <td>{address.AddressType}</td>
-                            <td>{address.Street}</td>
-                            <td>{address.City}</td>
-                            <td>{address.State}</td>
-                            <td>{address.PostalCode}</td>
                         </tr>
                     </template>
 
@@ -108,6 +156,7 @@
 
             </table>
         </div>
+        </div>
     </lightning-card>
 
     <template if:true={isModalOpen}>
@@ -117,10 +166,14 @@
                     <h2 class="slds-text-heading_medium">New Address</h2>
                 </header>
 
-                <div class="slds-modal__content slds-p-around_medium">
+                <div class="slds-modal__content slds-p-around_medium" style="position: relative;">
+                    <template if:true={isSaving}>
+                        <lightning-spinner alternative-text="Saving address" size="medium"></lightning-spinner>
+                    </template>
                     <lightning-record-edit-form
                         data-id="addressForm"
                         onsuccess={handleSuccess}
+                        onerror={handleFormError}
                         object-api-name="Address">
                             <lightning-layout multiple-rows>
 
@@ -133,36 +186,69 @@
                             </lightning-layout-item>
 
                             <lightning-layout-item size="12" padding="around-small">
-                                <lightning-input-field field-name="Street"></lightning-input-field>
+                                <lightning-input-address
+                                    address-label="Address"
+                                    street-label="Street"
+                                    city-label="City"
+                                    province-label="State/Province"
+                                    postal-code-label="Zip/Postal Code"
+                                    country-label="Country"
+                                    show-address-lookup
+                                    street={newStreet}
+                                    city={newCity}
+                                    province={newState}
+                                    postal-code={newPostalCode}
+                                    country={newCountry}
+                                    onchange={handleAddressLookupChange}>
+                                </lightning-input-address>
                             </lightning-layout-item>
-                            <lightning-layout-item size="6" padding="around-small">
-                                <lightning-input-field field-name="City"></lightning-input-field>
-                            </lightning-layout-item>
-                            <lightning-layout-item size="6" padding="around-small">
-                                <lightning-input-field field-name="State"></lightning-input-field>
-                            </lightning-layout-item>
-                            <lightning-layout-item size="6" padding="around-small">
-                                <lightning-input-field field-name="PostalCode"></lightning-input-field>
-                            </lightning-layout-item>
-                            <lightning-layout-item size="6" padding="around-small">
-                                <lightning-input-field field-name="Country"></lightning-input-field>
-                            </lightning-layout-item>
-                            
+
+                            <!-- Hidden but functional: lightning-record-edit-form only submits
+                                 lightning-input-field children, so the address-lookup values above
+                                 are mirrored into these to actually persist on save. -->
+                            <div class="slds-hide">
+                                <lightning-input-field field-name="Street" value={newStreet}></lightning-input-field>
+                                <lightning-input-field field-name="City" value={newCity}></lightning-input-field>
+                                <lightning-input-field field-name="State" value={newState}></lightning-input-field>
+                                <lightning-input-field field-name="PostalCode" value={newPostalCode}></lightning-input-field>
+                                <lightning-input-field field-name="Country" value={newCountry}></lightning-input-field>
+                            </div>
+
                             <lightning-layout-item size="6" padding="around-small">
                                 <lightning-input-field field-name="Account__c" value={accountId}></lightning-input-field>
-                            </lightning-layout-item> 
+                            </lightning-layout-item>
+                            <lightning-layout-item size="6" padding="around-small">
+                                <lightning-input-field field-name="Primary_Address__c"></lightning-input-field>
+                            </lightning-layout-item>
                         </lightning-layout>
                     </lightning-record-edit-form>
                 </div>
 
                 <footer class="slds-modal__footer">
-                    <lightning-button type="submit" label="Save" variant="brand" onclick={handleNewButtonSave}></lightning-button> &nbsp; &nbsp; 
-                    <lightning-button label="Cancel" onclick={closeModal}></lightning-button>
+                    <lightning-button type="submit" label="Save" variant="brand" disabled={isSaving} onclick={handleNewButtonSave}></lightning-button> &nbsp; &nbsp;
+                    <lightning-button label="Cancel" disabled={isSaving} onclick={closeModal}></lightning-button>
                 </footer>
             </div>
         </section>
         <div class="slds-backdrop slds-backdrop_open"></div>
     </template>
 
+    <template if:true={isDeleteModalOpen}>
+        <section role="dialog" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <header class="slds-modal__header">
+                    <h2 class="slds-text-heading_medium">Delete Address</h2>
+                </header>
+                <div class="slds-modal__content slds-p-around_medium">
+                    <p>Are you sure you want to delete this address? This can't be undone.</p>
+                </div>
+                <footer class="slds-modal__footer">
+                    <lightning-button variant="destructive" label="Delete" onclick={confirmDelete}></lightning-button> &nbsp; &nbsp;
+                    <lightning-button label="Cancel" onclick={cancelDelete}></lightning-button>
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
 
 </template>
