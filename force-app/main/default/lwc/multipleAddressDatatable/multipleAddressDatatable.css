@@ -1,3 +1,16 @@
 .custom-container{
 	color : black;
 }
+
+.address-table-scroll {
+	border: 1px solid #dddbda;
+	border-radius: 0.25rem;
+	padding-bottom: 0.5rem;
+}
+
+.address-table-scroll thead th {
+	position: sticky;
+	top: 0;
+	background: #fafaf9;
+	z-index: 1;
+}
