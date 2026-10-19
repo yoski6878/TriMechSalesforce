@@ -2876,7 +2876,7 @@ OR (ISPICKVAL({!Get_Opportunity.Vendor_Pricing_Details__c}, &quot;&quot;), ISPIC
                     </defaultValue>
                     <fieldText>Tenant</fieldText>
                     <fieldType>InputField</fieldType>
-                    <helpText>&lt;table class=&quot;ql-table-blob&quot; border=&quot;0&quot; style=&quot;width: 196pt;&quot; width=&quot;261&quot;&gt;&lt;colgroup&gt;&lt;col width=&quot;261&quot; style=&quot;width: 196pt;&quot;&gt;&lt;/colgroup&gt;&lt;tbody&gt;&lt;tr height=&quot;43&quot; style=&quot;height: 32pt;&quot;&gt;&lt;td height=&quot;43&quot; class=&quot;xl66&quot; width=&quot;261&quot; style=&quot;padding: 0px; color: black; font-size: 11pt; font-family: Calibri, sans-serif; vertical-align: bottom; height: 32pt; width: 196pt;&quot;&gt;Please indicate the existing tenant for 3DX products if applicable.&amp;nbsp;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;</helpText>
+                    <helpText>&lt;p&gt;Maximum 100 characters. Please indicate the existing tenant for 3DX products if applicable.&lt;/p&gt;&lt;p&gt;CPE Enterprise Orders: Up to 2 values for this field. Identify cloud tenant to support cloud software and/or cloud tenant to host managed licensing services (OML, Hosted DSLS).&lt;/p&gt;</helpText>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                     <styleProperties>
