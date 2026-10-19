@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>63.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <name>Is_Owner_Exempt</name>
+        <label>Is Owner Exempt?</label>
+        <locationX>176</locationX>
+        <locationY>647</locationY>
+        <defaultConnector>
+            <targetReference>Update_Exempt_False</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No - Not Exempt</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Exempt</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Exempt_Membership</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Exempt_True</targetReference>
+            </connector>
+            <label>Yes - Owner Is Exempt</label>
+        </rules>
+    </decisions>
+    <description>Project 790, escape-route requirement: keeps Opportunity.Exempt_From_Proposal_Approval__c in sync with membership in the &quot;AMS Team - Approval Exempt&quot; public group (AMS_Team_Approval_Exempt), so Block_Closed_Won_Without_Proposal, Block_Send_to_OM_Without_Approval, and Quote_Submit_For_Approval can skip the approval requirement entirely for exempt reps without needing a per-record custom object.</description>
+    <environments>Default</environments>
+    <interviewLabel>Opportunity Sync Proposal Approval Exemption {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Opportunity Sync Proposal Approval Exemption</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Get_Exempt_Group</name>
+        <label>Get Exempt Group</label>
+        <locationX>176</locationX>
+        <locationY>323</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Get_Exempt_Membership</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>DeveloperName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>AMS_Team_Approval_Exempt</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Group</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Exempt_Membership</name>
+        <label>Get Exempt Membership</label>
+        <locationX>176</locationX>
+        <locationY>431</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Is_Owner_Exempt</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>GroupId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_Exempt_Group.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>UserOrGroupId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.OwnerId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>GroupMember</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>Update_Exempt_False</name>
+        <label>Update Exempt - False</label>
+        <locationX>314</locationX>
+        <locationY>755</locationY>
+        <inputAssignments>
+            <field>Exempt_From_Proposal_Approval__c</field>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Exempt_True</name>
+        <label>Update Exempt - True</label>
+        <locationX>50</locationX>
+        <locationY>755</locationY>
+        <inputAssignments>
+            <field>Exempt_From_Proposal_Approval__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Exempt_Group</targetReference>
+        </connector>
+        <filterFormula>ISNULL({!$Record__Prior.OwnerId}) || {!$Record__Prior.OwnerId} &lt;&gt; {!$Record.OwnerId}</filterFormula>
+        <object>Opportunity</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

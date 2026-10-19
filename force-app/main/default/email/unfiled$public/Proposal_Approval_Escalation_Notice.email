@@ -1,0 +1,8 @@
+This proposal approval has been pending for over 24 hours without action from the assigned manager and has been reassigned to the Proposal Approval Escalation Managers group.
+
+Proposal: {!Quote.Name}
+Owner: {!Quote.Owner_Email__c}
+Grand Total: {!Quote.GrandTotal}
+Submitted For Approval: {!Quote.Submitted_For_Approval_Date__c}
+
+Link to record: {!Quote.Link}
