@@ -247,6 +247,7 @@ public with sharing class BridgeITOpportunityEventHandler {
                 Student_Netsuite_Ids__c,
                 Are_there_additional_courses__c,
                 Are_services_products_on_this_order__c,
+                Services_Outsourced__c,
                 Are_hardware_products_on_this_order__c,
                 End_User_Names_hardware__c,
                 Trade_in_Serial_Number__c,
@@ -319,6 +320,7 @@ public with sharing class BridgeITOpportunityEventHandler {
         o.Student_Netsuite_Ids__c                  = o.Student_Netsuite_Ids__c;
         o.Are_there_additional_courses__c          = o.Are_there_additional_courses__c;
         o.Are_services_products_on_this_order__c   = o.Are_services_products_on_this_order__c;
+        o.Services_Outsourced__c                   = o.Services_Outsourced__c;
         o.Are_hardware_products_on_this_order__c   = o.Are_hardware_products_on_this_order__c;
         o.End_User_Names_hardware__c               = o.End_User_Names_hardware__c;
         o.Trade_in_Serial_Number__c                = o.Trade_in_Serial_Number__c;

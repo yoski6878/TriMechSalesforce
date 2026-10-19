@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Services_Outsourced__c</fullName>
+    <description>Send to OM: services on this order are delivered by a third-party vendor. When Yes, the Order Mgmt flow requires a Vendor Quote / SOW upload. Synced to NetSuite.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Select Yes if any service on this order will be delivered by a third-party vendor. A Vendor Quote or SOW upload is required.</inlineHelpText>
+    <label>Are Services Outsourced?</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Yes</fullName>
+                <default>false</default>
+                <label>Yes</label>
+            </value>
+            <value>
+                <fullName>No</fullName>
+                <default>true</default>
+                <label>No</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>
