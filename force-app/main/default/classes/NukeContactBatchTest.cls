@@ -20,14 +20,16 @@ private class NukeContactBatchTest {
     }
 
     @isTest
-    static void testFlaggedContactsAreDeletedAndOthersSurvive() {
+    static void testFlaggedContactsAreDeactivatedAndOthersRemainActive() {
         Test.startTest();
         Database.executeBatch(new NukeContactBatch(), 100);
         Test.stopTest();
 
-        List<Contact> remaining = [SELECT Id, LastName FROM Contact WHERE LastName LIKE 'ZZZ_TEST_Nuke_%'];
-        System.assertEquals(1, remaining.size(), 'Only the non-flagged contact should remain.');
-        System.assertEquals('ZZZ_TEST_Nuke_ToKeep', remaining[0].LastName);
+        List<Contact> records = [SELECT LastName, Inactive__c, NUKE__c FROM Contact WHERE LastName LIKE 'ZZZ_TEST_Nuke_%' ORDER BY LastName];
+        System.assertEquals(2, records.size(), 'No Contact should be deleted.');
+        Contact deactivated = [SELECT Inactive__c, NUKE__c FROM Contact WHERE LastName = 'ZZZ_TEST_Nuke_ToDelete' LIMIT 1];
+        System.assertEquals(true, deactivated.Inactive__c);
+        System.assertEquals(false, deactivated.NUKE__c);
     }
 
     @isTest
@@ -42,6 +44,6 @@ private class NukeContactBatchTest {
         Test.stopTest();
 
         List<Contact> flaggedStillPresent = [SELECT Id FROM Contact WHERE NUKE__c = true AND LastName LIKE 'ZZZ_TEST_Nuke_%'];
-        System.assertEquals(2, flaggedStillPresent.size(), 'Batch should have aborted and deleted nothing once the safety cap was exceeded.');
+        System.assertEquals(2, flaggedStillPresent.size(), 'Batch should have aborted and changed nothing once the safety cap was exceeded.');
     }
 }

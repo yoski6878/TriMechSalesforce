@@ -1,17 +1,31 @@
-/**
-* @File Name : RunContactNukeBatchAction.cls
-* @Description : Single-purpose Invocable Apex action backing the "Run NUKE
-*   Contact Cleanup" Screen Flow / Quick Action button. Kicks off
-*   NukeContactBatch, which permanently deletes every Contact flagged
-*   NUKE__c = true (subject to its own 500-record safety cap).
-* @Author :
-* @Last Modified By :
-* @Last Modified On :
-**/
-
 public without sharing class RunContactNukeBatchAction {
-    @InvocableMethod(label='Run NUKE Contact Cleanup Batch' description='Kicks off NukeContactBatch to permanently delete every Contact flagged NUKE__c = true')
-    public static void run() {
-        Database.executeBatch(new NukeContactBatch(), 100);
+    public class Request {
+        @InvocableVariable(required=true label='Contact ID') public Id recordId;
+        @InvocableVariable(required=true label='Operation' description='PREVIEW or DEACTIVATE') public String operation;
+    }
+    public class Response {
+        @InvocableVariable(label='Impact Summary') public String summary;
+        @InvocableVariable(label='Related Record Count') public Integer relatedRecordCount;
+        @InvocableVariable(label='Completed') public Boolean completed;
+    }
+    @InvocableMethod(label='Preview or Run NUKE Contact Deactivation')
+    public static List<Response> run(List<Request> requests) {
+        List<Response> responses = new List<Response>();
+        for (Request request : requests) {
+            NukeDeactivationService.Preview preview = NukeDeactivationService.previewContact(request.recordId);
+            Response response = new Response();
+            response.summary = preview.summary('Contact');
+            response.relatedRecordCount = preview.totalRelated();
+            response.completed = false;
+            if ('DEACTIVATE'.equalsIgnoreCase(request.operation)) {
+                NukeDeactivationService.deactivateContact(request.recordId);
+                response.completed = true;
+                response.summary = 'The selected Contact and ' + response.relatedRecordCount + ' related records were deactivated. No records were deleted.';
+            } else if (!'PREVIEW'.equalsIgnoreCase(request.operation)) {
+                throw new IllegalArgumentException('Operation must be PREVIEW or DEACTIVATE.');
+            }
+            responses.add(response);
+        }
+        return responses;
     }
 }

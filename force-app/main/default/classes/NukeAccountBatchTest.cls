@@ -17,18 +17,20 @@ private class NukeAccountBatchTest {
     }
 
     @isTest
-    static void testFlaggedAccountsAreDeletedAndOthersSurvive() {
+    static void testFlaggedAccountsAreDeactivatedAndOthersRemainActive() {
         Test.startTest();
         Database.executeBatch(new NukeAccountBatch(), 50);
         Test.stopTest();
 
-        List<Account> remaining = [SELECT Id, Name FROM Account WHERE Name LIKE 'ZZZ_TEST_Nuke_%'];
-        System.assertEquals(1, remaining.size(), 'Only the non-flagged account should remain.');
-        System.assertEquals('ZZZ_TEST_Nuke_ToKeep', remaining[0].Name);
+        List<Account> records = [SELECT Name, Inactive__c, NUKE__c FROM Account WHERE Name LIKE 'ZZZ_TEST_Nuke_%' ORDER BY Name];
+        System.assertEquals(2, records.size(), 'No Account should be deleted.');
+        Account deactivated = [SELECT Inactive__c, NUKE__c FROM Account WHERE Name = 'ZZZ_TEST_Nuke_ToDelete' LIMIT 1];
+        System.assertEquals(true, deactivated.Inactive__c);
+        System.assertEquals(false, deactivated.NUKE__c);
     }
 
     @isTest
-    static void testCascadeDeletesRelatedContact() {
+    static void testRelatedContactIsNotDeleted() {
         Account acc = [SELECT Id FROM Account WHERE Name = 'ZZZ_TEST_Nuke_ToDelete' LIMIT 1];
         Contact c = new Contact(LastName = 'ZZZ_TEST_Nuke_Contact', AccountId = acc.Id);
         insert c;
@@ -38,7 +40,7 @@ private class NukeAccountBatchTest {
         Test.stopTest();
 
         List<Contact> remainingContacts = [SELECT Id FROM Contact WHERE Id = :c.Id];
-        System.assertEquals(0, remainingContacts.size(), 'Contact should have been cascade-deleted with its Account.');
+        System.assertEquals(1, remainingContacts.size(), 'Contact must not be cascade-deleted.');
     }
 
     @isTest
@@ -52,6 +54,6 @@ private class NukeAccountBatchTest {
         Test.stopTest();
 
         List<Account> flaggedStillPresent = [SELECT Id FROM Account WHERE NUKE__c = true AND Name LIKE 'ZZZ_TEST_Nuke_%'];
-        System.assertEquals(2, flaggedStillPresent.size(), 'Batch should have aborted and deleted nothing once the safety cap was exceeded.');
+        System.assertEquals(2, flaggedStillPresent.size(), 'Batch should have aborted and changed nothing once the safety cap was exceeded.');
     }
 }

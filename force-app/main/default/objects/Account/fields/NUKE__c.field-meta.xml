@@ -2,7 +2,7 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>NUKE__c</fullName>
     <defaultValue>false</defaultValue>
-    <description>Flags this Account for permanent deletion by the ad hoc NukeAccountBatch cleanup job (run manually via Execute Anonymous, not scheduled). Deleting the Account cascades to its Contacts, Opportunities, Cases, Assets, Contracts, and related Territory/Asset Summary/Client Profile Question records. This cannot be undone after the 15-day Recycle Bin window.</description>
+    <description>Flags this Account for controlled review and deactivation. The record-specific action shows an impact preview and retains the Account and related records; it does not delete them.</description>
     <label>NUKE</label>
     <trackFeedHistory>false</trackFeedHistory>
     <trackHistory>false</trackHistory>

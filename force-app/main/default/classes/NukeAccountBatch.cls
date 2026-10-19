@@ -1,10 +1,8 @@
 /**
 * @File Name : NukeAccountBatch.cls
-* @Description : Ad hoc (manually triggered, not scheduled) bulk-delete job for
-*   Account records flagged NUKE__c = true. Deleting an Account cascades to its
-*   Contacts, Opportunities, Cases, Assets, Contracts, and related custom
-*   Master-Detail children (Account_Territory__c, Asset_Summary__c,
-*   Client_Profile_Question__c). Refuses to run if more than 500 records are
+* @Description : Admin-only bulk deactivation job for Account records flagged
+*   NUKE__c = true. Records are retained; this class never deletes Accounts.
+*   Refuses to run if more than 500 records are
 *   flagged in one go, to guard against an accidental mass-edit.
 *   Invoke via Execute Anonymous: Database.executeBatch(new NukeAccountBatch(), 50);
 * @Author :
@@ -49,7 +47,11 @@ global class NukeAccountBatch implements Database.Batchable<sObject>, Database.S
         }
 
         try {
-            Database.DeleteResult[] results = Database.delete(scope, false);
+            for (Account record : scope) {
+                record.Inactive__c = true;
+                record.NUKE__c = false;
+            }
+            Database.SaveResult[] results = Database.update(scope, false);
             for (Integer i = 0; i < results.size(); i++) {
                 if (results[i].isSuccess()) {
                     deletedRecords++;
@@ -102,7 +104,7 @@ global class NukeAccountBatch implements Database.Batchable<sObject>, Database.S
                 'NukeAccountBatch was triggered but did NOT run.\n' +
                 'Records flagged NUKE__c = true: ' + flaggedCount + '\n' +
                 'Safety cap: ' + SAFETY_CAP + '\n\n' +
-                'No Accounts were deleted. Review the flagged records before re-running - ' +
+                'No Accounts were changed. Review the flagged records before re-running - ' +
                 'this usually means a mass-edit accidentally flagged more records than intended.'
             );
             Messaging.sendEmail(new Messaging.SingleEmailMessage[] { email });
@@ -121,7 +123,7 @@ global class NukeAccountBatch implements Database.Batchable<sObject>, Database.S
         email.setPlainTextBody(
             'Ad hoc NUKE Account cleanup batch has completed.\n' +
             'Query Used: ' + query + '\n' +
-            'Total Accounts Deleted: ' + deletedRecords + '\n\n' +
+            'Total Accounts Deactivated: ' + deletedRecords + '\n\n' +
             'Find attached CSV report for details.'
         );
         email.setFileAttachments(new Messaging.EmailFileAttachment[] { attachment });

@@ -1,83 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <actionCalls>
-        <name>Run_Account_Nuke_Batch</name>
-        <label>Run Account Nuke Batch</label>
-        <locationX>176</locationX>
-        <locationY>242</locationY>
-        <actionName>RunAccountNukeBatchAction</actionName>
-        <actionType>apex</actionType>
-        <connector>
-            <targetReference>Success_Screen</targetReference>
-        </connector>
-        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <name>Preview_Account_Deactivation</name><label>Preview Account Deactivation</label><locationX>176</locationX><locationY>134</locationY>
+        <actionName>RunAccountNukeBatchAction</actionName><actionType>apex</actionType>
+        <connector><targetReference>Confirm_Screen</targetReference></connector><flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters><name>recordId</name><value><elementReference>recordId</elementReference></value></inputParameters>
+        <inputParameters><name>operation</name><value><stringValue>PREVIEW</stringValue></value></inputParameters>
+        <nameSegment>RunAccountNukeBatchAction</nameSegment>
+        <outputParameters><assignToReference>previewSummary</assignToReference><name>summary</name></outputParameters>
     </actionCalls>
-    <apiVersion>62.0</apiVersion>
-    <description>Manually-triggered (not scheduled) cleanup: shows a confirmation warning, then on confirm kicks off NukeAccountBatch, which permanently deletes every Account flagged NUKE__c = true (subject to its own 500-record safety cap).</description>
-    <environments>Default</environments>
-    <interviewLabel>NUKE Account Cleanup {!$Flow.CurrentDateTime}</interviewLabel>
-    <label>NUKE Account Cleanup</label>
-    <processMetadataValues>
-        <name>BuilderType</name>
-        <value>
-            <stringValue>LightningFlowBuilder</stringValue>
-        </value>
-    </processMetadataValues>
-    <processMetadataValues>
-        <name>CanvasMode</name>
-        <value>
-            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
-        </value>
-    </processMetadataValues>
-    <processMetadataValues>
-        <name>OriginBuilderType</name>
-        <value>
-            <stringValue>LightningFlowBuilder</stringValue>
-        </value>
-    </processMetadataValues>
+    <actionCalls>
+        <name>Deactivate_Selected_Account</name><label>Deactivate Selected Account</label><locationX>176</locationX><locationY>350</locationY>
+        <actionName>RunAccountNukeBatchAction</actionName><actionType>apex</actionType>
+        <connector><targetReference>Success_Screen</targetReference></connector><flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters><name>recordId</name><value><elementReference>recordId</elementReference></value></inputParameters>
+        <inputParameters><name>operation</name><value><stringValue>DEACTIVATE</stringValue></value></inputParameters>
+        <nameSegment>RunAccountNukeBatchAction</nameSegment>
+        <outputParameters><assignToReference>completionSummary</assignToReference><name>summary</name></outputParameters>
+    </actionCalls>
+    <apiVersion>62.0</apiVersion><areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <description>Current-record-only controlled deactivation. Shows an impact preview, requires confirmation, and marks the selected Account and supported related business records inactive. No records are deleted.</description>
+    <environments>Default</environments><interviewLabel>NUKE Account Deactivation {!$Flow.CurrentDateTime}</interviewLabel><label>NUKE Account Deactivation</label>
+    <processMetadataValues><name>BuilderType</name><value><stringValue>LightningFlowBuilder</stringValue></value></processMetadataValues>
+    <processMetadataValues><name>CanvasMode</name><value><stringValue>AUTO_LAYOUT_CANVAS</stringValue></value></processMetadataValues>
     <processType>Flow</processType>
     <screens>
-        <name>Confirm_Screen</name>
-        <label>Confirm Screen</label>
-        <locationX>176</locationX>
-        <locationY>134</locationY>
-        <allowBack>false</allowBack>
-        <allowFinish>true</allowFinish>
-        <allowPause>false</allowPause>
-        <connector>
-            <targetReference>Run_Account_Nuke_Batch</targetReference>
-        </connector>
-        <fields>
-            <name>Confirm_Warning_Text</name>
-            <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 16px; color: rgb(255, 0, 0);&quot;&gt;This will PERMANENTLY delete every Account currently flagged NUKE, along with their related Contacts, Opportunities, Cases, Assets, and Contracts.&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;This cannot be undone after the 15-day Recycle Bin window. A CSV report will be emailed once the batch completes.&lt;/p&gt;&lt;p&gt;Click below only if you are sure you want to proceed.&lt;/p&gt;</fieldText>
-            <fieldType>DisplayText</fieldType>
-        </fields>
-        <nextOrFinishButtonLabel>Yes, Delete Them Permanently</nextOrFinishButtonLabel>
-        <showFooter>true</showFooter>
-        <showHeader>false</showHeader>
+        <name>Confirm_Screen</name><label>Review and Confirm</label><locationX>176</locationX><locationY>242</locationY><allowBack>false</allowBack><allowFinish>true</allowFinish><allowPause>false</allowPause>
+        <connector><targetReference>Deactivate_Selected_Account</targetReference></connector>
+        <fields><name>Warning</name><fieldText>&lt;p&gt;&lt;strong&gt;Review the impact for this Account only.&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;{!previewSummary}&lt;/p&gt;&lt;p&gt;No records will be deleted. Click confirm to mark the selected Account and listed related records inactive.&lt;/p&gt;</fieldText><fieldType>DisplayText</fieldType></fields>
+        <nextOrFinishButtonLabel>Confirm Deactivation</nextOrFinishButtonLabel><showFooter>true</showFooter><showHeader>false</showHeader>
     </screens>
     <screens>
-        <name>Success_Screen</name>
-        <label>Success Screen</label>
-        <locationX>176</locationX>
-        <locationY>350</locationY>
-        <allowBack>false</allowBack>
-        <allowFinish>true</allowFinish>
-        <allowPause>false</allowPause>
-        <fields>
-            <name>Success_Text</name>
-            <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 16px; color: rgb(48, 195, 48);&quot;&gt;The NUKE Account cleanup batch has been queued.&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;You will receive an email report with the results once it completes.&lt;/p&gt;</fieldText>
-            <fieldType>DisplayText</fieldType>
-        </fields>
-        <showFooter>true</showFooter>
-        <showHeader>false</showHeader>
+        <name>Success_Screen</name><label>Completed</label><locationX>176</locationX><locationY>458</locationY><allowBack>false</allowBack><allowFinish>true</allowFinish><allowPause>false</allowPause>
+        <fields><name>Success_Text</name><fieldText>&lt;p&gt;&lt;strong&gt;Deactivation completed.&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;{!completionSummary}&lt;/p&gt;</fieldText><fieldType>DisplayText</fieldType></fields>
+        <showFooter>true</showFooter><showHeader>false</showHeader>
     </screens>
-    <start>
-        <locationX>50</locationX>
-        <locationY>0</locationY>
-        <connector>
-            <targetReference>Confirm_Screen</targetReference>
-        </connector>
-    </start>
+    <start><locationX>50</locationX><locationY>0</locationY><connector><targetReference>Preview_Account_Deactivation</targetReference></connector></start>
     <status>Active</status>
+    <variables><name>completionSummary</name><dataType>String</dataType><isCollection>false</isCollection><isInput>false</isInput><isOutput>false</isOutput></variables>
+    <variables><name>previewSummary</name><dataType>String</dataType><isCollection>false</isCollection><isInput>false</isInput><isOutput>false</isOutput></variables>
+    <variables><name>recordId</name><dataType>String</dataType><isCollection>false</isCollection><isInput>true</isInput><isOutput>false</isOutput></variables>
 </Flow>
