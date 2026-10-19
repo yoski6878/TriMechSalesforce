@@ -1950,12 +1950,6 @@ OR (ISPICKVAL({!Get_Opportunity.Vendor_Pricing_Details__c}, &quot;&quot;), ISPIC
             </value>
         </inputAssignments>
         <inputAssignments>
-            <field>Does_this_order_require_ITAR_Compliance__c</field>
-            <value>
-                <elementReference>Does_this_order_require_ITAR_Compliance</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
             <field>End_User_Ids__c</field>
             <value>
                 <elementReference>selectedContactIdsFormula</elementReference>
@@ -2848,29 +2842,6 @@ OR (ISPICKVAL({!Get_Opportunity.Vendor_Pricing_Details__c}, &quot;&quot;), ISPIC
                             <operator>EqualTo</operator>
                             <rightValue>
                                 <stringValue>Yes</stringValue>
-                            </rightValue>
-                        </conditions>
-                    </visibilityRule>
-                </fields>
-                <fields>
-                    <name>Does_this_order_require_ITAR_Compliance</name>
-                    <choiceReferences>Yes</choiceReferences>
-                    <choiceReferences>No</choiceReferences>
-                    <dataType>String</dataType>
-                    <defaultValue>
-                        <elementReference>Get_Opportunity.Does_this_order_require_ITAR_Compliance__c</elementReference>
-                    </defaultValue>
-                    <fieldText>Does this order require ITAR Compliance?</fieldText>
-                    <fieldType>DropdownBox</fieldType>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>false</isRequired>
-                    <visibilityRule>
-                        <conditionLogic>and</conditionLogic>
-                        <conditions>
-                            <leftValueReference>Is_software_on_this_order2</leftValueReference>
-                            <operator>EqualTo</operator>
-                            <rightValue>
-                                <elementReference>Yes</elementReference>
                             </rightValue>
                         </conditions>
                     </visibilityRule>
@@ -3776,7 +3747,7 @@ OR (ISPICKVAL({!Get_Opportunity.Vendor_Pricing_Details__c}, &quot;&quot;), ISPIC
                     <inputParameters>
                         <name>fields</name>
                         <value>
-                            <stringValue>Is_software_on_this_order__c, End_User_Ids__c, End_User_Names__c, End_User_Netsuite_Ids__c, Site_ID__c, SolidProfessor_Contact__c, SolidProfessor_Contact_NetSuite_ID_IO__c, CLOSA_Contact__c, CLOSA_Contact_Netsuite_ID__c, Discount_on_Order__c, Product_Type_Coupon_Code_Percentage__c, Changing_or_Adding_to_Existing_License__c, Provide_current_SN_we_are_adjusting__c, Tenant__c, Coterming_to_Existing_Assets__c, Coterming_to_what_date__c, Piracy__c, Case_ID__c, Does_this_order_require_ITAR_Compliance__c, ACR__c</stringValue>
+                            <stringValue>Is_software_on_this_order__c, End_User_Ids__c, End_User_Names__c, End_User_Netsuite_Ids__c, Site_ID__c, SolidProfessor_Contact__c, SolidProfessor_Contact_NetSuite_ID_IO__c, CLOSA_Contact__c, CLOSA_Contact_Netsuite_ID__c, Discount_on_Order__c, Product_Type_Coupon_Code_Percentage__c, Changing_or_Adding_to_Existing_License__c, Provide_current_SN_we_are_adjusting__c, Tenant__c, Coterming_to_Existing_Assets__c, Coterming_to_what_date__c, Piracy__c, Case_ID__c, ACR__c</stringValue>
                         </value>
                     </inputParameters>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
