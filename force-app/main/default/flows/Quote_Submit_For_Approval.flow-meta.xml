@@ -1,26 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <actionCalls>
-        <name>Submit_Quote_For_Approval</name>
-        <label>Submit Quote For Approval</label>
-        <locationX>176</locationX>
-        <locationY>395</locationY>
-        <actionName>submit</actionName>
-        <actionType>submit</actionType>
-        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
-        <inputParameters>
-            <name>objectId</name>
-            <value>
-                <elementReference>$Record.Id</elementReference>
-            </value>
-        </inputParameters>
-        <nameSegment>submit</nameSegment>
-    </actionCalls>
-    <actionCalls>
         <name>Send_Escalation_Email</name>
         <label>Send Escalation Email</label>
-        <locationX>577</locationX>
-        <locationY>899</locationY>
+        <locationX>446</locationX>
+        <locationY>1032</locationY>
         <actionName>Quote.Proposal_Approval_Escalation_Notice</actionName>
         <actionType>emailAlert</actionType>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
@@ -31,14 +15,60 @@
             </value>
         </inputParameters>
         <nameSegment>Quote.Proposal_Approval_Escalation_Notice</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <actionCalls>
+        <name>Submit_Quote_For_Approval</name>
+        <label>Submit Quote For Approval</label>
+        <locationX>182</locationX>
+        <locationY>492</locationY>
+        <actionName>submit</actionName>
+        <actionType>submit</actionType>
+        <connector>
+            <targetReference>Unlock_Record_For_Editiing</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>objectId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>submit</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <actionCalls>
+        <name>Unlock_Record_For_Editiing</name>
+        <label>Unlock Record For Editiing</label>
+        <locationX>182</locationX>
+        <locationY>600</locationY>
+        <actionName>lockRecord</actionName>
+        <actionType>lockRecord</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>recordId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+                <inputConfiguratorMode>Resource</inputConfiguratorMode>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>action</name>
+            <value>
+                <inputConfiguratorMode>Resource</inputConfiguratorMode>
+                <stringValue>Unlock</stringValue>
+            </value>
+        </inputParameters>
+        <nameSegment>lockRecord</nameSegment>
+        <offset>0</offset>
     </actionCalls>
     <apiVersion>63.0</apiVersion>
     <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
     <decisions>
         <name>Found_Work_Item</name>
         <label>Found Pending Work Item?</label>
-        <locationX>577</locationX>
-        <locationY>647</locationY>
+        <locationX>578</locationX>
+        <locationY>600</locationY>
         <defaultConnectorLabel>No - Nothing To Escalate</defaultConnectorLabel>
         <rules>
             <name>Yes_Found</name>
@@ -59,8 +89,8 @@
     <decisions>
         <name>Is_Owner_Exempt</name>
         <label>Is Owner Exempt?</label>
-        <locationX>176</locationX>
-        <locationY>179</locationY>
+        <locationX>50</locationX>
+        <locationY>276</locationY>
         <defaultConnector>
             <targetReference>Stamp_Submitted_Date</targetReference>
         </defaultConnector>
@@ -81,8 +111,8 @@
     <decisions>
         <name>Still_Pending</name>
         <label>Still Pending And Not Yet Escalated?</label>
-        <locationX>577</locationX>
-        <locationY>431</locationY>
+        <locationX>776</locationX>
+        <locationY>276</locationY>
         <defaultConnectorLabel>No - Already Resolved</defaultConnectorLabel>
         <rules>
             <name>Yes_Still_Pending</name>
@@ -133,8 +163,8 @@
     <recordLookups>
         <name>Get_Escalation_Group</name>
         <label>Get Escalation Group</label>
-        <locationX>577</locationX>
-        <locationY>755</locationY>
+        <locationX>446</locationX>
+        <locationY>708</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Reassign_Work_Item</targetReference>
@@ -154,8 +184,8 @@
     <recordLookups>
         <name>Get_Pending_Process_Instance</name>
         <label>Get Pending Process Instance</label>
-        <locationX>577</locationX>
-        <locationY>539</locationY>
+        <locationX>578</locationX>
+        <locationY>384</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Get_Pending_Work_Item</targetReference>
@@ -182,8 +212,8 @@
     <recordLookups>
         <name>Get_Pending_Work_Item</name>
         <label>Get Pending Work Item</label>
-        <locationX>577</locationX>
-        <locationY>593</locationY>
+        <locationX>578</locationX>
+        <locationY>492</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Found_Work_Item</targetReference>
@@ -203,21 +233,21 @@
     <recordUpdates>
         <name>Mark_Escalated</name>
         <label>Mark Escalated</label>
-        <locationX>577</locationX>
-        <locationY>863</locationY>
+        <locationX>446</locationX>
+        <locationY>924</locationY>
         <connector>
             <targetReference>Send_Escalation_Email</targetReference>
         </connector>
         <inputAssignments>
-            <field>Escalated__c</field>
-            <value>
-                <booleanValue>true</booleanValue>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
             <field>Escalated_Date__c</field>
             <value>
                 <elementReference>$Flow.CurrentDateTime</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Escalated__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
             </value>
         </inputAssignments>
         <inputReference>$Record</inputReference>
@@ -225,8 +255,8 @@
     <recordUpdates>
         <name>Reassign_Work_Item</name>
         <label>Reassign Work Item To Escalation Group</label>
-        <locationX>577</locationX>
-        <locationY>809</locationY>
+        <locationX>446</locationX>
+        <locationY>816</locationY>
         <connector>
             <targetReference>Mark_Escalated</targetReference>
         </connector>
@@ -249,27 +279,27 @@
     <recordUpdates>
         <name>Stamp_Submitted_Date</name>
         <label>Stamp Submitted Date</label>
-        <locationX>176</locationX>
-        <locationY>287</locationY>
+        <locationX>182</locationX>
+        <locationY>384</locationY>
         <connector>
             <targetReference>Submit_Quote_For_Approval</targetReference>
         </connector>
-        <inputAssignments>
-            <field>Submitted_For_Approval_Date__c</field>
-            <value>
-                <elementReference>$Flow.CurrentDateTime</elementReference>
-            </value>
-        </inputAssignments>
         <inputAssignments>
             <field>Escalated__c</field>
             <value>
                 <booleanValue>false</booleanValue>
             </value>
         </inputAssignments>
+        <inputAssignments>
+            <field>Submitted_For_Approval_Date__c</field>
+            <value>
+                <elementReference>$Flow.CurrentDateTime</elementReference>
+            </value>
+        </inputAssignments>
         <inputReference>$Record</inputReference>
     </recordUpdates>
     <start>
-        <locationX>50</locationX>
+        <locationX>287</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>Is_Owner_Exempt</targetReference>
@@ -290,5 +320,5 @@
         </scheduledPaths>
         <triggerType>RecordAfterSave</triggerType>
     </start>
-    <status>Active</status>
+    <status>Obsolete</status>
 </Flow>
