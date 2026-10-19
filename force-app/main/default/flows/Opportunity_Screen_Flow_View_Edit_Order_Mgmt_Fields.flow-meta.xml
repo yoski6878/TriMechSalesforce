@@ -2257,7 +2257,7 @@ OR (ISPICKVAL({!Get_Opportunity.Vendor_Pricing_Details__c}, &quot;&quot;), ISPIC
                     </defaultValue>
                     <fieldText>Payment Type</fieldText>
                     <fieldType>DropdownBox</fieldType>
-                    <helpText>&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;Must include attachments if choosing Purchase Order, ACH/EFT/Wire or Signed Quote. Credit Card payment option requires the &quot;Contact for Payment/AP Contact&quot; field to be completed.&lt;/span&gt;&amp;nbsp;&lt;/p&gt;</helpText>
+                    <helpText>&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;Must include attachments if choosing Purchase Order, ACH/EFT/Wire, Signed Quote or COR/COC/ICT Form. COR/COC/ICT Form: Attach signed COR, COC, ICT form and supporting documentation. Credit Card payment option requires the &quot;Contact for Payment/AP Contact&quot; field to be completed.&lt;/span&gt;&amp;nbsp;&lt;/p&gt;</helpText>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
                     <styleProperties>
@@ -2335,6 +2335,13 @@ OR (ISPICKVAL({!Get_Opportunity.Vendor_Pricing_Details__c}, &quot;&quot;), ISPIC
                             <operator>EqualTo</operator>
                             <rightValue>
                                 <stringValue>Signed Quote</stringValue>
+                            </rightValue>
+                        </conditions>
+                        <conditions>
+                            <leftValueReference>Payment_Type</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <stringValue>COR/COC/ICT Form</stringValue>
                             </rightValue>
                         </conditions>
                     </visibilityRule>

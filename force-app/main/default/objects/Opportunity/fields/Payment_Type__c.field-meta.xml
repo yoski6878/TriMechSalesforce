@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Payment_Type__c</fullName>
-    <inlineHelpText>Must include attachments if choosing: Purchase Order, ACH/EFT/Wire or Signed Quote.</inlineHelpText>
+    <inlineHelpText>Must include attachments if choosing: Purchase Order, ACH/EFT/Wire, Signed Quote or COR/COC/ICT Form. COR/COC/ICT Form: Attach signed COR, COC, ICT form and supporting documentation.</inlineHelpText>
     <label>Payment Type</label>
     <required>false</required>
     <trackFeedHistory>false</trackFeedHistory>
@@ -29,6 +29,11 @@
                 <fullName>Signed Quote</fullName>
                 <default>false</default>
                 <label>Signed Quote</label>
+            </value>
+            <value>
+                <fullName>COR/COC/ICT Form</fullName>
+                <default>false</default>
+                <label>COR/COC/ICT Form</label>
             </value>
         </valueSetDefinition>
     </valueSet>
