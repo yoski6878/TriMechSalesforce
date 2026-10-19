@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Service_Notes__c</fullName>
+    <description>Send to OM: notes for a custom service (shown when Is Custom Service? = Yes). Synced to NetSuite.</description>
+    <externalId>false</externalId>
+    <label>Service Notes</label>
+    <length>32768</length>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>LongTextArea</type>
+    <visibleLines>4</visibleLines>
+</CustomField>
