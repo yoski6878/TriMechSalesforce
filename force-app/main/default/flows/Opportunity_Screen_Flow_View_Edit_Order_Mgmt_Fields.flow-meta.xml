@@ -112,6 +112,33 @@
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </actionCalls>
     <actionCalls>
+        <name>Convert_License_Key_Id_String_to_Collection</name>
+        <label>Convert License Key Contact Id String to Collection</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <actionName>ConvertCSVToStringCollection</actionName>
+        <actionType>apex</actionType>
+        <connector>
+            <targetReference>assign_vars</targetReference>
+        </connector>
+        <flowTransactionModel>Automatic</flowTransactionModel>
+        <inputParameters>
+            <name>csvString</name>
+            <value>
+                <elementReference>licenseKeyIdsCleaned</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>delimiter</name>
+            <value>
+                <stringValue>,</stringValue>
+            </value>
+        </inputParameters>
+        <nameSegment>ConvertCSVToStringCollection</nameSegment>
+        <offset>0</offset>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </actionCalls>
+    <actionCalls>
         <name>Convert_Passport_Owner_String_Collection_to_separated_values</name>
         <label>Convert Passport Owner String Collection to &apos;;&apos; separated values</label>
         <locationX>0</locationX>
@@ -119,7 +146,7 @@
         <actionName>ConvertStringCollectionToCSV</actionName>
         <actionType>apex</actionType>
         <connector>
-            <targetReference>assign_vars</targetReference>
+            <targetReference>Pre_Existing_License_Key_Ids</targetReference>
         </connector>
         <flowTransactionModel>Automatic</flowTransactionModel>
         <inputParameters>
@@ -454,6 +481,13 @@
                 <elementReference>Convert_End_User_Hardware_Id_String_to_Collection.stringCollection</elementReference>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varLicenseKeyContacts</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Convert_License_Key_Id_String_to_Collection.stringCollection</elementReference>
+            </value>
+        </assignmentItems>
         <connector>
             <targetReference>OM_Edit_Screen</targetReference>
         </connector>
@@ -507,6 +541,22 @@
         </connector>
     </assignments>
     <assignments>
+        <name>Clean_Up_License_Key_Contact_Ids</name>
+        <label>Clean Up License Key Contact Ids</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>licenseKeyIdsCleaned</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>licenseKeyIdsFormula</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Convert_License_Key_Id_String_to_Collection</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
         <name>Clean_Up_Student_Contact_Ids</name>
         <label>Clean Up Student Contact Ids</label>
         <locationX>0</locationX>
@@ -546,6 +596,29 @@
         </connector>
     </assignments>
     <assignments>
+        <name>Add_License_Key_Contact_Field_Values_to_Lists</name>
+        <label>Add License Key Contact Field Values to Lists</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>selLicenseKeyContactIds</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>Loop_Through_Selected_License_Key_Contacts.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>selLicenseKeyNames</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>Loop_Through_Selected_License_Key_Contacts.Name</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Does_License_Key_Contact_Have_Netsuite_Id</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
         <name>Copy_1_of_Add_Netsuite_Id_to_List</name>
         <label>Add Netsuite Id to List</label>
         <locationX>0</locationX>
@@ -559,6 +632,22 @@
         </assignmentItems>
         <connector>
             <targetReference>Loop_Through_Selected_Passport_Owner_Contacts</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Add_License_Key_Netsuite_Id_to_List</name>
+        <label>Add License Key Netsuite Id to List</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>selLicenseKeyContactNetsuiteIds</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>Loop_Through_Selected_License_Key_Contacts.celigo_sfnsio__NetSuite_Id__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Loop_Through_Selected_License_Key_Contacts</targetReference>
         </connector>
     </assignments>
     <assignments>
@@ -995,6 +1084,31 @@
         </rules>
     </decisions>
     <decisions>
+        <name>Does_License_Key_Contact_Have_Netsuite_Id</name>
+        <label>Does License Key Contact Have Netsuite Id?</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>Loop_Through_Selected_License_Key_Contacts</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No Netsuite Id</defaultConnectorLabel>
+        <rules>
+            <name>License_Key_Has_Netsuite_Id</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Loop_Through_Selected_License_Key_Contacts.celigo_sfnsio__NetSuite_Id__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Add_License_Key_Netsuite_Id_to_List</targetReference>
+            </connector>
+            <label>Has Netsuite Id</label>
+        </rules>
+    </decisions>
+    <decisions>
         <name>Does_Contact_Have_Netsuite_Id</name>
         <label>Does Contact Have Netsuite Id?</label>
         <locationX>0</locationX>
@@ -1164,7 +1278,7 @@
         <locationX>0</locationX>
         <locationY>0</locationY>
         <defaultConnector>
-            <targetReference>Update_Opp_Fields</targetReference>
+            <targetReference>Have_License_Key_Contacts_Been_Selected</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>No</defaultConnectorLabel>
         <rules>
@@ -1186,6 +1300,38 @@
             </conditions>
             <connector>
                 <targetReference>Get_Selected_Passport_Owner_Contacts</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Have_License_Key_Contacts_Been_Selected</name>
+        <label>Have License Key Contacts Been Selected?</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>Update_Opp_Fields</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>License_Key_Selected_Yes</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>varLicenseKeyContacts</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>varLicenseKeyContacts</leftValueReference>
+                <operator>IsEmpty</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Selected_License_Key_Contacts</targetReference>
             </connector>
             <label>Yes</label>
         </rules>
@@ -1424,7 +1570,7 @@
         <locationX>0</locationX>
         <locationY>0</locationY>
         <defaultConnector>
-            <targetReference>assign_vars</targetReference>
+            <targetReference>Pre_Existing_License_Key_Ids</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>No</defaultConnectorLabel>
         <rules>
@@ -1439,6 +1585,31 @@
             </conditions>
             <connector>
                 <targetReference>Clean_Up_Passport_Owner_Contact_Ids</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Pre_Existing_License_Key_Ids</name>
+        <label>Pre-Existing License Key Contact Ids?</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>assign_vars</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>License_Key_Ids_Yes</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Opportunity.License_Key_Contact_Ids__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Clean_Up_License_Key_Contact_Ids</targetReference>
             </connector>
             <label>Yes</label>
         </rules>
@@ -1704,6 +1875,26 @@ OR (ISPICKVAL({!Get_Opportunity.Vendor_Pricing_Details__c}, &quot;&quot;), ISPIC
         <expression>{!selPassportOwnerContactNetsuiteIds}</expression>
     </formulas>
     <formulas>
+        <name>licenseKeyIdsFormula</name>
+        <dataType>String</dataType>
+        <expression>SUBSTITUTE(SUBSTITUTE({!Get_Opportunity.License_Key_Contact_Ids__c}, &quot;[&quot;, &quot;&quot;), &quot;]&quot;, &quot;&quot;)</expression>
+    </formulas>
+    <formulas>
+        <name>selLicenseKeyContactIdsFormula</name>
+        <dataType>String</dataType>
+        <expression>{!selLicenseKeyContactIds}</expression>
+    </formulas>
+    <formulas>
+        <name>selLicenseKeyContactNamesFormula</name>
+        <dataType>String</dataType>
+        <expression>{!selLicenseKeyNames}</expression>
+    </formulas>
+    <formulas>
+        <name>selLicenseKeyContactNetsuiteIdsFormula</name>
+        <dataType>String</dataType>
+        <expression>{!selLicenseKeyContactNetsuiteIds}</expression>
+    </formulas>
+    <formulas>
         <name>selStudentContactIdsFormula</name>
         <dataType>String</dataType>
         <expression>{!selStudentContactIds}</expression>
@@ -1790,6 +1981,20 @@ OR (ISPICKVAL({!Get_Opportunity.Vendor_Pricing_Details__c}, &quot;&quot;), ISPIC
         <iterationOrder>Asc</iterationOrder>
         <nextValueConnector>
             <targetReference>Copy_1_of_Add_Contact_Field_Values_to_Lists</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Have_License_Key_Contacts_Been_Selected</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <loops>
+        <name>Loop_Through_Selected_License_Key_Contacts</name>
+        <label>Loop Through Selected License Key Contacts</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <collectionReference>Get_Selected_License_Key_Contacts</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Add_License_Key_Contact_Field_Values_to_Lists</targetReference>
         </nextValueConnector>
         <noMoreValuesConnector>
             <targetReference>Update_Opp_Fields</targetReference>
@@ -1955,6 +2160,27 @@ OR (ISPICKVAL({!Get_Opportunity.Vendor_Pricing_Details__c}, &quot;&quot;), ISPIC
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordLookups>
+        <name>Get_Selected_License_Key_Contacts</name>
+        <label>Get Selected License Key Contacts</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Loop_Through_Selected_License_Key_Contacts</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>In</operator>
+            <value>
+                <elementReference>varLicenseKeyContacts</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>Contact</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
         <name>Get_Selected_Student_Contacts</name>
         <label>Get Selected Student Contacts</label>
         <locationX>0</locationX>
@@ -1988,6 +2214,24 @@ OR (ISPICKVAL({!Get_Opportunity.Vendor_Pricing_Details__c}, &quot;&quot;), ISPIC
                 <elementReference>Get_Opportunity.Id</elementReference>
             </value>
         </filters>
+        <inputAssignments>
+            <field>License_Key_Contact_Ids__c</field>
+            <value>
+                <elementReference>selLicenseKeyContactIdsFormula</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>License_Key_Contact_Names__c</field>
+            <value>
+                <elementReference>selLicenseKeyContactNamesFormula</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>License_Key_Contact_Netsuite_Ids__c</field>
+            <value>
+                <elementReference>selLicenseKeyContactNetsuiteIdsFormula</elementReference>
+            </value>
+        </inputAssignments>
         <inputAssignments>
             <field>ACR__c</field>
             <value>
@@ -2925,6 +3169,70 @@ OR (ISPICKVAL({!Get_Opportunity.Vendor_Pricing_Details__c}, &quot;&quot;), ISPIC
                     <helpText>&lt;p&gt;Required for CPE orders.&lt;/p&gt;</helpText>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
+                    <styleProperties>
+                        <verticalAlignment>
+                            <stringValue>top</stringValue>
+                        </verticalAlignment>
+                        <width>
+                            <stringValue>12</stringValue>
+                        </width>
+                    </styleProperties>
+                    <visibilityRule>
+                        <conditionLogic>and</conditionLogic>
+                        <conditions>
+                            <leftValueReference>Is_software_on_this_order2</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <stringValue>Yes</stringValue>
+                            </rightValue>
+                        </conditions>
+                        <conditions>
+                            <leftValueReference>bCPEOrder</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <booleanValue>true</booleanValue>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
+                </fields>
+                <fields>
+                    <name>License_Key_Contacts</name>
+                    <extensionName>c:contactLookupFlow</extensionName>
+                    <fieldType>ComponentInstance</fieldType>
+                    <inputParameters>
+                        <name>fieldLabel</name>
+                        <value>
+                            <stringValue>License Key Contact(s):</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>recordId</name>
+                        <value>
+                            <elementReference>recordId</elementReference>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>allowMultiselect</name>
+                        <value>
+                            <booleanValue>true</booleanValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>values</name>
+                        <value>
+                            <elementReference>varLicenseKeyContacts</elementReference>
+                        </value>
+                    </inputParameters>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>true</isRequired>
+                    <outputParameters>
+                        <assignToReference>recordId</assignToReference>
+                        <name>recordId</name>
+                    </outputParameters>
+                    <outputParameters>
+                        <assignToReference>varLicenseKeyContacts</assignToReference>
+                        <name>values</name>
+                    </outputParameters>
                     <styleProperties>
                         <verticalAlignment>
                             <stringValue>top</stringValue>
@@ -4733,7 +5041,7 @@ OR (ISPICKVAL({!Get_Opportunity.Vendor_Pricing_Details__c}, &quot;&quot;), ISPIC
                     <inputParameters>
                         <name>fields</name>
                         <value>
-                            <stringValue>Is_software_on_this_order__c, End_User_Ids__c, End_User_Names__c, End_User_Netsuite_Ids__c, Site_ID__c, CPE_Order__c, OEM_Agreement_Type__c, SolidProfessor_Contact__c, SolidProfessor_Contact_NetSuite_ID_IO__c, CLOSA_Contact__c, CLOSA_Contact_Netsuite_ID__c, Discount_on_Order__c, Product_Type_Coupon_Code_Percentage__c, Changing_or_Adding_to_Existing_License__c, Provide_current_SN_we_are_adjusting__c, Tenant__c, Coterming_to_Existing_Assets__c, Coterming_to_what_date__c, Piracy__c, Case_ID__c, ACR__c</stringValue>
+                            <stringValue>Is_software_on_this_order__c, End_User_Ids__c, End_User_Names__c, End_User_Netsuite_Ids__c, Site_ID__c, CPE_Order__c, OEM_Agreement_Type__c, License_Key_Contact_Names__c, SolidProfessor_Contact__c, SolidProfessor_Contact_NetSuite_ID_IO__c, CLOSA_Contact__c, CLOSA_Contact_Netsuite_ID__c, Discount_on_Order__c, Product_Type_Coupon_Code_Percentage__c, Changing_or_Adding_to_Existing_License__c, Provide_current_SN_we_are_adjusting__c, Tenant__c, Coterming_to_Existing_Assets__c, Coterming_to_what_date__c, Piracy__c, Case_ID__c, ACR__c</stringValue>
                         </value>
                     </inputParameters>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
@@ -5596,6 +5904,41 @@ OR (ISPICKVAL({!Get_Opportunity.Vendor_Pricing_Details__c}, &quot;&quot;), ISPIC
         <name>varPassportOwners</name>
         <dataType>String</dataType>
         <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>varLicenseKeyContacts</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>selLicenseKeyContactIds</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>selLicenseKeyNames</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>selLicenseKeyContactNetsuiteIds</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>licenseKeyIdsCleaned</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
         <isInput>false</isInput>
         <isOutput>false</isOutput>
     </variables>

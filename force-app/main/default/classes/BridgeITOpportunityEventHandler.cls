@@ -231,6 +231,9 @@ public with sharing class BridgeITOpportunityEventHandler {
                 Site_ID__c,
                 CPE_Order__c,
                 OEM_Agreement_Type__c,
+                License_Key_Contact_Ids__c,
+                License_Key_Contact_Names__c,
+                License_Key_Contact_Netsuite_Ids__c,
                 CLOSA_Contact_Netsuite_ID__c,
                 Product_Type_Coupon_Code_Percentage__c,
                 Changing_or_Adding_to_Existing_License__c,
@@ -311,6 +314,9 @@ public with sharing class BridgeITOpportunityEventHandler {
         o.Site_ID__c                              = o.Site_ID__c;
         o.CPE_Order__c                            = o.CPE_Order__c;
         o.OEM_Agreement_Type__c                   = o.OEM_Agreement_Type__c;
+        o.License_Key_Contact_Ids__c              = o.License_Key_Contact_Ids__c;
+        o.License_Key_Contact_Names__c            = o.License_Key_Contact_Names__c;
+        o.License_Key_Contact_Netsuite_Ids__c     = o.License_Key_Contact_Netsuite_Ids__c;
         o.Product_Type_Coupon_Code_Percentage__c  = o.Product_Type_Coupon_Code_Percentage__c;
         o.Changing_or_Adding_to_Existing_License__c = o.Changing_or_Adding_to_Existing_License__c;
         o.Provide_current_SN_we_are_adjusting__c   = o.Provide_current_SN_we_are_adjusting__c;

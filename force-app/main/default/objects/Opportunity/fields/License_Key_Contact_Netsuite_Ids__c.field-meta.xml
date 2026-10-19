@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>License_Key_Contact_Netsuite_Ids__c</fullName>
+    <description>NetSuite IDs of the License Key Contacts selected in the Order Mgmt flow (contacts without a NetSuite Id are left out). Set by the flow and synced to NetSuite.</description>
+    <externalId>false</externalId>
+    <label>License Key Contact Netsuite Ids</label>
+    <length>255</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

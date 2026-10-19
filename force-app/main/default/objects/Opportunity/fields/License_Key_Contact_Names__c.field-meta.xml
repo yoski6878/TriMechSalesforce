@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>License_Key_Contact_Names__c</fullName>
+    <description>Names of the License Key Contacts selected in the Order Mgmt flow. Set by the flow.</description>
     <externalId>false</externalId>
     <label>License Key Contact Names</label>
     <length>255</length>
