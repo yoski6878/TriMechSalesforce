@@ -527,6 +527,13 @@
                 <elementReference>Convert_License_Key_Id_String_to_Collection.stringCollection</elementReference>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varMediaVoucherContact</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Opportunity.Media_Order_Learning_Voucher_Contact__c</elementReference>
+            </value>
+        </assignmentItems>
         <connector>
             <targetReference>OM_Edit_Screen</targetReference>
         </connector>
@@ -2215,6 +2222,12 @@ OR (ISPICKVAL({!Get_Opportunity.Vendor_Pricing_Details__c}, &quot;&quot;), ISPIC
             </value>
         </filters>
         <inputAssignments>
+            <field>Media_Order_Learning_Voucher_Contact__c</field>
+            <value>
+                <elementReference>varMediaVoucherContact</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
             <field>ACR__c</field>
             <value>
                 <elementReference>ACRValue</elementReference>
@@ -3232,6 +3245,64 @@ OR (ISPICKVAL({!Get_Opportunity.Vendor_Pricing_Details__c}, &quot;&quot;), ISPIC
                     <outputParameters>
                         <assignToReference>varLicenseKeyContacts</assignToReference>
                         <name>values</name>
+                    </outputParameters>
+                    <styleProperties>
+                        <verticalAlignment>
+                            <stringValue>top</stringValue>
+                        </verticalAlignment>
+                        <width>
+                            <stringValue>12</stringValue>
+                        </width>
+                    </styleProperties>
+                    <visibilityRule>
+                        <conditionLogic>and</conditionLogic>
+                        <conditions>
+                            <leftValueReference>Is_software_on_this_order2</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <stringValue>Yes</stringValue>
+                            </rightValue>
+                        </conditions>
+                        <conditions>
+                            <leftValueReference>bCPEOrder</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <booleanValue>true</booleanValue>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
+                </fields>
+                <fields>
+                    <name>Media_Voucher_Contact</name>
+                    <extensionName>c:contactLookupFlow</extensionName>
+                    <fieldType>ComponentInstance</fieldType>
+                    <inputParameters>
+                        <name>fieldLabel</name>
+                        <value>
+                            <stringValue>Media Order | Learning Voucher Contact:</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>value</name>
+                        <value>
+                            <elementReference>varMediaVoucherContact</elementReference>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>recordId</name>
+                        <value>
+                            <elementReference>recordId</elementReference>
+                        </value>
+                    </inputParameters>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>true</isRequired>
+                    <outputParameters>
+                        <assignToReference>varMediaVoucherContact</assignToReference>
+                        <name>value</name>
+                    </outputParameters>
+                    <outputParameters>
+                        <assignToReference>recordId</assignToReference>
+                        <name>recordId</name>
                     </outputParameters>
                     <styleProperties>
                         <verticalAlignment>
@@ -5041,7 +5112,7 @@ OR (ISPICKVAL({!Get_Opportunity.Vendor_Pricing_Details__c}, &quot;&quot;), ISPIC
                     <inputParameters>
                         <name>fields</name>
                         <value>
-                            <stringValue>Is_software_on_this_order__c, End_User_Ids__c, End_User_Names__c, End_User_Netsuite_Ids__c, Site_ID__c, CPE_Order__c, OEM_Agreement_Type__c, License_Key_Contact_Names__c, SolidProfessor_Contact__c, SolidProfessor_Contact_NetSuite_ID_IO__c, CLOSA_Contact__c, CLOSA_Contact_Netsuite_ID__c, Discount_on_Order__c, Product_Type_Coupon_Code_Percentage__c, Changing_or_Adding_to_Existing_License__c, Provide_current_SN_we_are_adjusting__c, Tenant__c, Coterming_to_Existing_Assets__c, Coterming_to_what_date__c, Piracy__c, Case_ID__c, ACR__c</stringValue>
+                            <stringValue>Is_software_on_this_order__c, End_User_Ids__c, End_User_Names__c, End_User_Netsuite_Ids__c, Site_ID__c, CPE_Order__c, OEM_Agreement_Type__c, License_Key_Contact_Names__c, Media_Order_Learning_Voucher_Contact__c, SolidProfessor_Contact__c, SolidProfessor_Contact_NetSuite_ID_IO__c, CLOSA_Contact__c, CLOSA_Contact_Netsuite_ID__c, Discount_on_Order__c, Product_Type_Coupon_Code_Percentage__c, Changing_or_Adding_to_Existing_License__c, Provide_current_SN_we_are_adjusting__c, Tenant__c, Coterming_to_Existing_Assets__c, Coterming_to_what_date__c, Piracy__c, Case_ID__c, ACR__c</stringValue>
                         </value>
                     </inputParameters>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
@@ -5895,6 +5966,13 @@ OR (ISPICKVAL({!Get_Opportunity.Vendor_Pricing_Details__c}, &quot;&quot;), ISPIC
     </variables>
     <variables>
         <name>varClosaContact</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>varMediaVoucherContact</name>
         <dataType>String</dataType>
         <isCollection>false</isCollection>
         <isInput>false</isInput>
