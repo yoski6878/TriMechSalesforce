@@ -822,6 +822,14 @@
         </value>
     </choices>
     <choices>
+        <name>COR_COC_ICT_Form</name>
+        <choiceText>COR/COC/ICT Form</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>COR/COC/ICT Form</stringValue>
+        </value>
+    </choices>
+    <choices>
         <name>Software_and_Hardware</name>
         <choiceText>Software and Hardware</choiceText>
         <dataType>String</dataType>
@@ -2251,6 +2259,7 @@ OR (ISPICKVAL({!Get_Opportunity.Vendor_Pricing_Details__c}, &quot;&quot;), ISPIC
                     <choiceReferences>PurchaseOrder</choiceReferences>
                     <choiceReferences>ACH_EFT_Wire</choiceReferences>
                     <choiceReferences>SignedQuote</choiceReferences>
+                    <choiceReferences>COR_COC_ICT_Form</choiceReferences>
                     <dataType>String</dataType>
                     <defaultValue>
                         <elementReference>Get_Opportunity.Payment_Type__c</elementReference>
