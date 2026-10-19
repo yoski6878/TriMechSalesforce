@@ -2693,7 +2693,7 @@ OR (ISPICKVAL({!Get_Opportunity.Vendor_Pricing_Details__c}, &quot;&quot;), ISPIC
                     <defaultValue>
                         <elementReference>Get_Opportunity.Provide_current_SN_we_are_adjusting__c</elementReference>
                     </defaultValue>
-                    <fieldText>Provide current SN we are adjusting:</fieldText>
+                    <fieldText>Serial Number | Target ID(s) | Key Release(s):</fieldText>
                     <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
