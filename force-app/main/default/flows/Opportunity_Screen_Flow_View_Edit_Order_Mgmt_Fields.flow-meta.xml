@@ -85,33 +85,6 @@
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </actionCalls>
     <actionCalls>
-        <name>Convert_Pasport_Owner_Id_String_to_Collection</name>
-        <label>Convert Pasport Owner Id String to Collection</label>
-        <locationX>0</locationX>
-        <locationY>0</locationY>
-        <actionName>ConvertCSVToStringCollection</actionName>
-        <actionType>apex</actionType>
-        <connector>
-            <targetReference>Set_Passport_Owner_Collection_Variable</targetReference>
-        </connector>
-        <flowTransactionModel>Automatic</flowTransactionModel>
-        <inputParameters>
-            <name>csvString</name>
-            <value>
-                <elementReference>passportOwnerIdsCleaned</elementReference>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>delimiter</name>
-            <value>
-                <stringValue>,</stringValue>
-            </value>
-        </inputParameters>
-        <nameSegment>ConvertCSVToStringCollection</nameSegment>
-        <offset>0</offset>
-        <storeOutputAutomatically>true</storeOutputAutomatically>
-    </actionCalls>
-    <actionCalls>
         <name>Convert_License_Key_Id_String_to_Collection</name>
         <label>Convert License Key Contact Id String to Collection</label>
         <locationX>0</locationX>
@@ -126,6 +99,33 @@
             <name>csvString</name>
             <value>
                 <elementReference>licenseKeyIdsCleaned</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>delimiter</name>
+            <value>
+                <stringValue>,</stringValue>
+            </value>
+        </inputParameters>
+        <nameSegment>ConvertCSVToStringCollection</nameSegment>
+        <offset>0</offset>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </actionCalls>
+    <actionCalls>
+        <name>Convert_Pasport_Owner_Id_String_to_Collection</name>
+        <label>Convert Pasport Owner Id String to Collection</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <actionName>ConvertCSVToStringCollection</actionName>
+        <actionType>apex</actionType>
+        <connector>
+            <targetReference>Set_Passport_Owner_Collection_Variable</targetReference>
+        </connector>
+        <flowTransactionModel>Automatic</flowTransactionModel>
+        <inputParameters>
+            <name>csvString</name>
+            <value>
+                <elementReference>passportOwnerIdsCleaned</elementReference>
             </value>
         </inputParameters>
         <inputParameters>
@@ -327,6 +327,45 @@
         </connector>
     </assignments>
     <assignments>
+        <name>Add_License_Key_Contact_Field_Values_to_Lists</name>
+        <label>Add License Key Contact Field Values to Lists</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>selLicenseKeyContactIds</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>Loop_Through_Selected_License_Key_Contacts.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>selLicenseKeyNames</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>Loop_Through_Selected_License_Key_Contacts.Name</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Does_License_Key_Contact_Have_Netsuite_Id</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Add_License_Key_Netsuite_Id_to_List</name>
+        <label>Add License Key Netsuite Id to List</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>selLicenseKeyContactNetsuiteIds</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>Loop_Through_Selected_License_Key_Contacts.celigo_sfnsio__NetSuite_Id__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Loop_Through_Selected_License_Key_Contacts</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
         <name>Add_Netsuite_Id_to_List</name>
         <label>Add Netsuite Id to List</label>
         <locationX>0</locationX>
@@ -525,22 +564,6 @@
         </connector>
     </assignments>
     <assignments>
-        <name>Clean_Up_Passport_Owner_Contact_Ids</name>
-        <label>Clean Up Passport Owner Contact Ids</label>
-        <locationX>0</locationX>
-        <locationY>0</locationY>
-        <assignmentItems>
-            <assignToReference>passportOwnerIdsCleaned</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>passportOwnerIdsFormula</elementReference>
-            </value>
-        </assignmentItems>
-        <connector>
-            <targetReference>Convert_Pasport_Owner_Id_String_to_Collection</targetReference>
-        </connector>
-    </assignments>
-    <assignments>
         <name>Clean_Up_License_Key_Contact_Ids</name>
         <label>Clean Up License Key Contact Ids</label>
         <locationX>0</locationX>
@@ -554,6 +577,22 @@
         </assignmentItems>
         <connector>
             <targetReference>Convert_License_Key_Id_String_to_Collection</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Clean_Up_Passport_Owner_Contact_Ids</name>
+        <label>Clean Up Passport Owner Contact Ids</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>passportOwnerIdsCleaned</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>passportOwnerIdsFormula</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Convert_Pasport_Owner_Id_String_to_Collection</targetReference>
         </connector>
     </assignments>
     <assignments>
@@ -596,29 +635,6 @@
         </connector>
     </assignments>
     <assignments>
-        <name>Add_License_Key_Contact_Field_Values_to_Lists</name>
-        <label>Add License Key Contact Field Values to Lists</label>
-        <locationX>0</locationX>
-        <locationY>0</locationY>
-        <assignmentItems>
-            <assignToReference>selLicenseKeyContactIds</assignToReference>
-            <operator>Add</operator>
-            <value>
-                <elementReference>Loop_Through_Selected_License_Key_Contacts.Id</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>selLicenseKeyNames</assignToReference>
-            <operator>Add</operator>
-            <value>
-                <elementReference>Loop_Through_Selected_License_Key_Contacts.Name</elementReference>
-            </value>
-        </assignmentItems>
-        <connector>
-            <targetReference>Does_License_Key_Contact_Have_Netsuite_Id</targetReference>
-        </connector>
-    </assignments>
-    <assignments>
         <name>Copy_1_of_Add_Netsuite_Id_to_List</name>
         <label>Add Netsuite Id to List</label>
         <locationX>0</locationX>
@@ -632,22 +648,6 @@
         </assignmentItems>
         <connector>
             <targetReference>Loop_Through_Selected_Passport_Owner_Contacts</targetReference>
-        </connector>
-    </assignments>
-    <assignments>
-        <name>Add_License_Key_Netsuite_Id_to_List</name>
-        <label>Add License Key Netsuite Id to List</label>
-        <locationX>0</locationX>
-        <locationY>0</locationY>
-        <assignmentItems>
-            <assignToReference>selLicenseKeyContactNetsuiteIds</assignToReference>
-            <operator>Add</operator>
-            <value>
-                <elementReference>Loop_Through_Selected_License_Key_Contacts.celigo_sfnsio__NetSuite_Id__c</elementReference>
-            </value>
-        </assignmentItems>
-        <connector>
-            <targetReference>Loop_Through_Selected_License_Key_Contacts</targetReference>
         </connector>
     </assignments>
     <assignments>
@@ -1084,31 +1084,6 @@
         </rules>
     </decisions>
     <decisions>
-        <name>Does_License_Key_Contact_Have_Netsuite_Id</name>
-        <label>Does License Key Contact Have Netsuite Id?</label>
-        <locationX>0</locationX>
-        <locationY>0</locationY>
-        <defaultConnector>
-            <targetReference>Loop_Through_Selected_License_Key_Contacts</targetReference>
-        </defaultConnector>
-        <defaultConnectorLabel>No Netsuite Id</defaultConnectorLabel>
-        <rules>
-            <name>License_Key_Has_Netsuite_Id</name>
-            <conditionLogic>and</conditionLogic>
-            <conditions>
-                <leftValueReference>Loop_Through_Selected_License_Key_Contacts.celigo_sfnsio__NetSuite_Id__c</leftValueReference>
-                <operator>IsNull</operator>
-                <rightValue>
-                    <booleanValue>false</booleanValue>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>Add_License_Key_Netsuite_Id_to_List</targetReference>
-            </connector>
-            <label>Has Netsuite Id</label>
-        </rules>
-    </decisions>
-    <decisions>
         <name>Does_Contact_Have_Netsuite_Id</name>
         <label>Does Contact Have Netsuite Id?</label>
         <locationX>0</locationX>
@@ -1179,6 +1154,31 @@
             </conditions>
             <connector>
                 <targetReference>Add_Netsuite_Id_to_List_Both</targetReference>
+            </connector>
+            <label>Has Netsuite Id</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Does_License_Key_Contact_Have_Netsuite_Id</name>
+        <label>Does License Key Contact Have Netsuite Id?</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>Loop_Through_Selected_License_Key_Contacts</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No Netsuite Id</defaultConnectorLabel>
+        <rules>
+            <name>License_Key_Has_Netsuite_Id</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Loop_Through_Selected_License_Key_Contacts.celigo_sfnsio__NetSuite_Id__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Add_License_Key_Netsuite_Id_to_List</targetReference>
             </connector>
             <label>Has Netsuite Id</label>
         </rules>
@@ -1273,38 +1273,6 @@
         </rules>
     </decisions>
     <decisions>
-        <name>Have_Passport_Owner_Contacts_Been_Selected</name>
-        <label>Have Passport Owner Contacts Been Selected?</label>
-        <locationX>0</locationX>
-        <locationY>0</locationY>
-        <defaultConnector>
-            <targetReference>Have_License_Key_Contacts_Been_Selected</targetReference>
-        </defaultConnector>
-        <defaultConnectorLabel>No</defaultConnectorLabel>
-        <rules>
-            <name>Copy_6_of_Yes</name>
-            <conditionLogic>and</conditionLogic>
-            <conditions>
-                <leftValueReference>varPassportOwners</leftValueReference>
-                <operator>IsNull</operator>
-                <rightValue>
-                    <booleanValue>false</booleanValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>varPassportOwners</leftValueReference>
-                <operator>IsEmpty</operator>
-                <rightValue>
-                    <booleanValue>false</booleanValue>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>Get_Selected_Passport_Owner_Contacts</targetReference>
-            </connector>
-            <label>Yes</label>
-        </rules>
-    </decisions>
-    <decisions>
         <name>Have_License_Key_Contacts_Been_Selected</name>
         <label>Have License Key Contacts Been Selected?</label>
         <locationX>0</locationX>
@@ -1332,6 +1300,38 @@
             </conditions>
             <connector>
                 <targetReference>Get_Selected_License_Key_Contacts</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Have_Passport_Owner_Contacts_Been_Selected</name>
+        <label>Have Passport Owner Contacts Been Selected?</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>Have_License_Key_Contacts_Been_Selected</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Copy_6_of_Yes</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>varPassportOwners</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>varPassportOwners</leftValueReference>
+                <operator>IsEmpty</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Selected_Passport_Owner_Contacts</targetReference>
             </connector>
             <label>Yes</label>
         </rules>
@@ -1565,31 +1565,6 @@
         </rules>
     </decisions>
     <decisions>
-        <name>Pre_Existing_Passport_Owner_Ids</name>
-        <label>Pre-Existing Passport Owner Ids?</label>
-        <locationX>0</locationX>
-        <locationY>0</locationY>
-        <defaultConnector>
-            <targetReference>Pre_Existing_License_Key_Ids</targetReference>
-        </defaultConnector>
-        <defaultConnectorLabel>No</defaultConnectorLabel>
-        <rules>
-            <name>Copy_3_of_Yes</name>
-            <conditionLogic>and</conditionLogic>
-            <conditions>
-                <leftValueReference>Get_Opportunity.Passport_Owner_Ids__c</leftValueReference>
-                <operator>IsNull</operator>
-                <rightValue>
-                    <booleanValue>false</booleanValue>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>Clean_Up_Passport_Owner_Contact_Ids</targetReference>
-            </connector>
-            <label>Yes</label>
-        </rules>
-    </decisions>
-    <decisions>
         <name>Pre_Existing_License_Key_Ids</name>
         <label>Pre-Existing License Key Contact Ids?</label>
         <locationX>0</locationX>
@@ -1610,6 +1585,31 @@
             </conditions>
             <connector>
                 <targetReference>Clean_Up_License_Key_Contact_Ids</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Pre_Existing_Passport_Owner_Ids</name>
+        <label>Pre-Existing Passport Owner Ids?</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>Pre_Existing_License_Key_Ids</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Copy_3_of_Yes</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Opportunity.Passport_Owner_Ids__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Clean_Up_Passport_Owner_Contact_Ids</targetReference>
             </connector>
             <label>Yes</label>
         </rules>
@@ -1825,6 +1825,11 @@ OR (ISPICKVAL({!Get_Opportunity.Vendor_Pricing_Details__c}, &quot;&quot;), ISPIC
         <expression>IF(ISPICKVAL({!Get_Opportunity.Services_Outsourced__c}, &quot;&quot;), &quot;No&quot;, TEXT({!Get_Opportunity.Services_Outsourced__c}))</expression>
     </formulas>
     <formulas>
+        <name>licenseKeyIdsFormula</name>
+        <dataType>String</dataType>
+        <expression>SUBSTITUTE(SUBSTITUTE({!Get_Opportunity.License_Key_Contact_Ids__c}, &quot;[&quot;, &quot;&quot;), &quot;]&quot;, &quot;&quot;)</expression>
+    </formulas>
+    <formulas>
         <name>passportOwnerIdsFormula</name>
         <dataType>String</dataType>
         <expression>SUBSTITUTE(SUBSTITUTE({!Get_Opportunity.Passport_Owner_Ids__c}, &quot;[&quot;, &quot;&quot;), &quot;]&quot;, &quot;&quot;)</expression>
@@ -1860,26 +1865,6 @@ OR (ISPICKVAL({!Get_Opportunity.Vendor_Pricing_Details__c}, &quot;&quot;), ISPIC
         <expression>{!selEndUserHWContactNetsuiteIds}</expression>
     </formulas>
     <formulas>
-        <name>selPassportOwnerContactIdsFormula</name>
-        <dataType>String</dataType>
-        <expression>{!selPassportOwnerContactIds}</expression>
-    </formulas>
-    <formulas>
-        <name>selPassportOwnerContactNamesFormula</name>
-        <dataType>String</dataType>
-        <expression>{!selPassportOwnerNames}</expression>
-    </formulas>
-    <formulas>
-        <name>selPassportOwnerContactNetsuitIdsFormula</name>
-        <dataType>String</dataType>
-        <expression>{!selPassportOwnerContactNetsuiteIds}</expression>
-    </formulas>
-    <formulas>
-        <name>licenseKeyIdsFormula</name>
-        <dataType>String</dataType>
-        <expression>SUBSTITUTE(SUBSTITUTE({!Get_Opportunity.License_Key_Contact_Ids__c}, &quot;[&quot;, &quot;&quot;), &quot;]&quot;, &quot;&quot;)</expression>
-    </formulas>
-    <formulas>
         <name>selLicenseKeyContactIdsFormula</name>
         <dataType>String</dataType>
         <expression>{!selLicenseKeyContactIds}</expression>
@@ -1893,6 +1878,21 @@ OR (ISPICKVAL({!Get_Opportunity.Vendor_Pricing_Details__c}, &quot;&quot;), ISPIC
         <name>selLicenseKeyContactNetsuiteIdsFormula</name>
         <dataType>String</dataType>
         <expression>{!selLicenseKeyContactNetsuiteIds}</expression>
+    </formulas>
+    <formulas>
+        <name>selPassportOwnerContactIdsFormula</name>
+        <dataType>String</dataType>
+        <expression>{!selPassportOwnerContactIds}</expression>
+    </formulas>
+    <formulas>
+        <name>selPassportOwnerContactNamesFormula</name>
+        <dataType>String</dataType>
+        <expression>{!selPassportOwnerNames}</expression>
+    </formulas>
+    <formulas>
+        <name>selPassportOwnerContactNetsuitIdsFormula</name>
+        <dataType>String</dataType>
+        <expression>{!selPassportOwnerContactNetsuiteIds}</expression>
     </formulas>
     <formulas>
         <name>selStudentContactIdsFormula</name>
@@ -1973,20 +1973,6 @@ OR (ISPICKVAL({!Get_Opportunity.Vendor_Pricing_Details__c}, &quot;&quot;), ISPIC
         </noMoreValuesConnector>
     </loops>
     <loops>
-        <name>Loop_Through_Selected_Passport_Owner_Contacts</name>
-        <label>Loop Through Selected Passport Owner Contacts</label>
-        <locationX>0</locationX>
-        <locationY>0</locationY>
-        <collectionReference>Get_Selected_Passport_Owner_Contacts</collectionReference>
-        <iterationOrder>Asc</iterationOrder>
-        <nextValueConnector>
-            <targetReference>Copy_1_of_Add_Contact_Field_Values_to_Lists</targetReference>
-        </nextValueConnector>
-        <noMoreValuesConnector>
-            <targetReference>Have_License_Key_Contacts_Been_Selected</targetReference>
-        </noMoreValuesConnector>
-    </loops>
-    <loops>
         <name>Loop_Through_Selected_License_Key_Contacts</name>
         <label>Loop Through Selected License Key Contacts</label>
         <locationX>0</locationX>
@@ -1998,6 +1984,20 @@ OR (ISPICKVAL({!Get_Opportunity.Vendor_Pricing_Details__c}, &quot;&quot;), ISPIC
         </nextValueConnector>
         <noMoreValuesConnector>
             <targetReference>Update_Opp_Fields</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <loops>
+        <name>Loop_Through_Selected_Passport_Owner_Contacts</name>
+        <label>Loop Through Selected Passport Owner Contacts</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <collectionReference>Get_Selected_Passport_Owner_Contacts</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Copy_1_of_Add_Contact_Field_Values_to_Lists</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Have_License_Key_Contacts_Been_Selected</targetReference>
         </noMoreValuesConnector>
     </loops>
     <loops>
@@ -2139,27 +2139,6 @@ OR (ISPICKVAL({!Get_Opportunity.Vendor_Pricing_Details__c}, &quot;&quot;), ISPIC
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordLookups>
-        <name>Get_Selected_Passport_Owner_Contacts</name>
-        <label>Get Selected Passport Owner Contacts</label>
-        <locationX>0</locationX>
-        <locationY>0</locationY>
-        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
-        <connector>
-            <targetReference>Loop_Through_Selected_Passport_Owner_Contacts</targetReference>
-        </connector>
-        <filterLogic>and</filterLogic>
-        <filters>
-            <field>Id</field>
-            <operator>In</operator>
-            <value>
-                <elementReference>varPassportOwners</elementReference>
-            </value>
-        </filters>
-        <getFirstRecordOnly>false</getFirstRecordOnly>
-        <object>Contact</object>
-        <storeOutputAutomatically>true</storeOutputAutomatically>
-    </recordLookups>
-    <recordLookups>
         <name>Get_Selected_License_Key_Contacts</name>
         <label>Get Selected License Key Contacts</label>
         <locationX>0</locationX>
@@ -2174,6 +2153,27 @@ OR (ISPICKVAL({!Get_Opportunity.Vendor_Pricing_Details__c}, &quot;&quot;), ISPIC
             <operator>In</operator>
             <value>
                 <elementReference>varLicenseKeyContacts</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>Contact</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Selected_Passport_Owner_Contacts</name>
+        <label>Get Selected Passport Owner Contacts</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Loop_Through_Selected_Passport_Owner_Contacts</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>In</operator>
+            <value>
+                <elementReference>varPassportOwners</elementReference>
             </value>
         </filters>
         <getFirstRecordOnly>false</getFirstRecordOnly>
@@ -2214,24 +2214,6 @@ OR (ISPICKVAL({!Get_Opportunity.Vendor_Pricing_Details__c}, &quot;&quot;), ISPIC
                 <elementReference>Get_Opportunity.Id</elementReference>
             </value>
         </filters>
-        <inputAssignments>
-            <field>License_Key_Contact_Ids__c</field>
-            <value>
-                <elementReference>selLicenseKeyContactIdsFormula</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>License_Key_Contact_Names__c</field>
-            <value>
-                <elementReference>selLicenseKeyContactNamesFormula</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>License_Key_Contact_Netsuite_Ids__c</field>
-            <value>
-                <elementReference>selLicenseKeyContactNetsuiteIdsFormula</elementReference>
-            </value>
-        </inputAssignments>
         <inputAssignments>
             <field>ACR__c</field>
             <value>
@@ -2410,6 +2392,24 @@ OR (ISPICKVAL({!Get_Opportunity.Vendor_Pricing_Details__c}, &quot;&quot;), ISPIC
             <field>Is_student_already_enrolled_as_unpaid__c</field>
             <value>
                 <elementReference>Is_the_student_already_enrolled_as_unpaid_Both</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>License_Key_Contact_Ids__c</field>
+            <value>
+                <elementReference>selLicenseKeyContactIdsFormula</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>License_Key_Contact_Names__c</field>
+            <value>
+                <elementReference>selLicenseKeyContactNamesFormula</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>License_Key_Contact_Netsuite_Ids__c</field>
+            <value>
+                <elementReference>selLicenseKeyContactNetsuiteIdsFormula</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -5644,6 +5644,13 @@ OR (ISPICKVAL({!Get_Opportunity.Vendor_Pricing_Details__c}, &quot;&quot;), ISPIC
         <isOutput>false</isOutput>
     </variables>
     <variables>
+        <name>licenseKeyIdsCleaned</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
         <name>passportOwnerDefaultsText</name>
         <dataType>String</dataType>
         <isCollection>true</isCollection>
@@ -5723,6 +5730,27 @@ OR (ISPICKVAL({!Get_Opportunity.Vendor_Pricing_Details__c}, &quot;&quot;), ISPIC
     </variables>
     <variables>
         <name>selEndUserHWContactNetsuiteIds</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>selLicenseKeyContactIds</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>selLicenseKeyContactNetsuiteIds</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>selLicenseKeyNames</name>
         <dataType>String</dataType>
         <isCollection>true</isCollection>
         <isInput>false</isInput>
@@ -5894,6 +5922,13 @@ OR (ISPICKVAL({!Get_Opportunity.Vendor_Pricing_Details__c}, &quot;&quot;), ISPIC
         <isOutput>false</isOutput>
     </variables>
     <variables>
+        <name>varLicenseKeyContacts</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
         <name>varMULTIContactForPaymentAP</name>
         <dataType>String</dataType>
         <isCollection>true</isCollection>
@@ -5904,41 +5939,6 @@ OR (ISPICKVAL({!Get_Opportunity.Vendor_Pricing_Details__c}, &quot;&quot;), ISPIC
         <name>varPassportOwners</name>
         <dataType>String</dataType>
         <isCollection>true</isCollection>
-        <isInput>false</isInput>
-        <isOutput>false</isOutput>
-    </variables>
-    <variables>
-        <name>varLicenseKeyContacts</name>
-        <dataType>String</dataType>
-        <isCollection>true</isCollection>
-        <isInput>false</isInput>
-        <isOutput>false</isOutput>
-    </variables>
-    <variables>
-        <name>selLicenseKeyContactIds</name>
-        <dataType>String</dataType>
-        <isCollection>true</isCollection>
-        <isInput>false</isInput>
-        <isOutput>false</isOutput>
-    </variables>
-    <variables>
-        <name>selLicenseKeyNames</name>
-        <dataType>String</dataType>
-        <isCollection>true</isCollection>
-        <isInput>false</isInput>
-        <isOutput>false</isOutput>
-    </variables>
-    <variables>
-        <name>selLicenseKeyContactNetsuiteIds</name>
-        <dataType>String</dataType>
-        <isCollection>true</isCollection>
-        <isInput>false</isInput>
-        <isOutput>false</isOutput>
-    </variables>
-    <variables>
-        <name>licenseKeyIdsCleaned</name>
-        <dataType>String</dataType>
-        <isCollection>false</isCollection>
         <isInput>false</isInput>
         <isOutput>false</isOutput>
     </variables>
