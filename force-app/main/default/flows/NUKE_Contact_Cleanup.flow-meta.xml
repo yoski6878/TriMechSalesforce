@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Preview_Contact_Deactivation</name><label>Preview Contact Deactivation</label><locationX>176</locationX><locationY>134</locationY>
+        <actionName>RunContactNukeBatchAction</actionName><actionType>apex</actionType><connector><targetReference>Confirm_Screen</targetReference></connector><flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters><name>recordId</name><value><elementReference>recordId</elementReference></value></inputParameters><inputParameters><name>operation</name><value><stringValue>PREVIEW</stringValue></value></inputParameters>
+        <nameSegment>RunContactNukeBatchAction</nameSegment><outputParameters><assignToReference>previewSummary</assignToReference><name>summary</name></outputParameters>
+    </actionCalls>
+    <actionCalls>
+        <name>Deactivate_Selected_Contact</name><label>Deactivate Selected Contact</label><locationX>176</locationX><locationY>350</locationY>
+        <actionName>RunContactNukeBatchAction</actionName><actionType>apex</actionType><connector><targetReference>Success_Screen</targetReference></connector><flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters><name>recordId</name><value><elementReference>recordId</elementReference></value></inputParameters><inputParameters><name>operation</name><value><stringValue>DEACTIVATE</stringValue></value></inputParameters>
+        <nameSegment>RunContactNukeBatchAction</nameSegment><outputParameters><assignToReference>completionSummary</assignToReference><name>summary</name></outputParameters>
+    </actionCalls>
+    <apiVersion>62.0</apiVersion><areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <description>Current-record-only controlled deactivation. Shows an impact preview, requires confirmation, and marks the selected Contact and supported related business records inactive. No records are deleted.</description>
+    <environments>Default</environments><interviewLabel>NUKE Contact Deactivation {!$Flow.CurrentDateTime}</interviewLabel><label>NUKE Contact Deactivation</label>
+    <processMetadataValues><name>BuilderType</name><value><stringValue>LightningFlowBuilder</stringValue></value></processMetadataValues><processMetadataValues><name>CanvasMode</name><value><stringValue>AUTO_LAYOUT_CANVAS</stringValue></value></processMetadataValues><processType>Flow</processType>
+    <screens>
+        <name>Confirm_Screen</name><label>Review and Confirm</label><locationX>176</locationX><locationY>242</locationY><allowBack>false</allowBack><allowFinish>true</allowFinish><allowPause>false</allowPause><connector><targetReference>Deactivate_Selected_Contact</targetReference></connector>
+        <fields><name>Warning</name><fieldText>&lt;p&gt;&lt;strong&gt;Review the impact for this Contact only.&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;{!previewSummary}&lt;/p&gt;&lt;p&gt;No records will be deleted. Click confirm to mark the selected Contact and listed related records inactive.&lt;/p&gt;</fieldText><fieldType>DisplayText</fieldType></fields>
+        <nextOrFinishButtonLabel>Confirm Deactivation</nextOrFinishButtonLabel><showFooter>true</showFooter><showHeader>false</showHeader>
+    </screens>
+    <screens>
+        <name>Success_Screen</name><label>Completed</label><locationX>176</locationX><locationY>458</locationY><allowBack>false</allowBack><allowFinish>true</allowFinish><allowPause>false</allowPause>
+        <fields><name>Success_Text</name><fieldText>&lt;p&gt;&lt;strong&gt;Deactivation completed.&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;{!completionSummary}&lt;/p&gt;</fieldText><fieldType>DisplayText</fieldType></fields><showFooter>true</showFooter><showHeader>false</showHeader>
+    </screens>
+    <start><locationX>50</locationX><locationY>0</locationY><connector><targetReference>Preview_Contact_Deactivation</targetReference></connector></start><status>Active</status>
+    <variables><name>completionSummary</name><dataType>String</dataType><isCollection>false</isCollection><isInput>false</isInput><isOutput>false</isOutput></variables><variables><name>previewSummary</name><dataType>String</dataType><isCollection>false</isCollection><isInput>false</isInput><isOutput>false</isOutput></variables><variables><name>recordId</name><dataType>String</dataType><isCollection>false</isCollection><isInput>true</isInput><isOutput>false</isOutput></variables>
+</Flow>
