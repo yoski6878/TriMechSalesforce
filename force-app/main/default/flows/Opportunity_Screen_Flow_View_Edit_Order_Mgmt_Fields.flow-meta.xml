@@ -1473,6 +1473,14 @@
         <picklistObject>Opportunity</picklistObject>
     </dynamicChoiceSets>
     <dynamicChoiceSets>
+        <name>PreviousVARChoices</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>Previous_VAR__c</picklistField>
+        <picklistObject>Opportunity</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
         <name>softwareOnOrderPicklistValues</name>
         <dataType>Picklist</dataType>
         <displayField xsi:nil="true"/>
@@ -1856,6 +1864,18 @@ OR (ISPICKVAL({!Get_Opportunity.Vendor_Pricing_Details__c}, &quot;&quot;), ISPIC
                 <elementReference>Get_Opportunity.Id</elementReference>
             </value>
         </filters>
+        <inputAssignments>
+            <field>Approximate_Revenue__c</field>
+            <value>
+                <elementReference>Approximate_Revenue</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Previous_VAR__c</field>
+            <value>
+                <elementReference>Previous_VAR</elementReference>
+            </value>
+        </inputAssignments>
         <inputAssignments>
             <field>ACR__c</field>
             <value>
@@ -2346,6 +2366,66 @@ OR (ISPICKVAL({!Get_Opportunity.Vendor_Pricing_Details__c}, &quot;&quot;), ISPIC
                                 <stringValue>Signed Quote</stringValue>
                             </rightValue>
                         </conditions>
+                        <conditions>
+                            <leftValueReference>Payment_Type</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <stringValue>COR/COC/ICT Form</stringValue>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
+                </fields>
+                <fields>
+                    <name>Previous_VAR</name>
+                    <choiceReferences>PreviousVARChoices</choiceReferences>
+                    <dataType>String</dataType>
+                    <defaultValue>
+                        <elementReference>Get_Opportunity.Previous_VAR__c</elementReference>
+                    </defaultValue>
+                    <fieldText>Previous VAR</fieldText>
+                    <fieldType>DropdownBox</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>true</isRequired>
+                    <styleProperties>
+                        <verticalAlignment>
+                            <stringValue>top</stringValue>
+                        </verticalAlignment>
+                        <width>
+                            <stringValue>12</stringValue>
+                        </width>
+                    </styleProperties>
+                    <visibilityRule>
+                        <conditionLogic>and</conditionLogic>
+                        <conditions>
+                            <leftValueReference>Payment_Type</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <stringValue>COR/COC/ICT Form</stringValue>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
+                </fields>
+                <fields>
+                    <name>Approximate_Revenue</name>
+                    <dataType>Currency</dataType>
+                    <defaultValue>
+                        <elementReference>Get_Opportunity.Approximate_Revenue__c</elementReference>
+                    </defaultValue>
+                    <fieldText>Approximate Revenue</fieldText>
+                    <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>true</isRequired>
+                    <scale>2</scale>
+                    <styleProperties>
+                        <verticalAlignment>
+                            <stringValue>top</stringValue>
+                        </verticalAlignment>
+                        <width>
+                            <stringValue>12</stringValue>
+                        </width>
+                    </styleProperties>
+                    <visibilityRule>
+                        <conditionLogic>and</conditionLogic>
                         <conditions>
                             <leftValueReference>Payment_Type</leftValueReference>
                             <operator>EqualTo</operator>
@@ -4130,7 +4210,7 @@ OR (ISPICKVAL({!Get_Opportunity.Vendor_Pricing_Details__c}, &quot;&quot;), ISPIC
                     <inputParameters>
                         <name>fields</name>
                         <value>
-                            <stringValue>Summary_Description_of_Order__c, Payment_Type__c, Contact_for_Payment_AP__c, Contact_for_Payment_Netsuite_ID__c, Forms__c, Additional_Notes__c</stringValue>
+                            <stringValue>Summary_Description_of_Order__c, Payment_Type__c, Previous_VAR__c, Approximate_Revenue__c, Contact_for_Payment_AP__c, Contact_for_Payment_Netsuite_ID__c, Forms__c, Additional_Notes__c</stringValue>
                         </value>
                     </inputParameters>
                     <inputParameters>

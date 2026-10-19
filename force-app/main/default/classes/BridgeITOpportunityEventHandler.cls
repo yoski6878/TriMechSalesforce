@@ -221,6 +221,8 @@ public with sharing class BridgeITOpportunityEventHandler {
                 Inside_Sales_Rep_NetSuite_ID__c,
                 Summary_Description_of_Order__c,
                 Payment_Type__c,
+                Previous_VAR__c,
+                Approximate_Revenue__c,
                 Contact_for_Payment_Netsuite_ID__c,
                 Forms__c,
                 Additional_Notes__c,
@@ -293,6 +295,8 @@ public with sharing class BridgeITOpportunityEventHandler {
         o.Inside_Sales__c                         = o.Inside_Sales__c;
         o.Summary_Description_of_Order__c         = o.Summary_Description_of_Order__c;
         o.Payment_Type__c                         = o.Payment_Type__c;
+        o.Previous_VAR__c                         = o.Previous_VAR__c;
+        o.Approximate_Revenue__c                  = o.Approximate_Revenue__c;
         o.Forms__c                                = o.Forms__c;
         o.Additional_Notes__c                     = o.Additional_Notes__c;
         o.Is_software_on_this_order__c            = o.Is_software_on_this_order__c;
