@@ -766,6 +766,14 @@
         </value>
     </choices>
     <choices>
+        <name>COR_COC_ICT_Form</name>
+        <choiceText>COR/COC/ICT Form</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>COR/COC/ICT Form</stringValue>
+        </value>
+    </choices>
+    <choices>
         <name>CreditCard</name>
         <choiceText>Credit Card</choiceText>
         <dataType>String</dataType>
@@ -819,14 +827,6 @@
         <dataType>String</dataType>
         <value>
             <stringValue>Signed Quote</stringValue>
-        </value>
-    </choices>
-    <choices>
-        <name>COR_COC_ICT_Form</name>
-        <choiceText>COR/COC/ICT Form</choiceText>
-        <dataType>String</dataType>
-        <value>
-            <stringValue>COR/COC/ICT Form</stringValue>
         </value>
     </choices>
     <choices>
@@ -1865,18 +1865,6 @@ OR (ISPICKVAL({!Get_Opportunity.Vendor_Pricing_Details__c}, &quot;&quot;), ISPIC
             </value>
         </filters>
         <inputAssignments>
-            <field>Approximate_Revenue__c</field>
-            <value>
-                <elementReference>Approximate_Revenue</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>Previous_VAR__c</field>
-            <value>
-                <elementReference>Previous_VAR</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
             <field>ACR__c</field>
             <value>
                 <elementReference>ACRValue</elementReference>
@@ -1886,6 +1874,12 @@ OR (ISPICKVAL({!Get_Opportunity.Vendor_Pricing_Details__c}, &quot;&quot;), ISPIC
             <field>Additional_Notes__c</field>
             <value>
                 <elementReference>Additional_Notes_Both</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Approximate_Revenue__c</field>
+            <value>
+                <elementReference>Approximate_Revenue</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -2072,6 +2066,12 @@ OR (ISPICKVAL({!Get_Opportunity.Vendor_Pricing_Details__c}, &quot;&quot;), ISPIC
             <field>Piracy__c</field>
             <value>
                 <elementReference>Piracy_Order_Both</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Previous_VAR__c</field>
+            <value>
+                <elementReference>Previous_VAR</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
