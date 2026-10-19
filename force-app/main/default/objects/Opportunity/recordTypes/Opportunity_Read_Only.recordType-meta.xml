@@ -2100,6 +2100,10 @@
             <fullName>Signed Quote</fullName>
             <default>false</default>
         </values>
+        <values>
+            <fullName>COR%2FCOC%2FICT Form</fullName>
+            <default>false</default>
+        </values>
     </picklistValues>
     <picklistValues>
         <picklist>Piracy__c</picklist>
