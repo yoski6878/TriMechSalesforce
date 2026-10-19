@@ -1507,6 +1507,11 @@
         <expression>SUBSTITUTE(SUBSTITUTE({!Get_Opportunity.End_User_Ids_hardware__c}, &quot;[&quot;, &quot;&quot;), &quot;]&quot;, &quot;&quot;)</expression>
     </formulas>
     <formulas>
+        <name>fCustomServiceDefault</name>
+        <dataType>String</dataType>
+        <expression>IF(ISPICKVAL({!Get_Opportunity.Custom_Service__c}, &quot;&quot;), &quot;No&quot;, TEXT({!Get_Opportunity.Custom_Service__c}))</expression>
+    </formulas>
+    <formulas>
         <name>fHasErrors</name>
         <dataType>Boolean</dataType>
         <expression>IF(
@@ -1586,11 +1591,6 @@ OR (ISPICKVAL({!Get_Opportunity.Vendor_Pricing_Details__c}, &quot;&quot;), ISPIC
         <name>fServicesOutsourcedDefault</name>
         <dataType>String</dataType>
         <expression>IF(ISPICKVAL({!Get_Opportunity.Services_Outsourced__c}, &quot;&quot;), &quot;No&quot;, TEXT({!Get_Opportunity.Services_Outsourced__c}))</expression>
-    </formulas>
-    <formulas>
-        <name>fCustomServiceDefault</name>
-        <dataType>String</dataType>
-        <expression>IF(ISPICKVAL({!Get_Opportunity.Custom_Service__c}, &quot;&quot;), &quot;No&quot;, TEXT({!Get_Opportunity.Custom_Service__c}))</expression>
     </formulas>
     <formulas>
         <name>passportOwnerIdsFormula</name>
@@ -1893,30 +1893,6 @@ OR (ISPICKVAL({!Get_Opportunity.Vendor_Pricing_Details__c}, &quot;&quot;), ISPIC
             </value>
         </filters>
         <inputAssignments>
-            <field>Custom_Service__c</field>
-            <value>
-                <elementReference>Custom_Service</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>Planned_Project_Hours__c</field>
-            <value>
-                <elementReference>Planned_Project_Hours</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>Project_Internal_Cost__c</field>
-            <value>
-                <elementReference>Internal_Cost</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>Service_Notes__c</field>
-            <value>
-                <elementReference>Service_Notes</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
             <field>ACR__c</field>
             <value>
                 <elementReference>ACRValue</elementReference>
@@ -2004,6 +1980,12 @@ OR (ISPICKVAL({!Get_Opportunity.Vendor_Pricing_Details__c}, &quot;&quot;), ISPIC
             <field>Course_Name__c</field>
             <value>
                 <elementReference>Course_Name_Both</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Custom_Service__c</field>
+            <value>
+                <elementReference>Custom_Service</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -2121,6 +2103,12 @@ OR (ISPICKVAL({!Get_Opportunity.Vendor_Pricing_Details__c}, &quot;&quot;), ISPIC
             </value>
         </inputAssignments>
         <inputAssignments>
+            <field>Planned_Project_Hours__c</field>
+            <value>
+                <elementReference>Planned_Project_Hours</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
             <field>Previous_VAR__c</field>
             <value>
                 <elementReference>Previous_VAR</elementReference>
@@ -2133,6 +2121,12 @@ OR (ISPICKVAL({!Get_Opportunity.Vendor_Pricing_Details__c}, &quot;&quot;), ISPIC
             </value>
         </inputAssignments>
         <inputAssignments>
+            <field>Project_Internal_Cost__c</field>
+            <value>
+                <elementReference>Internal_Cost</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
             <field>Provide_current_SN_we_are_adjusting__c</field>
             <value>
                 <elementReference>Provide_current_SN_we_are_adjusting_Both</elementReference>
@@ -2142,6 +2136,12 @@ OR (ISPICKVAL({!Get_Opportunity.Vendor_Pricing_Details__c}, &quot;&quot;), ISPIC
             <field>Scheduling_Contact__c</field>
             <value>
                 <elementReference>varSchedulingContact</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Service_Notes__c</field>
+            <value>
+                <elementReference>Service_Notes</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -4017,7 +4017,6 @@ OR (ISPICKVAL({!Get_Opportunity.Vendor_Pricing_Details__c}, &quot;&quot;), ISPIC
                 </fields>
                 <fields>
                     <name>Service_Notes</name>
-                    <dataType>String</dataType>
                     <defaultValue>
                         <elementReference>Get_Opportunity.Service_Notes__c</elementReference>
                     </defaultValue>
