@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Custom_Service__c</fullName>
+    <description>Send to OM: custom TriMech service or customized fixed fee service. When Yes, the Order Mgmt flow shows Planned Project Hours, Internal Cost and Service Notes. Synced to NetSuite.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Use for any custom TriMech service or when customizing existing fixed fee services.</inlineHelpText>
+    <label>Is Custom Service?</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Yes</fullName>
+                <default>false</default>
+                <label>Yes</label>
+            </value>
+            <value>
+                <fullName>No</fullName>
+                <default>true</default>
+                <label>No</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

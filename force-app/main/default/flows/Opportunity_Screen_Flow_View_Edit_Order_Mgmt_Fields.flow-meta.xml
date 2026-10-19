@@ -1554,16 +1554,6 @@ OR (ISPICKVAL({!Get_Opportunity.Payment_Type__c}, &quot;&quot;), ISPICKVAL({!Get
 )</expression>
     </formulas>
     <formulas>
-        <name>fNeedsServicesUpload</name>
-        <dataType>Boolean</dataType>
-        <expression>AND (
-{!Are_services_products_on_this_order} = &quot;Yes&quot;,
-OR (ISPICKVAL({!Get_Opportunity.Are_services_products_on_this_order__c}, &quot;&quot;), ISPICKVAL({!Get_Opportunity.Are_services_products_on_this_order__c}, &quot;No&quot;)),
-{!serviceUploadCount} = 0,
-{!bNeedsSpecSheet}
-)</expression>
-    </formulas>
-    <formulas>
         <name>fNeedsServicesOutsourcedUpload</name>
         <dataType>Boolean</dataType>
         <expression>AND (
@@ -1574,9 +1564,14 @@ NOT(ISPICKVAL({!Get_Opportunity.Services_Outsourced__c}, &quot;Yes&quot;)),
 )</expression>
     </formulas>
     <formulas>
-        <name>fServicesOutsourcedDefault</name>
-        <dataType>String</dataType>
-        <expression>IF(ISPICKVAL({!Get_Opportunity.Services_Outsourced__c}, &quot;&quot;), &quot;No&quot;, TEXT({!Get_Opportunity.Services_Outsourced__c}))</expression>
+        <name>fNeedsServicesUpload</name>
+        <dataType>Boolean</dataType>
+        <expression>AND (
+{!Are_services_products_on_this_order} = &quot;Yes&quot;,
+OR (ISPICKVAL({!Get_Opportunity.Are_services_products_on_this_order__c}, &quot;&quot;), ISPICKVAL({!Get_Opportunity.Are_services_products_on_this_order__c}, &quot;No&quot;)),
+{!serviceUploadCount} = 0,
+{!bNeedsSpecSheet}
+)</expression>
     </formulas>
     <formulas>
         <name>fNeedsVendorPricingDetailsUpload</name>
@@ -1586,6 +1581,16 @@ NOT(ISPICKVAL({!Get_Opportunity.Services_Outsourced__c}, &quot;Yes&quot;)),
 OR (ISPICKVAL({!Get_Opportunity.Vendor_Pricing_Details__c}, &quot;&quot;), ISPICKVAL({!Get_Opportunity.Vendor_Pricing_Details__c}, &quot;No&quot;)),
 {!vendorPricingDetailsUploadCount} = 0
 )</expression>
+    </formulas>
+    <formulas>
+        <name>fServicesOutsourcedDefault</name>
+        <dataType>String</dataType>
+        <expression>IF(ISPICKVAL({!Get_Opportunity.Services_Outsourced__c}, &quot;&quot;), &quot;No&quot;, TEXT({!Get_Opportunity.Services_Outsourced__c}))</expression>
+    </formulas>
+    <formulas>
+        <name>fCustomServiceDefault</name>
+        <dataType>String</dataType>
+        <expression>IF(ISPICKVAL({!Get_Opportunity.Custom_Service__c}, &quot;&quot;), &quot;No&quot;, TEXT({!Get_Opportunity.Custom_Service__c}))</expression>
     </formulas>
     <formulas>
         <name>passportOwnerIdsFormula</name>
@@ -1888,9 +1893,27 @@ OR (ISPICKVAL({!Get_Opportunity.Vendor_Pricing_Details__c}, &quot;&quot;), ISPIC
             </value>
         </filters>
         <inputAssignments>
-            <field>Services_Outsourced__c</field>
+            <field>Custom_Service__c</field>
             <value>
-                <elementReference>Services_Outsourced</elementReference>
+                <elementReference>Custom_Service</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Planned_Project_Hours__c</field>
+            <value>
+                <elementReference>Planned_Project_Hours</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Project_Internal_Cost__c</field>
+            <value>
+                <elementReference>Internal_Cost</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Service_Notes__c</field>
+            <value>
+                <elementReference>Service_Notes</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -2119,6 +2142,12 @@ OR (ISPICKVAL({!Get_Opportunity.Vendor_Pricing_Details__c}, &quot;&quot;), ISPIC
             <field>Scheduling_Contact__c</field>
             <value>
                 <elementReference>varSchedulingContact</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Services_Outsourced__c</field>
+            <value>
+                <elementReference>Services_Outsourced</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -3880,6 +3909,148 @@ OR (ISPICKVAL({!Get_Opportunity.Vendor_Pricing_Details__c}, &quot;&quot;), ISPIC
                         </conditions>
                     </visibilityRule>
                 </fields>
+                <fields>
+                    <name>Custom_Service</name>
+                    <choiceReferences>Yes</choiceReferences>
+                    <choiceReferences>No</choiceReferences>
+                    <dataType>String</dataType>
+                    <defaultValue>
+                        <elementReference>fCustomServiceDefault</elementReference>
+                    </defaultValue>
+                    <fieldText>Is Custom Service?</fieldText>
+                    <fieldType>DropdownBox</fieldType>
+                    <helpText>&lt;p&gt;Use for any custom TriMech service or when customizing existing fixed fee services.&lt;/p&gt;</helpText>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>true</isRequired>
+                    <styleProperties>
+                        <verticalAlignment>
+                            <stringValue>top</stringValue>
+                        </verticalAlignment>
+                        <width>
+                            <stringValue>12</stringValue>
+                        </width>
+                    </styleProperties>
+                    <visibilityRule>
+                        <conditionLogic>and</conditionLogic>
+                        <conditions>
+                            <leftValueReference>Are_services_products_on_this_order</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <elementReference>Yes</elementReference>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
+                </fields>
+                <fields>
+                    <name>Planned_Project_Hours</name>
+                    <dataType>Number</dataType>
+                    <defaultValue>
+                        <elementReference>Get_Opportunity.Planned_Project_Hours__c</elementReference>
+                    </defaultValue>
+                    <fieldText>Planned Project Hours</fieldText>
+                    <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>false</isRequired>
+                    <scale>2</scale>
+                    <styleProperties>
+                        <verticalAlignment>
+                            <stringValue>top</stringValue>
+                        </verticalAlignment>
+                        <width>
+                            <stringValue>12</stringValue>
+                        </width>
+                    </styleProperties>
+                    <visibilityRule>
+                        <conditionLogic>and</conditionLogic>
+                        <conditions>
+                            <leftValueReference>Are_services_products_on_this_order</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <elementReference>Yes</elementReference>
+                            </rightValue>
+                        </conditions>
+                        <conditions>
+                            <leftValueReference>Custom_Service</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <elementReference>Yes</elementReference>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
+                </fields>
+                <fields>
+                    <name>Internal_Cost</name>
+                    <dataType>Currency</dataType>
+                    <defaultValue>
+                        <elementReference>Get_Opportunity.Project_Internal_Cost__c</elementReference>
+                    </defaultValue>
+                    <fieldText>Internal Cost</fieldText>
+                    <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>false</isRequired>
+                    <scale>2</scale>
+                    <styleProperties>
+                        <verticalAlignment>
+                            <stringValue>top</stringValue>
+                        </verticalAlignment>
+                        <width>
+                            <stringValue>12</stringValue>
+                        </width>
+                    </styleProperties>
+                    <visibilityRule>
+                        <conditionLogic>and</conditionLogic>
+                        <conditions>
+                            <leftValueReference>Are_services_products_on_this_order</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <elementReference>Yes</elementReference>
+                            </rightValue>
+                        </conditions>
+                        <conditions>
+                            <leftValueReference>Custom_Service</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <elementReference>Yes</elementReference>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
+                </fields>
+                <fields>
+                    <name>Service_Notes</name>
+                    <dataType>String</dataType>
+                    <defaultValue>
+                        <elementReference>Get_Opportunity.Service_Notes__c</elementReference>
+                    </defaultValue>
+                    <fieldText>Service Notes</fieldText>
+                    <fieldType>LargeTextArea</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>false</isRequired>
+                    <styleProperties>
+                        <verticalAlignment>
+                            <stringValue>top</stringValue>
+                        </verticalAlignment>
+                        <width>
+                            <stringValue>12</stringValue>
+                        </width>
+                    </styleProperties>
+                    <visibilityRule>
+                        <conditionLogic>and</conditionLogic>
+                        <conditions>
+                            <leftValueReference>Are_services_products_on_this_order</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <elementReference>Yes</elementReference>
+                            </rightValue>
+                        </conditions>
+                        <conditions>
+                            <leftValueReference>Custom_Service</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <elementReference>Yes</elementReference>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
+                </fields>
                 <inputParameters>
                     <name>width</name>
                     <value>
@@ -4520,7 +4691,7 @@ OR (ISPICKVAL({!Get_Opportunity.Vendor_Pricing_Details__c}, &quot;&quot;), ISPIC
                     <inputParameters>
                         <name>fields</name>
                         <value>
-                            <stringValue>Are_services_products_on_this_order__c, Services_Outsourced__c</stringValue>
+                            <stringValue>Are_services_products_on_this_order__c, Services_Outsourced__c, Custom_Service__c, Planned_Project_Hours__c, Project_Internal_Cost__c, Service_Notes__c</stringValue>
                         </value>
                     </inputParameters>
                     <inputParameters>
@@ -5121,7 +5292,7 @@ OR (ISPICKVAL({!Get_Opportunity.Vendor_Pricing_Details__c}, &quot;&quot;), ISPIC
         <isOutput>false</isOutput>
     </variables>
     <variables>
-        <name>serviceUploadCount</name>
+        <name>servicesOutsourcedUploadCount</name>
         <dataType>Number</dataType>
         <isCollection>false</isCollection>
         <isInput>false</isInput>
@@ -5129,7 +5300,7 @@ OR (ISPICKVAL({!Get_Opportunity.Vendor_Pricing_Details__c}, &quot;&quot;), ISPIC
         <scale>2</scale>
     </variables>
     <variables>
-        <name>servicesOutsourcedUploadCount</name>
+        <name>serviceUploadCount</name>
         <dataType>Number</dataType>
         <isCollection>false</isCollection>
         <isInput>false</isInput>
