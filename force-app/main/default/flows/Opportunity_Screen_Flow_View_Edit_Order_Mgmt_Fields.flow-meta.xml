@@ -745,6 +745,13 @@
                 <elementReference>AdditionalCourseUpload.contentDocIds</elementReference>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>servicesOutsourcedUploadCount</assignToReference>
+            <operator>AssignCount</operator>
+            <value>
+                <elementReference>ServicesOutsourcedUpload.contentDocIds</elementReference>
+            </value>
+        </assignmentItems>
         <connector>
             <targetReference>Missing_Payment_Contact</targetReference>
         </connector>
@@ -1522,6 +1529,7 @@ OR (ISPICKVAL({!Get_Opportunity.Are_there_additional_courses__c}, &quot;&quot;),
 {!fNeedsFormsUpload},
 {!fNeedsPaymentTypeUpload},
 {!fNeedsServicesUpload},
+{!fNeedsServicesOutsourcedUpload},
 {!fNeedsVendorPricingDetailsUpload},
 {!fNeedsAdditionalCoursesUpload}
 )</expression>
@@ -1554,6 +1562,21 @@ OR (ISPICKVAL({!Get_Opportunity.Are_services_products_on_this_order__c}, &quot;&
 {!serviceUploadCount} = 0,
 {!bNeedsSpecSheet}
 )</expression>
+    </formulas>
+    <formulas>
+        <name>fNeedsServicesOutsourcedUpload</name>
+        <dataType>Boolean</dataType>
+        <expression>AND (
+{!Are_services_products_on_this_order} = &quot;Yes&quot;,
+{!Services_Outsourced} = &quot;Yes&quot;,
+NOT(ISPICKVAL({!Get_Opportunity.Services_Outsourced__c}, &quot;Yes&quot;)),
+{!servicesOutsourcedUploadCount} = 0
+)</expression>
+    </formulas>
+    <formulas>
+        <name>fServicesOutsourcedDefault</name>
+        <dataType>String</dataType>
+        <expression>IF(ISPICKVAL({!Get_Opportunity.Services_Outsourced__c}, &quot;&quot;), &quot;No&quot;, TEXT({!Get_Opportunity.Services_Outsourced__c}))</expression>
     </formulas>
     <formulas>
         <name>fNeedsVendorPricingDetailsUpload</name>
@@ -1864,6 +1887,12 @@ OR (ISPICKVAL({!Get_Opportunity.Vendor_Pricing_Details__c}, &quot;&quot;), ISPIC
                 <elementReference>Get_Opportunity.Id</elementReference>
             </value>
         </filters>
+        <inputAssignments>
+            <field>Services_Outsourced__c</field>
+            <value>
+                <elementReference>Services_Outsourced</elementReference>
+            </value>
+        </inputAssignments>
         <inputAssignments>
             <field>ACR__c</field>
             <value>
@@ -3762,6 +3791,95 @@ OR (ISPICKVAL({!Get_Opportunity.Vendor_Pricing_Details__c}, &quot;&quot;), ISPIC
                         </conditions>
                     </visibilityRule>
                 </fields>
+                <fields>
+                    <name>Services_Outsourced</name>
+                    <choiceReferences>Yes</choiceReferences>
+                    <choiceReferences>No</choiceReferences>
+                    <dataType>String</dataType>
+                    <defaultValue>
+                        <elementReference>fServicesOutsourcedDefault</elementReference>
+                    </defaultValue>
+                    <fieldText>Are Services Outsourced?</fieldText>
+                    <fieldType>DropdownBox</fieldType>
+                    <helpText>&lt;p&gt;Select Yes if any service on this order will be delivered by a third-party vendor. A Vendor Quote or SOW upload is required.&lt;/p&gt;</helpText>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>true</isRequired>
+                    <styleProperties>
+                        <verticalAlignment>
+                            <stringValue>top</stringValue>
+                        </verticalAlignment>
+                        <width>
+                            <stringValue>12</stringValue>
+                        </width>
+                    </styleProperties>
+                    <visibilityRule>
+                        <conditionLogic>and</conditionLogic>
+                        <conditions>
+                            <leftValueReference>Are_services_products_on_this_order</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <elementReference>Yes</elementReference>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
+                </fields>
+                <fields>
+                    <name>ServicesOutsourcedUpload</name>
+                    <extensionName>forceContent:fileUpload</extensionName>
+                    <fieldType>ComponentInstance</fieldType>
+                    <inputParameters>
+                        <name>label</name>
+                        <value>
+                            <stringValue>Upload Vendor Quote / SOW</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>multiple</name>
+                        <value>
+                            <booleanValue>true</booleanValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>disabled</name>
+                        <value>
+                            <booleanValue>false</booleanValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>recordId</name>
+                        <value>
+                            <elementReference>Get_Opportunity.Id</elementReference>
+                        </value>
+                    </inputParameters>
+                    <inputsOnNextNavToAssocScrn>ResetValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>true</isRequired>
+                    <storeOutputAutomatically>true</storeOutputAutomatically>
+                    <styleProperties>
+                        <verticalAlignment>
+                            <stringValue>top</stringValue>
+                        </verticalAlignment>
+                        <width>
+                            <stringValue>12</stringValue>
+                        </width>
+                    </styleProperties>
+                    <visibilityRule>
+                        <conditionLogic>and</conditionLogic>
+                        <conditions>
+                            <leftValueReference>Are_services_products_on_this_order</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <elementReference>Yes</elementReference>
+                            </rightValue>
+                        </conditions>
+                        <conditions>
+                            <leftValueReference>Services_Outsourced</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <elementReference>Yes</elementReference>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
+                </fields>
                 <inputParameters>
                     <name>width</name>
                     <value>
@@ -4402,7 +4520,7 @@ OR (ISPICKVAL({!Get_Opportunity.Vendor_Pricing_Details__c}, &quot;&quot;), ISPIC
                     <inputParameters>
                         <name>fields</name>
                         <value>
-                            <stringValue>Are_services_products_on_this_order__c</stringValue>
+                            <stringValue>Are_services_products_on_this_order__c, Services_Outsourced__c</stringValue>
                         </value>
                     </inputParameters>
                     <inputParameters>
@@ -4638,6 +4756,29 @@ OR (ISPICKVAL({!Get_Opportunity.Vendor_Pricing_Details__c}, &quot;&quot;), ISPIC
                 <conditionLogic>and</conditionLogic>
                 <conditions>
                     <leftValueReference>fNeedsServicesUpload</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <booleanValue>true</booleanValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
+        </fields>
+        <fields>
+            <name>ServicesOutsourcedText</name>
+            <fieldText>&lt;ul&gt;&lt;li&gt;&lt;span style=&quot;color: rgb(241, 3, 3);&quot;&gt;Upload Vendor Quote / SOW for outsourced services&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>fNeedsServicesOutsourcedUpload</leftValueReference>
                     <operator>EqualTo</operator>
                     <rightValue>
                         <booleanValue>true</booleanValue>
@@ -4981,6 +5122,14 @@ OR (ISPICKVAL({!Get_Opportunity.Vendor_Pricing_Details__c}, &quot;&quot;), ISPIC
     </variables>
     <variables>
         <name>serviceUploadCount</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>2</scale>
+    </variables>
+    <variables>
+        <name>servicesOutsourcedUploadCount</name>
         <dataType>Number</dataType>
         <isCollection>false</isCollection>
         <isInput>false</isInput>
