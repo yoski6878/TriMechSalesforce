@@ -1520,6 +1520,14 @@
         <picklistObject>Opportunity</picklistObject>
     </dynamicChoiceSets>
     <dynamicChoiceSets>
+        <name>OEMAgreementTypeChoices</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>OEM_Agreement_Type__c</picklistField>
+        <picklistObject>Opportunity</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
         <name>PaymentType</name>
         <dataType>Picklist</dataType>
         <displayField xsi:nil="true"/>
@@ -1533,14 +1541,6 @@
         <displayField xsi:nil="true"/>
         <object xsi:nil="true"/>
         <picklistField>Previous_VAR__c</picklistField>
-        <picklistObject>Opportunity</picklistObject>
-    </dynamicChoiceSets>
-    <dynamicChoiceSets>
-        <name>OEMAgreementTypeChoices</name>
-        <dataType>Picklist</dataType>
-        <displayField xsi:nil="true"/>
-        <object xsi:nil="true"/>
-        <picklistField>OEM_Agreement_Type__c</picklistField>
         <picklistObject>Opportunity</picklistObject>
     </dynamicChoiceSets>
     <dynamicChoiceSets>
@@ -1989,12 +1989,6 @@ OR (ISPICKVAL({!Get_Opportunity.Vendor_Pricing_Details__c}, &quot;&quot;), ISPIC
             </value>
         </filters>
         <inputAssignments>
-            <field>OEM_Agreement_Type__c</field>
-            <value>
-                <elementReference>OEM_Agreement_Type</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
             <field>ACR__c</field>
             <value>
                 <elementReference>ACRValue</elementReference>
@@ -2178,6 +2172,12 @@ OR (ISPICKVAL({!Get_Opportunity.Vendor_Pricing_Details__c}, &quot;&quot;), ISPIC
             <field>Lift_Gate_or_Pallet_Jack_required__c</field>
             <value>
                 <elementReference>Lift_Gate_or_Pallet_Jack_required_for_delivery_HW</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>OEM_Agreement_Type__c</field>
+            <value>
+                <elementReference>OEM_Agreement_Type</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
