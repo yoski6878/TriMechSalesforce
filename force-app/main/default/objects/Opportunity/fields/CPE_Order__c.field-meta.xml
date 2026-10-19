@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>CPE_Order__c</fullName>
-    <label>CPE Order</label>
+    <description>Send to OM: Yes when the Opportunity has a Dassault (OEM DS) product in the Enterprise Solutions business unit (BU ENT). Set automatically by the Order Mgmt screen flow when the tab is saved; not editable by reps. Synced to NetSuite.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Set automatically: Yes when the order has a Dassault product in Enterprise Solutions.</inlineHelpText>
+    <label>CPE Order?</label>
     <required>false</required>
     <trackFeedHistory>false</trackFeedHistory>
     <trackHistory>false</trackHistory>

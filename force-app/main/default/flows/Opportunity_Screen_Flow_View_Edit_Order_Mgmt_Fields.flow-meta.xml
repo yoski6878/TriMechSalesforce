@@ -756,6 +756,22 @@
             <targetReference>Missing_Payment_Contact</targetReference>
         </connector>
     </assignments>
+    <assignments>
+        <name>Set_CPE_Order_True</name>
+        <label>Set CPE Order True</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>bCPEOrder</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Loop_CPE_Lines</targetReference>
+        </connector>
+    </assignments>
     <choices>
         <name>ACH_EFT_Wire</name>
         <choiceText>ACH/EFT/Wire</choiceText>
@@ -895,6 +911,38 @@
             </conditions>
             <connector>
                 <targetReference>Prompt_For_Errors</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Is_CPE_Product</name>
+        <label>Is CPE Product?</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>Loop_CPE_Lines</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>CPE_Yes</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Loop_CPE_Lines.Product2.OEM__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Dassault</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Loop_CPE_Lines.Product2.Business_Unit__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Enterprise Solutions</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_CPE_Order_True</targetReference>
             </connector>
             <label>Yes</label>
         </rules>
@@ -1507,6 +1555,16 @@
         <expression>SUBSTITUTE(SUBSTITUTE({!Get_Opportunity.End_User_Ids_hardware__c}, &quot;[&quot;, &quot;&quot;), &quot;]&quot;, &quot;&quot;)</expression>
     </formulas>
     <formulas>
+        <name>fCustomServiceDefault</name>
+        <dataType>String</dataType>
+        <expression>IF(ISPICKVAL({!Get_Opportunity.Custom_Service__c}, &quot;&quot;), &quot;No&quot;, TEXT({!Get_Opportunity.Custom_Service__c}))</expression>
+    </formulas>
+    <formulas>
+        <name>fCPEOrderText</name>
+        <dataType>String</dataType>
+        <expression>IF({!bCPEOrder}, &quot;Yes&quot;, &quot;No&quot;)</expression>
+    </formulas>
+    <formulas>
         <name>fHasErrors</name>
         <dataType>Boolean</dataType>
         <expression>IF(
@@ -1586,11 +1644,6 @@ OR (ISPICKVAL({!Get_Opportunity.Vendor_Pricing_Details__c}, &quot;&quot;), ISPIC
         <name>fServicesOutsourcedDefault</name>
         <dataType>String</dataType>
         <expression>IF(ISPICKVAL({!Get_Opportunity.Services_Outsourced__c}, &quot;&quot;), &quot;No&quot;, TEXT({!Get_Opportunity.Services_Outsourced__c}))</expression>
-    </formulas>
-    <formulas>
-        <name>fCustomServiceDefault</name>
-        <dataType>String</dataType>
-        <expression>IF(ISPICKVAL({!Get_Opportunity.Custom_Service__c}, &quot;&quot;), &quot;No&quot;, TEXT({!Get_Opportunity.Custom_Service__c}))</expression>
     </formulas>
     <formulas>
         <name>passportOwnerIdsFormula</name>
@@ -1679,6 +1732,20 @@ OR (ISPICKVAL({!Get_Opportunity.Vendor_Pricing_Details__c}, &quot;&quot;), ISPIC
         </noMoreValuesConnector>
     </loops>
     <loops>
+        <name>Loop_CPE_Lines</name>
+        <label>Loop CPE Lines</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <collectionReference>Get_CPE_Lines</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Is_CPE_Product</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>OM_Record_Detail_View_Only</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <loops>
         <name>Loop_Through_Selected_End_User_HW_Contacts</name>
         <label>Loop Through Selected End User HW Contacts</label>
         <locationX>0</locationX>
@@ -1760,7 +1827,7 @@ OR (ISPICKVAL({!Get_Opportunity.Vendor_Pricing_Details__c}, &quot;&quot;), ISPIC
         <locationY>0</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>OM_Record_Detail_View_Only</targetReference>
+            <targetReference>Get_CPE_Lines</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
@@ -1772,6 +1839,27 @@ OR (ISPICKVAL({!Get_Opportunity.Vendor_Pricing_Details__c}, &quot;&quot;), ISPIC
         </filters>
         <getFirstRecordOnly>true</getFirstRecordOnly>
         <object>Opportunity</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_CPE_Lines</name>
+        <label>Get CPE Lines</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Loop_CPE_Lines</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>OpportunityId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_Opportunity.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>OpportunityLineItem</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordLookups>
@@ -1893,27 +1981,9 @@ OR (ISPICKVAL({!Get_Opportunity.Vendor_Pricing_Details__c}, &quot;&quot;), ISPIC
             </value>
         </filters>
         <inputAssignments>
-            <field>Custom_Service__c</field>
+            <field>CPE_Order__c</field>
             <value>
-                <elementReference>Custom_Service</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>Planned_Project_Hours__c</field>
-            <value>
-                <elementReference>Planned_Project_Hours</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>Project_Internal_Cost__c</field>
-            <value>
-                <elementReference>Internal_Cost</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>Service_Notes__c</field>
-            <value>
-                <elementReference>Service_Notes</elementReference>
+                <elementReference>fCPEOrderText</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -2004,6 +2074,12 @@ OR (ISPICKVAL({!Get_Opportunity.Vendor_Pricing_Details__c}, &quot;&quot;), ISPIC
             <field>Course_Name__c</field>
             <value>
                 <elementReference>Course_Name_Both</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Custom_Service__c</field>
+            <value>
+                <elementReference>Custom_Service</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -2121,6 +2197,12 @@ OR (ISPICKVAL({!Get_Opportunity.Vendor_Pricing_Details__c}, &quot;&quot;), ISPIC
             </value>
         </inputAssignments>
         <inputAssignments>
+            <field>Planned_Project_Hours__c</field>
+            <value>
+                <elementReference>Planned_Project_Hours</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
             <field>Previous_VAR__c</field>
             <value>
                 <elementReference>Previous_VAR</elementReference>
@@ -2133,6 +2215,12 @@ OR (ISPICKVAL({!Get_Opportunity.Vendor_Pricing_Details__c}, &quot;&quot;), ISPIC
             </value>
         </inputAssignments>
         <inputAssignments>
+            <field>Project_Internal_Cost__c</field>
+            <value>
+                <elementReference>Internal_Cost</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
             <field>Provide_current_SN_we_are_adjusting__c</field>
             <value>
                 <elementReference>Provide_current_SN_we_are_adjusting_Both</elementReference>
@@ -2142,6 +2230,12 @@ OR (ISPICKVAL({!Get_Opportunity.Vendor_Pricing_Details__c}, &quot;&quot;), ISPIC
             <field>Scheduling_Contact__c</field>
             <value>
                 <elementReference>varSchedulingContact</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Service_Notes__c</field>
+            <value>
+                <elementReference>Service_Notes</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -2763,6 +2857,29 @@ OR (ISPICKVAL({!Get_Opportunity.Vendor_Pricing_Details__c}, &quot;&quot;), ISPIC
                     <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>false</isRequired>
+                    <styleProperties>
+                        <verticalAlignment>
+                            <stringValue>top</stringValue>
+                        </verticalAlignment>
+                        <width>
+                            <stringValue>12</stringValue>
+                        </width>
+                    </styleProperties>
+                    <visibilityRule>
+                        <conditionLogic>and</conditionLogic>
+                        <conditions>
+                            <leftValueReference>Is_software_on_this_order2</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <stringValue>Yes</stringValue>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
+                </fields>
+                <fields>
+                    <name>CPE_Order_Display</name>
+                    <fieldText>&lt;p&gt;&lt;strong&gt;CPE Order?&lt;/strong&gt; {!fCPEOrderText} &lt;span style=&quot;color: rgb(112, 110, 107);&quot;&gt;(set automatically from the products on this order)&lt;/span&gt;&lt;/p&gt;</fieldText>
+                    <fieldType>DisplayText</fieldType>
                     <styleProperties>
                         <verticalAlignment>
                             <stringValue>top</stringValue>
@@ -4017,7 +4134,6 @@ OR (ISPICKVAL({!Get_Opportunity.Vendor_Pricing_Details__c}, &quot;&quot;), ISPIC
                 </fields>
                 <fields>
                     <name>Service_Notes</name>
-                    <dataType>String</dataType>
                     <defaultValue>
                         <elementReference>Get_Opportunity.Service_Notes__c</elementReference>
                     </defaultValue>
@@ -4565,7 +4681,7 @@ OR (ISPICKVAL({!Get_Opportunity.Vendor_Pricing_Details__c}, &quot;&quot;), ISPIC
                     <inputParameters>
                         <name>fields</name>
                         <value>
-                            <stringValue>Is_software_on_this_order__c, End_User_Ids__c, End_User_Names__c, End_User_Netsuite_Ids__c, Site_ID__c, SolidProfessor_Contact__c, SolidProfessor_Contact_NetSuite_ID_IO__c, CLOSA_Contact__c, CLOSA_Contact_Netsuite_ID__c, Discount_on_Order__c, Product_Type_Coupon_Code_Percentage__c, Changing_or_Adding_to_Existing_License__c, Provide_current_SN_we_are_adjusting__c, Tenant__c, Coterming_to_Existing_Assets__c, Coterming_to_what_date__c, Piracy__c, Case_ID__c, ACR__c</stringValue>
+                            <stringValue>Is_software_on_this_order__c, End_User_Ids__c, End_User_Names__c, End_User_Netsuite_Ids__c, Site_ID__c, CPE_Order__c, SolidProfessor_Contact__c, SolidProfessor_Contact_NetSuite_ID_IO__c, CLOSA_Contact__c, CLOSA_Contact_Netsuite_ID__c, Discount_on_Order__c, Product_Type_Coupon_Code_Percentage__c, Changing_or_Adding_to_Existing_License__c, Provide_current_SN_we_are_adjusting__c, Tenant__c, Coterming_to_Existing_Assets__c, Coterming_to_what_date__c, Piracy__c, Case_ID__c, ACR__c</stringValue>
                         </value>
                     </inputParameters>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
@@ -5091,6 +5207,16 @@ OR (ISPICKVAL({!Get_Opportunity.Vendor_Pricing_Details__c}, &quot;&quot;), ISPIC
     </variables>
     <variables>
         <name>bNeedsSpecSheet</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <booleanValue>false</booleanValue>
+        </value>
+    </variables>
+    <variables>
+        <name>bCPEOrder</name>
         <dataType>Boolean</dataType>
         <isCollection>false</isCollection>
         <isInput>false</isInput>
