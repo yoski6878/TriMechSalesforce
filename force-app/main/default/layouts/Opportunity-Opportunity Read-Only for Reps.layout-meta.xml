@@ -2,6 +2,7 @@
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
     <excludeButtons>ChangeOwnerOne</excludeButtons>
     <excludeButtons>ChangeRecordType</excludeButtons>
+    <excludeButtons>OpenSlackRecordChannel</excludeButtons>
     <layoutSections>
         <customLabel>false</customLabel>
         <detailHeading>false</detailHeading>
@@ -56,14 +57,6 @@
                 <behavior>Readonly</behavior>
                 <field>Commissionable_GP_Currency__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Paperless_Opportunity_ID__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Neglected_test__c</field>
-            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -101,6 +94,10 @@
             <layoutItems>
                 <behavior>Required</behavior>
                 <field>ForecastCategoryName</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Forecasted__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
@@ -178,6 +175,10 @@
                 <behavior>Readonly</behavior>
                 <field>OEM_Deal_Registered__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Paperless_Opportunity_ID__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -199,6 +200,10 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Offer_Name__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Sync_to_AMS__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -292,29 +297,6 @@
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
         <editHeading>true</editHeading>
-        <label>Training Information</label>
-        <layoutColumns>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Training_Course_Name__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Training_Course_Location__c</field>
-            </layoutItems>
-        </layoutColumns>
-        <layoutColumns>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Training_Course_Date__c</field>
-            </layoutItems>
-        </layoutColumns>
-        <style>TwoColumnsLeftToRight</style>
-    </layoutSections>
-    <layoutSections>
-        <customLabel>true</customLabel>
-        <detailHeading>true</detailHeading>
-        <editHeading>true</editHeading>
         <label>Pardot Information 1</label>
         <layoutColumns>
             <layoutItems>
@@ -384,10 +366,6 @@
         <editHeading>true</editHeading>
         <label>Pardot Information 2</label>
         <layoutColumns>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Form_Product__c</field>
-            </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Lead_Product_Category_on_Opp__c</field>
@@ -587,15 +565,16 @@
         <fields>TotalPrice</fields>
         <fields>Gross_Profit__c</fields>
         <fields>Commission__c</fields>
+        <fields>Line_Description__c</fields>
         <relatedList>RelatedLineItemList</relatedList>
     </relatedLists>
     <relatedLists>
         <excludeButtons>New</excludeButtons>
         <fields>ORDERS.ORDER_NUMBER</fields>
+        <fields>celigo_sfnsio__NetSuite_Order_Number__c</fields>
         <fields>celigo_sfnsio__NetSuite_Order_Status__c</fields>
-        <fields>ORDERS.EFFECTIVE_DATE</fields>
-        <fields>CONTRACT.CONTRACT_NUMBER</fields>
         <fields>ORDERS.TOTAL_AMOUNT</fields>
+        <fields>Commissionable_GP__c</fields>
         <relatedList>RelatedOrderList</relatedList>
     </relatedLists>
     <relatedLists>
@@ -652,10 +631,6 @@
     </relatedLists>
     <relatedLists>
         <relatedList>RelatedEntityHistoryList</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>NAME</fields>
-        <relatedList>Panda_Docs_Document__c.Lead_Opportunity__c</relatedList>
     </relatedLists>
     <relatedObjects>AccountId</relatedObjects>
     <showEmailCheckbox>false</showEmailCheckbox>

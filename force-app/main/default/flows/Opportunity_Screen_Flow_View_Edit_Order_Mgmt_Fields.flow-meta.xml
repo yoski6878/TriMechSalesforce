@@ -1731,6 +1731,33 @@
     </dynamicChoiceSets>
     <environments>Default</environments>
     <formulas>
+        <description>Training prefill (ticket 794): use the saved Course Name; if blank, use the Pardot Training Course Name.</description>
+        <name>fCourseNameDefault</name>
+        <dataType>String</dataType>
+        <expression>IF(ISBLANK({!Get_Opportunity.Course_Name__c}), {!Get_Opportunity.Training_Course_Name__c}, {!Get_Opportunity.Course_Name__c})</expression>
+    </formulas>
+    <formulas>
+        <description>Training prefill (ticket 794): saved In-Person Location wins; otherwise copy the Pardot Training Course Location when it is an in-person location (not online/digital).</description>
+        <name>fInPersonLocationDefault</name>
+        <dataType>String</dataType>
+        <expression>IF(NOT(ISBLANK({!Get_Opportunity.In_Person_Location__c})), {!Get_Opportunity.In_Person_Location__c},
+IF(AND({!fLocationTypeDefault} = &quot;In-Person&quot;, NOT(ISBLANK({!Get_Opportunity.Training_Course_Location__c})), NOT(OR(CONTAINS(LOWER({!Get_Opportunity.Training_Course_Location__c}), &quot;online&quot;), CONTAINS(LOWER({!Get_Opportunity.Training_Course_Location__c}), &quot;digital&quot;)))), {!Get_Opportunity.Training_Course_Location__c}, &quot;&quot;))</expression>
+    </formulas>
+    <formulas>
+        <description>Training prefill (ticket 794): saved Digital/In-Person value wins; otherwise derive it from the Pardot Training Course Location (online/digital = Digital, any other text = In-Person, blank = blank).</description>
+        <name>fLocationTypeDefault</name>
+        <dataType>String</dataType>
+        <expression>IF(NOT(ISPICKVAL({!Get_Opportunity.Digital_or_in_person_location_pl__c}, &quot;&quot;)), TEXT({!Get_Opportunity.Digital_or_in_person_location_pl__c}),
+IF(ISBLANK({!Get_Opportunity.Training_Course_Location__c}), &quot;&quot;,
+IF(OR(CONTAINS(LOWER({!Get_Opportunity.Training_Course_Location__c}), &quot;online&quot;), CONTAINS(LOWER({!Get_Opportunity.Training_Course_Location__c}), &quot;digital&quot;)), &quot;Digital&quot;, &quot;In-Person&quot;)))</expression>
+    </formulas>
+    <formulas>
+        <description>Training prefill (ticket 794): preselect Yes when the Opp has a Pardot Training Course Name and the Course Name has not been filled yet; otherwise keep the saved value.</description>
+        <name>fTrainingOnPODefault</name>
+        <dataType>String</dataType>
+        <expression>IF(AND(NOT(ISBLANK({!Get_Opportunity.Training_Course_Name__c})), ISBLANK({!Get_Opportunity.Course_Name__c})), &quot;Yes&quot;, TEXT({!Get_Opportunity.Training_on_PO__c}))</expression>
+    </formulas>
+    <formulas>
         <name>endUserIdsFormula</name>
         <dataType>String</dataType>
         <expression>SUBSTITUTE(SUBSTITUTE({!Get_Opportunity.End_User_Ids__c}, &quot;[&quot;, &quot;&quot;), &quot;]&quot;, &quot;&quot;)</expression>
@@ -2222,12 +2249,6 @@ OR (ISPICKVAL({!Get_Opportunity.Vendor_Pricing_Details__c}, &quot;&quot;), ISPIC
             </value>
         </filters>
         <inputAssignments>
-            <field>Media_Order_Learning_Voucher_Contact__c</field>
-            <value>
-                <elementReference>varMediaVoucherContact</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
             <field>ACR__c</field>
             <value>
                 <elementReference>ACRValue</elementReference>
@@ -2429,6 +2450,12 @@ OR (ISPICKVAL({!Get_Opportunity.Vendor_Pricing_Details__c}, &quot;&quot;), ISPIC
             <field>Lift_Gate_or_Pallet_Jack_required__c</field>
             <value>
                 <elementReference>Lift_Gate_or_Pallet_Jack_required_for_delivery_HW</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Media_Order_Learning_Voucher_Contact__c</field>
+            <value>
+                <elementReference>varMediaVoucherContact</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -3802,7 +3829,7 @@ OR (ISPICKVAL({!Get_Opportunity.Vendor_Pricing_Details__c}, &quot;&quot;), ISPIC
                     <choiceReferences>No</choiceReferences>
                     <dataType>String</dataType>
                     <defaultValue>
-                        <elementReference>Get_Opportunity.Training_on_PO__c</elementReference>
+                        <elementReference>fTrainingOnPODefault</elementReference>
                     </defaultValue>
                     <fieldText>Are training products on this order?</fieldText>
                     <fieldType>DropdownBox</fieldType>
@@ -3992,7 +4019,7 @@ OR (ISPICKVAL({!Get_Opportunity.Vendor_Pricing_Details__c}, &quot;&quot;), ISPIC
                     <name>Course_Name_Both</name>
                     <dataType>String</dataType>
                     <defaultValue>
-                        <elementReference>Get_Opportunity.Course_Name__c</elementReference>
+                        <elementReference>fCourseNameDefault</elementReference>
                     </defaultValue>
                     <fieldText>Course Name:</fieldText>
                     <fieldType>InputField</fieldType>
@@ -4047,11 +4074,48 @@ OR (ISPICKVAL({!Get_Opportunity.Vendor_Pricing_Details__c}, &quot;&quot;), ISPIC
                     </visibilityRule>
                 </fields>
                 <fields>
+                    <name>Pardot_Course_Date_Hint</name>
+                    <fieldText>&lt;p&gt;&lt;span style=&quot;color: rgb(68, 68, 68); font-size: 12px;&quot;&gt;Course date from the training form: &lt;/span&gt;&lt;strong style=&quot;color: rgb(68, 68, 68); font-size: 12px;&quot;&gt;{!Get_Opportunity.Training_Course_Date__c}&lt;/strong&gt;&lt;span style=&quot;color: rgb(68, 68, 68); font-size: 12px;&quot;&gt; (enter it in Course Date above)&lt;/span&gt;&lt;/p&gt;</fieldText>
+                    <fieldType>DisplayText</fieldType>
+                    <styleProperties>
+                        <verticalAlignment>
+                            <stringValue>top</stringValue>
+                        </verticalAlignment>
+                        <width>
+                            <stringValue>12</stringValue>
+                        </width>
+                    </styleProperties>
+                    <visibilityRule>
+                        <conditionLogic>and</conditionLogic>
+                        <conditions>
+                            <leftValueReference>Training_on_PO_Both</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <elementReference>Yes</elementReference>
+                            </rightValue>
+                        </conditions>
+                        <conditions>
+                            <leftValueReference>Course_Date_Both</leftValueReference>
+                            <operator>IsNull</operator>
+                            <rightValue>
+                                <booleanValue>true</booleanValue>
+                            </rightValue>
+                        </conditions>
+                        <conditions>
+                            <leftValueReference>Get_Opportunity.Training_Course_Date__c</leftValueReference>
+                            <operator>IsNull</operator>
+                            <rightValue>
+                                <booleanValue>false</booleanValue>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
+                </fields>
+                <fields>
                     <name>DigitalOrInpersonLocation</name>
                     <choiceReferences>DigitalInPersonLocationChoices</choiceReferences>
                     <dataType>String</dataType>
                     <defaultValue>
-                        <elementReference>Get_Opportunity.Digital_or_in_person_location_pl__c</elementReference>
+                        <elementReference>fLocationTypeDefault</elementReference>
                     </defaultValue>
                     <fieldText>Digital or in-person location?</fieldText>
                     <fieldType>DropdownBox</fieldType>
@@ -4080,7 +4144,7 @@ OR (ISPICKVAL({!Get_Opportunity.Vendor_Pricing_Details__c}, &quot;&quot;), ISPIC
                     <name>In_Person_Location</name>
                     <dataType>String</dataType>
                     <defaultValue>
-                        <elementReference>Get_Opportunity.In_Person_Location__c</elementReference>
+                        <elementReference>fInPersonLocationDefault</elementReference>
                     </defaultValue>
                     <fieldText>In-Person Location:</fieldText>
                     <fieldType>InputField</fieldType>
@@ -5972,13 +6036,6 @@ OR (ISPICKVAL({!Get_Opportunity.Vendor_Pricing_Details__c}, &quot;&quot;), ISPIC
         <isOutput>false</isOutput>
     </variables>
     <variables>
-        <name>varMediaVoucherContact</name>
-        <dataType>String</dataType>
-        <isCollection>false</isCollection>
-        <isInput>false</isInput>
-        <isOutput>false</isOutput>
-    </variables>
-    <variables>
         <name>varContactForPaymentAP</name>
         <dataType>String</dataType>
         <isCollection>false</isCollection>
@@ -6003,6 +6060,13 @@ OR (ISPICKVAL({!Get_Opportunity.Vendor_Pricing_Details__c}, &quot;&quot;), ISPIC
         <name>varLicenseKeyContacts</name>
         <dataType>String</dataType>
         <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>varMediaVoucherContact</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
         <isInput>false</isInput>
         <isOutput>false</isOutput>
     </variables>
