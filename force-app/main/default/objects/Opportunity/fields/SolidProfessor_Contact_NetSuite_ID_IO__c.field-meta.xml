@@ -3,7 +3,7 @@
     <fullName>SolidProfessor_Contact_NetSuite_ID_IO__c</fullName>
     <externalId>false</externalId>
     <formula>SolidProfessor_Contact__r.celigo_sfnsio__NetSuite_Id__c</formula>
-    <label>SolidProfessor Contact NetSuite ID (IO)</label>
+    <label>DXP Contact NetSuite ID (IO)</label>
     <required>false</required>
     <trackHistory>false</trackHistory>
     <type>Text</type>

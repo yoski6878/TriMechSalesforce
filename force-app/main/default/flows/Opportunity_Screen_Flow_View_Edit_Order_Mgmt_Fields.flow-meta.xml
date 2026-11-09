@@ -1731,33 +1731,6 @@
     </dynamicChoiceSets>
     <environments>Default</environments>
     <formulas>
-        <description>Training prefill (ticket 794): use the saved Course Name; if blank, use the Pardot Training Course Name.</description>
-        <name>fCourseNameDefault</name>
-        <dataType>String</dataType>
-        <expression>IF(ISBLANK({!Get_Opportunity.Course_Name__c}), {!Get_Opportunity.Training_Course_Name__c}, {!Get_Opportunity.Course_Name__c})</expression>
-    </formulas>
-    <formulas>
-        <description>Training prefill (ticket 794): saved In-Person Location wins; otherwise copy the Pardot Training Course Location when it is an in-person location (not online/digital).</description>
-        <name>fInPersonLocationDefault</name>
-        <dataType>String</dataType>
-        <expression>IF(NOT(ISBLANK({!Get_Opportunity.In_Person_Location__c})), {!Get_Opportunity.In_Person_Location__c},
-IF(AND({!fLocationTypeDefault} = &quot;In-Person&quot;, NOT(ISBLANK({!Get_Opportunity.Training_Course_Location__c})), NOT(OR(CONTAINS(LOWER({!Get_Opportunity.Training_Course_Location__c}), &quot;online&quot;), CONTAINS(LOWER({!Get_Opportunity.Training_Course_Location__c}), &quot;digital&quot;)))), {!Get_Opportunity.Training_Course_Location__c}, &quot;&quot;))</expression>
-    </formulas>
-    <formulas>
-        <description>Training prefill (ticket 794): saved Digital/In-Person value wins; otherwise derive it from the Pardot Training Course Location (online/digital = Digital, any other text = In-Person, blank = blank).</description>
-        <name>fLocationTypeDefault</name>
-        <dataType>String</dataType>
-        <expression>IF(NOT(ISPICKVAL({!Get_Opportunity.Digital_or_in_person_location_pl__c}, &quot;&quot;)), TEXT({!Get_Opportunity.Digital_or_in_person_location_pl__c}),
-IF(ISBLANK({!Get_Opportunity.Training_Course_Location__c}), &quot;&quot;,
-IF(OR(CONTAINS(LOWER({!Get_Opportunity.Training_Course_Location__c}), &quot;online&quot;), CONTAINS(LOWER({!Get_Opportunity.Training_Course_Location__c}), &quot;digital&quot;)), &quot;Digital&quot;, &quot;In-Person&quot;)))</expression>
-    </formulas>
-    <formulas>
-        <description>Training prefill (ticket 794): preselect Yes when the Opp has a Pardot Training Course Name and the Course Name has not been filled yet; otherwise keep the saved value.</description>
-        <name>fTrainingOnPODefault</name>
-        <dataType>String</dataType>
-        <expression>IF(AND(NOT(ISBLANK({!Get_Opportunity.Training_Course_Name__c})), ISBLANK({!Get_Opportunity.Course_Name__c})), &quot;Yes&quot;, TEXT({!Get_Opportunity.Training_on_PO__c}))</expression>
-    </formulas>
-    <formulas>
         <name>endUserIdsFormula</name>
         <dataType>String</dataType>
         <expression>SUBSTITUTE(SUBSTITUTE({!Get_Opportunity.End_User_Ids__c}, &quot;[&quot;, &quot;&quot;), &quot;]&quot;, &quot;&quot;)</expression>
@@ -1766,6 +1739,12 @@ IF(OR(CONTAINS(LOWER({!Get_Opportunity.Training_Course_Location__c}), &quot;onli
         <name>endUserIdsHWFormula</name>
         <dataType>String</dataType>
         <expression>SUBSTITUTE(SUBSTITUTE({!Get_Opportunity.End_User_Ids_hardware__c}, &quot;[&quot;, &quot;&quot;), &quot;]&quot;, &quot;&quot;)</expression>
+    </formulas>
+    <formulas>
+        <description>Training prefill (ticket 794): use the saved Course Name; if blank, use the Pardot Training Course Name.</description>
+        <name>fCourseNameDefault</name>
+        <dataType>String</dataType>
+        <expression>IF(ISBLANK({!Get_Opportunity.Course_Name__c}), {!Get_Opportunity.Training_Course_Name__c}, {!Get_Opportunity.Course_Name__c})</expression>
     </formulas>
     <formulas>
         <name>fCPEOrderText</name>
@@ -1783,6 +1762,21 @@ IF(OR(CONTAINS(LOWER({!Get_Opportunity.Training_Course_Location__c}), &quot;onli
         <expression>IF(
 OR({!bErrHasInactiveProducts}, {!bErrMissingPaymentContact}),
 true, false)</expression>
+    </formulas>
+    <formulas>
+        <description>Training prefill (ticket 794): saved In-Person Location wins; otherwise copy the Pardot Training Course Location when it is an in-person location (not online/digital).</description>
+        <name>fInPersonLocationDefault</name>
+        <dataType>String</dataType>
+        <expression>IF(NOT(ISBLANK({!Get_Opportunity.In_Person_Location__c})), {!Get_Opportunity.In_Person_Location__c},
+IF(AND({!fLocationTypeDefault} = &quot;In-Person&quot;, NOT(ISBLANK({!Get_Opportunity.Training_Course_Location__c})), NOT(OR(CONTAINS(LOWER({!Get_Opportunity.Training_Course_Location__c}), &quot;online&quot;), CONTAINS(LOWER({!Get_Opportunity.Training_Course_Location__c}), &quot;digital&quot;)))), {!Get_Opportunity.Training_Course_Location__c}, &quot;&quot;))</expression>
+    </formulas>
+    <formulas>
+        <description>Training prefill (ticket 794): saved Digital/In-Person value wins; otherwise derive it from the Pardot Training Course Location (online/digital = Digital, any other text = In-Person, blank = blank).</description>
+        <name>fLocationTypeDefault</name>
+        <dataType>String</dataType>
+        <expression>IF(NOT(ISPICKVAL({!Get_Opportunity.Digital_or_in_person_location_pl__c}, &quot;&quot;)), TEXT({!Get_Opportunity.Digital_or_in_person_location_pl__c}),
+IF(ISBLANK({!Get_Opportunity.Training_Course_Location__c}), &quot;&quot;,
+IF(OR(CONTAINS(LOWER({!Get_Opportunity.Training_Course_Location__c}), &quot;online&quot;), CONTAINS(LOWER({!Get_Opportunity.Training_Course_Location__c}), &quot;digital&quot;)), &quot;Digital&quot;, &quot;In-Person&quot;)))</expression>
     </formulas>
     <formulas>
         <name>fNeedsAdditionalCoursesUpload</name>
@@ -1857,6 +1851,12 @@ OR (ISPICKVAL({!Get_Opportunity.Vendor_Pricing_Details__c}, &quot;&quot;), ISPIC
         <name>fServicesOutsourcedDefault</name>
         <dataType>String</dataType>
         <expression>IF(ISPICKVAL({!Get_Opportunity.Services_Outsourced__c}, &quot;&quot;), &quot;No&quot;, TEXT({!Get_Opportunity.Services_Outsourced__c}))</expression>
+    </formulas>
+    <formulas>
+        <description>Training prefill (ticket 794): preselect Yes when the Opp has a Pardot Training Course Name and the Course Name has not been filled yet; otherwise keep the saved value.</description>
+        <name>fTrainingOnPODefault</name>
+        <dataType>String</dataType>
+        <expression>IF(AND(NOT(ISBLANK({!Get_Opportunity.Training_Course_Name__c})), ISBLANK({!Get_Opportunity.Course_Name__c})), &quot;Yes&quot;, TEXT({!Get_Opportunity.Training_on_PO__c}))</expression>
     </formulas>
     <formulas>
         <name>licenseKeyIdsFormula</name>
@@ -3364,7 +3364,7 @@ OR (ISPICKVAL({!Get_Opportunity.Vendor_Pricing_Details__c}, &quot;&quot;), ISPIC
                     <inputParameters>
                         <name>fieldLabel</name>
                         <value>
-                            <stringValue>SolidProfessor Contact:</stringValue>
+                            <stringValue>DXP Contact:</stringValue>
                         </value>
                     </inputParameters>
                     <inputParameters>
@@ -4562,7 +4562,7 @@ OR (ISPICKVAL({!Get_Opportunity.Vendor_Pricing_Details__c}, &quot;&quot;), ISPIC
                     <fieldText>Planned Project Hours</fieldText>
                     <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>false</isRequired>
+                    <isRequired>true</isRequired>
                     <scale>2</scale>
                     <styleProperties>
                         <verticalAlignment>
@@ -4599,7 +4599,7 @@ OR (ISPICKVAL({!Get_Opportunity.Vendor_Pricing_Details__c}, &quot;&quot;), ISPIC
                     <fieldText>Internal Cost</fieldText>
                     <fieldType>InputField</fieldType>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>false</isRequired>
+                    <isRequired>true</isRequired>
                     <scale>2</scale>
                     <styleProperties>
                         <verticalAlignment>

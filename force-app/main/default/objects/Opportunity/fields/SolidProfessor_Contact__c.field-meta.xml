@@ -2,7 +2,7 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>SolidProfessor_Contact__c</fullName>
     <deleteConstraint>SetNull</deleteConstraint>
-    <label>SolidProfessor Contact</label>
+    <label>DXP Contact</label>
     <lookupFilter>
         <active>false</active>
         <filterItems>
@@ -13,7 +13,7 @@
         <isOptional>true</isOptional>
     </lookupFilter>
     <referenceTo>Contact</referenceTo>
-    <relationshipLabel>Leads/Opportunities (SolidProfessor Contact)</relationshipLabel>
+    <relationshipLabel>Leads/Opportunities (DXP Contact)</relationshipLabel>
     <relationshipName>Leads_Opportunities</relationshipName>
     <required>false</required>
     <trackFeedHistory>false</trackFeedHistory>
