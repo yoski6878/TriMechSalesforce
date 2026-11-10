@@ -46,3 +46,7 @@ $RECYCLE.BIN/
 **/__pycache__/
 **/.venv/
 **/venv/
+
+# Local Salesforce org snapshots
+Trimech/uat-backup-*/
+Trimech/uat-pull-*/

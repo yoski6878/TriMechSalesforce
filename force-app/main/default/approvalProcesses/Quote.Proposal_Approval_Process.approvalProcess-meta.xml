@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ApprovalProcess xmlns="http://soap.sforce.com/2006/04/metadata">
     <active>true</active>
-    <allowRecall>false</allowRecall>
+    <allowRecall>true</allowRecall>
     <allowedSubmitters>
         <type>owner</type>
     </allowedSubmitters>
@@ -33,28 +33,60 @@
     </entryCriteria>
     <finalApprovalActions>
         <action>
-            <name>Proposal_Approval_Set_Approved</name>
+            <name>Approval_Status_Approved</name>
+            <type>FieldUpdate</type>
+        </action>
+        <action>
+            <name>Is_Submitted_False</name>
             <type>FieldUpdate</type>
         </action>
         <action>
             <name>Proposal_Approval_Set_Approved_Date</name>
             <type>FieldUpdate</type>
         </action>
+        <action>
+            <name>Set_Status_Approved</name>
+            <type>FieldUpdate</type>
+        </action>
     </finalApprovalActions>
     <finalApprovalRecordLock>false</finalApprovalRecordLock>
     <finalRejectionActions>
         <action>
-            <name>Proposal_Approval_Set_Rejected</name>
+            <name>Approval_Status_Rejected</name>
+            <type>FieldUpdate</type>
+        </action>
+        <action>
+            <name>Is_Submitted_False</name>
+            <type>FieldUpdate</type>
+        </action>
+        <action>
+            <name>Set_Status_To_Draft</name>
             <type>FieldUpdate</type>
         </action>
     </finalRejectionActions>
     <finalRejectionRecordLock>false</finalRejectionRecordLock>
+    <initialSubmissionActions>
+        <action>
+            <name>Proposal_Approval_in_Process</name>
+            <type>FieldUpdate</type>
+        </action>
+    </initialSubmissionActions>
     <label>Proposal Approval Process</label>
     <nextAutomatedApprover>
         <useApproverFieldOfRecordOwner>true</useApproverFieldOfRecordOwner>
         <userHierarchyField>Manager</userHierarchyField>
     </nextAutomatedApprover>
     <processOrder>1</processOrder>
+    <recallActions>
+        <action>
+            <name>Is_Submitted_False</name>
+            <type>FieldUpdate</type>
+        </action>
+        <action>
+            <name>Set_Status_To_Draft</name>
+            <type>FieldUpdate</type>
+        </action>
+    </recallActions>
     <recordEditability>AdminOrCurrentApprover</recordEditability>
     <showApprovalHistory>true</showApprovalHistory>
 </ApprovalProcess>

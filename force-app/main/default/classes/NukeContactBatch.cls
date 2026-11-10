@@ -1,9 +1,12 @@
 /**
 * @File Name : NukeContactBatch.cls
-* @Description : Admin-only bulk deactivation job for Contact records flagged
-*   NUKE__c = true. Records are retained; this class never deletes Contacts.
-*   Refuses to run if more than 500 records are flagged
-*   in one go, to guard against an accidental mass-edit.
+* @Description : Admin-only bulk cleanup job for Contact records flagged NUKE__c = true.
+*   Each Contact is checked against the NUKE rules in NukeDeactivationService:
+*   Contacts with activity or a survey in the last 12 months, an Order less than
+*   8 years old, or an Adobe Sign agreement are inactivated. All others are removed
+*   from related records and deleted (Recycle Bin). Related records are kept active.
+*   Refuses to run if more than 500 records are flagged in one go, to guard against
+*   an accidental mass-edit.
 *   Invoke via Execute Anonymous: Database.executeBatch(new NukeContactBatch(), 100);
 * @Author :
 * @Last Modified By :
@@ -13,6 +16,7 @@
 * Ver | Date | Author | Modification
 *==============================================================================
 * 1.0 | | | Initial Version
+* 1.1 | | | Inactivate or delete per NUKE rules; related records stay active
 **/
 
 global class NukeContactBatch implements Database.Batchable<sObject>, Database.Stateful {
@@ -20,13 +24,17 @@ global class NukeContactBatch implements Database.Batchable<sObject>, Database.S
     private String query;
     private Boolean aborted = false;
     private Integer flaggedCount = 0;
+    public Integer inactivatedRecords = 0;
     public Integer deletedRecords = 0;
+    public Integer failedRecords = 0;
     public List<String> csvLines = new List<String>();
     public List<String> errorLines = new List<String>();
+    public List<String> assetLines = new List<String>();
 
     global NukeContactBatch() {
-        query = 'SELECT Id, Name, celigo_sfnsio__NetSuite_Id__c FROM Contact WHERE NUKE__c = true';
-        csvLines.add('Contact Id, Contact Name, NetSuite Id, Status');
+        query = 'SELECT Id FROM Contact WHERE NUKE__c = true';
+        csvLines.add('Contact Id, Contact Name, NetSuite Id, Action, Reason, Assets Cleared, Opportunities Updated, Status');
+        assetLines.add('Asset Id, Asset Name, Account Id, Field Cleared, Former Contact Id, Former Contact Name');
 
         flaggedCount = [SELECT COUNT() FROM Contact WHERE NUKE__c = true];
         if (flaggedCount > SAFETY_CAP) {
@@ -47,23 +55,29 @@ global class NukeContactBatch implements Database.Batchable<sObject>, Database.S
         }
 
         try {
-            for (Contact record : scope) {
-                record.Inactive__c = true;
-                record.NUKE__c = false;
-            }
-            Database.SaveResult[] results = Database.update(scope, false);
-            for (Integer i = 0; i < results.size(); i++) {
-                if (results[i].isSuccess()) {
+            Set<Id> contactIds = new Map<Id, Contact>(scope).keySet();
+            NukeDeactivationService.RunResult result = NukeDeactivationService.processContacts(contactIds);
+            for (NukeDeactivationService.ContactResult record : result.contacts) {
+                String line = record.contactId + ', ' + csv(record.name) + ', ' + csv(record.netSuiteId) + ', ' +
+                    record.action + ', ' + csv(record.reason) + ', ' + record.assetsCleared + ', ' + record.opportunitiesUpdated;
+                if (!record.isSuccess()) {
+                    failedRecords++;
+                    errorLines.add(line + ', Error: ' + csv(record.error));
+                } else if (record.action == NukeDeactivationService.ACTION_DELETED) {
                     deletedRecords++;
-                    csvLines.add(scope[i].Id + ', ' + scope[i].Name + ', ' + scope[i].celigo_sfnsio__NetSuite_Id__c + ', Success');
+                    csvLines.add(line + ', Success');
                 } else {
-                    for (Database.Error err : results[i].getErrors()) {
-                        errorLines.add(scope[i].Id + ', ' + scope[i].Name + ', ' + scope[i].celigo_sfnsio__NetSuite_Id__c + ', Error: ' + err.getMessage());
-                    }
+                    inactivatedRecords++;
+                    csvLines.add(line + ', Success');
                 }
             }
+            for (NukeDeactivationService.ClearedAsset asset : result.clearedAssets) {
+                assetLines.add(asset.assetId + ', ' + csv(asset.assetName) + ', ' + asset.accountId + ', ' +
+                    asset.fieldLabel + ', ' + asset.contactId + ', ' + csv(asset.contactName));
+            }
         } catch (Exception e) {
-            System.debug('Error in batch execution: ' + e.getMessage());
+            failedRecords += scope.size();
+            errorLines.add(',,,,,,, Error in batch execution: ' + csv(e.getMessage()));
         }
     }
 
@@ -107,26 +121,51 @@ global class NukeContactBatch implements Database.Batchable<sObject>, Database.S
                 'No Contacts were changed. Review the flagged records before re-running - ' +
                 'this usually means a mass-edit accidentally flagged more records than intended.'
             );
-            Messaging.sendEmail(new Messaging.SingleEmailMessage[] { email });
+            sendReport(email);
             return;
         }
 
         csvLines.addAll(errorLines);
-        String csvContent = String.join(csvLines, '\n');
 
         Messaging.EmailFileAttachment attachment = new Messaging.EmailFileAttachment();
         attachment.setFileName('NukedContactsReport.csv');
-        attachment.setBody(Blob.valueOf(csvContent));
+        attachment.setBody(Blob.valueOf(String.join(csvLines, '\n')));
         attachment.setContentType('text/csv');
+
+        Messaging.EmailFileAttachment assetAttachment = new Messaging.EmailFileAttachment();
+        assetAttachment.setFileName('AssetsThatLostContactReport.csv');
+        assetAttachment.setBody(Blob.valueOf(String.join(assetLines, '\n')));
+        assetAttachment.setContentType('text/csv');
 
         email.setSubject('NUKE Contact Batch - Report');
         email.setPlainTextBody(
             'Ad hoc NUKE Contact cleanup batch has completed.\n' +
             'Query Used: ' + query + '\n' +
-            'Total Contacts Deactivated: ' + deletedRecords + '\n\n' +
-            'Find attached CSV report for details.'
+            'Total Contacts Inactivated: ' + inactivatedRecords + '\n' +
+            'Total Contacts Deleted: ' + deletedRecords + '\n' +
+            'Total Errors: ' + failedRecords + '\n' +
+            'Assets that lost their Contact: ' + (assetLines.size() - 1) + '\n\n' +
+            'Related records (Opportunities, Cases, Quotes, Orders, Assets) were kept active.\n' +
+            'Deleted Contacts can be restored from the Recycle Bin for 15 days.\n\n' +
+            'Find attached CSV reports for details.'
         );
-        email.setFileAttachments(new Messaging.EmailFileAttachment[] { attachment });
-        Messaging.sendEmail(new Messaging.SingleEmailMessage[] { email });
+        email.setFileAttachments(new Messaging.EmailFileAttachment[] { attachment, assetAttachment });
+        sendReport(email);
+    }
+
+    private static String csv(String value) {
+        if (value == null) {
+            return '';
+        }
+        return value.contains(',') || value.contains('"') ? '"' + value.replace('"', '""') + '"' : value;
+    }
+
+    // A failed report email (e.g. email deliverability off in a sandbox) must not roll back or fail the cleanup.
+    private static void sendReport(Messaging.SingleEmailMessage email) {
+        try {
+            Messaging.sendEmail(new Messaging.SingleEmailMessage[] { email });
+        } catch (EmailException e) {
+            System.debug(LoggingLevel.ERROR, 'NUKE report email could not be sent: ' + e.getMessage());
+        }
     }
 }

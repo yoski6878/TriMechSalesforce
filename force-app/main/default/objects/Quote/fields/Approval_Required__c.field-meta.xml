@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Approval_Required__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Set when the proposal is submitted: true if any approval rule matched and it was routed to the manager, false if it was auto-approved.</description>
+    <label>Approval Required</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>
