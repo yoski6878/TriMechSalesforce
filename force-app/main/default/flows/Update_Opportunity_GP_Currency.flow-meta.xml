@@ -12,7 +12,7 @@
         <defaultConnectorLabel>No</defaultConnectorLabel>
         <rules>
             <name>Yes</name>
-            <conditionLogic>and</conditionLogic>
+            <conditionLogic>or</conditionLogic>
             <conditions>
                 <leftValueReference>$Record.Updated_via_Sales_Order__c</leftValueReference>
                 <operator>EqualTo</operator>
@@ -20,7 +20,14 @@
                     <booleanValue>true</booleanValue>
                 </rightValue>
             </conditions>
-            <label>Yes</label>
+            <conditions>
+                <leftValueReference>$Record.IsClosed</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <label>Sales Order Owned or Closed</label>
         </rules>
     </decisions>
     <environments>Default</environments>
@@ -89,6 +96,13 @@
             <operator>EqualTo</operator>
             <value>
                 <stringValue>0124V0000019jmvQAA</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>RecordTypeId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>0126g000000X4XUAA0</stringValue>
             </value>
         </filters>
         <object>Opportunity</object>
