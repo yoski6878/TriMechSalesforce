@@ -235,7 +235,6 @@ public with sharing class BridgeITOpportunityEventHandler {
                 Coterming_to_Existing_Assets__c,
                 Coterming_to_what_date__c,
                 Case_ID__c,
-                Does_this_order_require_ITAR_Compliance__c,
                 ACR__c,
                 Corp_credits_or_closed_training_on_order__c,
                 Passport_Owner_Netsuite_Ids__c,
@@ -306,7 +305,6 @@ public with sharing class BridgeITOpportunityEventHandler {
         o.Coterming_to_Existing_Assets__c         = o.Coterming_to_Existing_Assets__c;
         o.Coterming_to_what_date__c               = o.Coterming_to_what_date__c;
         o.Case_ID__c                              = o.Case_ID__c;
-        o.Does_this_order_require_ITAR_Compliance__c = o.Does_this_order_require_ITAR_Compliance__c;
         o.ACR__c                                  = o.ACR__c;
         o.Corp_credits_or_closed_training_on_order__c = o.Corp_credits_or_closed_training_on_order__c;
         o.Passport_Owner_Netsuite_Ids__c           = o.Passport_Owner_Netsuite_Ids__c;

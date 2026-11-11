@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Exempt_From_Proposal_Approval__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Project 790, escalation/escape-route requirement: true when the Opportunity Owner is a member of the "AMS Team - Approval Exempt" public group. Flow-maintained by Opportunity_Sync_Proposal_Approval_Exemption (kept as a plain field, not a formula, since formulas cannot query GroupMember). Read by Block_Closed_Won_Without_Proposal, Block_Send_to_OM_Without_Approval, and Quote_Submit_For_Approval to skip the approval requirement entirely for exempt owners.</description>
+    <externalId>false</externalId>
+    <label>Exempt From Proposal Approval</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

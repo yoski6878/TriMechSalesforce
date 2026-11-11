@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Credit_Hold</fullName>
+    <active>true</active>
+    <errorConditionFormula>ISCHANGED ( StageName) &amp;&amp;
+ISPICKVAL ( StageName, &quot;Send to Order Management&quot; ) &amp;&amp;
+Account.Credit_Hold_Status__c = &quot;On Hold&quot;</errorConditionFormula>
+    <errorMessage>This opportunity can not be submitted to Order Management because the account has a current Credit Hold status.</errorMessage>
+</ValidationRule>
