@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Edit access to Hire Date on the user record and Approval Trigger on the product. Assign to the people who maintain these values.</description>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Product2.Approval_Trigger__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>User.Hire_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Proposal Approval Field Maintainer</label>
+</PermissionSet>

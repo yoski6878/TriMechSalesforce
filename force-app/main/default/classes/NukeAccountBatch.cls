@@ -107,7 +107,7 @@ global class NukeAccountBatch implements Database.Batchable<sObject>, Database.S
                 'No Accounts were changed. Review the flagged records before re-running - ' +
                 'this usually means a mass-edit accidentally flagged more records than intended.'
             );
-            Messaging.sendEmail(new Messaging.SingleEmailMessage[] { email });
+            sendReport(email);
             return;
         }
 
@@ -127,6 +127,15 @@ global class NukeAccountBatch implements Database.Batchable<sObject>, Database.S
             'Find attached CSV report for details.'
         );
         email.setFileAttachments(new Messaging.EmailFileAttachment[] { attachment });
-        Messaging.sendEmail(new Messaging.SingleEmailMessage[] { email });
+        sendReport(email);
+    }
+
+    // A failed report email (e.g. email deliverability off in a sandbox) must not roll back or fail the cleanup.
+    private static void sendReport(Messaging.SingleEmailMessage email) {
+        try {
+            Messaging.sendEmail(new Messaging.SingleEmailMessage[] { email });
+        } catch (EmailException e) {
+            System.debug(LoggingLevel.ERROR, 'NUKE report email could not be sent: ' + e.getMessage());
+        }
     }
 }

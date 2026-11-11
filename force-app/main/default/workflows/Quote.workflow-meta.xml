@@ -23,10 +23,30 @@
         <reevaluateOnChange>false</reevaluateOnChange>
     </fieldUpdates>
     <fieldUpdates>
-        <fullName>Proposal_Approval_Set_Approved</fullName>
-        <field>Status</field>
+        <fullName>Approval_Status_Approved</fullName>
+        <field>Approval_Status__c</field>
         <literalValue>Approved</literalValue>
-        <name>Proposal Approval - Set Approved</name>
+        <name>Approval Status Approved</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Approval_Status_Rejected</fullName>
+        <field>Approval_Status__c</field>
+        <literalValue>Rejected</literalValue>
+        <name>Approval Status Rejected</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Is_Submitted_False</fullName>
+        <field>Is_Submitted__c</field>
+        <literalValue>0</literalValue>
+        <name>Is Submitted False</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
         <protected>false</protected>
@@ -43,20 +63,30 @@
         <reevaluateOnChange>false</reevaluateOnChange>
     </fieldUpdates>
     <fieldUpdates>
-        <fullName>Proposal_Approval_Set_Draft_On_Reject</fullName>
+        <fullName>Proposal_Approval_in_Process</fullName>
         <field>Approval_Status__c</field>
-        <literalValue>Draft</literalValue>
-        <name>Proposal Approval - Set Draft on Reject</name>
+        <literalValue>In Process</literalValue>
+        <name>Proposal Approval in Process</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
         <protected>false</protected>
         <reevaluateOnChange>false</reevaluateOnChange>
     </fieldUpdates>
     <fieldUpdates>
-        <fullName>Proposal_Approval_Set_Rejected</fullName>
+        <fullName>Set_Status_Approved</fullName>
         <field>Status</field>
-        <literalValue>Rejected</literalValue>
-        <name>Proposal Approval - Set Rejected</name>
+        <literalValue>Approved</literalValue>
+        <name>Set Status Approved</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Set_Status_To_Draft</fullName>
+        <field>Status</field>
+        <literalValue>Draft</literalValue>
+        <name>Set Status To Draft</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
         <protected>false</protected>
