@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>67.0</apiVersion>
+    <assignments>
+        <name>Assign_Set_Training_on_PO</name>
+        <label>Set Training on PO = Yes</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Training_on_PO__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Yes</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Check_Set_Course_Name</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Set_Course_Name</name>
+        <label>Course Name from Pardot</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Course_Name__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Training_Course_Name__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Check_Set_Location_Type</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Set_Location_Type</name>
+        <label>Digital or In-Person from Pardot location</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Digital_or_in_person_location_pl__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>fLocationTypeFromText</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Check_Set_In_Person_Location</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Set_In_Person_Location</name>
+        <label>In-Person Location from Pardot location</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.In_Person_Location__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Training_Course_Location__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Check_Set_Course_Date</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Set_Course_Date</name>
+        <label>Course Date from Pardot date</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Course_Date__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>fCourseDateParsed</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <decisions>
+        <name>Check_Set_Training_on_PO</name>
+        <label>Check: Set Training on PO = Yes</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>Check_Set_Course_Name</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Run_Check_Set_Training_on_PO</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>bSetTrainingYes</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Set_Training_on_PO</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Check_Set_Course_Name</name>
+        <label>Check: Course Name from Pardot</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>Check_Set_Location_Type</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Run_Check_Set_Course_Name</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>bSetCourseName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Set_Course_Name</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Check_Set_Location_Type</name>
+        <label>Check: Digital or In-Person from Pardot location</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>Check_Set_In_Person_Location</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Run_Check_Set_Location_Type</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>bSetLocationType</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Set_Location_Type</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Check_Set_In_Person_Location</name>
+        <label>Check: In-Person Location from Pardot location</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>Check_Set_Course_Date</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Run_Check_Set_In_Person_Location</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>bSetInPersonLocation</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Set_In_Person_Location</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Check_Set_Course_Date</name>
+        <label>Check: Course Date from Pardot date</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Run_Check_Set_Course_Date</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>bSetCourseDate</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Set_Course_Date</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <description>Ticket 794: when Pardot Training Information is set (or changed) on an Opportunity, fill the Send to Order Management training fields (Course Name, Course Date, Digital/In-Person, In-Person Location) and set Training on PO = Yes. Fills blanks only. Before-save: no extra DML, so it cannot re-fire the BridgeIT send.</description>
+    <environments>Default</environments>
+    <formulas>
+        <description>Pardot date text, lower case; "none" when blank so no formula errors</description>
+        <name>fDateText</name>
+        <dataType>String</dataType>
+        <expression>LOWER(TRIM(BLANKVALUE({!$Record.Training_Course_Date__c}, &quot;none&quot;)))</expression>
+    </formulas>
+    <formulas>
+        <name>fDateSlash1</name>
+        <dataType>Number</dataType>
+        <expression>FIND(&quot;/&quot;, {!fDateText})</expression>
+    </formulas>
+    <formulas>
+        <name>fDateSlash2</name>
+        <dataType>Number</dataType>
+        <expression>IF({!fDateSlash1}&gt;0, FIND(&quot;/&quot;, {!fDateText}, {!fDateSlash1}+1), 0)</expression>
+    </formulas>
+    <formulas>
+        <description>True for MM/DD/YYYY style text</description>
+        <name>fDateIsNumeric</name>
+        <dataType>Boolean</dataType>
+        <expression>AND({!fDateSlash1}&gt;1, {!fDateSlash2}&gt;{!fDateSlash1}+1)</expression>
+    </formulas>
+    <formulas>
+        <description>Year = last 4 characters, else 0</description>
+        <name>fDateYear</name>
+        <dataType>Number</dataType>
+        <expression>IF(ISNUMBER(RIGHT({!fDateText},4)), VALUE(RIGHT({!fDateText},4)), 0)</expression>
+    </formulas>
+    <formulas>
+        <description>Month number from MM/DD/YYYY or from a month name; 0 when not found</description>
+        <name>fDateMonth</name>
+        <dataType>Number</dataType>
+        <expression>IF({!fDateIsNumeric}, IF(AND(ISNUMBER(LEFT({!fDateText}, {!fDateSlash1}-1)), NOT(CONTAINS(LEFT({!fDateText}, {!fDateSlash1}-1),&quot;.&quot;))), VALUE(LEFT({!fDateText}, {!fDateSlash1}-1)), 0), IF(CONTAINS({!fDateText},&quot;jan&quot;),1,IF(CONTAINS({!fDateText},&quot;feb&quot;),2,IF(CONTAINS({!fDateText},&quot;mar&quot;),3,IF(CONTAINS({!fDateText},&quot;apr&quot;),4,IF(CONTAINS({!fDateText},&quot;may&quot;),5,IF(CONTAINS({!fDateText},&quot;jun&quot;),6,IF(CONTAINS({!fDateText},&quot;jul&quot;),7,IF(CONTAINS({!fDateText},&quot;aug&quot;),8,IF(CONTAINS({!fDateText},&quot;sep&quot;),9,IF(CONTAINS({!fDateText},&quot;oct&quot;),10,IF(CONTAINS({!fDateText},&quot;nov&quot;),11,IF(CONTAINS({!fDateText},&quot;dec&quot;),12,0)))))))))))))</expression>
+    </formulas>
+    <formulas>
+        <description>Day digits: middle part of MM/DD/YYYY, or what is left of the text after removing letters, punctuation and the year</description>
+        <name>fDateDayText</name>
+        <dataType>String</dataType>
+        <expression>IF({!fDateIsNumeric}, MID({!fDateText}, {!fDateSlash1}+1, {!fDateSlash2}-{!fDateSlash1}-1), IF(LEN({!fDateText})&gt;4, SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(LEFT({!fDateText}, LEN({!fDateText})-4),&quot;a&quot;,&quot;&quot;),&quot;b&quot;,&quot;&quot;),&quot;c&quot;,&quot;&quot;),&quot;d&quot;,&quot;&quot;),&quot;e&quot;,&quot;&quot;),&quot;f&quot;,&quot;&quot;),&quot;g&quot;,&quot;&quot;),&quot;h&quot;,&quot;&quot;),&quot;i&quot;,&quot;&quot;),&quot;j&quot;,&quot;&quot;),&quot;k&quot;,&quot;&quot;),&quot;l&quot;,&quot;&quot;),&quot;m&quot;,&quot;&quot;),&quot;n&quot;,&quot;&quot;),&quot;o&quot;,&quot;&quot;),&quot;p&quot;,&quot;&quot;),&quot;q&quot;,&quot;&quot;),&quot;r&quot;,&quot;&quot;),&quot;s&quot;,&quot;&quot;),&quot;t&quot;,&quot;&quot;),&quot;u&quot;,&quot;&quot;),&quot;v&quot;,&quot;&quot;),&quot;w&quot;,&quot;&quot;),&quot;x&quot;,&quot;&quot;),&quot;y&quot;,&quot;&quot;),&quot;z&quot;,&quot;&quot;),&quot;,&quot;,&quot;&quot;),&quot;.&quot;,&quot;&quot;),&quot;-&quot;,&quot;&quot;),&quot; &quot;,&quot;&quot;), &quot;&quot;))</expression>
+    </formulas>
+    <formulas>
+        <name>fDateDay</name>
+        <dataType>Number</dataType>
+        <expression>IF(AND(LEN({!fDateDayText})&gt;=1, LEN({!fDateDayText})&lt;=2, ISNUMBER({!fDateDayText}), NOT(CONTAINS({!fDateDayText},&quot;.&quot;))), VALUE({!fDateDayText}), 0)</expression>
+    </formulas>
+    <formulas>
+        <description>True only for a real calendar date; anything else leaves Course Date blank</description>
+        <name>fDateValid</name>
+        <dataType>Boolean</dataType>
+        <expression>IF(AND({!fDateYear}&gt;=2000, {!fDateYear}&lt;=2100, {!fDateMonth}&gt;=1, {!fDateMonth}&lt;=12, {!fDateDay}&gt;=1, {!fDateDay}&lt;=31), IF(MONTH(DATE({!fDateYear},{!fDateMonth},1)+{!fDateDay}-1)={!fDateMonth}, TRUE, FALSE), FALSE)</expression>
+    </formulas>
+    <formulas>
+        <description>Only used after fDateValid is true</description>
+        <name>fCourseDateParsed</name>
+        <dataType>Date</dataType>
+        <expression>DATE({!fDateYear},{!fDateMonth},{!fDateDay})</expression>
+    </formulas>
+    <formulas>
+        <description>online/digital = Digital, any other location text = In-Person</description>
+        <name>fLocationTypeFromText</name>
+        <dataType>String</dataType>
+        <expression>IF(OR(CONTAINS(LOWER({!$Record.Training_Course_Location__c}),&quot;online&quot;), CONTAINS(LOWER({!$Record.Training_Course_Location__c}),&quot;digital&quot;)), &quot;Digital&quot;, &quot;In-Person&quot;)</expression>
+    </formulas>
+    <formulas>
+        <description>Pardot course present and Course Name not filled yet</description>
+        <name>bSetTrainingYes</name>
+        <dataType>Boolean</dataType>
+        <expression>AND(NOT(ISBLANK({!$Record.Training_Course_Name__c})), ISBLANK({!$Record.Course_Name__c}), NOT(ISPICKVAL({!$Record.Training_on_PO__c}, &quot;Yes&quot;)))</expression>
+    </formulas>
+    <formulas>
+        <name>bSetCourseName</name>
+        <dataType>Boolean</dataType>
+        <expression>AND(NOT(ISBLANK({!$Record.Training_Course_Name__c})), ISBLANK({!$Record.Course_Name__c}))</expression>
+    </formulas>
+    <formulas>
+        <name>bSetLocationType</name>
+        <dataType>Boolean</dataType>
+        <expression>AND(NOT(ISBLANK({!$Record.Training_Course_Location__c})), ISPICKVAL({!$Record.Digital_or_in_person_location_pl__c}, &quot;&quot;))</expression>
+    </formulas>
+    <formulas>
+        <name>bSetInPersonLocation</name>
+        <dataType>Boolean</dataType>
+        <expression>AND(ISPICKVAL({!$Record.Digital_or_in_person_location_pl__c}, &quot;In-Person&quot;), ISBLANK({!$Record.In_Person_Location__c}), NOT(ISBLANK({!$Record.Training_Course_Location__c})), {!fLocationTypeFromText}=&quot;In-Person&quot;)</expression>
+    </formulas>
+    <formulas>
+        <name>bSetCourseDate</name>
+        <dataType>Boolean</dataType>
+        <expression>AND(ISBLANK({!$Record.Course_Date__c}), NOT(ISBLANK({!$Record.Training_Course_Date__c})), {!fDateValid})</expression>
+    </formulas>
+    <interviewLabel>Opportunity | Before Save | Training Fields to Order Mgmt {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Opportunity | Before Save | Training Fields to Order Mgmt</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Check_Set_Training_on_PO</targetReference>
+        </connector>
+        <filterFormula>AND(OR(NOT(ISBLANK({!$Record.Training_Course_Name__c})), NOT(ISBLANK({!$Record.Training_Course_Location__c})), NOT(ISBLANK({!$Record.Training_Course_Date__c}))), OR(ISNEW(), ISCHANGED({!$Record.Training_Course_Name__c}), ISCHANGED({!$Record.Training_Course_Location__c}), ISCHANGED({!$Record.Training_Course_Date__c})))</filterFormula>
+        <object>Opportunity</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>
