@@ -1,6 +1,6 @@
 public with sharing class TrainingCourseDateParserAction {
     public class Request {
-        @InvocableVariable(required=true label='Training Course Date Text')
+        @InvocableVariable(required=false label='Training Course Date Text')
         public String sourceDate;
     }
 
