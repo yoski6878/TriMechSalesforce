@@ -19,6 +19,49 @@
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </actionCalls>
     <actionCalls>
+        <name>Show_Proposal_Not_Loaded_Error</name>
+        <label>Show Proposal Not Loaded Error</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <actionName>flowruntime:showToastMessage</actionName>
+        <actionType>lwcComponent</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>toastMessageTitle</name>
+            <value>
+                <stringValue>Unable to load this Proposal.</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>toastMessageBody</name>
+            <value>
+                <stringValue>The Submit for Review action did not provide a valid Proposal record. Refresh the Proposal and try again. If the problem continues, contact your Salesforce administrator.</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>dismissalMethod</name>
+            <value>
+                <inputConfiguratorMode>Custom</inputConfiguratorMode>
+                <stringValue>Dismissible</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>toastMessageStyle</name>
+            <value>
+                <inputConfiguratorMode>Custom</inputConfiguratorMode>
+                <stringValue>Error</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>toastMessageBodyLinks</name>
+            <value>
+                <apexValue>[]</apexValue>
+            </value>
+        </inputParameters>
+        <nameSegment>flowruntime:showToastMessage</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <actionCalls>
         <name>Show_Not_Proposal_Owner_Error</name>
         <label>Show Not Proposal Owner Error</label>
         <locationX>0</locationX>
@@ -339,6 +382,31 @@
         </rules>
     </decisions>
     <decisions>
+        <name>Proposal_Was_Loaded</name>
+        <label>Proposal Was Loaded?</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>Show_Proposal_Not_Loaded_Error</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No - Show Configuration Error</defaultConnectorLabel>
+        <rules>
+            <name>Proposal_Found</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Proposal.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Current_User_Is_Proposal_Owner</targetReference>
+            </connector>
+            <label>Yes - Check Owner</label>
+        </rules>
+    </decisions>
+    <decisions>
         <name>Current_User_Is_Proposal_Owner</name>
         <label>Current User Is Proposal Owner?</label>
         <locationX>0</locationX>
@@ -351,10 +419,10 @@
             <name>Current_User_Is_Owner</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
-                <leftValueReference>$User.Id</leftValueReference>
+                <leftValueReference>Current_User_Is_Owner_Formula</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
-                    <elementReference>Get_Proposal.OwnerId</elementReference>
+                    <booleanValue>true</booleanValue>
                 </rightValue>
             </conditions>
             <connector>
@@ -390,6 +458,11 @@
     </decisions>
     <description>Custom button process to submit a quote for approval. Project 790 change request: after setting the proposal to In Review it runs Quote_Evaluate_Approval_Rules; proposals matching any rule go to manager approval, all others are auto-approved.</description>
     <environments>Default</environments>
+    <formulas>
+        <name>Current_User_Is_Owner_Formula</name>
+        <dataType>Boolean</dataType>
+        <expression>CASESAFEID({!$User.Id}) = CASESAFEID({!Get_Proposal.OwnerId})</expression>
+    </formulas>
     <interviewLabel>Submit for Approval - Proposal {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Submit for Approval - Proposal</label>
     <processMetadataValues>
@@ -418,7 +491,7 @@
         <locationY>0</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>Current_User_Is_Proposal_Owner</targetReference>
+            <targetReference>Proposal_Was_Loaded</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
