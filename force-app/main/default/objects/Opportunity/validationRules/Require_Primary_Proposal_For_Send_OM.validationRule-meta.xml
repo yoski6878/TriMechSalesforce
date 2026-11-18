@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Require_Primary_Proposal_For_Send_OM</fullName>
+    <active>true</active>
+    <description>Project 790, Req 3: requires a Primary Proposal before Send To Order Management when proposal approval applies. AMS owners in the approval-exempt public group are excluded through Exempt_From_Proposal_Approval__c.</description>
+    <errorConditionFormula>AND(
+ISCHANGED(StageName),
+ISPICKVAL(StageName, &quot;Send To Order Management&quot;),
+Proposal_Approval_Required__c,
+NOT(Exempt_From_Proposal_Approval__c),
+ISBLANK(Primary_Proposal__c)
+)</errorConditionFormula>
+    <errorMessage>This opportunity has no Primary Proposal set. Open the Quote (Proposal) you want to use for this order and mark it as the Primary Proposal before sending to Order Management.</errorMessage>
+</ValidationRule>
