@@ -187,12 +187,6 @@
             </value>
         </inputAssignments>
         <inputAssignments>
-            <field>Product_Interest__c</field>
-            <value>
-                <elementReference>Get_Lead_Assignment.Product_Interest__c</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
             <field>StageName</field>
             <value>
                 <stringValue>New</stringValue>
