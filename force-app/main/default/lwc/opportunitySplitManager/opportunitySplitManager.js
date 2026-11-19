@@ -24,7 +24,10 @@ export default class OpportunitySplitManager extends LightningElement {
     @track users = [];
     @track isLoading = false;
     @track error;
-    @track warningStatus;
+    @track warningStatus = {
+        showWarning: false,
+        message: ''
+    };
     wiredSplitsResult;
     splitsDataCache = null;
     usersLoaded = false;
@@ -41,7 +44,10 @@ export default class OpportunitySplitManager extends LightningElement {
         }
         return getWarningStatus({ opportunityId: this.recordId })
             .then(result => {
-                this.warningStatus = result;
+                this.warningStatus = result || {
+                    showWarning: false,
+                    message: ''
+                };
             })
             .catch(error => this.showError('Failed to check the Technical Resource requirement', error));
     }
