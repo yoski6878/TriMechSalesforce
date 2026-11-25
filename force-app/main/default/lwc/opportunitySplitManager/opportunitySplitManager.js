@@ -3,6 +3,8 @@ import getOpportunitySplits from '@salesforce/apex/OpportunitySplitController.ge
 import createOpportunitySplits from '@salesforce/apex/OpportunitySplitController.createOpportunitySplits';
 import getOpportunityTeamMembers from '@salesforce/apex/OpportunitySplitController.getOpportunityTeamMembers';
 import isCurrentUserTeamMember from '@salesforce/apex/OpportunitySplitController.isCurrentUserTeamMember';
+import getWarningStatus from '@salesforce/apex/OpportunityTechnicalResourceService.getWarningStatus';
+import acknowledgeWarning from '@salesforce/apex/OpportunityTechnicalResourceService.acknowledgeWarning';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 import { refreshApex } from '@salesforce/apex';
 
@@ -22,6 +24,10 @@ export default class OpportunitySplitManager extends LightningElement {
     @track users = [];
     @track isLoading = false;
     @track error;
+    @track warningStatus = {
+        showWarning: false,
+        message: ''
+    };
     wiredSplitsResult;
     splitsDataCache = null;
     usersLoaded = false;
@@ -29,6 +35,34 @@ export default class OpportunitySplitManager extends LightningElement {
     connectedCallback() {
         this.checkEditPermission();
         this.loadUsers();
+        this.loadWarningStatus();
+    }
+
+    loadWarningStatus() {
+        if (!this.recordId) {
+            return Promise.resolve();
+        }
+        return getWarningStatus({ opportunityId: this.recordId })
+            .then(result => {
+                this.warningStatus = result || {
+                    showWarning: false,
+                    message: ''
+                };
+            })
+            .catch(error => this.showError('Failed to check the Technical Resource requirement', error));
+    }
+
+    handleAcknowledge() {
+        this.isLoading = true;
+        acknowledgeWarning({ opportunityId: this.recordId })
+            .then(() => {
+                this.showToast('Acknowledged', 'The Technical Resource reminder was acknowledged.', 'success');
+                return this.loadWarningStatus();
+            })
+            .catch(error => this.showError('Failed to acknowledge the reminder', error))
+            .finally(() => {
+                this.isLoading = false;
+            });
     }
 
     checkEditPermission() {
@@ -206,7 +240,7 @@ export default class OpportunitySplitManager extends LightningElement {
             .then(result => {
                 if (result && result.startsWith('Success')) {
                     this.showToast('Success', result, 'success');
-                    refreshApex(this.wiredSplitsResult);
+                    return refreshApex(this.wiredSplitsResult).then(() => this.loadWarningStatus());
                 } else {
                     this.showError(result || 'Failed to save splits');
                 }
@@ -238,7 +272,7 @@ export default class OpportunitySplitManager extends LightningElement {
     handleRefresh() {
         this.isLoading = true;
         this.usersLoaded = false;
-        refreshApex(this.wiredSplitsResult).then(() => {
+        Promise.all([refreshApex(this.wiredSplitsResult), this.loadWarningStatus()]).then(() => {
             this.loadUsers().finally(() => {
                 this.isLoading = false;
             });

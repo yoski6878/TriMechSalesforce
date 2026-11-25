@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>Sales Rep</fullName>
+        <default>false</default>
+        <label>Sales Rep</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Owner</fullName>
+        <default>false</default>
+        <label>Account Owner</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Opportunity Owner</fullName>
+        <default>false</default>
+        <label>Opportunity Owner</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Technical Resource</fullName>
+        <default>false</default>
+        <label>Technical Resource</label>
+    </standardValue>
+</StandardValueSet>

@@ -45,6 +45,56 @@
     align-items: center;
     gap: 0.5rem;
 }
+.warning-banner {
+    background: #fe9339;
+    border: 1px solid #dd7a01;
+    border-radius: 0.25rem;
+    color: #181818;
+    margin-bottom: 0.75rem;
+    padding: 0.75rem;
+}
+
+.warning-content {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.split-list {
+    display: grid;
+    gap: 0.75rem;
+    padding: 0.75rem;
+}
+
+.split-row {
+    border: 1px solid #c9c9c9;
+    border-radius: 0.25rem;
+    padding: 0.75rem;
+}
+
+.split-details,
+.split-note-row {
+    align-items: end;
+    display: grid;
+    gap: 0.5rem;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 0.5rem;
+}
+
+.split-note-row {
+    grid-template-columns: 1fr auto;
+}
+
+.amount-field {
+    min-height: 3.75rem;
+}
+
+.field-label {
+    color: #3e3e3c;
+    display: block;
+    font-size: 0.75rem;
+    margin-bottom: 0.5rem;
+}
 .slds-datatable-container {
     max-height: 400px;
     overflow-y: auto;
