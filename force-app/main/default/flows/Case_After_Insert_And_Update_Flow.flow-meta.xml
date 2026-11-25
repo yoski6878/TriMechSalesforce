@@ -889,7 +889,7 @@
             <name>APPLICATIONS_Standard_Service</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
-                <leftValueReference>$Record.Business_Unit__c</leftValueReference>
+                <leftValueReference>EntitlementBusinessUnit</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
                     <stringValue>Applications</stringValue>
@@ -904,7 +904,7 @@
             <name>ENTERPRISE_Standard_Service</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
-                <leftValueReference>$Record.Business_Unit__c</leftValueReference>
+                <leftValueReference>EntitlementBusinessUnit</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
                     <stringValue>Enterprise</stringValue>
@@ -919,7 +919,7 @@
             <name>ENTERPRISE_Advantage_L2</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
-                <leftValueReference>$Record.Business_Unit__c</leftValueReference>
+                <leftValueReference>EntitlementBusinessUnit</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
                     <stringValue>Enterprise</stringValue>
@@ -934,7 +934,7 @@
             <name>HARDWARE_Emerald_Diamond_Care</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
-                <leftValueReference>$Record.Business_Unit__c</leftValueReference>
+                <leftValueReference>EntitlementBusinessUnit</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
                     <stringValue>Hardware</stringValue>
@@ -1071,6 +1071,22 @@ Removed 2 and 4 day notifications (now handled by scheduled job: case reminders)
         <name>CommaInsertion</name>
         <dataType>String</dataType>
         <expression>IF(ISBLANK({!StringEmailIds}),&apos;&apos;,&apos;,&apos;)</expression>
+    </formulas>
+    <formulas>
+        <description>Business Unit used to pick the entitlement process. Uses the case value when set; otherwise derives it from the Product Mapping for Issue__c, because on insert Business_Unit__c is only populated later in this same flow (UpdateCase) and the recursive save does not re-run this flow.</description>
+        <name>EntitlementBusinessUnit</name>
+        <dataType>String</dataType>
+        <expression>IF(
+    NOT(ISBLANK(TEXT({!$Record.Business_Unit__c}))),
+    TEXT({!$Record.Business_Unit__c}),
+    CASE(
+        TEXT({!Get_Product_Mapping_For_Entitlement.Product_Line_User_Group__r.Type__c}),
+        &quot;Applications&quot;, &quot;Applications&quot;,
+        &quot;Hardware&quot;, &quot;Hardware&quot;,
+        &quot;Enterprise&quot;, &quot;Enterprise&quot;,
+        &quot;&quot;
+    )
+)</expression>
     </formulas>
     <formulas>
         <name>f_HolidayMessageBlock</name>
@@ -1535,6 +1551,28 @@ Removed 2 and 4 day notifications (now handled by scheduled job: case reminders)
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordLookups>
+        <description>Product Mapping for the case Issue, used to derive the Business Unit for entitlement assignment before Business_Unit__c is written.</description>
+        <name>Get_Product_Mapping_For_Entitlement</name>
+        <label>Get Product Mapping For Entitlement</label>
+        <locationX>1073</locationX>
+        <locationY>168</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Set_Entitlements_Process</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Product_Name__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Issue__c</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Product_Mapping__mdt</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
         <name>Get_User_Records</name>
         <label>Get User Records</label>
         <locationX>468</locationX>
@@ -1728,7 +1766,7 @@ Removed 2 and 4 day notifications (now handled by scheduled job: case reminders)
         <locationX>1700</locationX>
         <locationY>0</locationY>
         <connector>
-            <targetReference>Set_Entitlements_Process</targetReference>
+            <targetReference>Get_Product_Mapping_For_Entitlement</targetReference>
         </connector>
         <object>Case</object>
         <recordTriggerType>CreateAndUpdate</recordTriggerType>
