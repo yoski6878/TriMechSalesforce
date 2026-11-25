@@ -127,8 +127,8 @@
     <actionCalls>
         <name>Send_Email_On_New_Case</name>
         <label>Send Email On New Case</label>
-        <locationX>4384</locationX>
-        <locationY>1800</locationY>
+        <locationX>2360</locationX>
+        <locationY>1908</locationY>
         <actionName>emailSimple</actionName>
         <actionType>emailSimple</actionType>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
@@ -141,7 +141,7 @@
         <inputParameters>
             <name>ccRecipientAddressList</name>
             <value>
-                <elementReference>CaseCCEmails</elementReference>
+                <elementReference>CcEmailFix</elementReference>
             </value>
         </inputParameters>
         <inputParameters>
@@ -207,130 +207,7 @@
         <nameSegment>emailSimple</nameSegment>
         <offset>0</offset>
     </actionCalls>
-    <actionCalls>
-        <name>Send_Reminder_Email</name>
-        <label>Send Reminder Email</label>
-        <locationX>2624</locationX>
-        <locationY>984</locationY>
-        <actionName>emailSimple</actionName>
-        <actionType>emailSimple</actionType>
-        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
-        <inputParameters>
-            <name>senderType</name>
-            <value>
-                <stringValue>OrgWideEmailAddress</stringValue>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>senderAddress</name>
-            <value>
-                <elementReference>OWDEmail</elementReference>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>relatedRecordId</name>
-            <value>
-                <elementReference>$Record.Id</elementReference>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>recipientId</name>
-            <value>
-                <elementReference>$Record.ContactId</elementReference>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>logEmailOnSend</name>
-            <value>
-                <booleanValue>true</booleanValue>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>emailTemplateId</name>
-            <value>
-                <elementReference>Copy_2_of_Get_Email_Template.Id</elementReference>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>addThreadingTokenToBody</name>
-            <value>
-                <booleanValue>true</booleanValue>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>addThreadingTokenToSubject</name>
-            <value>
-                <booleanValue>true</booleanValue>
-            </value>
-        </inputParameters>
-        <nameSegment>emailSimple</nameSegment>
-        <offset>0</offset>
-    </actionCalls>
     <apiVersion>62.0</apiVersion>
-    <assignments>
-        <name>Copy_3_of_Set_Application_OWD_Email</name>
-        <label>Set : Application OWD Email</label>
-        <locationX>3042</locationX>
-        <locationY>708</locationY>
-        <assignmentItems>
-            <assignToReference>OWDEmail</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <stringValue>support@trimech.com</stringValue>
-            </value>
-        </assignmentItems>
-        <connector>
-            <targetReference>Send_Reminder_Email</targetReference>
-        </connector>
-    </assignments>
-    <assignments>
-        <name>Copy_3_of_Set_Hardware_OWD_Email</name>
-        <label>Set : Hardware OWD Email</label>
-        <locationX>2778</locationX>
-        <locationY>708</locationY>
-        <assignmentItems>
-            <assignToReference>OWDEmail</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <stringValue>printersupport@trimech.com</stringValue>
-            </value>
-        </assignmentItems>
-        <connector>
-            <targetReference>Send_Reminder_Email</targetReference>
-        </connector>
-    </assignments>
-    <assignments>
-        <name>Copy_4_of_Set_Application_OWD_Email</name>
-        <label>Set : Application OWD Email</label>
-        <locationX>2338</locationX>
-        <locationY>708</locationY>
-        <assignmentItems>
-            <assignToReference>OWDEmail</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <stringValue>support@trimech.com</stringValue>
-            </value>
-        </assignmentItems>
-        <connector>
-            <targetReference>Send_Reminder_Email</targetReference>
-        </connector>
-    </assignments>
-    <assignments>
-        <name>Copy_4_of_Set_Hardware_OWD_Email</name>
-        <label>Set : Hardware OWD Email</label>
-        <locationX>2074</locationX>
-        <locationY>708</locationY>
-        <assignmentItems>
-            <assignToReference>OWDEmail</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <stringValue>printersupport@trimech.com</stringValue>
-            </value>
-        </assignmentItems>
-        <connector>
-            <targetReference>Send_Reminder_Email</targetReference>
-        </connector>
-    </assignments>
     <assignments>
         <name>Copy_Set_Application_OWD_Email</name>
         <label>Set : Application OWD Email</label>
@@ -382,13 +259,13 @@
     <assignments>
         <name>Set_Case_CC_Emails</name>
         <label>Set Case CC Emails</label>
-        <locationX>4252</locationX>
-        <locationY>1608</locationY>
+        <locationX>2228</locationX>
+        <locationY>1716</locationY>
         <assignmentItems>
             <assignToReference>CaseCCEmails</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>$Record.Source:EmailMessage.CcAddress</elementReference>
+                <elementReference>Get_EmailMessage_record.CcAddress</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -398,7 +275,7 @@
     <assignments>
         <name>Set_Email_as_Contact_Email</name>
         <label>Set Email as Contact Email</label>
-        <locationX>4384</locationX>
+        <locationX>2360</locationX>
         <locationY>1200</locationY>
         <assignmentItems>
             <assignToReference>CaseAutoresponderEmail</assignToReference>
@@ -414,7 +291,7 @@
     <assignments>
         <name>Set_Email_as_Supplied_Email</name>
         <label>Set Email as Supplied Email</label>
-        <locationX>4120</locationX>
+        <locationX>2096</locationX>
         <locationY>1200</locationY>
         <assignmentItems>
             <assignToReference>CaseAutoresponderEmail</assignToReference>
@@ -517,8 +394,8 @@
     <decisions>
         <name>Check_for_case_source_Id</name>
         <label>Check for case source Id</label>
-        <locationX>4384</locationX>
-        <locationY>1500</locationY>
+        <locationX>2360</locationX>
+        <locationY>1608</locationY>
         <defaultConnector>
             <targetReference>Send_Email_On_New_Case</targetReference>
         </defaultConnector>
@@ -527,7 +404,7 @@
             <name>Source_Email_To_Case</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
-                <leftValueReference>$Record.Source:EmailMessage.CcAddress</leftValueReference>
+                <leftValueReference>Get_EmailMessage_record.CcAddress</leftValueReference>
                 <operator>IsNull</operator>
                 <rightValue>
                     <booleanValue>false</booleanValue>
@@ -542,7 +419,7 @@
     <decisions>
         <name>Check_For_Email_Origin</name>
         <label>Check For Email Origin</label>
-        <locationX>4384</locationX>
+        <locationX>2360</locationX>
         <locationY>492</locationY>
         <defaultConnector>
             <targetReference>Check_For_Email_To_Send</targetReference>
@@ -567,7 +444,7 @@
     <decisions>
         <name>Check_For_Email_To_Send</name>
         <label>Check For Email To Send</label>
-        <locationX>4384</locationX>
+        <locationX>2360</locationX>
         <locationY>1092</locationY>
         <defaultConnector>
             <targetReference>Get_Holiday_MSG</targetReference>
@@ -673,71 +550,6 @@
         </rules>
     </decisions>
     <decisions>
-        <name>Check_Last_Modified_2_Days_Before</name>
-        <label>Check : Last Modified 2 Days Before</label>
-        <locationX>2965</locationX>
-        <locationY>276</locationY>
-        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
-        <rules>
-            <name>Status_Change_Date</name>
-            <conditionLogic>and</conditionLogic>
-            <conditions>
-                <leftValueReference>Check2DaysBefore</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <booleanValue>true</booleanValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.Status</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <stringValue>Waiting for Client</stringValue>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>Copy_2_of_Get_Email_Template</targetReference>
-            </connector>
-            <label>Status Change Date</label>
-        </rules>
-    </decisions>
-    <decisions>
-        <name>Check_Last_Modified_4_Days_Before</name>
-        <label>Check : Last Modified 4 Days Before</label>
-        <locationX>3702</locationX>
-        <locationY>276</locationY>
-        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
-        <rules>
-            <name>Status_Changed_4_Days_Before</name>
-            <conditionLogic>and</conditionLogic>
-            <conditions>
-                <leftValueReference>Check4DaysBefore</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <booleanValue>true</booleanValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.Status</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <stringValue>Waiting for Client</stringValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.Status</leftValueReference>
-                <operator>IsChanged</operator>
-                <rightValue>
-                    <booleanValue>true</booleanValue>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>Create_Task</targetReference>
-            </connector>
-            <label>Status Changed 4 Days Before</label>
-        </rules>
-    </decisions>
-    <decisions>
         <name>Check_Product_Mapping</name>
         <label>Check : Product Mapping</label>
         <locationX>402</locationX>
@@ -782,106 +594,9 @@
         </rules>
     </decisions>
     <decisions>
-        <name>Copy_2_of_Email_Queue</name>
-        <label>Email Queue</label>
-        <locationX>2338</locationX>
-        <locationY>600</locationY>
-        <defaultConnector>
-            <targetReference>Send_Reminder_Email</targetReference>
-        </defaultConnector>
-        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
-        <rules>
-            <name>Copy_2_of_Hardware_Queue</name>
-            <conditionLogic>or</conditionLogic>
-            <conditions>
-                <leftValueReference>$Record.Owner:Group.DeveloperName</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <stringValue>Hardware_Team_Support</stringValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.Issue__c</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <stringValue>3D Printers</stringValue>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>Copy_4_of_Set_Hardware_OWD_Email</targetReference>
-            </connector>
-            <label>Hardware Queue</label>
-        </rules>
-        <rules>
-            <name>Copy_2_of_Application_Queue</name>
-            <conditionLogic>and</conditionLogic>
-            <conditions>
-                <leftValueReference>$Record.Owner:Group.DeveloperName</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <stringValue>Applications_Enterprise_Support</stringValue>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>Copy_4_of_Set_Application_OWD_Email</targetReference>
-            </connector>
-            <label>Application Queue</label>
-        </rules>
-    </decisions>
-    <decisions>
-        <name>Copy_2_of_Email_To_Case</name>
-        <label>Email To Case</label>
-        <locationX>2624</locationX>
-        <locationY>492</locationY>
-        <defaultConnector>
-            <targetReference>Copy_2_of_Set_OWD_Email_Address</targetReference>
-        </defaultConnector>
-        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
-        <rules>
-            <name>Copy_2_of_Is_Email_To_Case</name>
-            <conditionLogic>and</conditionLogic>
-            <conditions>
-                <leftValueReference>$Record.Origin</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <stringValue>Email</stringValue>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>Copy_2_of_Email_Queue</targetReference>
-            </connector>
-            <label>Is Email To Case</label>
-        </rules>
-    </decisions>
-    <decisions>
-        <name>Copy_2_of_Set_OWD_Email_Address</name>
-        <label>Set : OWD Email Address</label>
-        <locationX>2910</locationX>
-        <locationY>600</locationY>
-        <defaultConnector>
-            <targetReference>Copy_3_of_Set_Application_OWD_Email</targetReference>
-        </defaultConnector>
-        <defaultConnectorLabel>Application</defaultConnectorLabel>
-        <rules>
-            <name>Copy_2_of_Hardware</name>
-            <conditionLogic>and</conditionLogic>
-            <conditions>
-                <leftValueReference>$Record.Issue__c</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <stringValue>3D Printers</stringValue>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>Copy_3_of_Set_Hardware_OWD_Email</targetReference>
-            </connector>
-            <label>Hardware</label>
-        </rules>
-    </decisions>
-    <decisions>
         <name>Email_Inside_Voicemail_Exception</name>
         <label>Email Inside Voicemail Exception</label>
-        <locationX>4230</locationX>
+        <locationX>2206</locationX>
         <locationY>708</locationY>
         <defaultConnector>
             <targetReference>Check_For_Email_To_Send</targetReference>
@@ -1032,7 +747,7 @@
     <decisions>
         <name>Send_Email_On_Case_Creation</name>
         <label>Send Email On Case Creation</label>
-        <locationX>4604</locationX>
+        <locationX>2580</locationX>
         <locationY>384</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -1321,6 +1036,8 @@
             <label>Hardware</label>
         </rules>
     </decisions>
+    <description>FIX for CC&apos;s - Luigi
+Removed 2 and 4 day notifications (now handled by scheduled job: case reminders)</description>
     <environments>Default</environments>
     <formulas>
         <name>BusinessUnitVar</name>
@@ -1334,6 +1051,11 @@
         &quot;Applications&quot;
     )
 )</expression>
+    </formulas>
+    <formulas>
+        <name>CcEmailFix</name>
+        <dataType>String</dataType>
+        <expression> SUBSTITUTE({!CaseCCEmails}, &quot;;&quot;, &quot;,&quot;)</expression>
     </formulas>
     <formulas>
         <name>Check2DaysBefore</name>
@@ -1485,65 +1207,6 @@
         </inputAssignments>
         <object>Entitlement</object>
     </recordCreates>
-    <recordCreates>
-        <name>Create_Task</name>
-        <label>Create Task</label>
-        <locationX>3570</locationX>
-        <locationY>384</locationY>
-        <inputAssignments>
-            <field>ActivityDate</field>
-            <value>
-                <elementReference>setTheClosestBusinessDate</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>Description</field>
-            <value>
-                <stringValue>Call the client at the start of the next business day</stringValue>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>Subject</field>
-            <value>
-                <stringValue>Call</stringValue>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>WhatId</field>
-            <value>
-                <elementReference>$Record.Id</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>WhoId</field>
-            <value>
-                <elementReference>$Record.OwnerId</elementReference>
-            </value>
-        </inputAssignments>
-        <object>Task</object>
-        <storeOutputAutomatically>true</storeOutputAutomatically>
-    </recordCreates>
-    <recordLookups>
-        <name>Copy_2_of_Get_Email_Template</name>
-        <label>Get Email Template</label>
-        <locationX>2624</locationX>
-        <locationY>384</locationY>
-        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
-        <connector>
-            <targetReference>Copy_2_of_Email_To_Case</targetReference>
-        </connector>
-        <filterLogic>and</filterLogic>
-        <filters>
-            <field>DeveloperName</field>
-            <operator>EqualTo</operator>
-            <value>
-                <stringValue>Case_Reminder_Email</stringValue>
-            </value>
-        </filters>
-        <getFirstRecordOnly>true</getFirstRecordOnly>
-        <object>EmailTemplate</object>
-        <storeOutputAutomatically>true</storeOutputAutomatically>
-    </recordLookups>
     <recordLookups>
         <name>Get_Account_Related_Entitlements_Process</name>
         <label>Get Account Related Entitlements Process</label>
@@ -1664,6 +1327,27 @@
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordLookups>
+        <name>Get_EmailMessage_record</name>
+        <label>Get EmailMessage record</label>
+        <locationX>2360</locationX>
+        <locationY>1500</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Check_for_case_source_Id</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>ParentId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>EmailMessage</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
         <name>Get_ENTERPRISE_Advantage_L2</name>
         <label>Get ENTERPRISE: Advantage+/L2</label>
         <locationX>1205</locationX>
@@ -1768,11 +1452,11 @@
     <recordLookups>
         <name>Get_Holiday_MSG</name>
         <label>Get Holiday MSG</label>
-        <locationX>4384</locationX>
+        <locationX>2360</locationX>
         <locationY>1392</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>Check_for_case_source_Id</targetReference>
+            <targetReference>Get_EmailMessage_record</targetReference>
         </connector>
         <getFirstRecordOnly>true</getFirstRecordOnly>
         <object>Holiday_Config__c</object>
@@ -1796,7 +1480,7 @@
     <recordLookups>
         <name>Get_New_Case_Automation_Switch_Setting_Record</name>
         <label>Get New Case Automation Switch Setting Record</label>
-        <locationX>4604</locationX>
+        <locationX>2580</locationX>
         <locationY>276</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -1951,7 +1635,7 @@
     <recordLookups>
         <name>Get_Voicemail_Exception_Emails</name>
         <label>Get Voicemail Exception Emails</label>
-        <locationX>4230</locationX>
+        <locationX>2206</locationX>
         <locationY>600</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -2041,35 +1725,13 @@
         <inputReference>$Record</inputReference>
     </recordUpdates>
     <start>
-        <locationX>2712</locationX>
+        <locationX>1700</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>Set_Entitlements_Process</targetReference>
         </connector>
         <object>Case</object>
         <recordTriggerType>CreateAndUpdate</recordTriggerType>
-        <scheduledPaths>
-            <name>Send_Case_Open_Email</name>
-            <connector>
-                <targetReference>Check_Last_Modified_2_Days_Before</targetReference>
-            </connector>
-            <label>Send Case Open Email</label>
-            <offsetNumber>2</offsetNumber>
-            <offsetUnit>Days</offsetUnit>
-            <recordField>LastModifiedDate</recordField>
-            <timeSource>RecordField</timeSource>
-        </scheduledPaths>
-        <scheduledPaths>
-            <name>Create_Case_Task</name>
-            <connector>
-                <targetReference>Check_Last_Modified_4_Days_Before</targetReference>
-            </connector>
-            <label>Create Case Task</label>
-            <offsetNumber>4</offsetNumber>
-            <offsetUnit>Days</offsetUnit>
-            <recordField>LastModifiedDate</recordField>
-            <timeSource>RecordField</timeSource>
-        </scheduledPaths>
         <scheduledPaths>
             <name>Case_Auto_Respond_Email</name>
             <connector>
@@ -2135,6 +1797,7 @@
         <dataType>String</dataType>
         <isCollection>true</isCollection>
         <scale>0</scale>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
         <transformValues>
             <transformValueActions>
                 <transformType>Map</transformType>
@@ -2155,6 +1818,7 @@
         <dataType>String</dataType>
         <isCollection>true</isCollection>
         <scale>0</scale>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
         <transformValues>
             <transformValueActions>
                 <transformType>Map</transformType>
@@ -2164,6 +1828,7 @@
             </transformValueActions>
         </transformValues>
     </transforms>
+    <triggerOrder>600</triggerOrder>
     <variables>
         <name>ByPasss</name>
         <dataType>Boolean</dataType>
