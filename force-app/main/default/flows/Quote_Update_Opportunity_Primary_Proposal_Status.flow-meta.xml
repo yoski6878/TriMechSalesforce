@@ -24,7 +24,7 @@
             <label>Yes - Is Primary Proposal</label>
         </rules>
     </decisions>
-    <description>Project 790: keeps Opportunity.Primary_Proposal_Status__c in sync with the Quote&apos;s Status whenever a Quote that is the Opportunity&apos;s Primary Proposal changes Status. Exists because Opportunity is at its platform ceiling of 15 cross-object relationship traversals, so Primary_Proposal__r.Status cannot be referenced directly in a formula field or validation rule (confirmed: &quot;references fields across 16 unique relationships while only 15 are allowed&quot;). Block_Send_to_OM_Without_Approval reads this plain field instead.</description>
+    <description>Project 790: keeps Opportunity.Primary_Proposal_Status__c in sync with the primary Quote&apos;s Approval_Status__c. Exists because Opportunity is at its platform ceiling of 15 cross-object relationship traversals, so the approval status cannot be referenced directly in a formula field or validation rule. Block_Send_to_OM_Without_Approval reads this plain field instead.</description>
     <environments>Default</environments>
     <interviewLabel>Quote Update Opportunity Primary Proposal Status {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Quote Update Opportunity Primary Proposal Status</label>
@@ -64,6 +64,13 @@
                 <elementReference>$Record.OpportunityId</elementReference>
             </value>
         </filters>
+        <filters>
+            <field>Primary_Proposal__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
         <getFirstRecordOnly>true</getFirstRecordOnly>
         <object>Opportunity</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
@@ -84,7 +91,7 @@
         <inputAssignments>
             <field>Primary_Proposal_Status__c</field>
             <value>
-                <elementReference>$Record.Status</elementReference>
+                <elementReference>$Record.Approval_Status__c</elementReference>
             </value>
         </inputAssignments>
         <object>Opportunity</object>
@@ -95,7 +102,7 @@
         <connector>
             <targetReference>Get_Opportunity</targetReference>
         </connector>
-        <filterFormula>ISCHANGED({!$Record.Status})</filterFormula>
+        <filterFormula>ISCHANGED({!$Record.Approval_Status__c})</filterFormula>
         <object>Quote</object>
         <recordTriggerType>Update</recordTriggerType>
         <triggerType>RecordAfterSave</triggerType>
