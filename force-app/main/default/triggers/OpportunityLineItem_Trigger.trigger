@@ -21,6 +21,14 @@ trigger OpportunityLineItem_Trigger on OpportunityLineItem (after delete, after 
            // OpportunityLineItem_Trigger.validateMinimumQuantity(trigger.new);
         }
     }
+
+    if (Trigger.isAfter) {
+        if (Trigger.isDelete) {
+            CommissionableGPSyncService.syncForLineItems(Trigger.old);
+        } else if (Trigger.isInsert || Trigger.isUpdate || Trigger.isUndelete) {
+            CommissionableGPSyncService.syncForLineItems(Trigger.new);
+        }
+    }
     
     
     /*
